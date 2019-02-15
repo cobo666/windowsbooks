@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_360</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_359.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_360</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_361.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 360</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">initialized spin lock pointer in each call. This is used to resolve tensions between the various handlers so that only one is called at once. Pass the highest DIRQL value in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SynchronizeIrql</font><font face="Times New Roman, Times, Serif" size="3"> parameter in each call.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="961cde50a14d120389c03f6a8530069f.jpg" border="0" alt="0360-01.jpg" width="573" height="353" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Do not forget to disconnect your interrupt handler using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoDisconnectInterrupt</font><font face="Times New Roman, Times, Serif" size="3"> before your device disappears. And you must disconnect from the interrupt if the Plug and Play system stops your device. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> driver always stops its device when the device is about to be removed, so the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StopDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceIo.cpp</font><font face="Times New Roman, Times, Serif" size="3"> is the only place where </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> disconnects its interrupt handler.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> driver connects to its interrupt handler when it processes a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIO_IRQ_CONNECT</font><font face="Times New Roman, Times, Serif" size="3"> command in its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ProcessCmds</font><font face="Times New Roman, Times, Serif" size="3"> routine. It remembers if it connected successfully in the device extension </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ConnectedToInterrupt</i></font><font face="Times New Roman, Times, Serif" size="3"> field. If the device is stopped for Plug and Play resource reallocation, this flag is left </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">true</font><font face="Times New Roman, Times, Serif" size="3"> after </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoDisconnectInterrupt</font><font face="Times New Roman, Times, Serif" size="3"> is called. When the device is restarted, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> reconnects to the new interrupt if </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ConnectedToInterrupt</i></font><font face="Times New Roman, Times, Serif" size="3"> is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">true</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The actual call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoConnectInterrupt</font><font face="Times New Roman, Times, Serif" size="3"> is done in a system worker thread as this function must be called at PASSIVE_LEVEL IRQL. In this case, it is the work item that completes the IRP and starts the next IRP using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoStartNextPacket</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> Reads and Writes</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Before I look at its interrupt handler, let's see how </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> starts and runs its interrupt-driven reads and writes.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 17.1 shows the mass of extra fields that are needed in the device extension. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ConnectedToInterrupt</i></font><font face="Times New Roman, Times, Serif" size="3"> field, as mentioned before, indicates whether </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> has connected to</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_359.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_360</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_361.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

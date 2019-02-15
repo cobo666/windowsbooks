@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_349</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_348.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_349</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_350.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 349</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Testing, Cancelling, and Cleanup</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">I amended <i>WdmIoTest</i> so that I could test the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> driver's IRP cancelling and Cleanup IRP handling.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The <i>WdmIoCancel</i> application is substantially the same as that of <i>WdmIoTest</i> and is contained in the book software </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo\Cancel</font><font face="Times New Roman, Times, Serif" size="3"> directory. You will have to uncomment some of the code and recompile to undertake some of the tests. The <i>PHDIoCancel</i> application does similar tests for the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIo</font><font face="Times New Roman, Times, Serif" size="3"> driver.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The tests are designed to be run with the printer switched off, so that Write IRPs do not complete straightaway. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoCancel</font><font face="Times New Roman, Times, Serif" size="3"> opens the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> device for overlapped I/O, using the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetDeviceViaInterface0l</font><font face="Times New Roman, Times, Serif" size="3"> function. It then issues two overlapped Write requests and does not wait for either of them to complete. It then exits straightaway. This behavior is designed to test the IRP cancelling.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Figure 16.2 shows the <i>DebugPrint</i> output that demonstrates that IRP cancelling works correctly. At points <img src="0c70e0bf3cf49a5774ba15485f429ab4.gif" border="0" alt="C0369-01.gif" width="12" height="13" /> in the diagram, one of the IOCTL IRPs has been issued. They are passed to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3">, which processes them immediately. At point <img src="04eb15fd0d9dd9df2e32ac384a708c00.gif" border="0" alt="C0369-02.gif" width="11" height="13" />, the first Write IRP is issued. At point<img src="3c75f905cdb1c765877ab329f0c5ec00.gif" border="0" alt="C0369-03.gif" width="13" height="12" />, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> starts processing this first Write. At point <img src="872ae99723387d97d1b35c43abc8d30f.gif" border="0" alt="C0369-04.gif" width="12" height="12" />, the second Write IRP is issued. As the first Write is still in progress (the printer being off), this second Write IRP is queued.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Point <img src="2b7093d3a3b9c543225c4d985cd1d0cf.gif" border="0" alt="C0369-05.gif" width="12" height="13" /> is where it gets interesting. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoCancel</font><font face="Times New Roman, Times, Serif" size="3"> has just exited. The I/O Manager tries to cancel all pending IRPs. It calls the cancel routine of the second Write. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoCancelIrp</font><font face="Times New Roman, Times, Serif" size="3"> finds that it is not the current IRP. It therefore removes it from the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartIo</font><font face="Times New Roman, Times, Serif" size="3"> queue and completes the IRP with a cancelled status.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The I/O Manager then calls the cancel routine of the first Write IRP at point <img src="144f8420a8e3e7b32392f2c0c8f47bc7.gif" border="0" alt="C0369-06.gif" width="12" height="13" />. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoCancelIrp</font><font face="Times New Roman, Times, Serif" size="3"> finds that this IRP is the current IRP. In this design, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoCancelIrp</font><font face="Times New Roman, Times, Serif" size="3"> simply exits. In due course, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Timeout1s</font><font face="Times New Roman, Times, Serif" size="3"> time-out routine runs. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Timeout1s</font><font face="Times New Roman, Times, Serif" size="3"> finds that the IRP </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Cancel</i></font><font face="Times New Roman, Times, Serif" size="3"> flag is set. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoDpcForIsr</font><font face="Times New Roman, Times, Serif" size="3"> routine is called to complete the IRP with a cancelled status.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Finally, the Cleanup IRP is issued at point <img src="3ad6e780879dcdab17a7d9aed983d681.gif" border="0" alt="C0369-07.gif" width="13" height="13" />. However, this finds that it has no work to do as the device queue is empty and there is no interrupt driven I/O in progress.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If you look carefully at the <i>DebugPrint</i> output, you will notice that the IRP pointer for the first four IRPs issued is the same, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0×C8548180</font><font face="Times New Roman, Times, Serif" size="3">. The I/O Manager is obviously reusing the IRP structures from its pool of available IRPs. The second write needs another IRP structure, which is at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0×C17C3E00</font><font face="Times New Roman, Times, Serif" size="3">.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_348.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_349</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_350.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

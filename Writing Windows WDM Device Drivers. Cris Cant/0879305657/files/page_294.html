@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_294</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_293.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_294</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_295.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 294</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">System Worker Threads</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">An alternative technique is available if you want to perform occasional short tasks at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> IRQL. However, this system worker thread method was not suitable for the <i>DebugPrint</i> software because the thread context may change between calls.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">To use the system worker thread method, first allocate a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WORK_QUEUE_ITEM</font><font face="Times New Roman, Times, Serif" size="3"> structure from nonpaged memory. Call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExInitializeWorkItem</font><font face="Times New Roman, Times, Serif" size="3"> passing this pointer, a callback routine, and a context for it. When you want your function to be run, call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExQueueWorkItem</font><font face="Times New Roman, Times, Serif" size="3">. In due course, your callback routine is called at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> in the context of a system thread. Do not forget to free the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WORK_QUEUE_ITEM</font><font face="Times New Roman, Times, Serif" size="3"> structure memory when finished with it. System worker threads have a lower priority than system threads running at the lowest real time priority, but higher than most user mode threads.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The WdmIo and PHDIo drivers, described in Chapters 15-18, show how to use a system worker thread.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In W2000, it is recommended that you use the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoAllocateWorkItem</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoQueueWorkItem</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoFreeWorkItem</font><font face="Times New Roman, Times, Serif" size="3"> functions instead.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Events</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The main </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> test driver code sets the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExitNow</font><font face="Times New Roman, Times, Serif" size="3"> Boolean to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">true</font><font face="Times New Roman, Times, Serif" size="3"> when it wants its system thread to terminate. However, it is not a good idea for the system thread to spin continuously waiting for this value to become </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">true</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Instead, a kernel event called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ThreadEvent</font><font face="Times New Roman, Times, Serif" size="3"> signals when to check </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExitNow</font><font face="Times New Roman, Times, Serif" size="3">. A </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KEVENT</font><font face="Times New Roman, Times, Serif" size="3"> must be defined for the event in nonpaged memory. Kernel events are very similar to their user mode Win32 cousins.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.1 shows how </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ThreadEvent</font><font face="Times New Roman, Times, Serif" size="3"> is initialized using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeInitializeEvent</font><font face="Times New Roman, Times, Serif" size="3">, at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> IRQL. Two types of events are supported, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SynchronizationEvent</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">NotificationEvent</font><font face="Times New Roman, Times, Serif" size="3">. The last parameter sets the initial state of the event, which is nonsignalled in this case.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">When set, a Synchronization event only releases one waiting thread before reverting to the nonsignalled state. A Notification event stays signalled until explicitly reset.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintClose</font><font face="Times New Roman, Times, Serif" size="3"> uses </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeSetEvent</font><font face="Times New Roman, Times, Serif" size="3"> to set an event into the signalled state, after setting </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExitNow</font><font face="Times New Roman, Times, Serif" size="3"> to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">true</font><font face="Times New Roman, Times, Serif" size="3">. The third parameter to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeSetEvent</font><font face="Times New Roman, Times, Serif" size="3"> specifies whether you are going to call one of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeWait</font><font face="Times New Roman, Times, Serif" size="3"> . . . routines straightaway. If not, you can call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeSetEvent</font><font face="Times New Roman, Times, Serif" size="3"> at any IRQL up to and including </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DISPATCH_LEVEL</font><font face="Times New Roman, Times, Serif" size="3">. If waiting, you must be running at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If you need to put an event into the nonsignalled state, call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeClearEvent</font><font face="Times New Roman, Times, Serif" size="3"> or call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeResetEvent</font><font face="Times New Roman, Times, Serif" size="3"> to determine the previous event state. You can use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeReadStateEvent</font><font face="Times New Roman, Times, Serif" size="3"> to read the event state. All these routines can be called at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DISPATCH_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> or lower.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">For NT and W2000 drivers you can use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCreateNotificationEvent</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCreateSynchronizationEvent</font><font face="Times New Roman, Times, Serif" size="3"> to share an event between two or more drivers.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Synchronization</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A thread running at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> can synchronize with other activities by waiting for <i>dispatcher</i> objects such as <i>events, Mutex</i> objects, and <i>semaphores.</i> You can wait for <i>timer</i> and <i>thread</i> objects. Finally, you can also wait on <i>file objects</i> if they have been opened in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwCreateFile</font><font face="Times New Roman, Times, Serif" size="3"> for overlapped I/O.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Although driver dispatch routines run at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3">, they should not wait on kernel dispatcher objects, other than with a zero time-out. You can wait for inherently synchronous</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_293.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_294</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_295.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

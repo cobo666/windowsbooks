@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_105</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_104.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_105</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_106.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 105</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 5.5 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetDeviceViaInterface</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">    if( !SetupDiGetDeviceInterfaceDetail( info, &amp;ifdata, ifDetail, ReqLen, NULL,<br />
+        NULL))<br />
+    {<br />
+        SetupDiDestroyDeviceInfoList(info);<br />
+        delete ifDetail;<br />
+        return NULL;<br />
+    }<br />
+    printf("Symbolic link is %s\n",ifDetail-&gt;DevicePath);<br />
+    // Open file<br />
+    HANDLE rv = CreateFile( ifDetail-&gt;DevicePath,<br />
+        GENERIC_READ | GENERIC_WRITE,<br />
+        FILE_SHARE_READ | FILE_SHARE_WRITE,<br />
+        NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);<br /><br />
+    delete ifDetail;<br />
+    SetupDiDestroyDeviceInfoList(info);<br />
+    return rv;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The Win32 call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetupDiGetClassDevs</font><font face="Times New Roman, Times, Serif" size="3"> opens a "device information set'' about devices with the specified GUID. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DIGCF_PRESENT</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DIGCF_INTERFACEDEVICE</font><font face="Times New Roman, Times, Serif" size="3"> flags ensure that only devices that are present are found.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetupDiEnumDeviceInterfaces</font><font face="Times New Roman, Times, Serif" size="3"> is then called to retrieve a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SP_INTERFACE_DEVICE_DATA</font><font face="Times New Roman, Times, Serif" size="3"> context structure of information about the device instance in which you are interested. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetDeviceViaInterface</font><font face="Times New Roman, Times, Serif" size="3"> tries to retrieve information about only one instance, but you might want to find all instances by incrementing the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MemberIndex</font><font face="Times New Roman, Times, Serif" size="3"> parameter from 0 until </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetupDiEnumDeviceInterfaces</font><font face="Times New Roman, Times, Serif" size="3"> fails and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetLastError</font><font face="Times New Roman, Times, Serif" size="3"> returns </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ERROR_NO_MORE_ITEMS</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The next task is to obtain the symbolic link name for the instance that has been found. This string is in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PSP_INTERFACE_DEVICE_DETAIL_DATA</font><font face="Times New Roman, Times, Serif" size="3"> </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ifDetail</font><font face="Times New Roman, Times, Serif" size="3"> structure returned by a call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetupDiGetDeviceInterfaceDetail</font><font face="Times New Roman, Times, Serif" size="3">. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetupDiGetDeviceInterfaceDetail</font><font face="Times New Roman, Times, Serif" size="3"> must be called twice. The first call retrieves the required size for </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ifDetail</font><font face="Times New Roman, Times, Serif" size="3">, while the second actually gets the structure.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Eventually </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ifDetail-&gt;DevicePath</font><font face="Times New Roman, Times, Serif" size="3"> contains the filename that is used to open a handle to the relevant </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> device. This filename is passed to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateFile</font><font face="Times New Roman, Times, Serif" size="3"> and then </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ifDetail</font><font face="Times New Roman, Times, Serif" size="3"> is deleted. Do not forget to call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetupDiDestroyDeviceInfoList</font><font face="Times New Roman, Times, Serif" size="3"> on all paths to close the device information set.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateFile</font><font face="Times New Roman, Times, Serif" size="3"> in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetDeviceViaInterface</font><font face="Times New Roman, Times, Serif" size="3"> uses a pretty standard set of parameters. As noted before, you can change the share and access modes, if necessary. Further, the device can be opened for overlapped nonblocking access. Overlapped access works for devices in Windows 98, NT, and Windows 2000 and lets an application issue an I/O request and get on with other work while the request is being processed. The detailed explanation of the DebugPrint Monitor program in Chapter 14 gives an example of this technique.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_104.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_105</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_106.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

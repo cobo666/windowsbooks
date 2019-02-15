@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_313</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_312.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_313</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_314.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 313</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintMsg</font><font face="Times New Roman, Times, Serif" size="3"> routine is a time in GMT. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GMTtoLocalTime</font><font face="Times New Roman, Times, Serif" size="3"> function does all the necessary grovelling around to convert this into a local time.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ListenThreadFunction</font><font face="Times New Roman, Times, Serif" size="3"> finally closes the event and file handles using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">C1oseHandle</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.12 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ListenThreadFunction</font><font face="Times New Roman, Times, Serif" size="3"> function</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" width="709" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">UINT ListenThreadFunction( LPVOID pParam)<br />
+{<br />
+    PLISTENER-INFO pListenerInfo = (PLISTENER_INFO)pParam;<br />
+    if (pListenerInfo==NULL) return -1;<br /><br />
+    CString StartMsg = ''Starting to listen";<br />
+    // . . .<br />
+    DebugPrint_Event::SendEvent( "Monitor", StartMsg,<br />
+                                  CTime::GetCurrentTime(), false);<br /><br />
+    // Buffer for events<br />
+    const int MAX_EVENT_LEN = 1024;<br />
+    char Event[MAX_EVENT_LEN+1];<br /><br />
+    // Create Overlapped read structure and event<br />
+    HANDLE FileIOWaiter = CreateEvent( NULL, TRUE, FALSE, NULL);<br />
+    if( FileIOWaiter==NULL)<br />
+        goto Exit2;<br />
+    OVERLAPPED ol;<br />
+    ol.Offset = 0;<br />
+    ol.OffsetHigh = 0;<br />
+    ol.hEvent = FileIOWaiter;<br /><br />
+    // Keep looping, waiting for events, until KeepGoing goes false<br />
+    for(;;)<br />
+    {<br />
+       // Initiate overlapped read<br />
+       DWORD TxdBytes;<br />
+       ResetEvent(FileIOWaiter);<br />
+       memset(Event,0,MAX_EVENT_LEN+1);<br />
+       if( !ReadFile( ListenerInfo.DebugPrintDriver, Event, MAX_EVENT_LEN,<br />
+           &amp;TxdBytes. &amp;ol))<br />
+       {<br />
+          // Check for read errors<br />
+          if( GetLastError()!-ERROR_1O_PENDING)<br />
+          {<br />
+             CString Msg;</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_312.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_313</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_314.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

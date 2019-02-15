@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_470</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_469.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_470</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_471.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 470</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 23.1 Getting a HID device's capabilities</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="685" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">       // Remember max lengths of input and output reports<br />
+       InputReportLen = HidCaps.InputReportByteLength;<br />
+       OutputReportLen = HidCaps.OutputReportByteLength;<br />
+       printf("InputReportByteLength %d\n", HidCaps.InputReportByteLength);<br />
+       printf("OutputReportByteLength %d\n", HidCaps.OutputReportByteLength);<br />
+       printf("FeatureReportByteLength %d\n\n",<br />
+           HidCaps.FeatureReportByteLength);<br /><br />
+       printf(''NumberLinkCollectionNodes %d\n\n",<br />
+           HidCaps.NumberLinkCollectionNodes);<br /><br />
+       printf("NumberInputButtonCaps %d\n", HidCaps.NumberInputButtonCaps);<br />
+       printf("NumberInputValueCaps %d\n", HidCaps.NumberInputValueCaps);<br />
+       printf("NumberOutputButtonCaps %d\n", HidCaps.NumberOutputButtonCaps);<br />
+       printf("NumberOutputValueCaps %d\n", HidCaps.NumberOutputValueCaps);<br />
+       printf("NumberFeatureButtonCaps %d\n", HidCaps.NumberFeatureButtonCaps);<br />
+       printf("NumberFeatureValueCaps %d\n\n", HidCaps.NumberFeatureValueCaps);<br /><br />
+       ShowButtonCaps( "Input button capabilities",<br />
+           HidP_Input, HidCaps.NumberInputButtonCaps, HidPreparsedData);<br />
+       ShowButtonCaps( "Output button capabilities",<br />
+           HidP_Output, HidCaps.NumberOutputButtonCaps, HidPreparsedData);<br />
+    }<br />
+    return found;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Why Get Button and Value Capabilities?</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Some programs cannot just rely on the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HIDP_CAPS <i>UsagePage</i></font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Usage</i></font><font face="Times New Roman, Times, Serif" size="3"> fields. For example, in the future, some fancy device may use these fields to say that it is a "speech interface". A "speech interface" might still be able to generate key presses (e.g., when a user says a word). Its detailed capabilities would show that it could indeed present data that is of interest.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Each control in a HID device is seen by Windows as being either a <i>button</i> or a <i>value.</i> Anything that has a HID usage is defined as being a button. Controls that take on any other values are called <i>values</i>.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Each of the keys on a keyboard has a HID usage. All keyboard keys are in usage page 7. Within that usage page, most of the usages from 0 to 255 have key definitions. However, most Western keyboards produce usage codes in two ranges. Usages 0 to 101 contain most standard keys, while usages 224 to 231 represent the modifier keys such as Shift, Ctrl, Alt, etc. To be extra careful, check that the HID device generates usages in these two ranges.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Similarly to double check that the HID device has the correct LEDs check that its output report contains buttons in usage page 8, for LEDs. Within this usage page, usage 1 corresponds to NumLock, usage 2 with CapsLock, and usage 3 with ScrollLock.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_469.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_470</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_471.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

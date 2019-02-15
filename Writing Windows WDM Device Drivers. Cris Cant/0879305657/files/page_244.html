@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_244</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_243.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_244</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_245.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 244</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Each driver can be put in a <i>group. Tags</i> determine the driver load order within a group. Each driver can insist that it is loaded after a particular group or driver has loaded. Groups are loaded in a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ServiceGroupOrder</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DependOnGroup</font><font face="Times New Roman, Times, Serif" size="3"> entry in a driver's service registry key is a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">REG_MULTI_SZ</font><font face="Times New Roman, Times, Serif" size="3"> stating which groups must be loaded before this driver. Similarly, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DependOnService</font><font face="Times New Roman, Times, Serif" size="3"> is a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">REG_MULTI_SZ</font><font face="Times New Roman, Times, Serif" size="3"> listing the drivers and services that must be loaded before this driver.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Group</font><font face="Times New Roman, Times, Serif" size="3"> entry is a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">REG_SZ</font><font face="Times New Roman, Times, Serif" size="3"> giving the driver's group name. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Tag</font><font face="Times New Roman, Times, Serif" size="3"> is a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">REG_DWORD</font><font face="Times New Roman, Times, Serif" size="3"> giving the driver tag number. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HKLM\SYSTEM\CurrentControlSet\Control\GroupOrderList</font><font face="Times New Roman, Times, Serif" size="3"> registry key has a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">REG_BINARY</font><font face="Times New Roman, Times, Serif" size="3"> entry for each group. The first byte of this binary data is the tag count. The following </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DWORD</font><font face="Times New Roman, Times, Serif" size="3">s contain the tags of the drivers in the order that they should be loaded. Three NULL bytes pad out the binary data.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HKLM\SYSTEM\CurrentControlSet\Control\ServiceOrderList</font><font face="Times New Roman, Times, Serif" size="3"> registry key has a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">REG_MULTI_SZ</font><font face="Times New Roman, Times, Serif" size="3"> entry called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">List</font><font face="Times New Roman, Times, Serif" size="3">. The strings in the list are the driver group names in the order that they should be loaded.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A driver's </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Start</font><font face="Times New Roman, Times, Serif" size="3"> setting, shown in Table 11.4, will override all these driver loading rules.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>NT 4 Control Panel Devices Applet</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In NT 4 and NT 3.51, the Control Panel <i>Devices</i> applet can be used to start and stop drivers and set the Startup option. Figure 11.2 shows the <i>Devices</i> applet in action.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="ea8c38d1759f8024dd19aa18103fc628.jpg" border="0" alt="0244-01.jpg" width="559" height="306" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="2">Figure 11.2<br />
+NT 4 Control Panel <i>Devices<br /></i>© 1999 PHD Computer Consultants Ltd</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Windows 2000 Device Management</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In Windows 2000, the recommended tool for most device management tasks is the Computer Management console. This is found in the Start menu <i>Programs+Administrative tools+Computer Management</i> option. The Device Manager is also available from the Control Panel System applet.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Figure 11.3 shows the Computer Management console running on my computer with the Device Manager Devices selected. You can get this same view from the Control Panel System applet; select the Hardware tab and click on Device Manager.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_243.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_244</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_245.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

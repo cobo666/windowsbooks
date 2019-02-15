@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_376</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_375.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_376</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_377.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 376</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(Continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 18.1 NT style device creation</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="613" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">                 TRUE,  //Exclusive<br />
+                 &amp;phddo);<br />
+    if( !NT_SUCCESS(status))<br />
+    {<br />
+        DebugPrintMsg("Could not create device");<br />
+        return status;<br />
+    }<br /><br />
+    phddo-&gt;Flags |  DO_BUFFERED_IO;<br /><br />
+    // Initialise device extension<br />
+    PPHDIO_DEVICE_EXTENSION dx=<br />
+        (PPHDIO_DEVICE_EXTENSION)phddo-&gt;DeviceExtension;<br />
+    dx-&gt;phddo = phddo;<br />
+    dx-&gt;UsageCount = 1;<br />
+    KeInitializeEvent( &amp;dx-&gt;StoppingEvent, NotificationEvent, FALSE);<br />
+    dx-&gt;Stopping = false;<br />
+    dx-&gt;GotPortOrMemory = false;<br />
+    dx-&gt;GotInterrupt = false;<br />
+    dx-&gt;ConnectedToInterrupt = false;<br />
+    dx-&gt;SetTimeout = 10;<br />
+    dx-&gt;Timeout = -1;<br />
+    dx-&gt;StopTimer = false;<br />
+    dx-&gt;WriteCmds = NULL;<br />
+    dx-&gt;ReadCmds = NULL;<br />
+    dx-&gt;StartReadCmds = NULL;<br /><br />
+    // Initialise timer for this device (but do not start)<br />
+    status  IoInitializeTimer( phddo, (PIO_TIMER_ROUTINE)Timeoutls, dx);<br />
+    if( !NT_SUCCESS(status))<br />
+    {<br />
+        DebugPrintMsg("Could not initialise timer");<br />
+        IoDeleteDevice(phddo);<br />
+        return status;<br />
+    }<br /><br />
+    // Create a symbolic link so our device is visible to Win32 . . .<br />
+    DebugPrint(''Creating symbolic link %T",&amp;linkName);<br />
+    status = IoCreateSymbolicLink( &amp;linkName, &amp;deviceName);<br />
+    if( !NT_SUCCESS(status))<br />
+    {</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_375.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_376</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_377.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

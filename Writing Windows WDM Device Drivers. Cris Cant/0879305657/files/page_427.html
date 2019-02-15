@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_427</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_426.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_427</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_428.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 427</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">structure. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbKbd</font><font face="Times New Roman, Times, Serif" size="3"> makes <i>DebugPrint</i> calls to display other potentially useful information. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbKbd</font><font face="Times New Roman, Times, Serif" size="3"> finally frees the URB and configuration descriptor memory.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 21.5 Selecting a configuration and interface</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="679" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS UsbSelectConfiguration( IN PUSBKBD_DEVICE_EXTENSION dx)<br />
+{<br />
+    dx-&gt;UsbPipeHandle = NULL;<br /><br />
+    // Get all first configuration descriptors<br />
+    PUSB_CONFIGURATION_DESCRIPTOR Descriptors = NULL;<br />
+    ULONG size;<br />
+    NTSTATUS status = UsbGetConfigurationDescriptors( dx, Descriptors, 0, size);<br />
+    if( !NT_SUCCESS(status))<br />
+    {<br />
+        DebugPrint("UsbGetConfigurationDescriptors failed %x", status);<br />
+        FreeIfAllocated(Descriptors);<br />
+        return status;<br />
+    }<br /><br />
+    // Search for an interface with HID keyboard device class<br />
+    PUSB_INTERFACE_DESCRIPTOR id = USBD_ParseConfigurationDescriptorEx(<br />
+        Descriptors, Descriptors,<br />
+        -1, -1,       // Do not search by InterfaceNumber or AlternateSetting<br />
+         3, 1, 1);    // Search for a HID device, boot protocol, keyboard<br />
+    if( id==NULL)<br />
+    {<br />
+        DebugPrintMsg("No matching interface found");<br />
+        FreeIfAllocated(Descriptors);<br />
+        return STATUS_NO_SUCH_DEVICE;<br />
+    }<br /><br />
+    // Build list of interfaces we are interested in<br />
+    USBD_INTERFACE_LIST_ENTRY ilist[2];<br />
+    ilist[0].InterfaceDescriptor = id;<br />
+    ilist[0].Interface = NULL;     // Will point to<br />
+                                   // urb-&gt;UrbUsbSelectConfiguration.Interface<br />
+    ilist[1].InterfaceDescriptor = NULL;<br /><br />
+    // Create select configuration URB<br />
+    PURB urb = USBD_CreateConfigurationReqestEx( Descriptors, ilist);<br /><br />
+    // Call the USB driver<br />
+    DebugPrintMsg("Selecting configuration");</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_426.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_427</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_428.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

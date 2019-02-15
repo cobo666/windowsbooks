@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_366</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_365.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_366</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_367.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 366</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">that must be performed, it should request that its DPC routine be run. This DPC routine should continue where the interrupt service routine left off.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A DPC typically either starts another transfer or completes an IRP.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3">, all the bytes are transferred in the interrupt handler. When the transfer is complete, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> asks that its DPC be run to complete the IRP.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Other drivers may use their DPC routine to do data transfers. While </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> could use this technique, it would be slower. Processing the read or write commands in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> is usually fairly quick, so it is simplest to get it over and done with</font><font face="Times New Roman, Times, Serif" size="2"><sup>2</sup></font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Direct Memory Access (DMA) is a hardware facility for transferring many bytes of data from place to place without having to be handled by the processor. The DMA controller or the relevant device usually interrupts when the whole transfer has finished. The interrupt service routine usually runs a DPC routine to start its next transfer or complete the IRP. DMA transfers cannot be started at elevated IRQL, so the next transfer must be set up in a DPC.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">An indeterminate amount of time elapses between a DPC being requested and when it is run. Do not defer any interrupt servicing to the DPC if data might be lost (e.g., read data being overwritten). If necessary, store any data in the device extension or some other preallocated nonpaged memory.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Using Basic DPCs</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The Windows kernel makes it easy to use one DPC routine within a driver. If you want to use more than one DPC routine, check out the next section.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A standard device object contains the necessary KDPC object. However, you need to initialize it using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoInitializeDpcRequest</font><font face="Times New Roman, Times, Serif" size="3">, passing the name of your DPC routine. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> makes this call in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Pnp.cpp</font><font face="Times New Roman, Times, Serif" size="3"> just after its FDO is created in its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AddDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine, passing the name of its DPC routine, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoDpcForIsr</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="624" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">// Initialize our DPC for IRQ completion processing<br />
+IoInitializeDpcRequest( fdo,  WdmIoDpcForIsr);</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Asking for your DPC to be run is very easy  you just call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoRequestDpc</font><font face="Times New Roman, Times, Serif" size="3">, passing an IRP pointer and a context that you want passed to the DPC routine. As shown previously, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> only asks for its DPC routine to be run when it has transferred all bytes or when an error has occurred. In both cases, the current IRP must be completed and the next queued IRP started.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">As shown in Listing 17.4, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoDpcForIsr</font><font face="Times New Roman, Times, Serif" size="3"> starts by indicating that the transfer has stopped by setting the device extension </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Timeout</i></font><font face="Times New Roman, Times, Serif" size="3"> field to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">-1</font><font face="Times New Roman, Times, Serif" size="3">. It then works out how many bytes have been transferred by subtracting the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TxLeft</i></font><font face="Times New Roman, Times, Serif" size="3"> field from </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TxTotal</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">.</font></i><font face="Times New Roman, Times, Serif" size="3"> If the I/O Manager wants the IRP cancelled, store </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STATUS_CANCELLED</font><font face="Times New Roman, Times, Serif" size="3"> in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TxStatus</i></font><font face="Times New Roman, Times, Serif" size="3"> return status field.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="1"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>2</sup> Actually, the commands could take a long time to run if the Win32 application includes large delay commands. However, moving the command processing to the DPC would not help, as a Critical section routine would have to be run, bringing the IRQL back up the DIRQL.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_365.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_366</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_367.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

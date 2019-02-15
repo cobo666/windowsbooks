@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_267</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_266.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_267</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_268.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 267</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">not destined for your driver, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IrpDisposition</font><font face="Times New Roman, Times, Serif" size="3"> is set to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IrpForward</font><font face="Times New Roman, Times, Serif" size="3"> and the IRP is sent down the stack.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="247688c24fc503c08f8fd17c92798d54.jpg" border="0" alt="0267-01.jpg" width="573" height="135" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.4 shows how the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3SystemControl</font><font face="Times New Roman, Times, Serif" size="3"> routine processes System Control IRPs.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The main processing is carried out by the system function </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WmiSystemControl.Wdm3SystemControl</font><font face="Times New Roman, Times, Serif" size="3"> acts on the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IrpDispostion</font><font face="Times New Roman, Times, Serif" size="3"> parameter in the recommended way.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.4 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3SystemControl</font><font face="Times New Roman, Times, Serif" size="3"> routine</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" width="672" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTAUS Wdm3SystemControl( IN PDEVICE_OBJECT fdo, IN PIRP Irp)<br />
+{<br />
+   DebugPrintMsg("Wdm3SystemControl");<br />
+   PWDM3_DEVICE_EXTENSION dx = (PWDM3_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;<br />
+   SYSCTL_IRP_DISPOSITION disposition;<br /><br />
+   NTSTATUS status =<br />
+       WmiSystemControl( &amp;dx-&gt;WmiLibInfo, fdo, Irp, &amp;disposition);<br />
+   switch(disposition)<br />
+   {<br />
+   case IrpProcessed:<br />
+       // This irp has been processed and may be completed or pending.<br />
+       break;<br /><br />
+   case IrpNotCompleted:<br />
+       // This irp has not been completed, but has been fully processed.<br />
+       // we will complete it now<br />
+       IoCompleteRequest( Irp, IO_NO_INCREMENT);<br />
+       break;<br /><br />
+   case IrpForward:<br />
+   case IrpNotWmi:<br />
+       // This irp is either not a WMI irp or is a WMI irp targetted<br />
+       // at a device lower in the stack.<br />
+       IoSkipCurrentIrpStackLocation(Irp);<br />
+       status = IoCallDriver( dx-&gt;NextStackDevice, Irp);<br />
+       break;</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_266.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_267</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_268.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

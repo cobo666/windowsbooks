@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_496</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_495.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_496</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_497.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 496</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 23.14 New </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadHidKbdInputReport</font><font face="Times New Roman, Times, Serif" size="3"> routine</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="721" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">        status = dx-&gt;HidIrp-&gt;IoStatus.Status;<br />
+    }<br /><br />
+    // return IRP completion status<br />
+    DebugPrint(''ReadHidKbdInputReport: status %x", status);<br />
+    BytesTxd = dx-&gt;HidIrp-&gt;IoStatus.Information;<br />
+    if( BytesTxd&gt;0)<br />
+        RtlCopyMemory( Buffer, dx-&gt;HidReport, BytesTxd);<br />
+    return status;<br />
+}<br /><br />
+NTSTATUS ReadComplete( IN PDEVICE_OBJECT fdo, IN PIRP Irp, IN PKEVENT Event)<br />
+{<br /><br />
+    KeSetEvent(Event, 0, FALSE);<br />
+    return STATUS_MORE_PROCESSING_REQUIRED;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Even Better . . .</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Two problems exist with the permanently allocated IRP solution I have just presented. The first is that the driver will not cope with two "simultaneous" read requests as it uses the same buffer in each call. A quick fix to this problem would be to allow only one read request at a time. The next best solution is dropping the shared buffer; an MDL must then be allocated for the user buffer in each read request.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In fact, the best solution is not to use a permanently allocated IRP, but to reuse the Read IRP. If the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> device uses Direct I/O, the operating system will even do the MDL allocation. In this version, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadHidKbdInputReport</font><font face="Times New Roman, Times, Serif" size="3"> routine only needs to set up the next IRP stack location appropriately. In fact, calling </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCopyCurrentIrpStackLocationToNext</font><font face="Times New Roman, Times, Serif" size="3"> will probably do this job just fine.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The second problem with both the earlier techniques of calling the HID class driver is that they can be inefficient. In both the earlier cases, the call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeWaitForSingleObject</font><font face="Times New Roman, Times, Serif" size="3"> forces the current thread to block waiting for the event to become signalled. As </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> may operate in the context of a user thread, this may stop any other overlapped operations from running.</font><font face="Times New Roman, Times, Serif" size="2"><sup>5</sup></font><font face="Times New Roman, Times, Serif" size="3"> The solution to this problem is to modify the completion routine. If the completion routine completes the original Read IRP, there is no need for </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadHidKbdInputReport</font><font face="Times New Roman, Times, Serif" size="3"> to wait for the IRP completion event.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">This technique should be used wherever possible. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> Create and Close IRP use this technique as they pass their IRPs to the HID class driver, which completes them in due course. However, it is probably still worth using events in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CallHidIoctl</font><font face="Times New Roman, Times, Serif" size="3"> routine for two reasons. The first is that </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> needs to know the IRP results. Secondly, my guess is that the</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="1"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>5</sup> So far, we have not considered how the kernel calls our driver. However, to be most efficient, we should not block while processing an IRP for very long. Blocking in a Power or PnP IRP handler or a system thread is fine.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_495.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_496</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_497.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

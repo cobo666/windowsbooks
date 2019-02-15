@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_274</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_273.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_274</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_275.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 274</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.9 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExecuteWmiMethod</font><font face="Times New Roman, Times, Serif" size="3"> routine</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="661" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">{<br />
+    DebugPrint("ExecuteWmiMethod: GuidIndex %d, InstanceIndex %d, "<br />
+       "MethodId %d, InBufferSize %d OutBufferSize %d",<br />
+       GuidIndex, InstanceIndex,MethodId, InBufferSize,OutBufferSize);<br />
+  PWDM3_DEVICE_EXTENSION dx = (PWDM3_DEVICE_EXTENSION-&gt; fdo-&gt;DeviceExtension;<br /><br />
+  if( GuidIndex==WDM3_WMI_GLID_INDEX &amp;&amp; MethodId==0)<br />
+  {<br />
+    DebugPrintMsg("ExecuteWmiMethod: PowerDown method");<br /><br />
+    // Power Down<br />
+    if( dx-&gt;PowerState&lt;PowerDeviceD3)<br />
+        SendDeviceSetPower ( dx, PowerDeviceD3);<br />
+    return WmiCompleteRequest( fdo, Irp, STATUS_SUCCESS, 0,<br />
+        IO_NO_INCREMENT);<br />
+  }<br />
+  return  FailWMIRequest( fdo, Irp, GuidIndex);<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Firing WMI Events</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">To fire a WMI event, simply call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WmiFireEvent</font><font face="Times New Roman, Times, Serif" size="3">, passing the relevant WMI event block GUID, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InstanceIndex</font><font face="Times New Roman, Times, Serif" size="3">, and any event data. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WmiFireEvent</font><font face="Times New Roman, Times, Serif" size="3"> makes the appropriate call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoWmiWriteEvent</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3"> driver provides a helper function </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3FireEvent</font><font face="Times New Roman, Times, Serif" size="3">, shown in Listing 12.10. This takes a NULL-terminated wide string, formats it into a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Event</font><font face="Times New Roman, Times, Serif" size="3"> message, and calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WmiFireEvent</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A user application must ask for events first by setting an </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Enable</font><font face="Times New Roman, Times, Serif" size="3"> flag. This request arrives at the driver in its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wmi FunctionControl</font><font face="Times New Roman, Times, Serif" size="3"> optional callback routine. If the Function parameter is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WmiEventControl</font><font face="Times New Roman, Times, Serif" size="3">, the new </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Enable</font><font face="Times New Roman, Times, Serif" size="3"> setting is stored in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>WMIEventEnabled</i></font><font face="Times New Roman, Times, Serif" size="3"> flag in the device extension. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WmiFunctionControl</font><font face="Times New Roman, Times, Serif" size="3"> is also called to ask a driver to collect WMI data blocks that were marked as being expensive to collect.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>WMIEventEnabled</i></font><font face="Times New Roman, Times, Serif" size="3"> flag is initially </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">FALSE</font><font face="Times New Roman, Times, Serif" size="3">, which means that no events are generated. As I have found no way of registering for events, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3FireEvent</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WmiFunctionControl</font><font face="Times New Roman, Times, Serif" size="3"> functions have not been tested.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.10 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3FireEvent</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WmiFunctionControl</font><font face="Times New Roman, Times, Serif" size="3"> routines</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="679" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">Void Wdm3FireEvent( IN PDEVICE_OBJECT fdo, wchar_t* Msg)<br />
+{<br />
+    DebugPrint("Wdm3FireEvent: Msg %S", Msg);<br />
+    PWDM3_DEVICE_EXTENSION dx = (PWDM3_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_273.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_274</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_275.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

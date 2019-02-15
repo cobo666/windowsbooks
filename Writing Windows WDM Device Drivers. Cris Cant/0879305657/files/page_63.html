@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_63</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_62.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_63</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_64.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 63</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">the list. This is achieved when the entire query table is zeroed using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RtlZeroMemory</font><font face="Times New Roman, Times, Serif" size="3"> in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadReg</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">There is a wide range of options available when querying the registry. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Flags</i></font><font face="Times New Roman, Times, Serif" size="3"> field in each query table element indicates the action you want to do. The first query listed previously uses </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RTL_QUERY_REGISTRY_SUBKEY</font><font face="Times New Roman, Times, Serif" size="3">, which means that the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Name</i></font><font face="Times New Roman, Times, Serif" size="3"> field contains the subkey for subsequent queries.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The following queries both set the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Flags</i></font><font face="Times New Roman, Times, Serif" size="3"> field to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RTL_QUERY_REGISTRY_DIRECT</font><font face="Times New Roman, Times, Serif" size="3">. In this case, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Name</i></font><font face="Times New Roman, Times, Serif" size="3"> field contains the registry value name, and the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>EntryContext</i></font><font face="Times New Roman, Times, Serif" size="3"> field contains a pointer to the variable to receive the value. You have to trust that no one has fiddled with the value types so that a string is returned when you were expecting a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ULONG</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A safer approach (not used here) is to pass the name of a callback routine in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>QueryRoutine</i></font><font face="Times New Roman, Times, Serif" size="3"> field and set the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Flags</i></font><font face="Times New Roman, Times, Serif" size="3"> field to zero. Your routine is called for each value found, and indicates the type of the found value.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The remaining parameters to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RtlQueryRegistryValues</font><font face="Times New Roman, Times, Serif" size="3"> give even more flexibility. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RTL_REGISTRY_ABSOLUTE</font><font face="Times New Roman, Times, Serif" size="3"> indicates that the Path parameter is an absolute registry path. Various other useful options can be given (e.g., if the Path is relative to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HKLM\System\CurrentControlSet\Services</font><font face="Times New Roman, Times, Serif" size="3"> key).</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RtlQueryRegistryValues</font><font face="Times New Roman, Times, Serif" size="3"> only returns </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STATUS_SUCCESS</font><font face="Times New Roman, Times, Serif" size="3"> if all the queries were processed correctly and all the registry values were found. The code in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadReg</font><font face="Times New Roman, Times, Serif" size="3"> simply displays the return status and the values retrieved. If using this routine for real, you will probably want to store the values in global variables.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Operating System Version</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">You can use a registry setting to determine at run time whether you are running in W98 or not. In NT and W2000 the following registry value is available, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HKLM\System\CurrentControlSet\Control\ProductOptions\ProductType</font><font face="Times New Roman, Times, Serif" size="3">. The value is "WinNT" for the Workstation/Professional Windows version and either "LanmanNT" or "ServerNT'' for the Server/Enterprise version. In W98 this registry value should not be available.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Installing </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">That's enough on the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> code so far. The compiled driver, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1.sys</font><font face="Times New Roman, Times, Serif" size="3">, is provided on the CD in free and checked build versions. However, you can recompile it if you wish.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Normally, Windows detects when a device is installed and prompts for the necessary drivers if they cannot be found already in the system. Full details of the driver selection process are given later.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">For the virtual </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> device, use the Control Panel "Add New Hardware" applet wizard. The process is basically the same for Windows 98 and Windows 2000.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Click Next two times, select "No, I want to select hardware from a list" and click Next. Select "Other devices" and click Next. Click "Have Disk . . ." and browse to the path of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> driver (e.g., </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">C:\WDMBook\Wdm1\Sys</font><font face="Times New Roman, Times, Serif" size="3">) and click "OK".</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Two models are listed from the found installation INF files, one for the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> checked build and one for the free build. Select the model you want to install and select Next. Select "Finish" to complete installation.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The installation process does whatever the INF file specifies. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> INF files copy the relevant driver to the Windows </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">system32\drivers</font><font face="Times New Roman, Times, Serif" size="3"> directory, adds registry settings, etc.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_62.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_63</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_64.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_491</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_490.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_491</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_492.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 491</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">As </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> does not need to process the IRP afterwards, there is no need to set a completion routine.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="673" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">// Forward IRP to HID class driver device<br />
+IoSkipCurrentIrpStackLocation(Irp);<br />
+return IoCa11Driver( dx-&gt;HidDevice, Irp);</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> Close IRP handler, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbdClose</font><font face="Times New Roman, Times, Serif" size="3">, has exactly the same lines in it. This tells the HID class driver that the file handle is being closed.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A side effect of making the HID class driver open a handle for the device is that Windows 2000 will not let the HID device be removed for the duration. This is a perfectly acceptable behavior.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Reading and Writing Data</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Our HID kernel mode client is now finally ready to read and write data.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> currently only supports reading of input reports. The Read IRP expects the provided buffer to be big enough. For a keyboard-input report, the buffer must be at least nine bytes long. The first byte will be </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0</font><font face="Times New Roman, Times, Serif" size="3">, with the eight bytes of the input report in the remaining bytes. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> makes no attempt to analyze the data in the same way as <i>HidKbdUser.</i> Instead, it simply returns all the information to the user mode application.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The main Read IRP handler, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbdRead</font><font face="Times New Roman, Times, Serif" size="3">, eventually calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadHidKbdInputReport</font><font face="Times New Roman, Times, Serif" size="3">, shown in Listing 23.11. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadHidKbdInputReport</font><font face="Times New Roman, Times, Serif" size="3"> is passed the precious file object pointer and a pointer to the buffer. It returns a count of the number of bytes transferred.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadHidKbdInputReport</font><font face="Times New Roman, Times, Serif" size="3"> looks similar to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CallUSBDI</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CallHidIoctl</font><font face="Times New Roman, Times, Serif" size="3"> routines described before. This time </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> must issue a read request to the HID class driver, so it uses </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoBuildSynchronousFsdRequest</font><font face="Times New Roman, Times, Serif" size="3"> kernel call to build a suitable Read IRP. An event can be used to wait synchronously for the IRP to be completed, so </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadHidKbdInputReport</font><font face="Times New Roman, Times, Serif" size="3"> must be called at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> IRQL.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">By default, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoBuildSynchronousFsdRequest</font><font face="Times New Roman, Times, Serif" size="3"> does not insert a file object pointer into the IRP. Therefore, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> must do this job by hand. It calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoGetNextIrpStackLocation</font><font face="Times New Roman, Times, Serif" size="3"> to get the stack location that will be seen by the next driver, the HID class driver. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadHidKbdInputReport</font><font face="Times New Roman, Times, Serif" size="3"> then simply stores the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PFILE_OBJECT</font><font face="Times New Roman, Times, Serif" size="3"> in the stack </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>FileObject</i></font><font face="Times New Roman, Times, Serif" size="3"> field.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Finally, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> runs </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCallDriver</font><font face="Times New Roman, Times, Serif" size="3"> to call the HID class driver. If the IRP is still pending when this call returns, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadHidKbdInputReport</font><font face="Times New Roman, Times, Serif" size="3"> waits for the event to become signalled when the IRP does complete.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">I have left out one small part of the story. The DDK says that HID class drivers use Direct I/O for their input and output buffers, not Buffered 1/O. Luckily, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoBuildSynchronousFsdRequest</font><font face="Times New Roman, Times, Serif" size="3"> sorts this out for us. It checks if the called driver uses Direct I/O. If it does,</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_490.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_491</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_492.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_190</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_189.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_190</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_191.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 190</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">As mentioned previously, synchronize all your hardware accesses with any interrupt routines using Critical section routines and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeSynchronizeExecution</font><font face="Times New Roman, Times, Serif" size="3">. Chapter 16 covers Critical section routines.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Device Access</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Most WDM drivers do not, in fact, need to access I/O ports and memory or handle interrupts. Instead, they access their devices using the facilities provided by class drivers. For example, a USB client driver uses the oft-mentioned USB Request Blocks (URBs) to access its device.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">When a USB client driver handles a PnP <i>Start Device</i> message, it first waits for the IRP to be processed by lower level drivers. It then typically issues one or more URBs to its device before completing its IRP.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">For <i>Stop Device</i> messages, a USB client driver might well want to issue one or more URBs to its device before the IRP is sent down the stack.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Testing </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The <i>Wdm2Test</i> Win32 console application in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2\exe</font><font face="Times New Roman, Times, Serif" size="3"> subdirectory of the book software tests the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> driver. <i>Wdm2Test</i> is the same as <i>Wdm1Test</i> with only one change, apart from referencing the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> driver. <i>Wdm2Test</i> halts halfway through, waiting for the user to press a key. While it is waiting, it has a handle to the first </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> device still open.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">First, install a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> device using one of the installation INF files in the book software </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2\sys</font><font face="Times New Roman, Times, Serif" size="3"> directory. It does not matter whether you use the free or checked build, although the checked build produces <i>DebugPrint</i> trace output.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Wdm2Test</i> tests to see if a <i>Query Remove</i> request is rejected while there are any open handles to a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> device. Run <i>Wdm2Test</i> but do not press a key when it stops half way through. Now try to remove the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> device or reinstall its driver. The request should be rejected. Windows will state that the system must be restarted for the operation to complete.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Check that the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> driver can be removed or reinstalled when <i>Wdm2Test</i> has completed.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">It is very difficult to test the other new aspects of Plug and Play support in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> driver. First, <i>Stop Device</i> and <i>Surprise Removal</i> requests should never be issued for virtual devices that have no resources. Second, it is not possible to suddenly remove a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> device in such a way that the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> driver has to wait for pending I/O to complete. Do appropriate tests for drivers that have resources and can be suddenly removed.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If the test for open handles is not made, then W2000 in fact will still not allow the device to be removed, as it must contain its own internal reference count for the device. However, W98 would let the device be removed. Any I/O requests on open handles would then simply fail.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Actual Plug and Play Messages</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The <i>DebugPrint</i> output from </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> shows exactly which Plug and Plug messages are sent by Windows during add device and remove device operations.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_189.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_190</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_191.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

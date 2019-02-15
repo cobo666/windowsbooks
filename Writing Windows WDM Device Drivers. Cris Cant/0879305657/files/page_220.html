@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_220</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_219.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_220</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_221.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 220</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetPowerState</font><font face="Times New Roman, Times, Serif" size="3"> routine for a real device will need to interact with the device to change the power state. This will need to synchronize itself with any other hardware activities. A Critical Section routine called via </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeSynchronizeExecution</font><font face="Times New Roman, Times, Serif" size="3"> might be used for this purpose.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If powering a device down, you may need to store some context information that the device normally holds. For example, you could store "the current volume settings" for a set of speakers. When power is restored, pass the stored volume settings to the device.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">As stated before, you may want to queue up I/O request IRPs while a device is powered down.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 10.7 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetPowerState</font><font face="Times New Roman, Times, Serif" size="3"> routine</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">void SetPowerState( IN PWDM2_DEVICE_EXTENSION dx,<br />
+                    IN DEVICE_POWER_STATE NewDevicePowerState)<br />
+{<br />
+    DebugPrint("SetPowerState %d", NewDevicePowerState);<br />
+    // Use KeSynchronizeExecution if necessary<br />
+    // to actually change power in device<br />
+    // Remember new state<br />
+    dx-&gt;PowerState = NewDevicePowerState;<br />
+    POWER_STATE NewState;<br />
+    NewState.DeviceState = NewDevicePowerState;<br />
+    PoSetPowerState( dx-&gt;fdo, DevicePowerState, NewState);<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Dispatch Routine Power Handling</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Each </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> I/O request dispatch routine must check that the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> device is powered up. Listing 10.8 shows how </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2Write</font><font face="Times New Roman, Times, Serif" size="3"> calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PowerUpDevice</font><font face="Times New Roman, Times, Serif" size="3"> to power the device up if necessary by calling </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SendDeviceSetPower</font><font face="Times New Roman, Times, Serif" size="3">. Finally, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PowerUpDevice</font><font face="Times New Roman, Times, Serif" size="3"> resets the idle counter using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PoSetDeviceBusy</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 10.8 Dispatch routine power handling</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS Wdm2Write( IN PDEVICE_OBJECT fdo, IN PIRP Irp)<br />
+{<br />
+    // . . .<br />
+    NTSTATUS status = PowerUpDevice(fdo);<br />
+    if( !NT_SUCCESS(status))<br />
+        return CompleteIrp(Irp, status, 0);<br />
+    // . . .<br />
+}<br /><br />
+NTSTATUS PowerUpDevice( IN PDEVICE_OBJECT fdo)<br />
+{<br />
+    PWDM2_DEVICE_EXTENSION dx = (PWDM2_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;<br /><br />
+    // If need be, increase power<br />
+    if( dx-&gt;PowerState&gt;PowerDeviceD0)</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_219.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_220</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_221.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

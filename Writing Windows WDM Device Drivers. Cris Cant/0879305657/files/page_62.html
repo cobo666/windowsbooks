@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_62</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_61.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_62</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_63.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 62</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(table continued from previous page)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="8ae6dd695e8676209cdd4e6dda5380fe.gif" border="0" alt="0062-01.gif" width="539" height="241" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadReg</font><font face="Times New Roman, Times, Serif" size="3"> declares the variables that will receive the values from the registry. For a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UNICODE_STRING</font><font face="Times New Roman, Times, Serif" size="3">, its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Buffer</i></font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Length</i></font><font face="Times New Roman, Times, Serif" size="3">, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>MaximumLength</i></font><font face="Times New Roman, Times, Serif" size="3"> fields have to be initialized. In this case, these fields are initialized to NULL and zero. The call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RtlQueryRegistryValues</font><font face="Times New Roman, Times, Serif" size="3"> will allocate a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Buffer</i></font><font face="Times New Roman, Times, Serif" size="3"> and set the length fields.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In most cases, a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UNICODE_STRING</font><font face="Times New Roman, Times, Serif" size="3">'s buffer needs to be set up correctly. If you want to store an unchanging wide string value in a Unicode string, use the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RtlInitUnicodeString</font><font face="Times New Roman, Times, Serif" size="3"> function. The Unicode string </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Buffer</i></font><font face="Times New Roman, Times, Serif" size="3"> is set to point to the passed string and the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Length</i></font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>MaximumLength</i></font><font face="Times New Roman, Times, Serif" size="3"> strings are set to the length of the string</font><font face="Times New Roman, Times, Serif" size="2"><sup>3</sup></font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="576" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">RtlInitUnicodeString( &amp;UnicodeString, L"\\Device\\Wdm1");</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If you wish to work with the contents of a Unicode string, you need to provide the wide string buffer. Use code like this.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="576" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">const int MAX_CHARS = 30;<br />
+UNICODE_STRING UnicodeString;<br />
+WCHAR UnicodeStringBuffer[MAX_CHARS];<br />
+UnicodeString.Buffer = UnicoderStringBuffer;<br />
+UnicodeString.MaximumLength = MAX_CHARS*2;<br />
+UnicodeString.Length = 0;</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In this case, the buffer is on the stack. If you want to use the Unicode string after this routine has completed, you must allocate the buffer from pool memory. Do not forget to free this memory once you have finished using the string.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Calling </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RtlQueryRegistryValues</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">You must send a query table array to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RtlQueryRegistryValues</font><font face="Times New Roman, Times, Serif" size="3">. This array details the actions that you want to do. The last entry in the query table must be zeroed to indicate the end of</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="1"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>3</sup> Be careful if initializing strings in paged code segments or code segments that are discarded after initialization. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Buffer</i></font><font face="Times New Roman, Times, Serif" size="2"> data has the attributes of the underlying code segment and so may not be available when you want to access it. Chapter 14 gives an example in which I initially got this wrong.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_61.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_62</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_63.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

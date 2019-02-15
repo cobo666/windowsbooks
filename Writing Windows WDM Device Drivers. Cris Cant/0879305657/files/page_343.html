@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_343</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_342.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_343</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_344.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 343</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CanTrace</font><font face="Times New Roman, Times, Serif" size="3"> parameter set to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">false</font><font face="Times New Roman, Times, Serif" size="3">. Both </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RunCmdsSynch</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RunCmds</font><font face="Times New Roman, Times, Serif" size="3"> return </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">FALSE</font><font face="Times New Roman, Times, Serif" size="3"> if they can not allocate enough memory for the output buffer.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 16.3 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RunCmdsSynch</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RunCmds</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="662" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">BOOLEAN RunCmdsSynch( IN PDEVICE_OBJECT fdo)<br />
+{<br />
+    return RunCmds( fdo, false);<br />
+}<br />
+BOOLEAN RunCmds( IN PDEVICE_OBJECT fdo, IN bool CanTrace)<br />
+{<br />
+    PWDMIO_DEVICE_EXTENSION dx = (PWDMIO_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;<br />
+    PIRP Irp = fdo-&gt;CurrentIrp;<br />
+    PIO_STACK_LOCATION IrpStack = IoGetCurrentIrpStackLocation(Irp);<br />
+    ULONG InputLength = IrpStack-&gt;Parameters.DeviceIoControl.InputBufferLength;<br />
+    ULONG OutputLength =<br />
+        IrpStack-&gt;Parameters.DeviceIoControl.OutputBufferLength;<br />
+    PUCHAR Buffer = (PUCHAR)Irp-&gt;AssociatedIrp.SystemBuffer;<br /><br />
+    PUCHAR OutBuffer = NULL;<br />
+    if( OutputLength&gt;0)<br />
+    {<br />
+        OutBuffer = (PUCHAR)ExAllocatePool(NonPagedPool,OutputLength);<br />
+        if( OutBuffer==NULL) return FALSE;<br />
+    }<br />
+    ProcessCmds( dx, Buffer, InputLength, OutBuffer, OutputLength, CanTrace);<br />
+    if( OutBuffer!=NULL)<br />
+    {<br />
+        RtlMoveMemory( Buffer, OutBuffer, OutputLength);<br />
+        ExFreePool(OutBuffer);<br />
+    }<br />
+    return TRUE;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Cancelling Queued IRPs</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Chapter 14 explained when Windows tries to cancel IRPs using IRP cancel routines. In addition, Windows issues the Cleanup IRP to cancel IRPs in some circumstances. Chapter 14 also showed how the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver provides a cancel routine for its one queued IRP.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">As </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> queues IRP, it must also provide cancel routines for these IRPs. In addition, it handles the Cleanup IRP correctly so that IRPs are cancelled if a user mode application closes its file handle with overlapped I/O requests pending.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_342.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_343</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_344.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

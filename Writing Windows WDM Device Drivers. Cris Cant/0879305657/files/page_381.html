@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_381</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_380.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_381</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_382.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 381</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 18.4 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ClaimResources</font><font face="Times New Roman, Times, Serif" size="3"> routine</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="631" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">    if( dx-&gt;GotInterrupt) PartialResourceCount++;<br /><br />
+    // Get size of required CM_RESOURCE_LIST<br />
+    ULONG ListSize = FIELD_OFFSET( CM_RESOURCE_LIST, List[0]);<br /><br />
+    ListSize += sizeof( CM_FULL_RESOURCE_DESCRIPTOR) +<br />
+        ((PartialResourceCount-1) * sizeof(CM_PARTIAL_RESOURCE_DESCRIPTOR));<br /><br />
+    // Allocate CM_RESOURCE_LIST<br />
+    PCM_RESOURCE_LIST ResourceList =<br />
+        (PCM_RESOURCE_LlIST)ExA1locatePool( PagedPool, ListSize):<br />
+    if( ResourceList==NULL)<br />
+    {<br />
+        DebugPrintMsg("Cannot allocate memory for ResourceList");<br />
+        return STATUS_INSUFFICIENT_RESOURCES;<br />
+    }<br />
+    RtlZeroMemory( ResourceList, ListSize):<br /><br />
+    // Only one Full Resource Descriptor needed, for ISA<br />
+    ResourceLists-&gt;Count = 1;<br /><br />
+    // Initialise Full Resource Descriptor<br />
+    PCM_FULL_RESOURCE_DESCRIPTOR FullRD = &amp;ResourceList-&gt;List[0];<br />
+    FullRD-&gt;InterfaceType = Isa;<br />
+    FullRD-&gt;BusNumber = 0;<br /><br />
+    FullRD-&gt;PartialResourceList.Count = PartialResourceCourt;<br /><br />
+    // Initialise Partial Resource Descriptor for I0 port<br />
+    PCM_PARTIAL_RESOURCE_DESCRIPTOR resource =<br />
+        &amp;FullRD-&gt;PartialResourceList.PartialDescriptors[0];<br />
+    resource-&gt;Type = CmResourceTypePort;<br />
+    resource-&gt;ShareDisposition = CmResourceShareDriverExclusive;<br />
+    resource-&gt;Flags = CM_RESOURCE_PORT_I0;<br />
+    resource-&gt;u.Port.Star = dx-&gt;PortStartAddress;<br />
+    resource-&gt;u.Port.Length = dx-&gt;PortLength;<br /><br />
+    // Initialise Partial Resource Descriptor for Interrupt<br />
+    if( dx-&gt;GotInterrupt)<br />
+    {<br />
+        resource++;<br />
+        resource-&gt;Type = CmResourceTypeInterrupt;</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_380.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_381</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_382.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

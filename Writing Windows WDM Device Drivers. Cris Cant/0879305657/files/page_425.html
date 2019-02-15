@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_425</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_424.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_425</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_426.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 425</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The final job for </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbGetDeviceDescriptor</font><font face="Times New Roman, Times, Serif" size="3"> is simply to save the count of bytes transferred. This was stored in the URB </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>UrbControlDescriptorRequest.TransferBufferLength</i></font><font face="Times New Roman, Times, Serif" size="3"> field. The USB memory is freed.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 21.4 Getting a USB device descriptor</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS UsbGetDeviceDescriptor( IN PUSBKBD_DEVIC_EXTENSION dx,<br />
+                                 OUT PUSB_DEVICE_DESCRIPTOR&amp; deviceDescriptor,<br />
+                                 OUT ULONG&amp; Size)<br />
+{<br />
+    // Allocate memory for URB<br />
+    USHORT UrbSize = sizeof(struct _URB_CONTROL_DESCRIPTOR_REQUEST);<br />
+    PURB urb = (PURB)ExAllocatePool(NonPagedPool, UrbSize);<br />
+    if( urb==NULL)<br />
+    {<br />
+        DebugPrintMsg(''No URB memory");<br />
+        return STATUS_INSUFFICIENT_RESOURCES;<br />
+    }<br /><br />
+    // Allocate memory for device descriptor<br />
+    ULONG sizeDescriptor = sizeof(USB_DEVICE_DESCRIPTOR);<br />
+    deviceDescriptor = (PUSB_DEVICE_DESCRIPTOR)ExAllocatePool(NonPagedPool,<br />
+        sizeDescriptor);<br />
+    if( deviceDescriptor==NULL)<br />
+    {<br />
+        ExFreePool(urb);<br />
+        DebugPrintMsg("No descriptor memory");<br />
+        return STATUS_INSUFFICIENT_RESOURCES;<br />
+    }<br /><br />
+    // Build the Get Descriptor URB<br />
+    UsbBuildGetDescriptorRequest(<br />
+        urb, UrbSize,<br />
+        USB_DEVICE_DESCRIPTOR_TYPE, 0, 0,       // Types, Index &amp; LanguageId<br />
+        deviceDescriptor, NULL, sizeDescriptor,   // Transfer buffer<br />
+        NULL);    // Link URB<br /><br />
+    // Call the USB driver<br />
+    DebugPrintMsg("Getting device descriptor");<br />
+    NTSTATUS status = CallUSBDI( dx, urb);<br />
+    // Check statuses<br />
+    if( !NT_SUCCESS(status) || !USBD_SUCCESS( urb-&gt;UrbHeader.Status))<br />
+    {<br />
+         DebugPrint("status %x URB status %x", status, urb-&gt;UrbHeader.Status);</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_424.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_425</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_426.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

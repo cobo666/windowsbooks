@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_195</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_194.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_195</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_196.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 195</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Do not forget to call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UnregisterDeviceNotification</font><font face="Times New Roman, Times, Serif" size="3"> when you do not wish to receive any further PnP Notification events.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Device Change Message</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Each PnP Notification event is sent to a Win32 program as a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WM_DEVICECHANGE</font><font face="Times New Roman, Times, Serif" size="3"> message. In MFC applications, this appears in an </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">OnDeviceChange</font><font face="Times New Roman, Times, Serif" size="3"> handler.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Table 9.4 lists the main event types returned in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">wParam.lParam</font><font face="Times New Roman, Times, Serif" size="3"> may point to an appropriate structure. For device interface change events, it is a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DEV_BROADCAST_DEVICEINTERFACE</font><font face="Times New Roman, Times, Serif" size="3"> structure whose </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>dbcc_name</i></font><font face="Times New Roman, Times, Serif" size="3"> field contains the device filename.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">For a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WM_DEVICECHANGE</font><font face="Times New Roman, Times, Serif" size="3"> message that asks permission to remove a device, the handler must return </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TRUE</font><font face="Times New Roman, Times, Serif" size="3"> to agree or </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">BROADCAST_QUERY_DENY</font><font face="Times New Roman, Times, Serif" size="2"><sup>3</sup></font><font face="Times New Roman, Times, Serif" size="3"> to deny the requests. Returning </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">FALSE</font><font face="Times New Roman, Times, Serif" size="3"> seems to have the same effect as returning </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TRUE</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="18f278d1a84fa72670e1cb1b709a3e6a.gif" border="0" alt="0195-01.gif" width="576" height="313" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2Notify</font><font face="Times New Roman, Times, Serif" size="3"> Application</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Wdm2Notify</i> is a Win32 MFC dialog application that displays any device change events for the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> device interface. It can be found in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2\Notify</font><font face="Times New Roman, Times, Serif" size="3"> directory of the book software.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">I had a little difficulty setting up the project so that it would compile and link correctly. As I was using VC++ 5, some of the header files and libraries were out of date. I therefore had to change the project settings to use the Platform SDK include directories first, before the Visual C++ directories. My Platform SDK was installed at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">D:\MSSDK</font><font face="Times New Roman, Times, Serif" size="3">, so you may need to change the project settings if you want to recompile <i>Wdm2Notify.</i> I also had to link to the version of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">user32.lib</font><font face="Times New Roman, Times, Serif" size="3"> in the Platform SDK. If you are running a later version of Visual Studio, you may be able to undo these project changes.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="1"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>3</sup></font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">BROADCAST_QUERY_DENY</font><font face="Times New Roman, Times, Serif" size="2"> has a value of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0×424D5144</font><font face="Times New Roman, Times, Serif" size="2">, ASCII "BMQD", which I presume stands for Broadcast Message Query Deny!</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_194.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_195</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_196.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

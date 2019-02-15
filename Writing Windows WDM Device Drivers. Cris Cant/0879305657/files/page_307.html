@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_307</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_306.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_307</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_308.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 307</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DbpCancelIrp</font><font face="Times New Roman, Times, Serif" size="3"> then goes on to acquire the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> device extension </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ReadIrpLock</i></font><font face="Times New Roman, Times, Serif" size="3"> spin lock. It checks to see if the given IRP pointer matches the one in the queue. If it does, it clears the queue. Regardless of whether the given IRP matches the one in the list, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DbpCancelIrp</font><font face="Times New Roman, Times, Serif" size="3"> just cancels the IRP by calling </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CompleteIrp</font><font face="Times New Roman, Times, Serif" size="3">, passing a status of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STATUS_CANCELLED</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.8 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver cancel routine</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="601" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">   VOID DbpCancelIrp( IN PDEVICE_OBJECT fdo, IN PIRP Irp)<br />
+   {<br />
+      PDEBUGPRINT_DEVICE_EXTENSION dx =<br />
+         (PDEBUGPRINT_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;<br />
+      IoReleaseCancelSpinLock(Irp-&gt;CancelIrql);<br /><br />
+      // If this is our queued read, then unqueue it<br />
+      KIRQL irql;<br />
+      KeAcquireSpinLock(&amp;dx-&gt;ReadIrpLock,&amp;irql);<br />
+      if( Irp==dx-&gt;ReadIrp)<br />
+      {<br />
+          UnlockDevice(dx);<br />
+          dx-&gt;ReadIrp = NULL;<br />
+      }<br />
+      KeReleaseSpinLock(&amp;dx-&gt;ReadIrpLock,irql);<br /><br />
+      // Whatever Irp it is, just cancel it<br />
+      CompleteIrp(Irp,STATUS_CANCELLED,0);<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Write Algorithm</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver write routine </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DbpWrite</font><font face="Times New Roman, Times, Serif" size="3">, shown in Listing 14.9, at first sight looks pretty similar to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintMsg</font><font face="Times New Roman, Times, Serif" size="3"> routine described earlier. Its job is to insert the trace event data into an interlocked doubly-linked list. If there is a Read IRP queued up, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DbpWrite</font><font face="Times New Roman, Times, Serif" size="3"> goes on to satisfy this read request.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DbpWrite</font><font face="Times New Roman, Times, Serif" size="3"> first gets the write parameters, and completes Write IRPs with a zero transfer length straightaway. The device file pointer is ignored.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">As shown previously, the event list is stored in the device extension in field </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>EventList</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">,</font></i><font face="Times New Roman, Times, Serif" size="3"> protected by spin lock </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>EventListLock</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">.</font></i><font face="Times New Roman, Times, Serif" size="3"> Each event is stored in a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DEBUGPRINT_EVENT</font><font face="Times New Roman, Times, Serif" size="3"> structure.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DbpWrite</font><font face="Times New Roman, Times, Serif" size="3"> determines the correct size for the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DEBUGPRINT_EVENT</font><font face="Times New Roman, Times, Serif" size="3"> structure and tries to allocate some memory for it from the nonpaged pool. It fails the IRP with </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STATUS_INSUFFICIENT_RESOURCES</font><font face="Times New Roman, Times, Serif" size="3"> if no memory is available. Next, it copies the event data into the event and stores the data length, before calling </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExInterlockedInsertTailList</font><font face="Times New Roman, Times, Serif" size="3"> in the same way as before to insert the event safely into </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>EventList</i></font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DbpWrite</font><font face="Times New Roman, Times, Serif" size="3"> now checks to see if there is a queued Read IRP. It must first grab the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ReadIrpLock</i></font><font face="Times New Roman, Times, Serif" size="3"> spin lock. If the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ReadIrp</i></font><font face="Times New Roman, Times, Serif" size="3"> field is not NULL, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadEvent</font><font face="Times New Roman, Times, Serif" size="3"> is called to complete the Read IRP and the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ReadIrp</i></font><font face="Times New Roman, Times, Serif" size="3"> field is reset to NULL.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_306.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_307</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_308.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

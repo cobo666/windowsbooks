@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_484</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_483.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_484</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_485.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 484</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 23.7 PnP device interface change notification callback</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="679" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">        DebugPrint("Device arrival: %T", dicn-&gt;SymbolicLinkName);<br />
+        CreateDevice( DriverObject, dicn-&gt;SymbolicLinkName);<br />
+    }<br />
+    else if( IsEqualGUID( dicn-&gt;Event, GUID_DEVICE_INTERFACE_REMOVAL))<br />
+    {<br />
+        DebugPrint(''Device removal: %T", dicn-&gt;SymbolicLinkName);<br />
+        DeleteDevice(dicn-&gt;SymbolicLinkName);<br />
+    }<br />
+    else<br />
+        DebugPrint("Some other device event: %T", dicn-&gt;SymbolicLinkName);<br /><br />
+    return STATUS_SUCCESS;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>HidKbd Devices</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Hold onto your hats, as the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> device handling is a bit complicated.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Remember that the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine is called whenever a HID device is added to the system. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> is just looking for a HID keyboard. However, it must cope if a HID device arrives that is not a keyboard, and if two HID keyboards arrive (it is possible).</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> tries to make things simple by only coping with one keyboard. If a second HID keyboard arrives, it is ignored.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> creates its own device called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\\.\HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> for the first HID keyboard that arrives. A user mode program can open a handle to this device and issue read requests. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> handles these by calling the HID device to get an input report. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> does not do anything for Write or IOCTL requests.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Has a Hid Keyboard Been Found?</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine shown in Listing 23.8 starts by checking to see if it has already found a HID keyboard. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbdDo</font><font face="Times New Roman, Times, Serif" size="3"> global variable stores a pointer to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> device object; if this is non-NULL, a suitable keyboard has already been found.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The first job is to open a connection to the HID device and see if it is HID keyboard. While </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateDevice</font><font face="Times New Roman, Times, Serif" size="3"> could use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwCreateFile</font><font face="Times New Roman, Times, Serif" size="3"> to open a handle to the HID device, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoGetDeviceObjectPointer</font><font face="Times New Roman, Times, Serif" size="3"> routine is what is really needed. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoGetDeviceObjectPointer</font><font face="Times New Roman, Times, Serif" size="3"> is passed the symbolic link for a device. If the symbolic link is found, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoGetDeviceObjectPointer</font><font face="Times New Roman, Times, Serif" size="3"> issues a Create IRP to the device, passing an empty string as the IRP filename parameter</font><font face="Times New Roman, Times, Serif" size="2"><sup>4</sup></font><font face="Times New Roman, Times, Serif" size="3">. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoGetDeviceObjectPointer</font><font face="Times New Roman, Times, Serif" size="3"> returns two pieces of information: the device object pointer and the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PFILE_OBJECT</font><font face="Times New Roman, Times, Serif" size="3"> pointer.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> is going to use the HID device object pointer a lot. In addition, it needs a file object pointer when it eventually reads reports from (or writes reports to) the HID class driver. However, in the mean time, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateDevice</font><font face="Times New Roman, Times, Serif" size="3"> closes the file object pointer by calling</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="1"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>4</sup> The device to which you are connecting must accept a Create IRP call with an empty filename.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_483.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_484</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_485.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

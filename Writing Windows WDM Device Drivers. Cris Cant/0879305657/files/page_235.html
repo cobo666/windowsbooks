@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_235</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_234.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_235</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_236.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 235</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The W2000 DDK lists the directory codes. For Windows 2000, code 12 means </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">System32\drivers</font><font face="Times New Roman, Times, Serif" size="3"> in the Windows directory, but in Windows 98, it means </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">System32\ioSubsys</font><font face="Times New Roman, Times, Serif" size="3">. However, WDM drivers must be installed in the Windows </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">System32\drivers</font><font face="Times New Roman, Times, Serif" size="3"> directory in both versions of Windows. Therefore, code 10 (for the Windows directory) must be used, with </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">System32\Drivers</font><font face="Times New Roman, Times, Serif" size="3"> specified as a subdirectory.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1.Files.Driver</font><font face="Times New Roman, Times, Serif" size="3"> entry is therefore set to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">10,System32\Drivers</font><font face="Times New Roman, Times, Serif" size="3">, where </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">10</font><font face="Times New Roman, Times, Serif" size="3"> is code for the Windows directory (e.g., </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">C:\Windows</font><font face="Times New Roman, Times, Serif" size="3"> or </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">C:\WINNT</font><font face="Times New Roman, Times, Serif" size="3">). The second field is the subdirectory to add to this base directory. Therefore, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> driver files are stored in the Windows </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">System32\Drivers</font><font face="Times New Roman, Times, Serif" size="3"> directory.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AddReg</font><font face="Times New Roman, Times, Serif" size="3"> Section</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">An </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AddReg</font><font face="Times New Roman, Times, Serif" size="3"> section specifies what entries to add to the registry. Each line specifies an entry of the form:</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="576" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">reg_root,[subkey],[value_entrty_name],[flags],[value]</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">reg_root</font><font face="Times New Roman, Times, Serif" size="3"> specifies the root registry key, from the list in Table 11.3. The optional </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">subkey</font><font face="Times New Roman, Times, Serif" size="3"> field specifies a subkey off the root key. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">value_entry_name</font><font face="Times New Roman, Times, Serif" size="3"> is the entry name to add, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">flags</font><font face="Times New Roman, Times, Serif" size="3"> indicates the entry type, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">value</font><font face="Times New Roman, Times, Serif" size="3"> is its value. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">flags</font><font face="Times New Roman, Times, Serif" size="3"> can be omitted for </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">REG_SZ</font><font face="Times New Roman, Times, Serif" size="3"> values.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="2211e822772445622c960e7f44929821.gif" border="0" alt="0235-01.gif" width="514" height="141" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HKR</font><font face="Times New Roman, Times, Serif" size="3"> is the most useful root registry key. It specifies the "relevant" registry entry for the section in which it appears. In the case of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1.AdddReg</font><font face="Times New Roman, Times, Serif" size="3"> section, it is the driver key. In Windows 98 for the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> driver, this key is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HKLM\System\CurrentControlSet\Services\Class\Unknown\0000</font><font face="Times New Roman, Times, Serif" size="3">. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0000</font><font face="Times New Roman, Times, Serif" size="3"> will be replaced with the appropriate </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Unknown</font><font face="Times New Roman, Times, Serif" size="3"> device number.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">For the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1.AddReg</font><font face="Times New Roman, Times, Serif" size="3"> section, the default installer consequently adds </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DevLoader</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">NTMPDriver</font><font face="Times New Roman, Times, Serif" size="3"> values to this key. The DDK does not state why these particular entries are necessary; just do it. This driver key ends up with other values, as you can see if you inspect it using <i>RegEdit</i>.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In this INF file, Windows 2000 does not use the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1.AddReg</font><font face="Times New Roman, Times, Serif" size="3"> section. Instead, as I shall show, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1. Service</font><font face="Times New Roman, Times, Serif" size="3"> section makes some different registry entries for the driver (in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HKLM\System\CurrentControlSet\Services\Wdm1</font><font face="Times New Roman, Times, Serif" size="3">).</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Other Registry Entries</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The installation process also creates various entries for the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> device that was just installed. The INF file does not have to alter or add to these entries.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In Windows 98, the device has a registry key at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HKLM\Enum\Root\Unknown\0000</font><font face="Times New Roman, Times, Serif" size="3">, with </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0000</font><font face="Times New Roman, Times, Serif" size="3"> changed to a different </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Unknown</font><font face="Times New Roman, Times, Serif" size="3"> device number, if appropriate. In Windows 2000, the device</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_234.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_235</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_236.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

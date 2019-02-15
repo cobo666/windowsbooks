@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_178</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_177.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_178</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_179.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 178</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">driver will complete it. The only other alternative is to return </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STATUS_SUCCESS</font><font face="Times New Roman, Times, Serif" size="3">, in which case the IRP continues its journey back up the device stack.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="bc2be8dbec0628d4ff5dd8d8f85f6c6e.gif" border="0" alt="Z0198-02.gif" width="323" height="239" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="2">These are good layers</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCallDriver</font><font face="Times New Roman, Times, Serif" size="3"> returns </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STATUS_PENDING</font><font face="Times New Roman, Times, Serif" size="3"> if the IRP has not completed its processing by the lower drivers. If this value is returned, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ForwardIrpAndWait</font><font face="Times New Roman, Times, Serif" size="3"> must wait for the completion routine to run. Once the event has been set, the call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeWaitForSingleObject</font><font face="Times New Roman, Times, Serif" size="3"> returns. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ForwardIrpAndWait</font><font face="Times New Roman, Times, Serif" size="3"> retrieves the status returned by the lower drivers from the IRP's </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>IoStatus.Status</i></font><font face="Times New Roman, Times, Serif" size="3"> field.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCallDriver</font><font face="Times New Roman, Times, Serif" size="3"> returns any value apart from </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STATUS_PENDING</font><font face="Times New Roman, Times, Serif" size="3">, this means that the IRP has been processed by all the lower drivers. The completion routine has been run and the event set. However, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ForwardIrpAndWait</font><font face="Times New Roman, Times, Serif" size="3"> does not need to wait for the event, as it already knows that the IRP has been processed in full.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">There is no way to know in advance if </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCallDriver</font><font face="Times New Roman, Times, Serif" size="3"> will return a pending status. Therefore, if you want to use an IRP after calling </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCallDriver</font><font face="Times New Roman, Times, Serif" size="3"> you must set a completion routine.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Completion routines may run at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DISPATCH_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> IRQL or lower in an arbitrary thread context. To be safe, you should assume that it is running at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DISPATCH_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> IRQL. This means that the completion routine itself and the context pointer must not be in paged memory. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ForwardIrpAndWait</font><font face="Times New Roman, Times, Serif" size="3"> event variable is in the kernel stack. This is normally in nonpaged memory. Apparently, the kernel stack can be pageable if a user mode wait is issued. However, as a kernel mode wait is used here, the event memory should be safely nonpaged.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 9.7 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> Forwarding IRPs and waiting for completion</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS ForwardIrpAndWait( IN PDEVICE_OBJECT fdo, IN. PIRP Irp)<br />
+{<br />
+    DebugPrintMsg("ForwardIrpAndWait");<br />
+    PWDM2_DEVICE_EXTENSION dx=(PWDM2_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;<br /><br />
+    KEVENT evert;<br />
+    KeInitializeEvent( &amp;event, NotificationEvent, FALSE);</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_177.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_178</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_179.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

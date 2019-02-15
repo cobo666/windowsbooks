@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_72</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_71.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_72</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_73.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 72</font></td></tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="709" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS status;<br />
+PDEVICE_OBJECT fdo;<br /><br />
+// Create our Functional Device Object in fdo<br />
+status = IoCreateDevice (DriverObject,<br />
+sizeof(WDM1_DEVICE_EXTENSION),<br />
+NULL,// No Name<br />
+FILE_DEVICE_UNKNOWN,<br />
+0,<br />
+FALSE,// Not exclusive<br />
+&amp;fdo);<br />
+if( !NT_SUCCESS(status))<br />
+return status;<br /><br />
+// Remember fdo in our device extension<br />
+PWDM1_DEVICE_EXTENSION dx = (PWDM1_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;<br />
+dx-&gt;fdo = fdo;<br />
+DebugPrint("FDO is %×",fdo);<br /><br />
+// Register and enable our device interface<br />
+status = IoRegisterDeviceInterface(pdo, &amp;WDM1_GUID, NULL, &amp;dx-&gt;ifSymLinkName);<br />
+if( !NT_SUCCESS(status))<br />
+{<br />
+IoDeleteDevice(fdo);<br />
+return status;<br />
+}<br />
+IoSetDeviceInterfaceState(&amp;dx-&gt;ifSymLinkName, TRUE);<br />
+DebugPrint("Symbolic Link Name is %T",&amp;dx-&gt;ifSymLinkName);<br /><br />
+// Attach to the driver stack below us<br />
+dx-&gt;NextStackDevice = IoAttachDeviceToDeviceStack(fdo,pdo);<br /><br />
+// Set fdo flags appropriately<br />
+fdo-&gt;Flags &amp;=~DO_DEVICE_INITIALIZING;<br />
+fdo-&gt;Flags |= DO_BUFFERED_I0;<br /><br />
+return STATUS_SUCCESS;<br />
+}<br /><br />
+/////////////////////////////////////////////////////////////////////////////<br />
+//Wdm1Pnp:<br />
+//<br />
+//Description:</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_71.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_72</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_73.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

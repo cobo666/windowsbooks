@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_167</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_166.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_167</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_168.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 167</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">When a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> device is added, the Unknown bus driver makes a PDO for it. The PnP Manager passes the PDO to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3">. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2AddDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine, shown later, calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCreateDevice</font><font face="Times New Roman, Times, Serif" size="3"> to create the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> Functional Device Object and eventually calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoAttachDeviceToDeviceStack</font><font face="Times New Roman, Times, Serif" size="3"> to attach it to the device stack. In between, the FDO and its device extension are initialized and a device interface for it is set up.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The eventual job of the <i>Remove Device</i> message handler is to stop the device and delete the FDO. In </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PnpRemoveDeviceHandler</font><font face="Times New Roman, Times, Serif" size="3">, shown later, eventually calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoDetachDevice</font><font face="Times New Roman, Times, Serif" size="3"> to detach the device object from the stack and calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoDeleteDevice</font><font face="Times New Roman, Times, Serif" size="3"> to delete the device object and its device extension memory. Processing <i>Remove Device</i> PnP messages safely is, in fact, a bit more complicated than this, as will be shown. Note that a <i>Remove Device</i> request will be the last IRP a driver receives before it is unloaded.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Basic PnP Handlers</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> driver handles adding a device in its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AddDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine and its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1Pnp</font><font face="Times New Roman, Times, Serif" size="3"> routine handles the remove device minor code </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IRP_MN_REMOVE_DEVICE</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AddDevice</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IRP_MJ_PNP</font><font face="Times New Roman, Times, Serif" size="3"> handlers are called at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> IRQL in the context of a system thread. Calls to these routines may be issued while other IRPs are running in the same driver. Even in a uniprocessor computer, processing of a Read IRP could have stalled for some reason. A PnP call could then be issued.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AddDevice</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> driver, the code for adding and removing devices is substantially the same as </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3">. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2AddDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine in Listing 9.1 is exactly the same, apart from new lines initializing some extra fields in the device extension. These all relate to handling PnP and Power IRPs correctly and are explained in due course.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Most of the PnP handling code is in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2 Pnp.cpp</font><font face="Times New Roman, Times, Serif" size="3"> module. Some changes have been made to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Dispatch.cpp</font><font face="Times New Roman, Times, Serif" size="3"> code from the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> version. A new module </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceIo.cpp</font><font face="Times New Roman, Times, Serif" size="3"> handles device starting and stopping.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 9.1 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2 Wdm2AddDevice</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS Wdm2AddDevice( IN PDRIVER_OBJECT DriverObject, IN PDEVICE_OBJECT pdo)<br />
+{<br />
+    DebugPrint(''AddDevice");<br />
+    NTSTATUS status;<br />
+    PDEVICE_OBJECT fdo;<br /><br />
+    // Create our Functional Device Object in fdo<br />
+    status = IoCreateDevice( DriverObject, sizeof(WDM2_DEVICE_EXTENSION), NULL,<br />
+                             FILE_DEVICE_UNKNOWN, 0, FALSE, &amp;fdo);<br />
+    if( NT_ERROR(status))<br />
+        return status;<br /><br />
+    // Initialise device extension<br />
+    PWDM2_DEVICE_EXTENSION dx = (PWDM2_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_166.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_167</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_168.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_432</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_431.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_432</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_433.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 432</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 21.6 Doing interrupt transfers</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="673" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">        if( *pData!=0i64)<br />
+            break;<br /><br />
+        // Check for time-out<br />
+        LARGE_INTEGER TickCountNow;<br />
+        KeQueryTickCount( &amp;TickCountNow);<br />
+        ULONG ticks = (ULONG)(TickCountNow.QuadPart - StartTickCount.QuadPart);<br />
+        if( ticks*UnitsOf100ns/10000000 &gt;= dx-&gt;UsbTimeout)<br />
+        {<br />
+            DebugPrint("Time-out %d 100ns", ticks*UnitsOf100ns);<br />
+            status = STATUS_NO_MEDIA_IN_DEVICE;<br />
+            break;<br />
+        }<br />
+    }<br />
+    UserBufferSize = urb-&gt;UrbBulkOrInterruptTransfer.TransferBufferLength;<br /><br />
+    if( NT_SUCCESS(status))<br />
+    {<br />
+        PUCHAR bd = (PUCHAR)UserBuffer;<br />
+        DebugPrint("Transfer data %2x %2x %2x %2x %2x %2x %2x %2x",<br />
+            bd[0], bd[1], bd[2], bd[3], bd[4], bd[5], bd[6], bd[7]);<br />
+    }<br /><br />
+    ExFreePool(urb);<br />
+    return status;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Control Transfers</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbKbd</font><font face="Times New Roman, Times, Serif" size="3"> driver lets its controlling application modify the state of the keyboard LEDs. This lets me illustrate how to do Control transfers on the default pipe to endpoint zero. The Write IRP handler sends the first byte of the write buffer to the keyboard as a HID "output report". Again, the next chapter fully defines the format of this report and the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SET_REPORT</font><font face="Times New Roman, Times, Serif" size="3"> command. The lower three bits of the report correspond to the NumLock, CapsLock, and ScrollLock keys.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The Write IRP handler calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbSendOutputReport</font><font face="Times New Roman, Times, Serif" size="3"> to send the output report. As per usual, it allocates a suitable URB. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbBuildVendorRequest</font><font face="Times New Roman, Times, Serif" size="3"> helper function is used to fill this URB. Control transfers to the default pipe can take many shapes and forms. First, there are ''class" and "vendor" types. For each type, you can specify whether the destination is the "device", "interface", "endpoint", or "other".</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The HID Specification tells us to send a "class" control transfer request to the "interface". The call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbBuildVendorRequest</font><font face="Times New Roman, Times, Serif" size="3">, therefore, uses the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">URB_FUNCTION_CLASS_INTERFACE</font><font face="Times New Roman, Times, Serif" size="3"> URB function code. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TransferFlags</font><font face="Times New Roman, Times, Serif" size="3"> parameter specifies the direction of the data transfer; set</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_431.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_432</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_433.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

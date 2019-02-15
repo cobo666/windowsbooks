@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_493</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_492.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_493</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_494.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 493</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 23.11 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadHidKbdInputReport</font><font face="Times New Roman, Times, Serif" size="3"> routine</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="679" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">    DebugPrint("ReadHidKbdInputReport: status %x", status);<br />
+    BytesTxd = IoStatus.Information;<br />
+    return status;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Permanently Allocated IRP</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A kernel mode HID client is likely to be reading many input reports. Rather than building up a suitable IRP for each call, it is more efficient to have one at the ready all the time. However, this approach is a bit more complicated to set up. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> driver has this alternative code commented out.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">When a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> device is created, it must allocate the IRP that will be reused in all subsequent read and write requests. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetupHidIrp</font><font face="Times New Roman, Times, Serif" size="3"> routine, shown in Listing 23.12, calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoAllocateIrp</font><font face="Times New Roman, Times, Serif" size="3"> to obtain a suitable IRP pointer from the I/O Manager. As IRPs have a variable number of stack locations, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetupHidIrp</font><font face="Times New Roman, Times, Serif" size="3"> must pass the desired stack size. The second parameter to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoAllocateIrp</font><font face="Times New Roman, Times, Serif" size="3"> should be </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">FALSE</font><font face="Times New Roman, Times, Serif" size="3"> for intermediate drivers.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">It also makes sense to preallocate a buffer for input and output reports. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetupHidIrp</font><font face="Times New Roman, Times, Serif" size="3"> works out the size of buffer needed and allocates it from the nonpaged pool. The final preparatory step is to allocate an MDL for this buffer. Remember that the HID class driver uses Direct I/O and so needs an MDL passed in Read and Write IRPs. The call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoAllocateMdl</font><font face="Times New Roman, Times, Serif" size="3"> makes a suitable MDL out of the buffer pointer.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 23.12 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetupHidIrp</font><font face="Times New Roman, Times, Serif" size="3"> routine</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="673" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">void SetupHidIrp( IN PHIDKBD_DEVICE_EXTENSION dx, IN CCHAR StackSize)<br />
+{<br />
+    // Work out maximum size of input and output reports<br />
+    dx-&gt;HidMaxReportLen = dx-&gt;HidInputReportLen;<br />
+    if( dx-&gt;HidOutputReportLen &gt; dx-&gt;HidMaxReportLen)<br />
+        dx-&gt;HidMaxReportLen = dx-&gt;HidOutputReportLen;<br /><br />
+    DebugPrint("Setting up HidIrp etc %d", dx-&gt;HidMaxReportLen);<br />
+    if( dx-&gt;HidMaxReportLen==0) return;<br /><br />
+    dx-&gt;HidReport = ExAllocatePool( NonPagedPool, dx-&gt;HidMaxReportLen);<br />
+    if( dx-&gt;HidReport==NULL) return;<br /><br />
+    dx-&gt;HidIrp = IoAllocateIrp( StackSize, FALSE);<br />
+    if( dx-&gt;HidIrp==NULL) return;<br /><br />
+    dx-&gt;HidReportMdl = IoAllocateMdl( dx-&gt;HidReport, dx-&gt;HidMaxReportLen,<br />
+        FALSE, FALSE, NULL);<br />
+    if( dx-&gt;HidReportMdl==NULL)<br />
+    {</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_492.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_493</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_494.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

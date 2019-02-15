@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_429</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_428.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_429</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_430.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 429</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">descriptor. This in fact just returns the language ID that the device supports. You will have to issue further <i>Get Descriptor</i> requests to get each String Descriptor. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbGetSpecifiedDescriptor</font><font face="Times New Roman, Times, Serif" size="3"> routine in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Usb.cpp</font><font face="Times New Roman, Times, Serif" size="3"> can be used to get any descriptor. This routine is also used by the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IOCTL_USBKBD_GET_SPECIFIED_DESCRIPTOR</font><font face="Times New Roman, Times, Serif" size="3"> handler. The <i>UsbKbdTest</i> test program issues this IOCTL to get the HID Descriptor.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbKbd</font><font face="Times New Roman, Times, Serif" size="3"> Create IRP handler, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbKbdCreate</font><font face="Times New Roman, Times, Serif" size="3">, also retrieves some general information about the USB bus, such as the amount of bandwidth used and the host controller device name. The required Internal IOCTLs are only implemented in Windows 2000, so preprocessor directives are used to remove the body of the function that does this job, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbGetUsbInfo</font><font face="Times New Roman, Times, Serif" size="3">, when compiled for Windows 98.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Most USB device drivers will now want to talk to their devices over control or other pipes. Shortly, I describe how to perform such transfers.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Deselecting a Configuration</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">When a driver wants to stop accessing its device, it should deselect its configuration. In </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbKbd</font><font face="Times New Roman, Times, Serif" size="3">, the Close file handle IRP handler does this job. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbDeselectConfiguration</font><font face="Times New Roman, Times, Serif" size="3"> routine uses </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbBuildSelectConfigurationRequest</font><font face="Times New Roman, Times, Serif" size="3"> to build a <i>Select Configuration</i> URB with a NULL configuration descriptor. This disables the configuration and its interfaces.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Interrupt Transfers</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The specification for </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbKbd</font><font face="Times New Roman, Times, Serif" size="3"> says that it reports raw keyboard data in response to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadFile</font><font face="Times New Roman, Times, Serif" size="3"> Win32 requests. It also must implement a time-out, which defaults to 10 seconds.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Before I describe how to handle the Read IRPs, I must discuss how a USB HID keyboard produces data. The keyboard responds to USB Interrupt transfers with an 8-byte data report. The exact format of this block is discussed in the next chapter on Human Input Devices (HID).</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A keyboard report is produced whenever a keypress or release occurs. A report is also produced regularly even if no keypresses occur. This is what happens on the USB bus. The USB class drivers initiate an Interrupt transfer regularly. My USB keyboard specifies that interrupt transfers should occur every 8ms. However, USB HID keyboards implement an idle rate. If there are no state changes during the idle period, the keyboard </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">NAKs</font><font face="Times New Roman, Times, Serif" size="3"> each Interrupt request. At the end of the idle period (every 500ms or so), the keyboard returns data regardless. The idle rate can be read and changed using class specific control transfers on the default pipe</font><font face="Times New Roman, Times, Serif" size="2"><sup>3</sup></font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbKbd</font><font face="Times New Roman, Times, Serif" size="3"> issues a <i>Do Bulk or Interrupt Transfer</i> URB to receive any keyboard reports. Keyboard reports are not "saved up" ready to fulfil any interrupt transfer requests. It is not clear whether the USB class drivers simply do not do any transfers, or whether they do the transfers but just dump the data. Any keypresses before an interrupt transfer is requested are ignored. I understand that the Microsoft keyboard drivers always try to leave two Interrupt transfer requests outstanding; the hope is that this should ensure that no keypresses are lost.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">It turns out that the 8-byte keyboard report is all zeroes if no keys are pressed. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbKbd</font><font face="Times New Roman, Times, Serif" size="3"> Read IRP handler ignores any keyboard reports that are all zero. A real driver would return read data when any key is pressed or released. A higher-level driver would have to implement an auto-repeat feature.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="1"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>3</sup> The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbGetIdleRate</font><font face="Times New Roman, Times, Serif" size="2"> routine shows how to read the idle rate.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_428.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_429</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_430.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_96</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_95.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_96</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_97.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 96</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">NT_SUCCESS</font><font face="Times New Roman, Times, Serif" size="3"> macro is used to test whether the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCreateDevice</font><font face="Times New Roman, Times, Serif" size="3"> kernel call has completed. Do not forget to check that all calls to the kernel succeed. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">NT_ERROR</font><font face="Times New Roman, Times, Serif" size="3"> macro is not equivalent to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">!NT_SUCCESS</font><font face="Times New Roman, Times, Serif" size="3">. It is better to use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">!NT_SUCCESS</font><font face="Times New Roman, Times, Serif" size="3">, as it catches warning status values as well as errors.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 5.2 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1 Pnp.cpp</font><font face="Times New Roman, Times, Serif" size="3"> Create and Delete device code</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="644" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS Wdm1AddDevice( IN PDRIVER_OBJECT DriverObject, IN PDEVICE_OBJECT pdo)<br />
+{<br />
+    . . .<br />
+    NTSTATUS status;<br />
+    PDEVICE_OBJECT fdo;<br /><br />
+    // Create our Functional Device Object in fdo<br />
+    status = IoCreateDevice( DriverObject,<br />
+       sizeof(WDM1_DEVICE_EXTENSION),<br />
+       NULL,    // No Name<br />
+       FILE_DEVICE_UNKNOWN,<br />
+       0,<br />
+       FALSE,    // Not exclusive<br />
+       &amp;fdo);<br />
+    if( !NT_SUCCESS(status))<br />
+       return status;<br /><br />
+    // Remember fdo in our device extension<br />
+    PWDM1_DEVICE_EXTENSION dx = (PWDM1_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;<br />
+    dx-&gt;fdo = fdo;<br />
+    . . .<br />
+    // Attach to the driver stack below us<br />
+    dx-&gt;NextStackDevice = IoAttachDeviceToDeviceStack(fdo,pdo);<br /><br />
+    // Set fdo flags appropriately<br />
+    fdo-&gt;Flags &amp;= ~DO_DEVICE_INITIALIZING;<br />
+    fdo-&gt;Flags |= DO_BUFFERED_IO;<br />
+    . . .<br />
+}<br /><br />
+NTSTATUS Wdm1Pnp( IN PDEVICE_OBJECT fdo, IN PIRP Irp)<br />
+{<br />
+    . . .<br />
+    // Device removed<br />
+    if( MinorFunction==IRP_MN_REMOVE_DEVICE)<br />
+    {</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_95.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_96</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_97.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

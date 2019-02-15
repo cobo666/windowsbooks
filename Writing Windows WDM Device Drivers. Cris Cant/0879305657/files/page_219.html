@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_219</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_218.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_219</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_220.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 219</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 10.5 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SendDeviceSetPower</font><font face="Times New Roman, Times, Serif" size="3"> routine</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">    PSDSP psdsp = (PSDSP)Context;<br />
+    psdsp-&gt;Status = IoStatus-&gt;Status;<br />
+    KeSetEvent( &amp;psdsp-&gt;event, 0, FALSE);<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Setting Device Power States</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PowerSetPower</font><font face="Times New Roman, Times, Serif" size="3"> in Listing 10.3 handles Set device Power IRPs.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If the device must be powered up, the power state must be changed after all the lower drivers have processed the Set device Power IRP. As before, a completion routine, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">OnCompleteIncreaseDevicePower</font><font face="Times New Roman, Times, Serif" size="3">, is set and the lower drivers are called. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">OnCompleteIncreaseDevicePower</font><font face="Times New Roman, Times, Serif" size="3"> shown in Listing 10.6 eventually calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetPowerState</font><font face="Times New Roman, Times, Serif" size="3"> to change the device power state.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If the device must be powered down, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PowerSetPower</font><font face="Times New Roman, Times, Serif" size="3"> can simply call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetPowerState</font><font face="Times New Roman, Times, Serif" size="3"> and pass the IRP to the lower drivers.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 10.6 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">OnCompleteIncreaseDevicePower</font><font face="Times New Roman, Times, Serif" size="3"> routine</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS OnCompleteIncreaseDevicePower( IN PDEVICE_OBJECT fdo, IN PIRP Irp<br />
+    IN PVOID context)<br />
+{<br />
+    PWDM2_DEVICE_EXTENSION dx = (PWDM2_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;<br />
+    if (Irp-&gt;PendingReturned)<br />
+        IoMarkIrpPending(Irp);<br />
+    NTSTATUS status = Irp-&gt;IoStatus.Status;<br />
+    DebugPrint("OnCompleteIncreaseDevicePower %x",status);<br />
+    if( !NT_SUCCESS(status))<br />
+        return status;<br /><br />
+    PIO_STACK_LOCATION IrpStack = IoGetCurrentIrpStackLocation(Irp);<br />
+    POWER_STATE PowerState = IrpStack-&gt;Parameters.Power.State;<br />
+    SetPowerState(dx,PowerState.DeviceState);<br /><br />
+    PoStartNextPowerIrp(Irp);<br />
+    return status;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>SetPowerState</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 10.7 shows the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetPowerState</font><font face="Times New Roman, Times, Serif" size="3"> routine in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceIo.cpp</font><font face="Times New Roman, Times, Serif" size="3"> that actually changes the device power state. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetPowerState</font><font face="Times New Roman, Times, Serif" size="3"> simply stores the new device state in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> device extension and then calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PoSetPowerState</font><font face="Times New Roman, Times, Serif" size="3"> to inform the Power Manager.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_218.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_219</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_220.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

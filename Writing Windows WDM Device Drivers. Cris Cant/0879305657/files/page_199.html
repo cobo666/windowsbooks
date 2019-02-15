@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_199</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_198.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_199</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_200.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 199</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Device Driver PnP Notification</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A driver uses PnP Notification to find devices with a particular device interface. A driver does this so that it can issue calls to the devices that it finds. It may wish to layer its own device on top of each found device. This technique is commonly used when finding Human Input Devices, and a full example of this is given in Chapter 23.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">PnP Notification in device drivers works in a similar way to Win32 applications. Remember that this is one device driver asking for device change notifications about devices controlled by another driver.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The driver must call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoRegisterPlugPlayNotification</font><font face="Times New Roman, Times, Serif" size="3"> to indicate which events it is interested in receiving, and eventually call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoUnregisterPlugPlayNotification</font><font face="Times New Roman, Times, Serif" size="3"> when done. You must pass the name of a callback routine to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoRegisterPlugPlayNotification</font><font face="Times New Roman, Times, Serif" size="3">, along with a context pointer.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In device drivers, you can ask for three different categories of PnP Notification events. If you ask for </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventCategoryDeviceInterfaceChange</font><font face="Times New Roman, Times, Serif" size="3"> events your callback routine is passed a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DEVICE_INTERFACE_CHANGE_NOTIFICATION</font><font face="Times New Roman, Times, Serif" size="3"> structure that notifies you only of <i>device removal</i> and <i>device arrival</i> events, along with the appropriate symbolic link. Specify the relevant GUID in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventCategoryData</font><font face="Times New Roman, Times, Serif" size="3"> parameter of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoRegisterPlugPlayNotification</font><font face="Times New Roman, Times, Serif" size="3">. If you specify </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PNPNOTIFY_DEVICE_INTERFACE_INCLUDE_EXISTING_INTERFACES</font><font face="Times New Roman, Times, Serif" size="3"> for the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventCategoryFlags</font><font face="Times New Roman, Times, Serif" size="3"> parameter, <i>arrival</i> events are also sent straightaway for any existing devices that have a matching device interface GUID.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If you register for </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventCategoryHardwareProfileChange</font><font face="Times New Roman, Times, Serif" size="3"> events, you receive <i>query change, change complete,</i> and <i>change cancelled</i> events.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Finally, if you ask for </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventCategoryTargetDeviceChange</font><font face="Times New Roman, Times, Serif" size="3"> events, you receive <i>query remove, removal completes,</i> and <i>remove cancelled</i> messages for one specific device. You must supply a pointer to the relevant file object as the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EvertCategoryData</font><font face="Times New Roman, Times, Serif" size="3"> parameter of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoRegisterPlugPlayNotification</font><font face="Times New Roman, Times, Serif" size="3">. I assume that you can reject <i>query remove</i> requests.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Driver PnP Notification is particularly important for client drivers that use device interfaces exposed by the system class drivers. For example, kernel mode Human Input Device (HID) client drivers can use PnP Notification to identify all installed HID devices. See Chapter 23 for a full example of PnP Notification in device drivers.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">As mentioned earlier, device stacks cannot be changed once they are built. PnP Notification lets you find existing devices and effectively layer on top of them.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Notification Request Driver Interactions</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">As might expect, Win32 programs and device drivers that register for PnP Notification events will effect the operation of a driver. <i>Query remove</i> requests are processed by PnP Notification applications and drivers before the main driver receives an </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IRP_MN_QUERY_REMOVE_DEVICE</font><font face="Times New Roman, Times, Serif" size="3"> IRP.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Cancel remove</i> notification messages are sent to applications and other drivers after the main driver has processed its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IRP_MN_CANCEL_REMOVE_DEVICE</font><font face="Times New Roman, Times, Serif" size="3"> message. <i>Remove pending</i> messages are sent before a device is removed (or surprise removed) and a <i>remove complete</i> notification message is sent afterwards.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_198.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_199</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_200.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

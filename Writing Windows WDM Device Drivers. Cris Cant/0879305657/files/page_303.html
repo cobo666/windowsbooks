@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_303</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_302.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_303</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_304.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 303</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.5 shows how a named Functional Device Object is created in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DbpAddDevice</font><font face="Times New Roman, Times, Serif" size="3"> in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Pnp.cpp</font><font face="Times New Roman, Times, Serif" size="3">. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintName</font><font face="Times New Roman, Times, Serif" size="3"> variable is a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UNICODE_STRING</font><font face="Times New Roman, Times, Serif" size="3"> that is initialized with the desired kernel device name, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\Device\PHDDebugPrint</font><font face="Times New Roman, Times, Serif" size="3">. This is passed to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCreateDevice</font><font face="Times New Roman, Times, Serif" size="3"> call.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Later in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DbpAddDevice</font><font face="Times New Roman, Times, Serif" size="3">, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> device interface is registered in the same way as before. The device interface GUID is defined in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DbgPrtGUID.h</font><font face="Times New Roman, Times, Serif" size="3"> as {</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ED6026A2-6813-1ld2-AE43-00C0DFE4C1F3</font><font face="Times New Roman, Times, Serif" size="3">}. This header file is also included by the <i>DebugPrint Monitor</i> project.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.5 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver device creation</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="625" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">UNICODE_STRING DebugPrintName;<br />
+RtlInitUnicodeString( &amp;DebugPrintName, L''\\Device\\PHDDebugPrint");<br /><br />
+// Create our Functional Device Object in fdo<br />
+status = IoCreateDevice (DriverObject,<br />
+    sizeof(DEBUGPRINT_DEVICE_EXTENSION),<br />
+    &amp;DebugPrintName,<br />
+    FILE_DEVICE_UNKNOWN,<br />
+    0,<br />
+    FALSE,      // Not exclusive<br />
+    &amp;fdo);</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If you try to create a second </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> device, the same kernel device name is passed to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCreateDevice</font><font face="Times New Roman, Times, Serif" size="3">. As this device name is already being used, the call will fail. This problem does not occur if you pass NULL for the device name, as in earlier examples. If you definitely need more than one named kernel device, you must keep a (zero-based) count of devices and append it as a device number to the kernel device name.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">No special processing is required when you remove a device with a kernel device name.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Read Queue</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The Read IRP queue is implemented using variables in the device extension, shown in Listing 14.6. If </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ReadIrp</i></font><font face="Times New Roman, Times, Serif" size="3"> is NULL, no IRP is queued. Otherwise, it contains a pointer to the queued IRP. A spin lock called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ReadIrpLock</i></font><font face="Times New Roman, Times, Serif" size="3"> is used to protect access to the read queue. These fields are initialized as follows in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DbpAddDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Pnp.cpp</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="625" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">// Initialise "read queue"<br />
+KeInitializeSpinLock(&amp;dx-&gt;ReadIrpLock);<br />
+dx-&gt;ReadIrp = NULL;</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.6 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver device extension</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="625" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">typedef struct_DEBUGPRINT_DEVICE_EXTENSION<br />
+{<br />
+    PDEVICE_OBJECT     fdo;<br />
+    PDEVICE_OBJECT     NextStackDevice;<br />
+    UNICODE_STRING     ifSymLinkName;</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_302.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_303</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_304.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_41</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_40.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_41</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_42.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 41</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Figure 3.2 shows how an IRP might be processed by four drivers in the device stack. The first IRP arrives at the highest driver, Driver 1. This uses the function </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoGetCurrentIrpStackLocation</font><font face="Times New Roman, Times, Serif" size="3"> to obtain a pointer to the current stack location. The figure shows that this returns the topmost IRP stack location.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Driver 1 decides that it needs to pass the IRP down the stack for processing. The IRP might be a Power Management IRP that the lowest bus driver needs to see. Driver 1 might not do anything with this IRP, but it still needs to pass the IRP down the stack.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Driver 1 therefore sets up the stack location for the next driver. In many cases, it simply copies the current stack location to the next using the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCopyCurrentIrpStackLocationToNext</font><font face="Times New Roman, Times, Serif" size="3"> or </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoSkipCurrentIrpStackLocation</font><font face="Times New Roman, Times, Serif" size="3"> functions. If you need to alter the next stack location, then use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoGetNextIrpStackLocation</font><font face="Times New Roman, Times, Serif" size="3"> to get a pointer to it.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Driver 1 then calls the next driver down the stack using the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCallDriver</font><font face="Times New Roman, Times, Serif" size="3"> function. The I/O Manager now changes the "current IRP stack location" pointer so that Driver 2 sees the second IRP stack location down (the one that Driver 1 set up for it). This process continues until the lowest driver, Driver 4, receives the IRP.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Driver 4 now processes the IRP. When it has finished with the IRP, Driver 4 calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCompleteRequest</font><font face="Times New Roman, Times, Serif" size="3"> to indicate that it has finished processing the IRP. The IRP travels back up the device stack until it eventually pops out the top and is returned to the user.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Each of the drivers in the stack is given an opportunity to work with the IRP again as it travels up the stack, if they wish to do so. To do this, a driver must attach a <i>completion routine</i> to an IRP using the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoSetCompletionRoutine</font><font face="Times New Roman, Times, Serif" size="3"> function. The completion routine information is stored in each driver's IRP stack location. This lets each of the drivers numbered 1 to 3 work on the IRP as it travels back up the stack in the order: Driver 3, Driver 2, and then Driver 1. A driver does not need to attach a completion routine. In this case, the I/O Manager does not call the driver as the IRP passes up the stack.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="8c0dd51f8f90655af0afb9e183588c64.gif" border="0" alt="0041-01.gif" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="2">Figure 3.2<br />
+How all drivers in a stack process an IRP<br />
+© 1999 PHD Computer Consultants Ltd</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_40.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_41</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_42.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

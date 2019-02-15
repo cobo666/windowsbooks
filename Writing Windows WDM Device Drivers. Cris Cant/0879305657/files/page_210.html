@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_210</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_209.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_210</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_211.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 210</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">system state is OK. Then a Set Power IRP is issued for the system power state. The driver determines that it must power up its device. It sets a completion routine and passes the IRP to the lower drivers at <img src="690387f095f6c216eee05826f659d422.gif" border="0" alt="C0229-02.gif" width="12" height="12" />.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The completion routine for the Set System State sends itself a Set Device State Power IRP at <img src="cff13ddc76f6023af49fd48d108ebb89.gif" border="0" alt="C0229-03.gif" width="12" height="14" />, setting a completion routine. When this IRP gets to your driver, it again works out that it must power up. It passes the IRP to the lower drivers at <img src="d8cc22c1ca8e8ccad862692fdb983139.gif" border="0" alt="C0229-04.gif" width="12" height="14" /> and sets another completion routine. When this completion routine runs at <img src="6fc469ea059f1a6b9b902b6a182e10b8.gif" border="0" alt="C0229-05.gif" width="12" height="14" />, the driver can finally power its device up in whatever way is appropriate at <img src="93041e85ce0e8513612fafa3666f54ea.gif" border="0" alt="C0229-06.gif" width="12" height="13" />.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The completion routine at <img src="e6e9cd27fce14db5ee5bc0f37afd50c1.gif" border="0" alt="C0229-07.gif" width="12" height="16" /> runs. The original Set System State Power IRP completion routine at <img src="cff13ddc76f6023af49fd48d108ebb89.gif" border="0" alt="C0229-03.gif" width="12" height="14" /> eventually continues its run. It completes the first IRP.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">This example appears complicated, as there are three different IRP completion routines involved. However, the full example given later should make the process clear. The original Set System State IRP needs a completion routine at <img src="cff13ddc76f6023af49fd48d108ebb89.gif" border="0" alt="C0229-03.gif" width="12" height="14" /> so that the driver knows when the IRP has been processed by the rest of the stack. This completion routine must send a Set Device State IRP to itself. It needs a completion routine at <img src="e6e9cd27fce14db5ee5bc0f37afd50c1.gif" border="0" alt="C0229-07.gif" width="12" height="16" /> so that it knows when this IRP has completed its rites of passage. Finally, when the driver processes the Set Device State IRP, it needs a completion routine at <img src="6fc469ea059f1a6b9b902b6a182e10b8.gif" border="0" alt="C0229-05.gif" width="12" height="14" /> so that it knows when the lower drivers have finished processing this IRP.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="c3ced98d0d0d8f6d87e70c30b5187741.gif" border="0" alt="Z0230-02.gif" width="472" height="216" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="2">Figure 10.3<br />
+Power up system processing<br />
+© 1999 PHD Computer Consultants Ltd</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Not Processing Power IRPs</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Some drivers like </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> (and in fact, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3">) can happily ignore all Power IRPs. All they have to do is pass all Power IRPs down the stack. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3">'s </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1Power</font><font face="Times New Roman, Times, Serif" size="3"> dispatch routine shown in Listing 10.1 does just this. Note the use of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PoCallDriver</font><font face="Times New Roman, Times, Serif" size="3"> rather than </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCallDriver</font><font face="Times New Roman, Times, Serif" size="3">. If you do not process Power IRPs, please include a default power handler like </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1Power</font><font face="Times New Roman, Times, Serif" size="3"> so that these IRPs reach lower drivers.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_209.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_210</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_211.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

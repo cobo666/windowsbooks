@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_98</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_97.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_98</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_99.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 98</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="86dc5034a619e8b011bbec3558e787bb.gif" border="0" alt="0098-01.gif" width="569" height="248" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCreateDevice</font><font face="Times New Roman, Times, Serif" size="3"> returns successfully, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceObject</font><font face="Times New Roman, Times, Serif" size="3"> parameter is set to point to the new device object. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> calls this its Functional Device Object (FDO). The Plug and Play chapter explains FDOs and PDOs in detail. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1AddDevice</font><font face="Times New Roman, Times, Serif" size="3"> returns an error if </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCreateDevice</font><font face="Times New Roman, Times, Serif" size="3"> fails.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> device extension is now available through the FDO </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>DeviceExtension</i></font><font face="Times New Roman, Times, Serif" size="3"> field. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1AddDevice</font><font face="Times New Roman, Times, Serif" size="3"> stores a pointer to the FDO in its device extension.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1AddDevice</font><font face="Times New Roman, Times, Serif" size="3"> now attaches the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> device to the device stack using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoAttachDeviceToDeviceStack</font><font face="Times New Roman, Times, Serif" size="3">, which must be called at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="2"><sup>1</sup></font><font face="Times New Roman, Times, Serif" size="3">. The FDO and the given PDO are passed to this function. It returns a pointer to yet another device object that is also stored in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> device extension. All this shenanigans are explained in the Plug and Play chapters.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Finally, two bits in the FDO </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Flags</i></font><font face="Times New Roman, Times, Serif" size="3"> field must be changed. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AddDevice</font><font face="Times New Roman, Times, Serif" size="3"> routines must clear the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DO_DEVICE_INITIALIZING</font><font face="Times New Roman, Times, Serif" size="3"> flag. You do not need to clear this flag if you call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCreateDevice</font><font face="Times New Roman, Times, Serif" size="3"> in your </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DriverEntry</font><font face="Times New Roman, Times, Serif" size="3"> routine. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DO_BUFFERED_IO</font><font face="Times New Roman, Times, Serif" size="3"> flag is set in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Flags</i></font><font face="Times New Roman, Times, Serif" size="3"> field. Again, this is covered later.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Deleting Devices</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> driver must delete its FDO if it receives a <i>Remove Device</i> request. This is an </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IRP_MJ_PNP</font><font face="Times New Roman, Times, Serif" size="3"> IRP with an </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IRP_MN_REMOVE_DEVICE</font><font face="Times New Roman, Times, Serif" size="3"> minor version code. The code in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1Pnp</font><font face="Times New Roman, Times, Serif" size="3"> first calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoDetachDevice</font><font face="Times New Roman, Times, Serif" size="3"> to detach the FDO from the device stack. Finally, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoDeleteDevice</font><font face="Times New Roman, Times, Serif" size="3"> is called to delete the FDO and its device extension.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoDetachDevice</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoDeleteDevice</font><font face="Times New Roman, Times, Serif" size="3"> must be called at IRQL </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Device Names</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AddDevice</font><font face="Times New Roman, Times, Serif" size="3"> code calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCreateDevice</font><font face="Times New Roman, Times, Serif" size="3"> to create a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> device object. There are two ways to provide a name that is available to Win32 programs. The old way is to provide an explicit symbolic link name. The newfangled approach is to use a device interface to identify the devices that support a defined API.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="1"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>1</sup> If you call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoAttachDeviceToDeviceStack</font><font face="Times New Roman, Times, Serif" size="2"> at a higher IRQL, your driver may crash.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_97.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_98</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_99.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

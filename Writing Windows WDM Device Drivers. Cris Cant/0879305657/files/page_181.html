@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_181</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_180.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_181</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_182.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 181</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">possible. However, one or more I/O requests may be in progress or queued up. It is fairly straightforward to cancel all the IRPs in a device queue; see Chapter 16 for details. However, the best method to handle I/O IRPs that are in progress is more complicated.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If you cannot somehow fail any I/O requests in progress, the recommended solution is to wait for them to complete. The main IRP processing routines are more than likely to be using the device or device extension, so these structures cannot be deleted until it is certain that they will not be used again. The main IRP processing routines almost certainly encounter some sort of problem. Make sure that they can handle a device being removed. A routine might be expecting an interrupt. Chapter 17 later shows how two different types of timers can be used to provide a time-out for I/O requests.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">What is best way to keep track of how many I/O requests are in progress? The answer is to laboriously keep track of the number of open I/O requests in a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>UsageCount</i></font><font face="Times New Roman, Times, Serif" size="3"> field in the device extension. A call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LockDevice</font><font face="Times New Roman, Times, Serif" size="3"> is made at the beginning of each IRP request to increment </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>UsageCount</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">.</font></i><font face="Times New Roman, Times, Serif" size="3"> </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UnlockDevice</font><font face="Times New Roman, Times, Serif" size="3"> is called when each IRP is completed to decrement </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>UsageCount</i></font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>UsageCount</i></font><font face="Times New Roman, Times, Serif" size="3"> is set to one when the device is created. To remove or stop a device, an extra call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UnlockDevice</font><font face="Times New Roman, Times, Serif" size="3"> is made. If there are no other IRPs in progress, this call should have decremented </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>UsageCount</i></font><font face="Times New Roman, Times, Serif" size="3"> to zero. If there are IRPs in progress, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>UsageCount</i></font><font face="Times New Roman, Times, Serif" size="3"> will at this stage have a value greater than zero. However, when these IRPs finish, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UnlockDevice</font><font face="Times New Roman, Times, Serif" size="3"> will be called and so </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>UsageCount</i></font><font face="Times New Roman, Times, Serif" size="3"> will in due course become zero.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The <i>Remove Device</i> or <i>Stop Device</i> PnP IRP needs to know when </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UnlockDevice</font><font face="Times New Roman, Times, Serif" size="3"> decrements </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>UsageCount</i></font><font face="Times New Roman, Times, Serif" size="3"> to zero. Another kernel event, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>StoppingEvent</i></font><font face="Times New Roman, Times, Serif" size="3">, is used for this purpose. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UnlockDevice</font><font face="Times New Roman, Times, Serif" size="3"> sets </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>StoppingEvent</i></font><font face="Times New Roman, Times, Serif" size="3"> into the signalled state when </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>UsageCount</i></font><font face="Times New Roman, Times, Serif" size="3"> drops to zero.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 9.9 shows the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PnpStopDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine that the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> driver uses to stop a device. It is called by the <i>Remove Device, Surprise Removal,</i> and <i>Stop Device</i> PnP IRP handlers. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PnpStopDevice</font><font face="Times New Roman, Times, Serif" size="3"> sets the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>IODisabled</i></font><font face="Times New Roman, Times, Serif" size="3"> flag straightaway to stop any new requests from starting. The device is already stopped if </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>GotResources</i></font><font face="Times New Roman, Times, Serif" size="3"> is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">false</font><font face="Times New Roman, Times, Serif" size="3">, so no more processing is required.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PnpStopDevice</font><font face="Times New Roman, Times, Serif" size="3"> resets </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>StoppingEvent</i></font><font face="Times New Roman, Times, Serif" size="3"> and then calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UnlockDevice</font><font face="Times New Roman, Times, Serif" size="3"> twice. The first undoes the call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LockDevice</font><font face="Times New Roman, Times, Serif" size="3"> at the start of the main PnP IRP handler. The second will reduce </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>UsageCount</i></font><font face="Times New Roman, Times, Serif" size="3"> to zero, either straightaway or when all the IRPs in progress complete. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PnpStopDevice</font><font face="Times New Roman, Times, Serif" size="3"> then waits for </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>StoppingEvent</i></font><font face="Times New Roman, Times, Serif" size="3"> to be set by </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UnlockDevice</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PnpStopDevice</font><font face="Times New Roman, Times, Serif" size="3"> then calls the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StopDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine, described later. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StopDevice</font><font face="Times New Roman, Times, Serif" size="3"> resets the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>GotResources</i></font><font face="Times New Roman, Times, Serif" size="3"> flag. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PnpStopDevice</font><font face="Times New Roman, Times, Serif" size="3">'s last task is to call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LockDevice</font><font face="Times New Roman, Times, Serif" size="3"> again to increment </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>UsageCount</i></font><font face="Times New Roman, Times, Serif" size="3"> again. The main PnP IRIP handler calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UnlockDevice</font><font face="Times New Roman, Times, Serif" size="3"> in due course to get </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>UsageCount</i></font><font face="Times New Roman, Times, Serif" size="3"> down to its correct value of zero.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 9.9 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PnpStopDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">void PnpStopDevice( IN PWDM2_DEVICE_EXTENSION dx)<br />
+{<br />
+    // Stop I/O ASAP<br />
+    dx-&gt;IODisabled = true;<br /><br />
+    // Do nothing if we're already stopped<br />
+    if( !dx-&gt;GotResources)<br />
+        return;</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_180.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_181</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_182.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

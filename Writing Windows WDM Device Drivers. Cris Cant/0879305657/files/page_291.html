@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_291</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_290.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_291</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_292.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 291</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">trace statement output is sent to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver. It should eventually be possible to put all the code in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint.c</font><font face="Times New Roman, Times, Serif" size="3"> into a static library or DLL that is linked with test drivers.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The main job performed by the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> code in each test driver is to write events to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver. The kernel provides several routines to call other drivers, including </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwCreateFile</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwWriteFile</font><font face="Times New Roman, Times, Serif" size="3">, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwClose</font><font face="Times New Roman, Times, Serif" size="3">. The documentation for these functions says that these functions can only be called at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> IRQL. This means that they cannot be called directly from some sorts of driver code.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In my initial design, I ignored this issue. However, I soon ran into another problem that was more difficult to track down. Eventually, I worked out that calls to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwWriteFile</font><font face="Times New Roman, Times, Serif" size="3"> have to be made in the same process context as </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwCreateFile</font><font face="Times New Roman, Times, Serif" size="3">. The DDK documentation did not make this point prominently. In my initial design, I used </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwCreateFile</font><font face="Times New Roman, Times, Serif" size="3"> in the test driver </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DriverEntry</font><font face="Times New Roman, Times, Serif" size="3"> routine. However, the print routines using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwWriteFile</font><font face="Times New Roman, Times, Serif" size="3"> could naturally be called in dispatch routines, which are usually not running in the same process context.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Thread and process contexts are not normally a problem for most device drivers. When you process a normal user request, the IRP has all the information you need. The fact that you may be running in an arbitrary thread context does not effect the job you have to do. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Zw</font><font face="Times New Roman, Times, Serif" size="3"> . . . file access functions are one case when the process context is significant. If you use "neither" Buffered I/O nor Direct I/O or use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">METHOD_NEITHER</font><font face="Times New Roman, Times, Serif" size="3"> IOCTLs, the thread context is also important.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>System Threads</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The solution to both these problems is to use a system thread. A driver can create a system thread (or threads) that runs in kernel mode. This thread runs at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> IRQL. If the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> system thread makes all the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Zw</font><font face="Times New Roman, Times, Serif" size="3"> . . . calls, the "same process" problem is fixed. A doubly-linked list is used to store the events for processing by the system thread. Inserting events into this list can be done safely at IRQL levels up to and including </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DISPATCH_LEVEL</font><font face="Times New Roman, Times, Serif" size="3">. This means that most types of driver code can generate </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> trace output.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintInit</font><font face="Times New Roman, Times, Serif" size="3"> routine calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PsCreateSystemThread</font><font face="Times New Roman, Times, Serif" size="3"> (at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> IRQL) to create its system thread as shown in the partial code in Listing 14.1. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PsCreateSystemThread</font><font face="Times New Roman, Times, Serif" size="3"> is passed the name of the function to run and a context to pass to it. The DebugPrint system thread function is defined as follows.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="475" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">void DebugPrintSystemThread( IN PVOID Context)</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintInit</font><font face="Times New Roman, Times, Serif" size="3"> passes just a NULL context to the thread function. Some drivers may wish to create one thread per device, and so will usually pass a pointer to the device extension as the context. A </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> test driver has just one system thread for all its devices.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> system thread does not need a high priority. Therefore, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintSystemThread</font><font face="Times New Roman, Times, Serif" size="3"> calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeSetPriorityThread</font><font face="Times New Roman, Times, Serif" size="3"> straightaway to set its priority to the lowest real-time priority. It uses </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeGetCurrentThread</font><font face="Times New Roman, Times, Serif" size="3"> to get a pointer to its own thread object.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PsCreateSystemThread</font><font face="Times New Roman, Times, Serif" size="3"> succeeds, it returns a handle to the thread. Later, I shall show that a driver can wait for certain objects to be set. It can wait for the completion of a system thread if it has a pointer to the system thread object, not a handle. Use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ObReferenceObjectByHandle</font><font face="Times New Roman, Times, Serif" size="3"> to retrieve the thread object pointer. If this succeeds, call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwClose</font><font face="Times New Roman, Times, Serif" size="3"> to close the thread handle. Technically speaking, the call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwClose</font><font face="Times New Roman, Times, Serif" size="3"> reduces the reference count to the thread handle. When the thread completes, its handle reference count will be decremented to zero</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_290.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_291</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_292.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

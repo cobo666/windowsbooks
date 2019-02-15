@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_420</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_419.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_420</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_421.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 420</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Building and issuing an IOCTL IRP is made particularly easy with the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoBuildDeviceIoControlRequest</font><font face="Times New Roman, Times, Serif" size="3"> call. If you pass an initialized event, you can wait for the IRP to complete simply by waiting for the event to become signalled. You do not need to set up a completion routine.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoBuildDeviceIoControlRequest</font><font face="Times New Roman, Times, Serif" size="3"> can be used to make both IOCTL and Internal IOCTL IRPs, depending on the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InternalDeviceIoControl</font><font face="Times New Roman, Times, Serif" size="3"> parameter. In a similar way to the Win32 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceIoControl</font><font face="Times New Roman, Times, Serif" size="3"> call, both input and output buffers can be used. The IOCTL control code must use buffered I/O.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Internally, it seems as though </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoBuildDeviceIoControlRequest</font><font face="Times New Roman, Times, Serif" size="3"> allocates some nonpaged memory to hold the combined input and output buffer, to make it work exactly like a standard IOCTL call. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoBuildDeviceIoControlRequest</font><font face="Times New Roman, Times, Serif" size="3"> copies the input buffer there initially. It must set its own completion routine that copies the data back into your given output buffer (as well as setting the event and freeing the IRP memory).</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The USB Internal IOCTLs do not use the standard input and output buffers</font><font face="Times New Roman, Times, Serif" size="2"><sup>1</sup></font><font face="Times New Roman, Times, Serif" size="3">. Instead, you have to set up the next stack location </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Parameters.Others.Argument1</i></font><font face="Times New Roman, Times, Serif" size="3"> field. This is more complicated than you might think.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Previous examples have used </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoSkipCurrentIrpStackLocation</font><font face="Times New Roman, Times, Serif" size="3"> to reuse the current IRP stack location, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCopyCurrentIrpStackLocationToNext</font><font face="Times New Roman, Times, Serif" size="3"> to copy the current stack location to the next when setting a completion routine. We cannot use these routines, as the current stack location is not set up yet.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCallDriver</font><font face="Times New Roman, Times, Serif" size="3"> call moves onto the next IRP stack location. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CallUSBDI</font><font face="Times New Roman, Times, Serif" size="3"> wants to change the stack location that the next lower driver sees. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoGetNextIrpStackLocation</font><font face="Times New Roman, Times, Serif" size="3"> call returns the required IRP stack location pointer</font><font face="Times New Roman, Times, Serif" size="2"><sup>2</sup></font><font face="Times New Roman, Times, Serif" size="3">. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoBuildDeviceIoControlRequest</font><font face="Times New Roman, Times, Serif" size="3"> call has already set up most of the correct values for this stack location. The required values are set into the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Parameters.Others.Argument1</i></font><font face="Times New Roman, Times, Serif" size="3"> field, etc.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In summary, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CallUSBDI</font><font face="Times New Roman, Times, Serif" size="3"> does the following jobs.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">1. Initializes an IRP completion event</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">2. Builds an Internal IOCTL</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">3. Stores the URB pointer, etc., in the IRP's next stack location</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">4. Calls the next driver</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">5. If the request is still pending, wait for the completion event to become signalled. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeWaitForSingleObject WaitReason</font><font face="Times New Roman, Times, Serif" size="3"> parameter must be set to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Suspended</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 21.2 Calling USBDI</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="691" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS CallUSBDI( IN PUSBKBD_DEVICE_EXTENSION dx, IN PVOID UrbEtc,<br />
+                    IN ULONG IoControlCode/*=IOCTL_INTERNAL_USB_SUBMIT_URB*/,<br />
+                    IN ULONG Arg2/*=0*/)<br />
+{<br />
+     IO_STATUS_BLOCK IoStatus;</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="1"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>1</sup> Presumably to avoid unnecessary copying of large buffers.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="5"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="2" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>2</sup> Unlike a processor execution stack, there is nothing wrong with altering the next item down the stack.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_419.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_420</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_421.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

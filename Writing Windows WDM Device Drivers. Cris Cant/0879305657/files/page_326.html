@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_326</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_325.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_326</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_327.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 326</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">the output buffer to the Data port. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIO_DELAY</font><font face="Times New Roman, Times, Serif" size="3"> is used to delay for 1</font><font face="Symbol" size="3">m</font><font face="Times New Roman, Times, Serif" size="3">s while the output signals settle. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STROBE</font><font face="Times New Roman, Times, Serif" size="3"> signal is then set. A delay of 1</font><font face="Symbol" size="3">m</font><font face="Times New Roman, Times, Serif" size="3">s is used before turning </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STROBE</font><font face="Times New Roman, Times, Serif" size="3"> off again. A last delay of 1µs is introduced just to be on the safe side. Finally, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Status</font><font face="Times New Roman, Times, Serif" size="3"> register is read; I shall show later on how to access this value.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 15.3 Stored write byte commands</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="662" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">BYTE WriteByte[] =<br />
+{<br />
+      PHDIO_WRITE, PARPORT_CONTROL, 0×DC, // Ensure STROBE  off<br />
+      PHDIO_WRITE_NEXT, PARPORT_DATA,     // Write next byte<br />
+      PHDIO_DELAY, 1,                     // Delay 1us<br />
+      PHDIO_WRITE, PARPORT_CONTROL, 0×DD, // STROBE on<br />
+      PHDIO_DELAY, 1,                     // Delay 1us<br />
+      PHDIO_WRITE, PARPORT_CONTROL, 0×DC, // STROBE off<br />
+      PHDIO_DELAY, 1,                     // Delay 1us<br /><br />
+      PHDIO_READ, PARPORT_STATUS,         // Read status<br />
+};</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIO_WRITE_NEXT</font><font face="Times New Roman, Times, Serif" size="3"> command is crucial to these data transfer commands. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> driver keeps track of the current position in the output buffer passed by </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WriteFile</font><font face="Times New Roman, Times, Serif" size="3">. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> correctly runs the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WriteByte</font><font face="Times New Roman, Times, Serif" size="3"> commands until all the bytes have been transferred.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Writing Data</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The <i>WdmIoTest</i> program is finally ready to output a message to the printer. The following code snippet shows that </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WriteFile</font><font face="Times New Roman, Times, Serif" size="3"> is used in the normal way to output data.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="662" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">char* Msg = "Hello from WdmIo example\r\nChris Cant,<br />
+    PHD Computer Consultants Ltd\r\n";<br />
+DWORD len = strlen(Msg);<br />
+if( !WriteFile( hWdmIo, Msg, len, &amp;BytesReturned, NULL))<br />
+    printf("XXX   Could not write message %d\n",GetLastError());<br />
+else if( BytesReturned==len)<br />
+    printf("     Write succeeded\n");<br />
+else<br />
+    printf(''XXX  Wrong number of bytes written: %d\n",BytesReturned);</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> driver uses the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WriteByte</font><font face="Times New Roman, Times, Serif" size="3"> commands to output the first byte, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">H</font><font face="Times New Roman, Times, Serif" size="3">. It then expects an interrupt when each byte has been printed. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WriteByte</font><font face="Times New Roman, Times, Serif" size="3"> commands are run again by the interrupt handler to output each following byte. Assuming all goes well, when an interrupt is received after the last byte has been sent, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> completes the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WriteFile</font><font face="Times New Roman, Times, Serif" size="3"> call successfully.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If there is a problem, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WriteFile</font><font face="Times New Roman, Times, Serif" size="3"> returns an error. The most likely error is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ERROR_NOT_READY</font><font face="Times New Roman, Times, Serif" size="3">, which is returned if the write times out. If there is a problem running the write byte commands, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ERROR_GEN_FAILURE</font><font face="Times New Roman, Times, Serif" size="3"> is returned. Retrieve the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WriteFile</font><font face="Times New Roman, Times, Serif" size="3"> results to find the source of the problem.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_325.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_326</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_327.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

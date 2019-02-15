@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_311</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_310.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_311</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_312.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 311</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The code uses a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LISTENER_INFO</font><font face="Times New Roman, Times, Serif" size="3"> structure to pass information to the worker thread. There is only one instance of this object called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ListenerInfo</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" width="607" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">typedef struct _LISTENER_INFO<br />
+{<br />
+    HANDLE DebugPrintDriver;<br />
+    bool KeepGoing;<br />
+} LISTENER_INFO, *PLISTENER_INFO;<br /><br />
+LISTENER_INFO ListenerInfo;</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartListener</font><font face="Times New Roman, Times, Serif" size="3"> first stores a safe </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HWND</font><font face="Times New Roman, Times, Serif" size="3"> handle to the view window, to be used later.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">It then finds the first </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver device and opens a handle to it using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetDeviceViaInterfaceolOl</font><font face="Times New Roman, Times, Serif" size="3">. This is a variant on </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetDeviceViaInterface</font><font face="Times New Roman, Times, Serif" size="3">, shown in Chapter 5. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetDeviceViaInterfaceOl</font><font face="Times New Roman, Times, Serif" size="3"> opens the device for overlapped I/O by specifying the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">FILE_FLAG_OVERLAPPED</font><font face="Times New Roman, Times, Serif" size="3"> bit in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">dwFlagsAndAttributes</font><font face="Times New Roman, Times, Serif" size="3"> parameter to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateFile</font><font face="Times New Roman, Times, Serif" size="3">. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> device handle is stored in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ListenerInfo.DebugPrintDriver</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The code uses the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>KeepGoing</i></font><font face="Times New Roman, Times, Serif" size="3"> field in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ListenerInfo</font><font face="Times New Roman, Times, Serif" size="3"> to signal when the worker thread should stop. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>KeepGoing</i></font><font face="Times New Roman, Times, Serif" size="3"> is therefore set to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">true</font><font face="Times New Roman, Times, Serif" size="3"> before the thread is started. The thread is started using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AfxBeginThread</font><font face="Times New Roman, Times, Serif" size="3">, passing a pointer to the function to run, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ListenThreadFunction</font><font face="Times New Roman, Times, Serif" size="3">, and a context to pass to it.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ListenThreadFunction</font><font face="Times New Roman, Times, Serif" size="3"> loops, waiting either for event data or for </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>KeepGoing</i></font><font face="Times New Roman, Times, Serif" size="3"> to return </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">false.ListenThreadFunction</font><font face="Times New Roman, Times, Serif" size="3"> is in the file </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Dispatch.cpp</font><font face="Times New Roman, Times, Serif" size="3"> on the CD-ROM.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Debugprint</i></font><i><font face="Times New Roman, Times, Serif" size="3">_Event Class</font></i></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint_Event</font><font face="Times New Roman, Times, Serif" size="3"> class shown in Listing 14.11 is used to communicate events to the view class. Each class instance has </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Driver</i></font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Message</i></font><font face="Times New Roman, Times, Serif" size="3"> strings and an MFC </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CTime <i>Timestamp</i></font><i><font face="Times New Roman, Times, Serif" size="3">.</font></i><font face="Times New Roman, Times, Serif" size="3"> A static method called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SendEvent</font><font face="Times New Roman, Times, Serif" size="3"> is used to post a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint_Event</font><font face="Times New Roman, Times, Serif" size="3"> message to the view class.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" width="576" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">DebugPrint_Event::SendEvent( "Monitor", "Starting to listen",<br />
+    CTime::GetCurrentTime(), false);</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.11 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint_Event</font><font face="Times New Roman, Times, Serif" size="3"> class</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" width="655" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">const UINT WM_DEBUGPRINTEVENT = (WM_USER+1);<br /><br />
+class DebugPrint_Event<br />{<br />
+public:<br />
+    CString Driver;<br />
+    CTime Timestamp;<br />
+    CString Message;<br />
+    bool SetModified;        // false to reset document SetModifiedFlag.<br /><br />
+    static HWND ViewHwnd;         // View Hwnd</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_310.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_311</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_312.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

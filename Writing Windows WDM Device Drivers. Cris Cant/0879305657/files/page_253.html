@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_253</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_252.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_253</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_254.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 253</font></td></tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="727" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">SC_HANDLE hSCManager = OpenSCManager(NULL, NULL,SC_MANAGER_ALL_ACCESS);<br />
+if( hSCManager==NULL)<br />
+{<br />
+AfxMessageBox("Could not open Service Control Manager");<br />
+return FALSE;<br />
+}<br /><br />
+///////////////////////////////////////////////////////////////////////////<br />
+// If driver is running, stop it<br /><br />
+SC_HANDLE hDriver = OpenService(hSCManager,DriverName,SERVICE_ALL_ACCESS);<br />
+if( hDriver!=NULL)<br />
+{<br />
+SERVICE_STATUS ss;<br />
+if( ControlService(hDriver,SERVICE_CONTROL_INTERROGATE,&amp;ss))<br />
+{<br />
+if( ss.dwCurrentState!=SERVICE_STOPPED)<br />
+{<br />
+if( !ControlService(hDriver,SERVICE_CONTROL_STOP,&amp;ss))<br />
+{<br />
+AfxMessageBox("Could not stop driver");<br />
+CloseServiceHandle(hSCManager);<br />
+CloseServiceHandle(hDriver);<br />
+return FALSE;<br />
+}<br />
+// Give it 10 seconds to stop<br />
+BOOL Stopped = FALSE;<br />
+for(int seconds=0;seconds&lt;10;seconds++)<br />
+{<br />
+Sleep(1000);<br />
+if( ControlService(hDriver,SERVICE_CONTROL_INTERROGATE,&amp;ss) &amp;&amp;<br />
+ss.dwCurrentState==SERVICE STOPPED)<br />
+{<br />
+Stopped = TRUE;<br />
+break;<br />
+}<br />
+}<br />
+if( !Stopped)<br />
+{<br />
+AfxMessageBox("Could not stop driver");<br />
+CloseServiceHandle(hSCManager);<br />
+CloseServiceHandle(hDriver);</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_252.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_253</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_254.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

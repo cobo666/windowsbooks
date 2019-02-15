@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_310</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_309.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_310</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_311.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 310</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.10 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadEvent</font><font face="Times New Roman, Times, Serif" size="3"> routine</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="653" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">    // Shorten event length if necessary<br />
+    if( EventDataLen&gt;ReadLen)<br />
+        EventDataLen = ReadLen;<br /><br />
+    // Copy data to Irp and complete it<br />
+    RtlCopyMemory( Irp-&gt;AssociatedIrp.SystemBuffer,<br />
+        pEvent-&gt;EventData, EventDataLen);<br />
+    IoSetCancelRoutine(Irp,NUUL);<br />
+    CompleteIrp(Irp.STATUS_SUCCESS,EventDataLen);<br /><br />
+    // Free event memory<br />
+    ExFreePool (pEvent);<br />
+    return true;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">DebugPrint Monitor</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The <i>DebugPrint Monitor</i> is a user mode application that keeps reading events from the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver and displays them to the user. The Monitor is a standard MFC application, so this chapter will not discuss all the code in detail. The source files can be found on the book software disk.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The Monitor program saves its current screen position and column widths in the registry. Consult the code to find out how this is done.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Design</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The Monitor uses a single document interface. The view class </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CDebugPrintMonitorView</font><font face="Times New Roman, Times, Serif" size="3"> is derived from </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CListView</font><font face="Times New Roman, Times, Serif" size="3">, which encapsulates a list view control. It is this list view control that stores the event information once it has been received by the Monitor. The corresponding document class </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CDebugPrintMonitorDoc</font><font face="Times New Roman, Times, Serif" size="3"> does not store the event information. It simply implements the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">OnSaveDocument</font><font face="Times New Roman, Times, Serif" size="3"> document method to save event information from the view to a .</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">dpm</font><font face="Times New Roman, Times, Serif" size="3"> file, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">OnOpenDocument</font><font face="Times New Roman, Times, Serif" size="3"> to load data.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The main work is carried out in a worker thread, which runs </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ListenThreadFunction</font><font face="Times New Roman, Times, Serif" size="3"> in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Listener.cpp</font><font face="Times New Roman, Times, Serif" size="3">. This thread chugs away in the background, reading any available events from the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver. It posts a message to the view class for each event, passing a pointer to the event data. The view class handles these messages in its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">OnDebugPrintEvent</font><font face="Times New Roman, Times, Serif" size="3"> routine by inserting an appropriate event item at the end of the list control.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Win32 Worker Threads</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The <i>DebugPrint Monitor</i> application class calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartListener</font><font face="Times New Roman, Times, Serif" size="3"> in its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InitInstance</font><font face="Times New Roman, Times, Serif" size="3"> method to start the listen worker thread. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExitInstance</font><font face="Times New Roman, Times, Serif" size="3"> method calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StopListener</font><font face="Times New Roman, Times, Serif" size="3"> to stop it.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_309.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_310</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_311.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_225</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_224.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_225</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_226.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 225</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">tures identified by GUIDs. There are various standard WMI data blocks, but drivers can define their own data blocks, if need be.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The Power Management portion of a driver can use two standard WMI data blocks to let a user enable or disable two features. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSPower_DeviceEnable</font><font face="Times New Roman, Times, Serif" size="3"> data block, identified by </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GUID_POWER_DEVICE_ENABLE</font><font face="Times New Roman, Times, Serif" size="3">, has an </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Enable</i></font><font face="Times New Roman, Times, Serif" size="3"> Boolean that a driver should use to determine if it should dynamically power itself down when it is idle. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSPower_DeviceWakeEnable</font><font face="Times New Roman, Times, Serif" size="3"> data block, identified by </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GUID_POWER_DEVICE_WAKE_ENABLE</font><font face="Times New Roman, Times, Serif" size="3">, has a similar </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Enable</i></font><font face="Times New Roman, Times, Serif" size="3"> Boolean whose value should be used to enable its Wake feature.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A driver that supports these WMI features may also let their settings be changed using IOCTLs.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GUID_POWER_DEVICE_TIMEOUT</font><font face="Times New Roman, Times, Serif" size="3"> is also defined to let the user change the idle timeouts. This feature is not working in W2000 Beta 3.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If you implement WMI for the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSPower_DeviceEnable</font><font face="Times New Roman, Times, Serif" size="3"> or </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSPower_DeviceWakeEnable</font><font face="Times New Roman, Times, Serif" size="3"> data blocks, the driver properties box gains an extra Power Management tab. Figure 10.4 shows how this looks for a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3"> device. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3"> driver supports the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSPower_DeviceEnable</font><font face="Times New Roman, Times, Serif" size="3"> data block, but not </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSPower_DeviceWakeEnable</font><font face="Times New Roman, Times, Serif" size="3">, so only the power down option is available in the Power Management tab.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="bacdb250a6287b37270d2ddcb02530df.jpg" border="0" alt="0225-01.jpg" width="462" height="513" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="2">Figure 10.4<br /></font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="2"> Power Management device properties<br />
+© 1999 PHD Computer Consultants Ltd</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_224.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_225</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_226.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

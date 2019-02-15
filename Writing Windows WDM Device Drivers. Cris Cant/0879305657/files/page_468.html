@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_468</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_467.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_468</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_469.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 468</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Finding HID Devices</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The HID class driver registers all its device objects as having the HID device interface. <i>HidUsbUser</i> can, therefore, use the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetDeviceViaInterface</font><font face="Times New Roman, Times, Serif" size="3"> routine to find all existing HID devices. Instead of using one of the book software GUIDs, <i>HidUsbUser</i> looks for the HID class GUID. Use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidD_GetHidGuid</font><font face="Times New Roman, Times, Serif" size="3"> to find this GUID.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="661" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">GUID HidGuid;<br />
+HidD_GetHidGuid(&amp;HidGuid);</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Going back to Chapter 5, you will see that </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetDeviceViaInterface</font><font face="Times New Roman, Times, Serif" size="3"> uses the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetupDi</font><font face="Times New Roman, Times, Serif" size="3">. . . routines to find a device that matches the given GUID. Previously, I have always looked for the first device with the desired device interface. <i>HidUsbUser,</i> however, looks through all the available HID devices looking for a HID keyboard.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetDeviceViaInterface</font><font face="Times New Roman, Times, Serif" size="3"> opens a handle to each device. <i>HidUsbUser</i> then gets each device's capabilities. If it is a HID keyboard, the main program carries on. Otherwise it closes the device handle, and loops again so that </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetDeviceViaInterface</font><font face="Times New Roman, Times, Serif" size="3"> can open the next HID device. <i>HidUsbUser</i> reports an error and gives up if a HID keyboard is not found.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Note that <i>HidUsbUser</i> only looks for an appropriate HID device when it starts. As it stands, it will not discover any new HID devices that suddenly are plugged in. The Win32 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RegisterDeviceNotification</font><font face="Times New Roman, Times, Serif" size="3"> function can be used to listen for Plug and Play Notification events in user mode applications. The <i>Wdm2Notify</i> application described in Chapter 9 shows how to use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RegisterDeviceNotification</font><font face="Times New Roman, Times, Serif" size="3"> to listen for device interface events. This can easily be modified to spot new HID class devices.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If the HID USB keyboard is unceremoniously unplugged while <i>HidUsbUser</i> is running, all I/O requests fail, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetLastError</font><font face="Times New Roman, Times, Serif" size="3"> returns </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">1167</font><font face="Times New Roman, Times, Serif" size="3"> (</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ERROR_PROCESS_ABORTED</font><font face="Times New Roman, Times, Serif" size="3">).</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Getting HID Capabilities</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>HidUsbUser</i> uses </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetCapabilities</font><font face="Times New Roman, Times, Serif" size="3"> to get a HID device's capabilities, as shown in Listing 23.1. In particular, it looks for a HID keyboard. If it finds a keyboard, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetCapabilities</font><font face="Times New Roman, Times, Serif" size="3"> returns a <i>preparsed data</i> pointer and the maximum input and output report sizes. The preparsed data is the HID Report descriptor parsed into a format that makes it easier for the support routines to decode and encode reports. You will need to pass the preparsed data pointer whenever you call any of the HID parsing routines.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Some applications will simply want to look for the device vendor and product IDs. If you know the capabilities of your device, there is no need to do any more checking. However, you still need to get the preparsed data. If possible, you should write code that does not rely on specific vendor and product IDs.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Get the device ID using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidD_GetAttributes</font><font face="Times New Roman, Times, Serif" size="3">. This fills in the supplied </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HIDD_ATTRIBUTES</font><font face="Times New Roman, Times, Serif" size="3"> structure. If successful, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>VendorID</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ProductID</font><font face="Times New Roman, Times, Serif" size="3">,</font></i><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>VersionNumber</i></font><font face="Times New Roman, Times, Serif" size="3"> fields are filled in. For USB devices, these values come from the USB Device descriptor.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidD_GetPreparsedData</font><font face="Times New Roman, Times, Serif" size="3"> to obtain a pointer to the preparsed data. This time, Windows allocates the buffer and returns a pointer to you. Make sure that you keep the preparsed data pointer handy for the rest of your HID operations. When finished with it, free the preparsed data memory using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidD_FreePreparsedData</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The first step when analyzing your device capabilities is to call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidP_GetCaps</font><font face="Times New Roman, Times, Serif" size="3">, which fills in a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HIDP_CAPS</font><font face="Times New Roman, Times, Serif" size="3"> structure. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>UsagePage</i></font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Usage</i></font><font face="Times New Roman, Times, Serif" size="3"> fields in there tell you the usage information</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_467.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_468</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_469.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

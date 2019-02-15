@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_261</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_260.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_261</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_262.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 261</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.1 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSPower_DeviceEnable</font><font face="Times New Roman, Times, Serif" size="3"> WMI data block</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="576" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">  boolean Active;<br /><br /><br />
+  [WmiDataId(1),<br />
+   read,<br />
+   write]<br />
+  boolean Enable;<br />
+};</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A WMI Driver</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A WDM driver can use WMI mechanisms to publish information, permit configuration of its device, and supply notification of events. It should continue to report standard Windows 2000 events, as many system administrators will still be looking for this event information. However, WMI is the way forward, as it allows information to be made available on non-W2000 systems, and it allows remote inspection and control of the device.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">WDM drivers, NT style drivers, and miniport drivers/minidriver can support WMI. In the latter case, you must fit in with the WMI reportng mechanism supported by the class driver. For example, a SCSI miniport must set the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>WmiDataProvider</i> BOOLEAN</font><font face="Times New Roman, Times, Serif" size="3"> in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PORT_CONFIGURATION_INFORMATION</font><font face="Times New Roman, Times, Serif" size="3"> structure and handle </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SRB_FUNCTION_WMI</font><font face="Times New Roman, Times, Serif" size="3"> requests.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3"> driver defines two custom WMI blocks. Listing 12.2 shows how the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Information</font><font face="Times New Roman, Times, Serif" size="3"> data block and the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Event</font><font face="Times New Roman, Times, Serif" size="3"> event block are defined in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3.mof</font><font face="Times New Roman, Times, Serif" size="3">. The identifying GUID for each block is defined in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GUIDs.h</font><font face="Times New Roman, Times, Serif" size="3"> header: </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WDM3_WMI_GUID</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WDM3_WMI_EVENT_GUID</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Information</font><font face="Times New Roman, Times, Serif" size="3"> data block contains two 32-bit unsigned properties followed by a counted wide string property. The first real porpoerty, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>BufferLen</i></font><font face="Times New Roman, Times, Serif" size="3">, is the length of the shared memory buffer. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>BufferFirstWord</i></font><font face="Times New Roman, Times, Serif" size="3"> is the first 32 bits of the shared memory buffer, or zero if the buffer is not long enough. Finally, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>SymbolicLinkName</i></font><font face="Times New Roman, Times, Serif" size="3"> is the symbolic link name of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3"> device interface.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Information</font><font face="Times New Roman, Times, Serif" size="3"> data block has a definition for a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PowerDown</font><font face="Times New Roman, Times, Serif" size="3"> function. I found that this did not compile, so I commented it out.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Event</font><font face="Times New Roman, Times, Serif" size="3"> WMI event block must be derived from the standard </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WMIEvent</font><font face="Times New Roman, Times, Serif" size="3"> class. It simply defines a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Message</font><font face="Times New Roman, Times, Serif" size="3"> property.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.2 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Information</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Event</font><font face="Times New Roman, Times, Serif" size="3"> block</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="576" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">/* WMI data block: Information about Wdm3 device<br />
+   Wdm3Information, identified by WDM3_WMI_GUID<br />
+*/<br /><br />
+[WMI, Dynamic, Provider ("WMIProv"),<br />
+ Description("Wdm3 information"),<br />
+ guid ("C0CF0643-5F6E-11d2-B677-00C0DFE4C1F3}''),<br />
+ locale("MS\\0x409")]<br /><br /><br />
+class Wdm3Information</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_260.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_261</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_262.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

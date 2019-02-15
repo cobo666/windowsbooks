@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_281</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_280.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_281</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_282.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 281</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">%b</font><font face="Times New Roman, Times, Serif" size="3"> is a space, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">%t</font><font face="Times New Roman, Times, Serif" size="3"> is a tab, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">%r</font><font face="Times New Roman, Times, Serif" size="3"> is a carriage return, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">%n</font><font face="Times New Roman, Times, Serif" size="3"> is a linefeed. In addition, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">%1</font><font face="Times New Roman, Times, Serif" size="3"> to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">%99</font><font face="Times New Roman, Times, Serif" size="3"> are where driver-supplied strings are inserted. Actually, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">%1</font><font face="Times New Roman, Times, Serif" size="3"> is always the driver name, so the driver strings start with </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">%2</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 13.1 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Msg.mc</font><font face="Times New Roman, Times, Serif" size="3"> message file</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="529" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">MessageIdTypedef = NTSTATUS<br /><br />
+SeverityNames = (<br />
+    Success       = 0x0:STATUS_SEVERITY_SUCCESS<br />
+    Informational = 0xl:STATUS_SEVERITY_INFORMATIONAL<br />
+    Warning       = 0x2:STATUS_SEVERITY_WARNING<br />
+    Error         = 0x3:STATUS_SEVERITY_ERROR<br />
+    )<br /><br />
+FacilityNames = (<br />
+    System        = 0x0<br />
+    Wdm3          = 0x7:FACILITY_WDM3_ERROR_CODE<br />
+    )<br /><br /><br />
+MessageId=0x0001<br />
+Facility=Wdm3<br />
+Severity=Informational<br />
+SymbolicName=WDM3_MSG_LOGGING_STARTED<br />
+Language=English<br />
+Event logging enabled for Wdm3 Driver.<br />
+.<br /><br />
+MessageId=+1<br />
+Facility=Wdm3<br />
+Severity=Informational<br />
+SymbolicName=WDM3_MESSAGE<br />
+Language=English<br />
+Message: %2.</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">mc</font><font face="Times New Roman, Times, Serif" size="3"> command is used to compile the message definition file. It produces three or more output files. In this case, these are the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Msg.rc</font><font face="Times New Roman, Times, Serif" size="3"> resource script, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Msg.h</font><font face="Times New Roman, Times, Serif" size="3"> header file, and the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSG00001.BIN</font><font face="Times New Roman, Times, Serif" size="3"> message data file. Further message files are produced if you support more than one language. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Msg.rc</font><font face="Times New Roman, Times, Serif" size="3"> resource script contains just a reference to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSG00001.BIN</font><font face="Times New Roman, Times, Serif" size="3"> message data file (or files), as follows.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="480" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">LANGUAGE 0x9,0x1<br />
+1 11 MSG00001.bin</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_280.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_281</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_282.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

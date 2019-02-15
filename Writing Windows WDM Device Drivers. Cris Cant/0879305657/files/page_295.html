@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_295</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_294.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_295</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_296.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 295</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">operations to complete using nonzero time-outs. Plug and Play handlers can wait on dispatcher objects. For example, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ForwardIrpAndWait</font><font face="Times New Roman, Times, Serif" size="3"> routine described in Chapter 9 uses an event to signal when lower drivers have finished processing an IRP.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A thread waits for dispatcher objects to become signalled using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeWaitForSingleObject</font><font face="Times New Roman, Times, Serif" size="3"> or </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeWaitForMultipleObjects</font><font face="Times New Roman, Times, Serif" size="3">, which are similar to the Win32 equivalents. As Table 14.1 shows, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeWaitForSingleObject</font><font face="Times New Roman, Times, Serif" size="3"> waits on just one dispatcher object, or until a time-out has expired. A negative timeout value is used for relative periods, as a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LARGE_INTEGER</font><font face="Times New Roman, Times, Serif" size="3"> in units of 100-nanoseconds. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> system thread calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeWaitForSingleObject</font><font face="Times New Roman, Times, Serif" size="3"> with a relative time-out of one second. Positive time-out values represent an absolute system time, in 100-nonosecond units since January 1, 1601</font><font face="Times New Roman, Times, Serif" size="2"><sup>2</sup></font><font face="Times New Roman, Times, Serif" size="3"> in the GMT time zone.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeWaitForMultipleObjects</font><font face="Times New Roman, Times, Serif" size="3"> routine works in a similar way, except that you can pass an array of dispatcher objects. You can opt to wait for just one of the objects to become signalled, or all of them.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="e6489e264a5556b6f6455b266b9563b7.gif" border="0" alt="0295-01.gif" width="570" height="298" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Mutex Objects</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A Mutex is a mutural exclusion dispatcher object that can only be owned by one thread at a time. Mutexes are sometimes called "mutants.'' Initialize a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KMUTEX</font><font face="Times New Roman, Times, Serif" size="3"> object in nonpaged memory using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeInitializeMutex</font><font face="Times New Roman, Times, Serif" size="3">; the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Level</font><font face="Times New Roman, Times, Serif" size="3"> parameter is used to ensure that multiprocessor Windows 2000 systems can acquire multiple Mutexes safely.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A Mutex object is in the signalled state when it is available. A thread requests ownership using one of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeWaitFor</font><font face="Times New Roman, Times, Serif" size="3"> . . . routines. If two or ore threads are waiting for a Mutex, only one thread will wake up and become its owner. Call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeReleaseMutex</font><font face="Times New Roman, Times, Serif" size="3"> to release ownership.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If you already own a Mutex and ask for it again, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeWaitFor</font><font face="Times New Roman, Times, Serif" size="3"> . . . routine will return immediately. An internal counter is incremented, so call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeReleaseMutex</font><font face="Times New Roman, Times, Serif" size="3"> once for each time you requested ownership of the Mutex.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="1"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>2</sup> I.e., soon after the Gregorian calendar was introduced in 1582.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_294.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_295</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_296.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

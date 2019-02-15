@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_363</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_362.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_363</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_364.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 363</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 17.2 How </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> starts write requests</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="662" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">    // Start timeout timer<br />
+    dx-&gt;Timeout = dx-&gt;SetTimeout+1;<br />
+    IoStartTimer(fdo);<br /><br />
+    // Send first value<br />
+    if( KeSynchronizeExecution( dx-&gt;InterruptObject,<br />
+            (PKSYNCHRONIZE_ROUTINE)RunWriteCmdsSynch, (PVOID)dx))<br />
+    {<br />
+         status = STATUS_UNSUCCESSFUL;<br />
+         break;<br />
+    }<br />
+    return;<br /><br />
+//   . . .<br /><br />
+BOOLEAN RunWriteCmdsSynch( IN PWDMIO_DEVICE_EXTENSION dx)<br />
+{<br />
+    if( dx-&gt;TxLeft==0) return TRUE;<br /><br />
+    dx-&gt;CmdOutputCount = 0;<br />
+    BOOLEAN rv = ProcessCmds( dx, dx-&gt;WriteCmds, dx-&gt;WriteCmdsLen,<br />
+                              dx-&gt;TxResult, sizeof(dx-&gt;TxResult), false);<br />
+    dx-&gt;TxCmdOutputCount = dx-&gt;CmdOutputCount;<br />
+    if( !rv)<br />
+    {<br />
+        dx-&gt;TxStatus = STATUS_UNSUCCESSFUL;<br />
+        return TRUE;<br />
+    }<br />
+    return FALSE;<br />
+}<br /><br />
+// In ProcessCmds . . .<br /><br />
+case PHDIO_WRITE_NEXT:<br />{<br />
+    if( dx-&gt;Timeout==-1) { FailCode = PHDIO_CANNOT_RW_NEXT; goto fail; }<br />
+    if( dx-&gt;TxLeft==0) { FailCode = PHDIO_NO_DATA_LEFT_TO_TRANSFER; goto fail; }<br />
+    GetUChar(reg);</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_362.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_363</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_364.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

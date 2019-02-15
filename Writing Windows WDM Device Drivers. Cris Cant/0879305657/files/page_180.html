@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_180</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_179.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_180</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_181.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 180</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PnpStartDeviceHandler</font><font face="Times New Roman, Times, Serif" size="3"> can then do whatever it needs to do to start its device. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> delegates this to the routine </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartDevice</font><font face="Times New Roman, Times, Serif" size="3">, which will be covered later. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartDevice</font><font face="Times New Roman, Times, Serif" size="3"> is passed a pointer to the allocated resources, in the IRP stack </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Parameters.StartDevice.AllocatedResourcesTranslated</font><font face="Times New Roman, Times, Serif" size="3"> field.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartDevice</font><font face="Times New Roman, Times, Serif" size="3"> succeeds, it will have set the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>GotResources</i></font><font face="Times New Roman, Times, Serif" size="3"> flag. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PnpStartDeviceHandler</font><font face="Times New Roman, Times, Serif" size="3"> also then clears the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Paused</i></font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>IODisabled</i></font><font face="Times New Roman, Times, Serif" size="3"> flags.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The drivers above </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> in the device stack could fail the <i>Start Device</i> IRP. If this happens, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> and the other lower drivers will be sent a <i>Remove Device</i> request.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 9.8 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> PnP start device handler</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS PnpStartDeviceHandler( IN PDEVICE_OBJECT fdo, IN PIRP Irp)<br />
+{<br />
+    DebugPrintMsg("PnpStartDeviceHandler");<br />
+    PWDM2_DEVICE EXTENSION dx=(PWDM2_DEVICE_EXTENSION)fdo -&gt;DeviceExtension;<br />
+    PIO_STACK_LOCATION IrpStack = IoGetCurrentIrpStackLocation(Irp);<br /><br />
+    NTSTATUS status = ForwardIrpAndWait( fdo, Irp);<br />
+    if( !NT_SUCCESS(status))<br />
+        return CompleteIrp( Irp, status, Irp-&gt;IoStatus.Information);<br /><br />
+    DebugPrint("PnpStartDeviceHandler: post-processing");<br />
+    status = StartDevice( dx,<br />
+        IrpStack-&gt;Parameters.StartDevice.AllocatedResourcesTranslated);<br />
+    if( NT_SUCCESS(status))<br />
+    {<br />
+        dx-&gt;Paused = false;<br />
+        dx-&gt;IODisabled = false;<br />
+    }<br /><br />
+    return CompleteIrp( Irp, status, 0);<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Device Locking</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">When a user wants to remove a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> device, the PnP Manager always asks if it is all right to remove it using a <i>Query Remove</i> request. As described previously, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> agrees to a removal request only if there are no open handles to the device. Therefore, for the main <i>Remove Device</i> request, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> driver can be certain that there is no I/O in progress on the device.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">However, some devices are hot-pluggable (i.e., a user can ruthlessly pull out the plug, or it could be bashed out by mistake). In this case, a PnP driver does not receive a <i>Query Remove</i> message. Instead, in Windows 98, it simply gets a <i>Remove Device</i> message. Windows 2000 sends a <i>Surprise Removal</i> message first and then sends a <i>Remove Device</i> request when all the open handles are closed.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A driver needs to cope with surprise removals in the best way possible. A <i>Surprise Removal</i> IRP must succeed. Obviously, the driver needs to stop any further I/O as soon as</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_179.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_180</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_181.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

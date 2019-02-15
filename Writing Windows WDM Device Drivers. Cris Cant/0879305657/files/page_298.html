@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_298</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_297.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_298</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_299.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 298</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.2 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> test driver </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintMsg</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="595" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">      // Copy event info to buffer<br />
+      RtlCopyMemory( buffer, &amp;NowTF, sizeof(TIME_FIELDS));<br />
+      buffer += sizeof(TIME_FIELDS);<br />
+      RtlCopyMemory( buffer, DriverName, DriverNameLen);<br />
+      buffer += DriverNameLen;<br />
+      RtlCopyMemory( buffer, Msg, MsgLen);<br /><br />
+      // Insert event into event list for processing by system thread<br />
+      pEvent-&gt;Len = EventDataLen;<br />
+      ExlnterlockedInsertTailList(&amp;EventList,&amp;pEvent-&gt;<br />
+          ListEntry,&amp;EventListLock);<br />
+   }<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Linked Lists</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Doubly-Linked Lists</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A doubly-linked list is a slightly complicated beast to use safely. First, you need to declare a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LIST_ENTRY</font><font face="Times New Roman, Times, Serif" size="3"> structure in nonpaged memory for the list head. Drivers that need one list per device declare the list head in the device extension. However, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> test driver code declares just its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventList</font><font face="Times New Roman, Times, Serif" size="3"> variable as a global, as it is available to all devices.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="595" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">LIST_ENTRY EventList;</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Next, define a structure that you want to put in your doubly-linked list. Include a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LIST_ENTRY</font><font face="Times New Roman, Times, Serif" size="3"> field in this structure to provide the links in both directions of the list. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> structure is called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DEBUGPRINT_EVENT</font><font face="Times New Roman, Times, Serif" size="3">. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>EventData</i></font><font face="Times New Roman, Times, Serif" size="3"> is a variable length field, as it is not always 1-byte long. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Len</i></font><font face="Times New Roman, Times, Serif" size="3"> field gives its length.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="595" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">typedef- struct _DEBUGPRINT_EVENT<br />
+{<br />
+    LIST_ENTRY ListEntry;<br />
+    ULONG Len;<br />
+    UCHAR EventData[1];<br />
+} DEBUGPRINT_EVENT, *PDEBUGPRINT_EVENT;</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Initialize a doubly-linked list using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InitializeListHead</font><font face="Times New Roman, Times, Serif" size="3">, passing a pointer to the list head variable. You can now insert </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DEBUGPRINT_EVENT</font><font face="Times New Roman, Times, Serif" size="3"> structures at the head or tail of the list using the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InsertHeadList</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InsertTailList</font><font face="Times New Roman, Times, Serif" size="3"> routines. The corresponding </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RemoveHeadList</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RemoveTailList</font><font face="Times New Roman, Times, Serif" size="3"> routines remove entries from the list</font><font face="Times New Roman, Times, Serif" size="2"><sup>3</sup></font><font face="Times New Roman, Times, Serif" size="3">. Find out if the list is empty first using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IsListEmpty</font><font face="Times New Roman, Times, Serif" size="3">.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="1"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>3</sup> The NT 4 DDK wrongly states that </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">RemoveHeadList</font><font face="Times New Roman, Times, Serif" size="2"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">RemoveTailList</font><font face="Times New Roman, Times, Serif" size="2"> return NULL if the list is empty.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_297.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_298</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_299.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

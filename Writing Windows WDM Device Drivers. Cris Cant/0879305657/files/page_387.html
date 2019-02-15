@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_387</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_386.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_387</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_388.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 387</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="317aa923fb0da4425f580a3590ab30b0.gif" border="0" alt="0387-01.gif" width="520" height="281" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 18.7 shows some code that finds any parallel ports that have been detected (i.e., where the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ControllerType</font><font face="Times New Roman, Times, Serif" size="3"> is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ParallelController</font><font face="Times New Roman, Times, Serif" size="3">). The code can be found in the book software file </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIo\autodetect.cpp</font><font face="Times New Roman, Times, Serif" size="3">. Note carefully that the code will find parallel ports that are on all the available buses, not just the ISA bus. At the moment, this code just prints out the basic raw resource details using <i>DebugPrint.</i> If you use this code, you will eventually have to claim these resources and translate them into usable values. Do not forget that you need a separate Full Resource Descriptor for each bus type in the resource list passed to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoReportResourceUsage</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">FindParallelPort</font><font face="Times New Roman, Times, Serif" size="3"> loops through all possible bus types. For each bus type, it keeps incrementing the bus number from zero and checking if the bus instance exists using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoReportResourceUsage</font><font face="Times New Roman, Times, Serif" size="3">. If the bus instance does exist, it calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoReportResourceUsage</font><font face="Times New Roman, Times, Serif" size="3"> again to find all printers on the bus instance.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AbcConfigCal1back</font><font face="Times New Roman, Times, Serif" size="3"> callback is called when a bus instance is found and when a parallel port is found. In the first case, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">BusInfo</font><font face="Times New Roman, Times, Serif" size="3"> parameter is valid. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CtrlrInfo</font><font face="Times New Roman, Times, Serif" size="3"> is valid when looking for parallel ports. If looking for a peripheral, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PeripheralInfo</font><font face="Times New Roman, Times, Serif" size="3"> is valid. If the relevant parameter is non-NULL, it points to some information obtained from the registry: a device identifier, configuration data, and information about its subcomponents. The configuration data has the detected raw resource assignments. Use the code in Listing 18.7 to enumerate these resources.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 18.7 Finding any autodetected parallel ports</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="625" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS FindParallelPort()<br />
+{<br />
+    NTSTATUS status;<br /><br />
+    for( int BusType:O; BusType&lt;MaximumInterfaceType; BusType++)<br />
+    {<br />
+        INTERFACE_TYPE iBusType = (INTERFACE_TYPE)BusType;</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_386.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_387</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_388.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

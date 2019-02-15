@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_469</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_468.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_469</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_470.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 469</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">for the Report descriptor top-level collection. In </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetCapabilities</font><font face="Times New Roman, Times, Serif" size="3">, this is all the information that is needed to determine if the device is a keyboard. It checks that these fields are </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HID_USAGE_PAGE_GENERIC</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HID_USAGE_GENERIC_KEYBOARD</font><font face="Times New Roman, Times, Serif" size="3">, respectively.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HIDP_CAPS</font><font face="Times New Roman, Times, Serif" size="3"> structure also contains much other useful information. First, it contains the maximum length of input, output, and feature reports in three fields. The first two of these values are saved, because they indicate how big a buffer to allocate to send and receive reports. The other </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HIDP_CAPS</font><font face="Times New Roman, Times, Serif" size="3"> fields are used if you check the detailed control capabilities.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 23.1 Getting a HID device's capabilities</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="685" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">bool GetCapabilities( HANDLE hHidKbd, PHIDP_PREPARSED_DATA&amp; HidPreparsedData,<br />
+                      USHORT&amp; InputReportLen, USHORT&amp; OutputReportLen)<br />
+{<br />
+    // Get attributes. ie find vendor and product ids<br />
+    HIDD_ATTRIBUTES HidAttributes;<br />
+    if( !HidD_GetAttributes( hHidKbd, &amp;HidAttributes))<br />
+    {<br />
+        printf("XXX Could not get HID attributes\n");<br />
+        return false;<br />
+    }<br />
+    printf("HID attributes: VendorID=%04X, ProductID=%04X,<br />
+        VersionNumber=%04X\n", HidAttributes.VendorID,<br />
+        HidAttributes.ProductID, HidAttributes.VersionNumber);<br /><br />
+    // Get preparsed data<br />
+    if( !HidD_GetPreparsedData( hHidKbd, &amp;HidPreparsedData))<br />
+    {<br />
+        printf("XXX Could not get HID preparsed data\n");<br />
+        return false;<br />
+    }<br /><br />
+    // Work out capabilities<br />
+    HIDP_CAPS HidCaps;<br />
+    bool found = false;<br />
+    NTSTATUS status = HidP_GetCaps( HidPreparsedData, &amp;HidCaps);<br />
+    if( status==HIDP_STATUS_SUCCESS)<br />
+    {<br />
+        printf(''Top level Usage page %d usage %d\n", HidCaps.UsagePage,<br />
+            HidCaps.Usage);<br />
+        if( HidCaps.UsagePage==HID_USAGE_PAGE_GENERIC &amp;&amp;<br />
+            HidCaps.Usage==HID_USAGE_GENERIC_KEYBOARD)<br />
+        {<br />
+            printf("    Found HID keyboard\n\n");<br />
+            found = true;<br />
+        }</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_468.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_469</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_470.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

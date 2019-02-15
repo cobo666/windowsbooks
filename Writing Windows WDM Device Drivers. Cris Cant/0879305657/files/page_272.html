@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_272</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_271.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_272</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_273.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 272</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.7 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetWmiDataBlock</font><font face="Times New Roman, Times, Serif" size="3"> routine</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" width="672" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">      // Get Enable property into IdlePowerDownEnable<br />
+      dx-&gt;IdlePowerDownEnable = *(BOOLEAN*)PBuffer;<br /><br />
+      // Action IdlePowerDownEnable<br />
+      if( dx-&gt;IdlePowerDownEnable)<br />
+      {<br />
+          DebugPrintMsg("SetWmiDataBlock: Enabling power down");<br />
+          // Enable power down idling<br />
+          if( dx-&gt;PowerIdleCounter==NULL)<br />
+              dx-&gt;PowerIdleCounter =<br />
+                  PoRegisterDeviceForIdleDetection( dx-&gt;pdo, 30, 60,<br />
+                  PowerDeviceD3);<br />
+      }<br />
+      else<br />
+      {<br />
+           DebugPrintMsg("SetWmiDataBlock: Disabling power down");<br />
+           // Disable power down idling<br />
+           if( dx-&gt;PowerIdleCounter!=NULL)<br />
+                   dx-&gt;PowerIdleCounter =<br />
+                   PoRegisterDeviceForldleDetection( dx-&gt;pdo, 0, 0,<br />
+                   PowerDeviceD3);<br />
+           if( dx-&gt;PowerState&gt;PowerDeviceD0)<br />
+           {<br />
+               DebugPrintMsg("SetWmiDataBlock: Disabling power down: power up");<br />
+               SendDeviceSetPower( dx, PowerDeviceD0);<br />
+           }<br />
+      }<br /><br />
+      return WmiCompleteRequest( fdo, Irp, STATUS_SUCCESS, 0,<br />
+          IO_NO_INCREMENT);<br />
+  }<br />
+  return FailWMIRequest( fdo, Irp, GuidIndex);<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>SetWmi DataItem</i></font><i><font face="Times New Roman, Times, Serif" size="3"> Handler</font></i></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetWmiDataItem</font><font face="Times New Roman, Times, Serif" size="3"> callback handles the setting of one data item in an instance. This routine is not called in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3">. Listing 12.8 shows how </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetWmiDataItem</font><font face="Times New Roman, Times, Serif" size="3"> calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">FailWMIRequest</font><font face="Times New Roman, Times, Serif" size="3"> to reject the</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_271.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_272</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_273.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

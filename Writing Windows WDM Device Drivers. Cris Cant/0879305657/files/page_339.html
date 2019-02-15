@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_339</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_338.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_339</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_340.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 339</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> is only called to process another IRP in the device queue when </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoStartNextPacket</font><font face="Times New Roman, Times, Serif" size="3"> is called (or </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoStartNextPacketByKey</font><font face="Times New Roman, Times, Serif" size="3">). For IRPs that are processed entirely by </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoStartNextPacket</font><font face="Times New Roman, Times, Serif" size="3"> is called after the IRP is completed</font><font face="Times New Roman, Times, Serif" size="2"><sup>3</sup></font><font face="Times New Roman, Times, Serif" size="3">. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TRUE</font><font face="Times New Roman, Times, Serif" size="3"> second parameter to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoStartNextPacket</font><font face="Times New Roman, Times, Serif" size="3"> indicates that cancel routines are being used.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> begins by zeroing the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>CmdOutputCount</i></font><font face="Times New Roman, Times, Serif" size="3"> field in the device extension. This field stores the count of bytes transferred during immediate IRP processing. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>CmdOutputCount</i></font><font face="Times New Roman, Times, Serif" size="3"> is passed to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CompleteIrp</font><font face="Times New Roman, Times, Serif" size="3"> at the end of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> then stops the device timer if the device extension </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>StopTimer</i></font><font face="Times New Roman, Times, Serif" size="3"> field is set to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">true</font><font face="Times New Roman, Times, Serif" size="3">. This timer is used to detect read and write time-outs and its use is described in the next chapter.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> now contains the obligatory huge switch statement, switching on the IRP stack major function code. As stated earlier, only IOCTL, read, and write requests should reach </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3">. The IOCTL handler has a subsidiary large switch statement, this time switching on the IOCTL control code. All the IOCTLs are processed straightaway and eventually fall through to complete the IRP at the end of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> ends by completing IRPs that have finished their processing. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Cancel</i></font><font face="Times New Roman, Times, Serif" size="3"> flag is checked and the cancel routine is removed. Finally, the device is unlocked using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UnlockDevice</font><font face="Times New Roman, Times, Serif" size="3">, the IRP is completed, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoStartNextPacket</font><font face="Times New Roman, Times, Serif" size="3"> is called.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 16.2 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> routine</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="662" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">VIOD WdmIoStartIo( IN PDEVICE_OBJECT fdo, IN PIRP Irp)<br />
+{<br />
+    PWDMIO_DEVICE_EXTENSTION dx = (PWDMIO_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;<br />
+    PIO_STACK_LOCATION IrpStack =  IoGetCurrentIrpStackLocation(Irp);<br />
+    PUCHAR Buffer = (PUCHAR)Irp-&gt;AssociatedIrp.SystemBuffer;<br /><br />
+    //Zero the output count<br />
+    dx-&gt;CmdzOutputCount = 0;<br /><br />
+    DebugPrint( ''WdmIoStartIo: %I", Irp);<br /><br />
+    // Stop the 1 second timer if necessary<br />
+    if( dx-&gt;StopTimer)<br />
+    {<br />
+        IoStopTimer(fdo);<br />
+        dx-&gt;StopTimer = false;<br />
+    }<br /><br />
+    NTSTATUS status = STATUS_SUCCESS;</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="1"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>3</sup> Note that the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">IoStartNext</font><font face="Times New Roman, Times, Serif" size="2"> Packet implementation will, in fact, call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="2"> recursively (if there is another IRP in the queue). In the worst case, this recursive technique could overflow the kernel stack. One of the DDK examples shows a way of avoiding this problem by not queuing an IRP if the queue is "full".</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_338.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_339</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_340.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

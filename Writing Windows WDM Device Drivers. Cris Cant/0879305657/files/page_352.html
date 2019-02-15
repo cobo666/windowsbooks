@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_352</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_351.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_352</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_353.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 352</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Inserting IRPs into the Queue</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AbcStartPacket2</font><font face="Times New Roman, Times, Serif" size="3"> uses </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeInsertDeviceQueue</font><font face="Times New Roman, Times, Serif" size="3"> to insert the IRP into the device queue. Note that </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeInsertDeviceQueue</font><font face="Times New Roman, Times, Serif" size="3"> must be called at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DISPATCH_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> IRQL. The call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoAcquireCancelSpinLock</font><font face="Times New Roman, Times, Serif" size="3"> in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AbcStartPacket2</font><font face="Times New Roman, Times, Serif" size="3"> does this. Subsequent calls to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoReleaseCancelSpinLock</font><font face="Times New Roman, Times, Serif" size="3"> return to the old IRQL.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If the device queue is empty, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeInsertDeviceQueue</font><font face="Times New Roman, Times, Serif" size="3"> returns </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">FALSE</font><font face="Times New Roman, Times, Serif" size="3">, but it sets the queue into a busy state. Subsequent insertion attempts return </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TRUE</font><font face="Times New Roman, Times, Serif" size="3">. In </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AbcStartPacket2</font><font face="Times New Roman, Times, Serif" size="3">, if </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeInsertDeviceQueue</font><font face="Times New Roman, Times, Serif" size="3"> returns </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">FALSE</font><font face="Times New Roman, Times, Serif" size="3">, then the IRP is passed for processing in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AbcStartIo2</font><font face="Times New Roman, Times, Serif" size="3"> straightaway. First, the IRP pointer is stored as the current IRP in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>AbcCurrentIrp</i></font><font face="Times New Roman, Times, Serif" size="3"> field in the device extension. Then the Cancel spin lock is released, returning the IRQL to its old level. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartIo</font><font face="Times New Roman, Times, Serif" size="3"> routines must run at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DISPATCH_LEVEL</font><font face="Times New Roman, Times, Serif" size="3">, so calls to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeRaiseIrql </font><font face="Times New Roman, Times, Serif" size="3">and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeLowerIrql</font><font face="Times New Roman, Times, Serif" size="3"> are put around the call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AbcStartIo2</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeInsertDeviceQueue</font><font face="Times New Roman, Times, Serif" size="3"> returns </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TRUE</font><font face="Times New Roman, Times, Serif" size="3">, the IRP has been put in the device queue. In this case, no further processing is required in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AbcStartPacket2</font><font face="Times New Roman, Times, Serif" size="3">, apart from releasing the Cancel spin lock.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">IRP Processing</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AbcStartIo2</font><font face="Times New Roman, Times, Serif" size="3"> function initially does some IRP cancel checks. Then, it sets about processing the IRP. Eventually, it completes the IRP and calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AbcStartNextPacket2</font><font face="Times New Roman, Times, Serif" size="3"> to begin processing the next IRP. The call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AbcStartNextPacket2</font><font face="Times New Roman, Times, Serif" size="3"> can occur in a different routine (e.g., after a hardware interaction).</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Starting the Next IRP</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AbcStartNextPacket2</font><font face="Times New Roman, Times, Serif" size="3">'s job is to see if there are any more IRPs queued for processing. If there are, it dequeues one and sends it for processing in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AbcStartIo2</font><font face="Times New Roman, Times, Serif" size="3">. Note that the calls to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AbcStartNextPacket2</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AbcStartIo2</font><font face="Times New Roman, Times, Serif" size="3"> are recursive, which I trust will not be a problem. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AbcStartNextPacket2</font><font face="Times New Roman, Times, Serif" size="3"> must be called at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DISPATCH_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> IRQL.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AbcStartNextPacket2</font><font face="Times New Roman, Times, Serif" size="3"> calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeRemoveDeviceQueue</font><font face="Times New Roman, Times, Serif" size="3"> to try to remove an IRP from the device queue. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeRemoveDeviceQueue</font><font face="Times New Roman, Times, Serif" size="3"> must be run at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DISPATCH_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> IRQL. When running an IRP device queue, it is usual to call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeRemoveDeviceQueue</font><font face="Times New Roman, Times, Serif" size="3"> while holding the Cancel spin lock. The call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoAcquireCancelSpinLock</font><font face="Times New Roman, Times, Serif" size="3"> raises the IRQL to the correct level, as before.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeRemoveDeviceQueue</font><font face="Times New Roman, Times, Serif" size="3"> returns NULL, no IRPs are queued. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>AbcCurrentIrp</i></font><font face="Times New Roman, Times, Serif" size="3"> field is reset to NULL and the Cancel spin lock is released.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeRemoveDeviceQueue</font><font face="Times New Roman, Times, Serif" size="3"> returns non-NULL then the return value represents the device queue entry in the IRP structure. Get the actual IRP pointer using the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CONTAINING_RECORD</font><font face="Times New Roman, Times, Serif" size="3"> macro. Store this in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>AbcCurrentIrp</i></font><font face="Times New Roman, Times, Serif" size="3">, release the Cancel spin lock, and call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AbcStartIo2</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 16.8 Supplemental device queue routines</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="662" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">VOID AbcStartPacket2( IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp)<br />
+{<br />
+    PABC_DEVICE_EXTENSION dx = (PABC_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;<br /><br />
+    KIRQL OldIrql;<br />
+    IoAcquireCancelSpinLock(&amp;OldIrql);<br />
+    IoSetCancelRoutine( Irp, AbcCancelIrp);</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_351.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_352</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_353.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

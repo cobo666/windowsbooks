@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_329</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_328.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_329</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_330.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 329</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If you ever reboot and choose the "Original Configuration" hardware profile, you will find that the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> device has been removed from the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> profile. You will have to reinstall it and reboot. Sigh.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If you use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> to talk to some of your own custom hardware, you will almost certainly not need to go through all of the previous shenanigans. Similarly, for a one off test of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> talking to a parallel port, you should be able to install it without using different hardware profiles.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In Windows 2000 beta 2, I found that it was impossible to install a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> device in place of the standard parallel port driver. If a parallel port driver was removed to make the resources available, Windows 2000 always reinstalled the driver on reboot before the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> device could be loaded.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>LogConfig</i></font><i><font face="Times New Roman, Times, Serif" size="3"> Sections</font></i></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> INF files must be set up for each device to which it will talk. A </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LogConfig</font><font face="Times New Roman, Times, Serif" size="3"> section or sections must be added to give the resource assignments. Listing 15.5 shows the amendments that have been made to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoLpt1Checked.Inf</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoLpt1Free.inf</font><font face="Times New Roman, Times, Serif" size="3"> installation files.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Both the Windows 98 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo.Install</font><font face="Times New Roman, Times, Serif" size="3"> and the Windows 2000 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo.Install.NT×86</font><font face="Times New Roman, Times, Serif" size="3"> sections have a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LogConfig</font><font face="Times New Roman, Times, Serif" size="3"> directive that refers to the three </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LogConfig</font><font face="Times New Roman, Times, Serif" size="3"> sections, each of which have different possible resource assignments. These eventually appear to users in the Device properties Resources tab as "Basic configuration 0", ''Basic configuration 1", and "Basic configuration 2". Each section has a configuration priority. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo.LogConfig1</font><font face="Times New Roman, Times, Serif" size="3"> has priority </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DESIRED</font><font face="Times New Roman, Times, Serif" size="3"> that is higher than the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">NORMAL</font><font face="Times New Roman, Times, Serif" size="3"> priority of the other </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LogConfig</font><font face="Times New Roman, Times, Serif" size="3"> sections.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo.LogConfig1</font><font face="Times New Roman, Times, Serif" size="3"> resource assignments are chosen by preference. There is only one I/O port range, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0×378</font><font face="Times New Roman, Times, Serif" size="3"> to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0×37A</font><font face="Times New Roman, Times, Serif" size="3">, so this address range is used. However, two IRQ numbers are listed, 5 and 7. Only one of these is used. In some computers, IRQ5 will already be used, so IRQ7 will be selected automatically. If both IRQs are available, the user will be prompted to make a choice.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The user, therefore, has to confirm which resource assignments to make. For the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> device, Windows does not detect the parallel port and load the appropriate drivers. It is up to the device installer to select the correct resource assignments. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> driver does not care which port address or IRQ it is assigned. To do a useful job, the resources must correspond to a real device, and the controlling Win32 application must use the registers and interrupts in the correct way.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If you try to install a second </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> device for a parallel port, Windows should choose one of the remaining configurations. Windows 98 displays the chosen resource assignments and asks the user to confirm that these are satisfactory. It then tells you to insert the card. If the system's resource assignments have to be juggled to accommodate the new device, you may have to reboot.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 15.5 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoLptlXxx.INF LogConfig</font><font face="Times New Roman, Times, Serif" size="3"> sections</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="576" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">[WdmIo.Install]<br />
+CopyFiles=WdmIo.Files.Driver<br />
+AddReg=WdmIo.AddReg<br />
+LogConfig=WdmIo.LogConfig1,WdmIo.LogConfig2,WdmIo.LogConfig3</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_328.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_329</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_330.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_389</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_388.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_389</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_390.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 389</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 18.7 Finding any autodetected parallel ports</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="703" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">{<br />
+    DebugPrint( "ConfigCallback: Bus: %d,%d",BusType,BusNumber);<br />
+    DebugPrint( ''ConfigCallback: Controller:  %d,%d",CtrlrType, CtrlrNumber);<br />
+    DebugPrint( "ConfigCallback: Peripheral:<br />
+        %d,%d",PeripheralType,PeripheralNumber);<br /><br />
+    if( CtrlrInfo!=NULL)<br />
+    {<br />
+        PCM_FULL_RESOURCE_DESCRIPTOR frd = (PCM_FULL_RESOURCE_DESCRIPTOR)<br />
+            (((PUCHAR)CtrlrInfo[IoQueryDeviceConfigurationData])<br />
+            +CtrlrInfo[IoQueryDeviceConfigurationData]-&gt;DataOffset);<br />
+        for( ULONG i=0; i&lt;frd-&gt;PartialResourceList.Count; i++)<br />
+        {<br />
+             PCM_PARTIAL_RESOURCE_DESCRIPTOR resource =<br />
+                 &amp;frd-&gt;PartialResourceList.PartialDescriptors[i];<br />
+             switch( resource-&gt;Type)<br />
+             {<br />
+             case CmResourceTypePort:<br />
+                 DebugPrint( "ConfigCallback: I/O port %x,%d",<br />
+                         resource-&gt;u.Port.Start.LowPart, resource-&gt;u.Port.Length);<br />
+                  break;<br />
+             case CmResourceTypeInterrupt:<br />
+                 DebugPrint( "ConfigCallback: Interrupt level %d vector %d",<br />
+                     resource-&gt;u.Interrupt.Level, resource-&gt;u.Interrupt.Vector);<br />
+                break;<br />
+             default:<br />
+                DebugPrint( "ConfigCallback: Resource type %d",resource-&gt;Type);<br />
+             }<br />
+        }<br />
+    }<br />
+    return STATUS_SUCCESS;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Interrogating Configurable Buses</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A configurable bus is one that can be configured in software. Devices on these buses must have Plug and Play WDM device drivers. The PCI bus driver will retrieve a device's details and generate an appropriate Hardware ID. This Hardware ID will be used to identify the correct driver. Its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AddDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine is called, etc.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In NT systems, you will need to use a different technique to get configurable bus data. This method still works in Windows 2000. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HalGetBusData</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HalGetBusDataByOffset</font><font face="Times New Roman, Times, Serif" size="3"> calls can be made to retrieve configuration data for one slot of a specified bus instance. For</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_388.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_389</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_390.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

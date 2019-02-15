@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_347</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_346.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_347</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_348.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 347</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 16.6 Alternative </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartIo</font><font face="Times New Roman, Times, Serif" size="3"> initial processing</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="662" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">}<br />
+// Remove cancel routine<br />
+IoSetCancelRoutine( Irp, NULL);<br />
+IoReleaseCancelSpinLock(Oldlrql);</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Cleanup IRP Handling</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The Cleanup IRP is issued to cancel any IRPs that are outstanding when a file handle is closed. Even if the IRPs have cancel routines, they are not called.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">To handle it correctly, the driver ought to cancel only IRPs that belong to the correct file handle. Only queued IRPs whose </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>FileObject</i></font><font face="Times New Roman, Times, Serif" size="3"> field matches the Cleanup IRP's stack </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>FileObject</i></font><font face="Times New Roman, Times, Serif" size="3"> field should be cancelled.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> Cleanup IRP handler, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoDispatchCleanup</font><font face="Times New Roman, Times, Serif" size="3">, shown in Listing 16.7, does not perform this </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>FileObject</i></font><font face="Times New Roman, Times, Serif" size="3"> check. This makes the code simpler.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoDispatchCleanup</font><font face="Times New Roman, Times, Serif" size="3"> must hold the Cancel spin lock wherever it accesses the device queue. However, you must not be holding the Cancel spin lock when an IRP is completed.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The code keeps extracting IRPs using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeRemoveDeviceQueue</font><font face="Times New Roman, Times, Serif" size="3"> until the device queue is empty. A pointer to the IRP is found using the usual </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CONTAINING_RECORD</font><font face="Times New Roman, Times, Serif" size="3"> machinations. The IRP is marked for cancelling and its cancel routine is removed. The Cancel spin lock is released before </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UnlockDevice</font><font face="Times New Roman, Times, Serif" size="3"> is called and the IRP is completed with status </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STATUS_CANCELLED</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The Cleanup IRP handler then goes on to try to cancel the IRP currently being processed by </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> or its follow-on code. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CancelCurrentIrpSynch</font><font face="Times New Roman, Times, Serif" size="3"> is called as a Critical Section routine. This returns </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TRUE</font><font face="Times New Roman, Times, Serif" size="3"> if a transfer is in progress (i.e., if the device extension </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Timeout</i></font><font face="Times New Roman, Times, Serif" size="3"> field is greater than or equal to zero). If a transfer is in progress, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoDpcForIsr</font><font face="Times New Roman, Times, Serif" size="3"> is called to complete the IRP with status </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STATUS_CANCELLED</font><font face="Times New Roman, Times, Serif" size="3">. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Timeout</i></font><font face="Times New Roman, Times, Serif" size="3"> field and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoDpcForIsr</font><font face="Times New Roman, Times, Serif" size="3"> are described in the next chapter.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">To handle the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">FileObject</font><font face="Times New Roman, Times, Serif" size="3"> check correctly, you must still remove each IRP from the queue in turn. If the IRP's </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">FileObject</font><font face="Times New Roman, Times, Serif" size="3"> does not match the Cleanup </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">FileObject</font><font face="Times New Roman, Times, Serif" size="3">, the IRP must be put in a temporary holding queue. At the end, all these IRPs must be reinserted in the main device queue.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 16.7 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> Cleanup IRP handling</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="662" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS WdmIoDispatchCleanup(  IN PDEVICE_OBJECT fdo, IN PIRP Irp)<br />
+{<br />
+    PWDMIO_DEVICE_EXTENSION dx = (PWDMIO_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;<br />
+    DebugPrintMsg("WdmIoDispatchCleanup");<br />
+    KIRQL OldIrql;<br />
+    IoAcquireCancelSpinLock(&amp;OldIrql);<br /><br />
+    // Cancel all IRPs in the I/O Manager maintained queue in device object<br />
+    PKDEVICE_QUEUE_ENTRY QueueEntry;<br />
+    while( (QueueEntry=KeRemoveDeviceQueue(&amp;fdo-&gt;DeviceQueue)) != NULL)<br />
+    {</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_346.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_347</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_348.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

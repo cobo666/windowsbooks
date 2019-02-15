@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_364</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_363.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_364</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_365.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 364</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 17.2 How </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> starts write requests</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="662" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">    WriteByte( dx, reg, *dx-&gt;TxBuffer++);<br />
+    dx-&gt;TxLeft--;<br />
+    break;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Read requests are processed in a very similar way. As Chapter 15 mentioned, one set of stored commands, in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>StartReadCmds</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">,</font></i><font face="Times New Roman, Times, Serif" size="3"> is used to start read requests. A different set, in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ReadCmds</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">,</font></i><font face="Times New Roman, Times, Serif" size="3"> is used to process read interrupts. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RunStartReadCmdsSynch</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RunReadCmdsSynch </font><font face="Times New Roman, Times, Serif" size="3">are run as Critical Section routines to process these two sets of commands. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIO_READ_NEXT</font><font face="Times New Roman, Times, Serif" size="3"> command is run in a very similar way to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIO_WRITE_NEXT</font><font face="Times New Roman, Times, Serif" size="3">, except that it stores the byte that it reads in the next location in the IRP buffer.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Interrupt Handler</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 17.3 shows the interrupt service routine for </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InterruptHandler</font><font face="Times New Roman, Times, Serif" size="3">. Remember that this is a general-purpose service routine. If the user mode controlling application has set up its control fields or commands wrongly, things could go horribly wrong.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">An interrupt handler should complete its job as quickly as possible. It is run at Device IRQL (DIRQL), so do not make <i>DebugPrint</i> calls. Remember that your device could interrupt at any time, not just when you have started a write request.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The first job of an interrupt handler is to see if the interrupt was generated by the correct device. If it was not, the routine should return </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">FALSE</font><font face="Times New Roman, Times, Serif" size="3"> as quickly as possible to let any other chained interrupt service routines have their go. Otherwise it should process the interrupt (at the very least, stop the device from interrupting) and return </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TRUE</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InterruptHandler</font><font face="Times New Roman, Times, Serif" size="3"> reads the device register at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>InterruptReg</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">.</font></i><font face="Times New Roman, Times, Serif" size="3"> As described in Chapter 15, it then </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AND</font><font face="Times New Roman, Times, Serif" size="3">s this value with </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>InterruptRegMask</i></font><font face="Times New Roman, Times, Serif" size="3"> and compares it with </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>InterruptRegValue</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">.</font></i><font face="Times New Roman, Times, Serif" size="3"> If they are equal, the interrupt is valid and the handler can continue.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If the device extension </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Timeout</i></font><font face="Times New Roman, Times, Serif" size="3"> flag is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">-1</font><font face="Times New Roman, Times, Serif" size="3">, no transfer is in progress and so </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TRUE</font><font face="Times New Roman, Times, Serif" size="3"> is returned straight away. If your device requires further processing to cancel such "spurious" interrupts, you need to amend </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> so that it does what you want.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Next, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3">'s interrupt handler gets the current IRP for this device. I double-check that there is a current IRP and then see if the I/O Manager has signalled that it should be cancelled by setting its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Cancel</i></font><font face="Times New Roman, Times, Serif" size="3"> flag.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If the IRP is still in progress, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TxIsWrite</i></font><font face="Times New Roman, Times, Serif" size="3"> flag indicates whether the Read or Write stored commands should be run. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RunWriteCmdsSynch</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RunReadCmdsSynch</font><font face="Times New Roman, Times, Serif" size="3"> routines return </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TRUE</font><font face="Times New Roman, Times, Serif" size="3"> if the transfer is now complete (i.e., if all the bytes have been transferred or there has been some error).</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If the transfer is now complete, this is remembered by setting </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Timeout</i></font><font face="Times New Roman, Times, Serif" size="3"> to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">-1</font><font face="Times New Roman, Times, Serif" size="3">. Interrupt routines run at Device IRQL and so cannot complete IRPs. Completing an IRP also takes some time, so this job ought not to be done in the interrupt handler, anyway. The driver model uses</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_363.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_364</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_365.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_69</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_68.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_69</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_70.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 69</font></td></tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="709" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">#include "wdm1.h"<br /><br />
+#pragma code_seg("INIT") // start INIT section<br /><br />
+///////////////////////////////////////////////////////////////<br />
+//DriverEntry:<br />
+//<br />
+//Description:<br />
+//This function initializes the driver, and creates<br />
+//any objects needed to process I/O requests.<br />
+//<br />
+//Arguments:<br />
+//Pointer to the Driver object<br />
+//Registry path string for driver service key<br />
+//<br />
+//Return Value:<br />
+//This function returns STATUS_XXX<br /><br />
+extern ''C"<br />
+NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject,<br />
+IN PUNICODE_STRING RegistryPath)<br />
+{<br />
+NTSTATUS status = STATUS_SUCCESS;<br /><br />
+#if DBG<br />
+DebugPrintInit("Wdm1 checked");<br />
+#else<br />
+DebugPrintInit("Wdm1 free");<br />
+#endif<br /><br />
+DebugPrint("RegistryPath is %T",RegistryPath);<br /><br />
+// Export other driver entry points . . .<br />
+DriverObject-&gt;DriverExtension-&gt;AddDevice = Wdm1AddDevice;<br />
+DriverObject-&gt;DriverUnload = Wdm1Unload;<br /><br />
+DriverObject-&gt;MajorFunction[IRP_MJ_CREATE] = Wdm1Create;<br />
+DriverObject-&gt;MajorFunction[IRP_MJ_CLOSE] = Wdm1Close;<br /><br />
+DriverObject-&gt;MajorFunction[IRP_MJ_PNP] = Wdm1Pnp;<br />
+DriverObject-&gt;MajorFunction[IRP_MJ_POWER] = Wdm1Power;<br /></font> </td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_68.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_69</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_70.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

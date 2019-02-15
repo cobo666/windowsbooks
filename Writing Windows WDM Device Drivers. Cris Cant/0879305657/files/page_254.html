@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_254</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_253.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_254</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_255.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 254</font></td></tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="727" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">return FALSE;<br />
+}<br />
+}<br />
+CloseServiceHandle(hDriver);<br />
+}<br />
+return TRUE;<br />
+}<br /><br />
+///////////////////////////////////////////////////////////////////////////<br />
+// Create driver service<br /><br />
+hDriver = CreateService(hSCManager,DriverName,DriverName,SERVICE_ALL_ACCESS,<br />
+SERVICE_KERNEL_DRIVER,SERVICE_AUTO_START,SERVICE_ERROR_NORMAL,<br />
+Drivers,NULL,NULL,"parport\0\0",NULL,NULL);<br />
+if( hDriver==NULL)<br />
+{<br />
+AfxMessageBox("Could not install driver with Service Control Manager'');<br />
+CloseServiceHandle(hSCManager);<br />
+return FALSE;<br />
+}<br /><br />
+//////////////////////////////////////////////////////////////////////////<br />
+CloseServiceHandle(hSCManager);<br />
+return TRUE;<br />
+}<br /><br />
+/////////////////////////////////////////////////////////////////////////<br /><br />
+BOOL StartDriver(CString DriverName)<br />
+{<br />
+////////////////////////////////////////////////////////////////////////<br />
+// Open service control manager<br /><br />
+SC_HANDLE hSCManager = OpenSCManager(NULL,NULL,SC_MANAGER_ALL_ACCESS);<br />
+if( hSCManager==NULL)<br />
+{<br />
+AfxMessageBox("Could not open Service Control Manager");<br />
+return FALSE;<br />
+}<br /><br />
+//////////////////////////////////////////////////////////////////////<br />
+// Driver isn't there</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_253.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_254</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_255.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

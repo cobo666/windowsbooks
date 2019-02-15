@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_304</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_303.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_304</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_305.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 304</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.6 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver device extension</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="725" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">      bool GotResources;          // Not stopped<br />
+      bool Paused;                // Stop or remove pending<br />
+      bool IODisabled;            // Paused or stopped<br /><br />
+      LONG OpenHandleCount;       // Count of open handles<br /><br />
+      LONG UsageCount;            // Pending I/O Count<br />
+      bool Stopping;              // In process of stopping<br />
+      KEVENT StoppingEvent;       // Set when all pending I/O complete<br /><br />
+      PIRP ReadTrp;                // "Read queue" of 1 IRP<br />
+      KSPIN_LOCK ReadIrpLock;      // Spin lock to guard access to ReadIrp<br /><br />
+      LIST_ENTRY EventList;        // Doubly-linked list of written Events<br />
+      KSPIN_LOCK EventListLock;    // Spin lock to guard access to EventList<br /><br />
+} DEBUGPRINT_DEVICE_EXTENSION, *PDEBUGPRINT_DEVICE_EXTENSION;</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.7 shows the complete Read IRP handler. Its first job is to acquire the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ReadIrpLock</i></font><font face="Times New Roman, Times, Serif" size="3"> spin lock. If the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ReadIrp</i></font><font face="Times New Roman, Times, Serif" size="3"> field is not NULL, it means another Read IRP has been queued. The IRP is failed, not forgetting to release the spin lock first. Even though the Monitor program will never issue more than one read IRP, it is best to be on the safe side.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadEvent</font><font face="Times New Roman, Times, Serif" size="3"> routine is then called. If there are any trace events available straightaway, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadEvent</font><font face="Times New Roman, Times, Serif" size="3"> returns the event data in the IRP, completes the IRP, and returns </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">true</font><font face="Times New Roman, Times, Serif" size="3">. If this happens, the read routine can just return straightaway without queuing the IRP.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If there are no trace events available, the IRP is queued. This simply means storing the IRP pointer in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ReadIrp</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">.</font></i><font face="Times New Roman, Times, Serif" size="3"> The final job is to mark the IRP as pending using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoMarkIrpPending</font><font face="Times New Roman, Times, Serif" size="3"> and set its cancel routine using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoSetCancelRoutine</font><font face="Times New Roman, Times, Serif" size="3">. The read routine must return </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STATUS_PENDING</font><font face="Times New Roman, Times, Serif" size="3"> because it has queued its IRP.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">IRPs that are not cancelled must remove their cancel routine using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoSetCancelRoutine</font><font face="Times New Roman, Times, Serif" size="3"> before completing the IRP.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.7 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver read dispatch routine</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="643" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS DbpRead( IN PDEVICE_OBJECT fdo, IN PIRP Irp)<br />
+{<br />
+     PDEBUGPRINT_DEVICE_EXTENSION dx =<br />
+        (PDEBUGPRINT_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;<br />
+     if( !dx-&gt;IODisabled)<br />
+        return CompleteIrp( Irp, STATUS_DEVICE_NOT_CONNECTED, 0);<br />
+     if( !LockDevice(dx))<br />
+        return CompleteIrp( Irp, STATUS_DELETE_PENDING, 0);<br /><br />
+     // Get access to our Read IRP queue</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_303.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_304</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_305.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

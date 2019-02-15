@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_240</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_239.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_240</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_241.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 240</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">device_description</font><font face="Times New Roman, Times, Serif" size="3"> is displayed to the user. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">install</font><font face="Times New Roman, Times, Serif" size="3"> is the name of the section with the installation instructions. One </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">hardware_id</font><font face="Times New Roman, Times, Serif" size="3"> and zero or more </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">compatible_ids</font><font face="Times New Roman, Times, Serif" size="3"> can then be given.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> INF file, only one Hardware ID is given, *</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">wdmBook\Wdm1</font><font face="Times New Roman, Times, Serif" size="3">. For Unknown devices installed from the Control Panel, only a Hardware ID is needed because the device is always installed.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" width="576" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2"> %Wdm1%=Wdm1.Install, *wdmBook\Wdm1</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The rules for selecting a device are quite complicated. By preference, Windows selects a driver for a device whose Hardware IDs match. Otherwise, it selects the driver whose Compatible ID best matches the device's Compatible ID, or prompts the user for an alternative driver INF file.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In Windows 2000, if more than one INF file has identical Hardware IDs or Compatible IDs, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DriverVer</font><font face="Times New Roman, Times, Serif" size="3"> directive is used to work out the most recent driver. The INF file with the most recent date (in USAn format) is used. The version number is only used for display purposes. A </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DriverVer</font><font face="Times New Roman, Times, Serif" size="3"> directive in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Version</font><font face="Times New Roman, Times, Serif" size="3"> section provides the default for the whole file. A </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DriverVer</font><font face="Times New Roman, Times, Serif" size="3"> directive in an </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Install</font><font face="Times New Roman, Times, Serif" size="3"> section overrides this default. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">wustamp</font><font face="Times New Roman, Times, Serif" size="3"> tool can be used to insert </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DriverVer</font><font face="Times New Roman, Times, Serif" size="3"> directives into INF files.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Hardware IDs</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Hardware IDs come in almost any form. They can be *</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceID</font><font face="Times New Roman, Times, Serif" size="3">, where </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceID</font><font face="Times New Roman, Times, Serif" size="3"> is a three-letter company ID followed by a 4 hex digit device ID. Many Windows Hardware IDs use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">pnp</font><font face="Times New Roman, Times, Serif" size="3"> as the company ID (e.g., *</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">pnp0700</font><font face="Times New Roman, Times, Serif" size="3"> is a standard floppy disk controller).</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Other Hardware IDs are in a form specific to the enumerator and often start with an enumerator code and a backslash. Here are typical Hardware IDs.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">PCI\VEN_1011&amp;DEV_0021           ; DEC 21052 PCI to PCI bridge<br />
+USB\VID_045E&amp;PID_000B           ; Microsoft USB Keyboard<br />
+USB\VID_046A&amp;PID_0001           ; Cherry USB Keyboard<br />
+HID\VID_046A&amp;PID_0001           ; Cherry USB Keyboard<br />
+Gameport\SideWinder3dPro        ; Microsoft SideWinder 3D Pro<br />
+PCMCIA\ACCTON-EN2212-C817       ; Accton EN2212 Ethernet PCMCIA Adapter<br />
+ISAPNP\ICI1995                  ; CoreLogic NetViper-100 ISDN Adapter</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">These Hardware IDs often include the vendor code and a device or product ID. These Hardware IDs can come in versions that are more specific. For example, USB devices can have </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">REV_</font><font face="Times New Roman, Times, Serif" size="3"> revision numbers, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MC_</font><font face="Times New Roman, Times, Serif" size="3"> multi-configuration IDs or </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MI_</font><font face="Times New Roman, Times, Serif" size="3"> multi-interface numbers added to the basic Hardware ID. Complicated rules apply if a USB device has more than one configuration or interface</font><font face="Times New Roman, Times, Serif" size="2"><sup>1</sup></font><font face="Times New Roman, Times, Serif" size="3">. In a simple case, if you produce a new driver for your version two</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="1"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>1</sup> See the article on the Microsoft web site entitled ''USB Plug and Play IDs and Selecting Device Drivers to Load", </font><font face="Times New Roman, Times, Serif" size="2" color="#0000FF"><u>http://www.microsoft.com/hwdev/busbios/usbpnp.htm</u></font><font face="Times New Roman, Times, Serif" size="2">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_239.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_240</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_241.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

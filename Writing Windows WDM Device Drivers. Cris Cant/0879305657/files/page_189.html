@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_189</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_188.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_189</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_190.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 189</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">For memory mapped I/O ports (with the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CM_RESOURCE_PORT_MEMORY</font><font face="Times New Roman, Times, Serif" size="3"> flag bit set) you must call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MmMapIoSpace</font><font face="Times New Roman, Times, Serif" size="3"> to get a pointer that can be used by a driver. Do not forget to call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MmUnmapIoSpace</font><font face="Times New Roman, Times, Serif" size="3"> when the device is stopped.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">dx-&gt;PortBase =<br />
+    (PUCHAR)MmMapIoSpace( dx-&gt;PortStartAddress, dx-&gt;PortLength, MmNonCached);</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">For ordinary I/O ports and memory, simply use the low 32 bits of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>PortStartAddress</i></font><font face="Times New Roman, Times, Serif" size="2"><sup>2</sup></font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">dx-&gt;PortBase = (PUCHAR)dx-&gt;PortStartAddress.LowPart;</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">For interrupts, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoConnectInterrupt</font><font face="Times New Roman, Times, Serif" size="3"> is called to install an interrupt handler. You must be ready to handle an interrupt straightaway, so make sure that everything is set up correctly. It is common to be able to disable interrupts by writing some value to a device register. Write a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DisableDeviceInterrupts</font><font face="Times New Roman, Times, Serif" size="3"> routine to disable interrupts before calling </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoConnectInterrupt</font><font face="Times New Roman, Times, Serif" size="3"> and call your </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EnableDeviceInterrupts</font><font face="Times New Roman, Times, Serif" size="3"> routine when you are ready to receive interrupts.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Any code that tries to access some real hardware must synchronize its activities with the interrupt handler. It is no good having an interrupt during a complicated device access procedure. Critical section routines solve this problem. You call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeSynchronizeExecution</font><font face="Times New Roman, Times, Serif" size="3"> passing the name of the function you want called. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeSynchronizeExecution</font><font face="Times New Roman, Times, Serif" size="3"> raises the IRQL to the correct interrupt level and calls your routine. When it has completed, the IRQL is lowered again. Critical section routines obviously need to be in nonpaged memory and cannot access paged memory.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EnableDeviceInterrupts</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DisableDeviceInterrupts</font><font face="Times New Roman, Times, Serif" size="3"> are usually Critical section routines and will usually need to be called via </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeSynchronizeExecution</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Finally, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartDevice</font><font face="Times New Roman, Times, Serif" size="3"> powers up its device, as described in the next chapter.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Port and Memory I/O</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">There are several standard kernel routines to access I/O ports and memory, as this code snippet shows.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">void WriteByte( IN PWDM2_DEVICE_EXTENSION dx, IN ULONG offset, IN UCHAR byte)<br />
+{<br /><br />
+    if in(dax-&gt;PortInIOSpace)<br />
+          WRITE_PORT_UCHAR(dx-&gt;PortBase+offset, byte);<br />
+    else<br />
+          WRITE_REGISTER_UCHAR(dx-&gt;PortBase+offset, byte);<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Read data using the routines with </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">READ</font><font face="Times New Roman, Times, Serif" size="3"> in their name and write data with </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WRITE</font><font face="Times New Roman, Times, Serif" size="3"> routines. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PORT</font><font face="Times New Roman, Times, Serif" size="3"> routines access I/O registers in I/O port space, while </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">REGISTER</font><font face="Times New Roman, Times, Serif" size="3"> routines access registers in memory space. Each type has </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UCHAR</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">USHORT</font><font face="Times New Roman, Times, Serif" size="3">, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ULONG</font><font face="Times New Roman, Times, Serif" size="3"> variants. Finally, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">BUFFER</font><font face="Times New Roman, Times, Serif" size="3"> variants transfer more than one data value. For example, use the following code to read a set of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ULONG</font><font face="Times New Roman, Times, Serif" size="3"> values from I/O port space into a buffer.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">READ_PORT_BUFFER_ULONG( PortBase, Buffer, Count);</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="1"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>2</sup> Obviously, this may well change in 64-bit systems.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_188.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_189</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_190.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

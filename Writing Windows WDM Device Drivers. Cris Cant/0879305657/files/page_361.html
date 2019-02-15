@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_361</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_360.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_361</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_362.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 361</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">the interrupt. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>InterruptReg</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InterruptRegMask</font><font face="Times New Roman, Times, Serif" size="3">,</font></i><font face="Times New Roman, Times, Serif" size="3"> and <i>InterruptRegValue</i> are the values given by the controlling Win32 application in its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIO_IRQ_CONNECT</font><font face="Times New Roman, Times, Serif" size="3"> command.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Remember that the controlling application uses three IOCTLs, such as </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IOCTL_PHDIO_CMDS_FOR_WRITE</font><font face="Times New Roman, Times, Serif" size="3">, to store the commands that are used to process read and write transfers. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StoreCmds</font><font face="Times New Roman, Times, Serif" size="3"> in each case to allocate some memory from the nonpaged pool to store a copy of the passed commands. The device extension </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>WriteCmds</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartReadCmds</font><font face="Times New Roman, Times, Serif" size="3">,</font></i><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ReadCmds</i></font><font face="Times New Roman, Times, Serif" size="3"> fields store the pointers to this memory, with </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>WriteCmdsLen</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartReadCmdsLen</font><font face="Times New Roman, Times, Serif" size="3">,</font></i><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ReadCmdsLen</i></font><font face="Times New Roman, Times, Serif" size="3"> storing the lengths. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> frees the allocated memory when the device is removed.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The three time-out variables are used to detect time-outs, as described later. If </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Timeout</i></font><font face="Times New Roman, Times, Serif" size="3"> is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">-1</font><font face="Times New Roman, Times, Serif" size="3">, no read or write is in progress. The final new group of variables are used to keep track of where </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> is in the read or write transfer. The next sections describe how these fields are used.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 17.1 Interrupt handling fields in the device extension</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="662" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">// Interrupt handling support<br />
+bool ConnectedToInterrupt;<br />
+UCHAR InterruptReg;<br />
+UCHAR InterruptRegMask;<br />
+UCHAR InterruptRegValue;<br /><br />
+ULONG CmdOutputCount;     // Count of bytes output from commands<br /><br />
+PUCHAR WriteCmds;         // Stored commands for write IRP<br />
+ULONG WriteCmdsLen;       //                        length<br />
+PUCHAR StartReadCmds;     // Stored commands for start read IRP<br />
+ULONG StartReadCmdsLen;   //                             length<br />
+PUCHAR ReadCmds;          // Stored commands for read IRP<br />
+ULONG ReadCmdsLen;        //                        length<br /><br />
+UCHAR SetTimeout;         // Timeout-stored from script<br />
+int Timeout;              // Seconds left to go.  -1 if not in force<br />
+bool StopTimer;           // Set to stop timer<br /><br />
+ULONG TxTotal;            // R/W total transfer size in bytes<br />
+ULONG TxLeft;             // R/W bytes left to transfer<br />
+PUCHAR TxBuffer;          // R/W buffer.  Moves through current IRP SystemBuffer<br />
+bool TxIsWrite;           // R/W direction<br />
+NTSTATUS TxStatus;        // R/W status return<br />
+UCHAR TxResult[5];        // R/W output buffer (2 Failcode, 2 Offset, 1 user)<br />
+UCHAR TxLastIntReg;       // R/W last interrupt register value<br />
+ULONG TxCmdOutputCount;   // R/W Copy of last CmdOutputCount</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_360.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_361</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_362.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

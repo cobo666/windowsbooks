@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_103</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_102.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_103</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_104.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 103</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The code in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1Pnp</font><font face="Times New Roman, Times, Serif" size="3"> to handle device removal has to be altered, as well. First, the device interface has to be disabled. Then, it must free the memory buffer allocated for the interface symbolic link name. It does not have to unregister the device interface.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="480" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">IoSetDeviceinterfaceState(&amp;dx-&gt;ifSymLinkName, FALSE);<br />
+RtlFreeUnicodeString(&amp;dx-&gt;ifSymLinkName);</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Device Interface Notes</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">As mentioned in the last chapter, registering a device interface creates a registry entry in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HKLM\System\CurrentControlSet\Control\DeviceClasses</font><font face="Times New Roman, Times, Serif" size="3"> key. A subkey named after the GUID and further subkeys for each device implements that GUID. Drivers can use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoOpenDeviceInterfaceRegistryKey</font><font face="Times New Roman, Times, Serif" size="3"> to open a handle to this registry key. For example, you might want to add a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">FriendlyName</font><font face="Times New Roman, Times, Serif" size="3"> value to this key using an INF file </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AddInterface</font><font face="Times New Roman, Times, Serif" size="3"> section, as described in Chapter 11. Win32 applications can use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetupDiOpenDeviceInterfaceRegKey</font><font face="Times New Roman, Times, Serif" size="3"> to open this same key and retrieve the friendly name.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Device interface registrations can be removed from user mode, if necessary.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A driver can register that a device supports more than one device interface if desired.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoGetDeviceInterfaces</font><font face="Times New Roman, Times, Serif" size="3"> can be used by a driver to find a list of symbolic links to devices that support a specific device interface.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Behind the scenes, Windows generates a kernel device name for your device. This might be something like </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\device\004059.</font><font face="Times New Roman, Times, Serif" size="3"> The symbolic link name generated by </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoRegisterDeviceInterface</font><font face="Times New Roman, Times, Serif" size="3"> looks like </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\DosDevices\000000000000001c#{c0cf0640 . . . }</font><font face="Times New Roman, Times, Serif" size="3">. The <i>WinObj</i> entry for the symbolic link looks like </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\??\Root#UNKNOWN#0000#{C0CF0640 . . . }</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Win32 Device Interface Access</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">We are ready  at last  to access a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> device. The <i>Wdm1Test</i> program opens a connection to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> driver and puts it through its paces. Remember that all the calls in this section are to Win32 routines, not to the kernel.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The source code for the <i>Wdm1Test</i> program is in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1\exe</font><font face="Times New Roman, Times, Serif" size="3"> directory. The book software has a Visual Studio </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WDM Book</font><font face="Times New Roman, Times, Serif" size="3"> workspace, which includes a project for the <i>Wdm1Test</i> program. The <i>Wdm1Test</i> code in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1Test.cpp</font><font face="Times New Roman, Times, Serif" size="3"> is listed at the end of the chapter.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Wdm1Test</i> is a standard Win32 console application. When run, it appears in a DOS box. As it is a standard Win32 program, you can debug it in Visual Studio as normal (e.g., step through the code).</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">There are two points to note about the <i>Wdm1Test</i> project. The first is that it includes the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">c:\98ddk\inc\win98\setupapi.h</font><font face="Times New Roman, Times, Serif" size="3"> header file. The VC++ 5 version of this file is seriously out of date, so the code specifically includes the Windows 98 DDK version. The second special setting required is to ensure that </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">c:\98ddk\\lib\i386\free\setupapi.lib</font><font face="Times New Roman, Times, Serif" size="3"> is listed in the Link property page Output/library modules section of the Project settings.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Getting a Device's Interface Name</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetDeviceViaInterface</font><font face="Times New Roman, Times, Serif" size="3"> routine in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1Test.cpp</font><font face="Times New Roman, Times, Serif" size="3"> opens a handle to a device, given the device interface's GUID, as shown in Listing 5.5. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetDeviceViaInterface</font><font face="Times New Roman, Times, Serif" size="3"> has a second parameter, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">instance</font><font face="Times New Roman, Times, Serif" size="3">, which is the zero-based index into the count of available devices. The</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_102.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_103</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_104.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

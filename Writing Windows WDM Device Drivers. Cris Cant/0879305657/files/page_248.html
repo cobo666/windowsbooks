@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_248</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_247.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_248</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_249.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 248</font></td></tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="727" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">// Get System32 directory<br /><br />
+_TCHAR System32Directory[MAX_PATH];<br />
+if( 0==GetSystemDirectory(System32Directory,_MAX_PATH))<br />
+{<br />
+AfxMessageBox("Could not find Windows  system directory");<br />
+return;<br />
+}<br /><br />
+///////////////////////////////////////////////////////////////////////////<br />
+// Copy driver .sys file across<br /><br />
+CString DriverFullPath = System32Directory+"\\Drivers\\"+DriverName+".sys'';<br />
+if( 0==CopyFile(DriverFromPath, DriverFullPath,  FALSE)) //  Overwrite OK<br />
+{<br />
+CString Msg;<br />
+Msg.Format("Could not copy %s" to %s", DriverFullPath, Drivers);<br />
+AfxMessageBox(Msg);<br />
+return;<br />
+}<br /><br />
+//////////////////////////////////////////////////////////////////////////<br />
+// Create driver (or stop existing driver)<br /><br />
+if( !CreateDriver( DriverName, DriverFullPath))<br />
+return;<br /><br />
+/////////////////////////////////////////////////////////////////////////<br />
+// Create/Open driver registry key and set its values<br />
+//Overwrite registry values written  in driver creation<br /><br />
+HKEY mru;<br />
+DWORD disposition;<br />
+if( RegCreateKeyEx( HKEY_LOCAL_MACHINE, "SYSTEM\\CurrentControlSet\\Services\\"+Driver-<br />
+Name,<br />
+0, "", 0, KEY_ALL_ACCESS, NULL, &amp;mru, &amp;disposition)<br />
+!=  ERROR_SUCCESS)<br />
+{<br />
+AfxMessageBox("Could not create driver registry  key");<br />
+return;<br />
+}<br />
+// Delete  ImagePath<br />
+RegDeleteValue(mru,"ImagePath");</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_247.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_248</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_249.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

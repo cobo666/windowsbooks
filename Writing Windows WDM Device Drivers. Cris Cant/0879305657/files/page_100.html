@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_100</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_99.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_100</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_101.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 100</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> driver could have given its first device object a kernel name of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\device\Wdm1device0</font><font face="Times New Roman, Times, Serif" size="3"> and called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCreateSymbolicLink</font><font face="Times New Roman, Times, Serif" size="3"> to create a symbolic link with the name </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\??\Wdm1dev1.</font><font face="Times New Roman, Times, Serif" size="3"> A Win32 program would then have been able to open </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\\.\Wdm1dev1</font><font face="Times New Roman, Times, Serif" size="3"> using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateFile</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Note that C strings represent each </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\</font><font face="Times New Roman, Times, Serif" size="3"> character as "</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\\</font><font face="Times New Roman, Times, Serif" size="3">", so you would have to pass "</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\\\\\.\\Wdm1dev1</font><font face="Times New Roman, Times, Serif" size="3">" to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateFile</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If this technique is used, you must keep track of how many devices are in use, so you can generate the correct names. If you use a global variable to keep the device count, you must use it carefully to ensure that simultaneous accesses do not corrupt its value. Achieve this using the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InterlockedIncrement</font><font face="Times New Roman, Times, Serif" size="3"> function that atomically increments a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LONG</font><font face="Times New Roman, Times, Serif" size="3"> value. This can be run at any IRQL and on paged memory. There are companion decrement, exchange, and compare functions.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Explicit kernel and symbolic link names are used most often in NT style drivers, which create devices in their </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DriverEntry</font><font face="Times New Roman, Times, Serif" size="3"> routine. In this case, counting devices is easy, as you can be sure that no other part of your code will be trying to increment the device count.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">You can use the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">QueryDosDevice</font><font face="Times New Roman, Times, Serif" size="3"> Win32 function to get a list of all the symbolic link names currently available. For each symbolic link, you can call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">QueryDosDevice</font><font face="Times New Roman, Times, Serif" size="3"> again to find the kernel name. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">QueryDosDevice</font><font face="Times New Roman, Times, Serif" size="3"> is supposed to run in Windows 98, but I did not succeed in getting it to work. In NT and W2000, you can use the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DefineDosDevice</font><font face="Times New Roman, Times, Serif" size="3"> Win32 function to change symbolic links. You can experiment with both these commands using the <i>dosdev</i> utility in the W2000 DDK.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Device Interfaces</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> driver uses a <i>device interface</i> to make its devices visible to Win32 programs. The idea is that each </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> device makes a defined Application Programmer Interface (API) available. A Globally Unique Identifier (GUID) is used to identify this interface.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The device interface that each </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> device exposes is the set of commands that a Win32 programmer can use to access the device. A </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> device responds to Win32 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateFile</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadFile</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WriteFile</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceIoControl</font><font face="Times New Roman, Times, Serif" size="3">, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CloseHandle</font><font face="Times New Roman, Times, Serif" size="3"> calls in a defined way. For example, a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> device is nonexclusive, so more than one thread can open it at the same time.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> driver's job is to implement a memory buffer that is shared by all the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> devices. Any writes extend the buffer, if necessary. Reads do not extend the buffer. Four IOCTLs are supported: Zero buffer, remove buffer, get buffer size, and get buffer.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">One benefit of device interfaces is that another driver could be written that also implements the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> API. As long as it does this faithfully, there is no reason why a Win32 program should notice the difference between the new driver and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">While it seems unlikely that the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> device interface will be copied by others, this technique is very useful for other types of drivers. For example, audio miniport drivers should implement the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IMiniport</font><font face="Times New Roman, Times, Serif" size="3"> COM interface. This is identified using the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IID_IMiniport</font><font face="Times New Roman, Times, Serif" size="3"> GUID and means that the driver implements two functions, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetDescription</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DataRangeIntersection</font><font face="Times New Roman, Times, Serif" size="3">.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_99.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_100</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_101.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

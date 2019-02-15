@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_338</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_337.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_338</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_339.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 338</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Inserting IRPs into the device queue is actually fairly straightforward. This except from the Read IRP dispatch handler in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Dispatch.cpp</font><font face="Times New Roman, Times, Serif" size="3"> shows the necessary steps. First, the IRP must be marked as pending using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoMarkIrpPending</font><font face="Times New Roman, Times, Serif" size="3">. Then, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoStartPacket</font><font face="Times New Roman, Times, Serif" size="3"> is called to insert the IRP into the queue. If there are no queued IRPs, the IRP is sent for processing in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartIo</font><font face="Times New Roman, Times, Serif" size="3"> routine straightaway. Finally, the Read IRP returns </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STATUS_PENDING</font><font face="Times New Roman, Times, Serif" size="3"> to confirm that the IRP is indeed pending.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="576" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">IoMarkIrpPending(Irp);<br />
+IoStartPacket( fdo, Irp, 0, WdmIoCancelIrp);<br />
+return STATUS_PENDING;</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoStartPacket</font><font face="Times New Roman, Times, Serif" size="3"> passes a pointer to the cancel routine. I shall show later how this works. The third parameter to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoStartPacket</font><font face="Times New Roman, Times, Serif" size="3"> is a key that can be used to sort the IRPs in the device queue. This feature is not used by </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3">, so the key is always zero.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> driver still uses the Plug and Play device locking technique to ensure that IRP processing is not interrupted by Plug and Play stop device requests. Note that the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UnlockDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine is not called when an IRP is queued. This is deliberate, as the IRP has not been completed. I ensure that </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UnlockDevice</font><font face="Times New Roman, Times, Serif" size="3"> is called on all paths that will later complete the IRP.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The main Read, Write, and IOCTL dispatch routines in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> perform device locking and parameter checking. All valid IRPs of these types are put in the device queue for processing later serially in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartIo</font><font face="Times New Roman, Times, Serif" size="3"> routine.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>StartIo</i></font><i><font face="Times New Roman, Times, Serif" size="3"> Routines</font></i></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> routine shown in Listing 16.2 processes IRPs for each </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> device one by one</font><font face="Times New Roman, Times, Serif" size="2"><sup>2</sup></font><font face="Times New Roman, Times, Serif" size="3">. All queued IRPs, whatever their major function code, come through this same routine. Therefore, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartIo</font><font face="Times New Roman, Times, Serif" size="3"> routines usually have a big switch statement at their heart. Listing 16.2 shows the complete code for IOCTL IRPs with major function code </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IRP_MJ_DEVICE_CONTROL</font><font face="Times New Roman, Times, Serif" size="3">. However, the code for Read and Write IRPs is not shown for now. This is explained in the next chapter.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">When an IRP is passed to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartIo</font><font face="Times New Roman, Times, Serif" size="3"> routine, it has just been removed from the device queue. The I/O Manager has also put the IRP pointer in the FDO </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>CurrentIrp</i></font><font face="Times New Roman, Times, Serif" size="3"> field. This is particularly useful for interrupt handlers as will be seen in the chapter, but is also used by IRP cancel and cleanup routines. The IRP </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Cancel</i></font><font face="Times New Roman, Times, Serif" size="3"> field is set to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TRUE</font><font face="Times New Roman, Times, Serif" size="3"> when the IRP is cancelled. The IRP </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Cancel</i></font><font face="Times New Roman, Times, Serif" size="3"> field may even be set before </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartIo</font><font face="Times New Roman, Times, Serif" size="3"> is called. Both </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> and the interrupt handling routines check the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Cancel</i></font><font face="Times New Roman, Times, Serif" size="3"> field at various points, as shown later.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartIo</font><font face="Times New Roman, Times, Serif" size="3"> routines are always called at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DISPATCH_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> IRQL. This means that all the code and the variables it accesses must be in nonpaged memory. It restricts the set of kernel calls that can be made. However, calls to the <i>DebugPrint</i> trace output routines can be made safely.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> processes IRPs in two different ways. All the IOCTL IRPs are handled straightaway; the IRP is processed in the relevant way and is completed at the end of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3">. However, Read and Write IRPs use interrupt driven I/O to transfer one byte at a time. These IRPs are usually completed later, as described in the next chapter. In this case, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> simply returns; the current IRP is still pending and is still being processed.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="1"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>2</sup> If there is more than one </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">WdmIo</font><font face="Times New Roman, Times, Serif" size="2"> device, each device has a device queue that can be processed simultaneously by </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="2">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_337.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_338</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_339.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

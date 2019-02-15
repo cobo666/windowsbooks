@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_71</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_70.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_71</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_72.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 71</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 4.9 Pnp.cpp</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="709" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">////////////////////////////////////////////////////// /////////////////////<br />
+//Copyright © 1998 Chris Cant, PHD Computer Consultants Ltd<br />
+//WDM Book for R&amp;D Books, Miller Freeman Inc<br />
+//<br />
+//Wdm1 example<br />
+///////////////////////////////////////////////////////////////////////////<br />
+//pnp.cpp:Plug and Play and Power IRP handlers<br />
+///////////////////////////////////////////////////////////////////////////<br />
+//Wdm1AddDeviceAdd device routine<br />
+//Wdm1PnpPNP IRP dispatcher<br />
+//Wdm1PowerPOWER IRP dispatcher<br />
+//////////////////////////////////////////////////////////////////////////<br />
+//Version history<br />
+//27-Apr-991.0.0CCcreation<br />
+/////////////////////////////////////////////////////////////////////////<br /><br />
+#define INITGUID// initialize WDM1_GUID in this module<br /><br />
+#include "wdm1.h"<br /><br />
+#pragma code_seg("PAGE")// start PAGE section<br /><br />
+///////////////////////////////////////////////////////////////////////<br />
+//Wdm1AddDevice:<br />
+//<br />
+//Description:<br />
+//Cope with a new Pnp device being added here.<br />
+//Usually just attach to the top of the driver stack.<br />
+//Do not talk to device here!<br />
+//<br />
+//Arguments:<br />
+//Pointer to the Driver object<br />
+//Pointer to Physical Device Object<br />
+//<br />
+//Return Value:<br />
+//This function returns STATUS_XXX<br /><br />
+NTSTATUS Wdm1AddDevice(IN PDRIVER_OBJECT DriverObject,<br />
+IN PDEVICE_OBJECT pdo)<br />
+{<br />
+DebugPrint(''AddDevice");</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_70.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_71</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_72.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

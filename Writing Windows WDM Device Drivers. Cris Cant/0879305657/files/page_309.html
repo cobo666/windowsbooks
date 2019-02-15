@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_309</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_308.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_309</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_310.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 309</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.9 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver write routine</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" width="717" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">    if( dx-&gt;ReadIrp!=NULL)<br />
+        if( ReadEvent( dx, dx-&gt;ReadIrp))<br />
+        {<br />
+            UnlockDevice(dx);<br />
+            dx-&gt;ReadIrp = NULL;<br />
+        }<br />
+    KeReleaseSpinLock(&amp;dx-&gt;ReadIrpLock,irql);<br /><br />
+    // Complete IRP<br />
+    UnlockDevice(dx);<br />
+    return CompleteIrp(Irp,STATUS_SUCCESS,WriteLen);<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Read Algorithm</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadEvent</font><font face="Times New Roman, Times, Serif" size="3"> routine shown in Listing 14.10 is called by the read and write dispatch routines. It is called while holding the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ReadIrpLock</i></font><font face="Times New Roman, Times, Serif" size="3"> spin lock. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadEvent</font><font face="Times New Roman, Times, Serif" size="3"> returns </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">true</font><font face="Times New Roman, Times, Serif" size="3"> if a trace event was found.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadEvent</font><font face="Times New Roman, Times, Serif" size="3"> tries to remove an entry from the event list using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExInterlockedRemoveHeadList</font><font face="Times New Roman, Times, Serif" size="3">. If it finds an entry, it obtains a pointer to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DEBUGPRINT_EVENT</font><font face="Times New Roman, Times, Serif" size="3"> structure using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CONTAINING_RECORD</font><font face="Times New Roman, Times, Serif" size="3">. It now checks the event data length against the size of the Read IRP buffer and shortens the transfer count, if necessary. The event data is copied to the Read I/O buffer and the Read IRP is completed. Finally, the event buffer memory is freed.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.10 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadEvent</font><font face="Times New Roman, Times, Serif" size="3"> routine</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="653" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">bool ReadEvent( PDEBUGPRINT_DEVICE_EXTENSION dx, PIRP Irp)<br />
+{<br />
+     // Try to remove Event from EventList<br />
+     PLIST_ENTRY pListEntry =<br />
+         ExInterlockedRemoveHeadList( &amp;dx-&gt;EventList, &amp;dx-&gt;EventListLock);<br />
+     if( pListEntry==NULL)<br />
+         return false;<br /><br />
+     // Get event as DEBUGPRINT_EVENT<br />
+     PDEBUGPRINT_EVENT pEvent =<br />
+         CONTAINING_RECORD( pListEntry, DEBUGPRINT_EVENT, ListEntry);<br /><br />
+     // Get length of event data<br />
+     ULONG EventDataLen = pEvent-&gt;Len;<br /><br />
+     //Get max read length acceptible<br />
+     PIO_STACK_LOCATION IrpStack = IoGetCurrentIrpStackLocation(Irp);<br />
+     ULONG ReadLen = IrpStack-&gt;Parameters.Read.Length;</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_308.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_309</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_310.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

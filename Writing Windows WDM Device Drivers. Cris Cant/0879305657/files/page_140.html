@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_140</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_139.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_140</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_141.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 140</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> Dispatch Routines</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The dispatch routines for the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> driver are in the file </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Dispatch.cpp</font><font face="Times New Roman, Times, Serif" size="3">, which is available on the book CD-ROM. These routines all run at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> IRQL, so they can be put in paged memory. All the basic dispatch routines complete the IRP straightaway.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The dispatch routines include various <i>DebugPrint</i> trace calls in the code. If you use the checked build version of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3">, you can view the trace output using the <i>DebugPrint Monitor</i> application. Listing 7.1 shows the (slightly edited) <i>DebugPrint</i> output on Windows 2000. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> driver was started at around 12:00 and the <i>Wdm1Test</i> program was run at 12:10. You can follow the program execution as each test in <i>Wdm1Test</i> is run. The <i>DebugPrint</i> output would be different in Windows 98 because the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetFilePointer</font><font face="Times New Roman, Times, Serif" size="3"> function does not work for device files.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 7.1 <i>DebugPrint</i> output in Windows 2000</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">Monitor 12:03:04 Version 1.02 starting to listen under Windows 2000<br />
+(5.0 build 1877)<br />
+DebugPrint 11:59:09  Version 1.02 started<br />
+Wdm1   12:00:42   DebugPrint logging started<br />
+Wdm1   12:00:42   RegistryPath is<br />
+                  \REGISTRY\Machine\System\ControlSet002\SERVICES\Wdm1<br />
+Wdm1   12:00:42   DriverEntry completed<br />
+Wdm1   12:00:42   AddDevice<br />
+Wdm1   12:00:42   FDO is 80AAB020<br />
+Wdm1   12:00:42   Symbolic Link Name is \??\Root#UNKNOWN#0003#{c0cf0640 . . .}<br />
+Wdm1   12:00:42   PnP IRP_MJ_PNP:IRP_MN_QUERY_CAPABILITIES<br />
+Wdm1   12:00:42   PnP IRP_MJ_PNP:IRP_MN_FILTER_RESOURCE_REQUIREMENTS<br />
+Wdm1   12:00:43   PnP IRP_MJ PNP:IRP_MN_START_DEVICE<br />
+Wdm1   12:00:43   PnP IRP_MJ_PNP:IRP_MN_QUERY_CAPABILITIES<br />
+Wdm1   12:00:43   PnP IRP_MJ_PNP:IRP_MN_QUERY_PNP_DEVICE_STATE<br />
+Wdm1   12:00:43   PnP IRP_MJ_PNP:IRP_MN_QUERY_BUS_INFORMATION<br />
+Wdm1   12:00:43   PnP IRP_MJ_PNP:IRP_MN_QUERY_DEVICE_RELATIONS<br />
+Wdm1   12:10:14   Create File is<br />
+Wdm1   12:10:14   Read 4 bytes from file pointer 0<br />
+Wdm1   12:10:14   Read: 4 bytes returned<br />
+Wdm1   12:10:14   Write 4 bytes from file pointer 0<br />
+Wdm1   12:10:14   Write: 4 bytes written<br />
+Wdm1   12:10:14   Read 1 bytes from file pointer 3<br />
+Wdm1   12:10:14   Read: 1 bytes returned<br />
+Wdm1   12:10:14   Write 4 bytes from file pointer 3<br />
+Wdm1   12:10:14   Write: 4 bytes written<br />
+Wdm1   12:10:14   DeviceIoControl: Control code<br />
+                  0022200C InputLength 0 OutputLength 4<br />
+Wdm1   12:10:14   DeviceIoControl: 4 bytes written<br />
+Wdm1   12:10:14   DeviceIoControl: Control code<br />
+                  00222010 InputLength 0 OutputLength 7</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_139.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_140</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_141.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

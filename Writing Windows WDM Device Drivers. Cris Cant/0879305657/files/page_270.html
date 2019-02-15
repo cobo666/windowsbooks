@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_270</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_269.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_270</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_271.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 270</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.6 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">QueryWmiDataBlock</font><font face="Times New Roman, Times, Serif" size="3"> routine</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="595" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">    if( OutBufferSize&lt;size)<br />
+    {<br />
+        status = STATUS_BUFFER_TOO_SMALL;<br />
+        break;<br />
+    }<br /><br />
+     // Store uint32 BufferLen<br />
+     *(ULONG *)PBuffer = BufferSize;<br />
+     PBuffer += sizeof(ULONG);<br /><br />
+     // Store uint32 BufferFirstWord<br />
+     ULONG FirstWord = 0;<br />
+     if( Buffer!=NULL &amp;&amp; BufferSize&gt;=4)<br />
+         FirstWord = *(ULONG*)Buffer;<br />
+     *(ULONG *)PBuffer = FirstWord;<br />
+     PBuffer += sizeof(ULONG);<br /><br />
+     // Store string SymbolicLinkName as counted Unicode<br />
+     *(USHORT *)PBuffer = (USHORT)SymLinkNameLen;<br />
+     PBuffer += sizeof(USHORT);<br />
+     RtlCopyMemory( PBuffer, dx-&gt;ifSymLinkName.Buffer, SymLinkNameLen);<br /><br />
+     // Store total size<br />
+     *InstanceLengthArray = size;<br />
+     status = STATUS_SUCCESS;<br /><br />
+     break;<br />
+ }<br />
+ case GUID_POWER_DEVICE_ENABLE_INDEX:   // MSPower_DeviceEnable<br />
+ {<br />
+     size = sizeof(BOOLEAN);<br /><br />
+     // Check output buffer size<br />
+     if( OutBufferSize&lt;size)<br />
+     {<br />
+         status = STATUS_BUFFER_TOO_SMALL;<br />
+         break;<br />
+     }<br />
+     // Store boolean IdlePowerDownEnable in Enable property<br />
+     *(BOOLEAN *)PBuffer = dx-&gt;IdlePowerDownEnable;</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_269.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_270</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_271.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

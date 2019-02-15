@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_282</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_281.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_282</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_283.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 282</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Msg.h</font><font face="Times New Roman, Times, Serif" size="3"> header file contains the message symbolic names defined in a form that can be used by the driver code, as shown in Listing 13.2. The message ID, severity, and facility code have been combined, with the "customer" bit set to make a suitable </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">NTSTATUS</font><font face="Times New Roman, Times, Serif" size="3"> value. The main </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3"> header, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3.h</font><font face="Times New Roman, Times, Serif" size="3">, now also includes </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Msg.h</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 13.2 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Msg.h</font><font face="Times New Roman, Times, Serif" size="3"> file</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="589" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">// MessageId: WDM3_MSG_LOGGING_STARTED  :<br />
+//<br />
+// MessageText:<br />
+//<br />
+//  Event logging enabled for Wdm3 Driver.<br />
+//<br />
+#define WDM3_MSG_LOGGING_STARTED         ((NTSTATUS)0x60070001L)<br /><br />
+//<br />
+// MessageId: WDM3_MESSAGE<br />
+//<br />
+// MessageText:<br />
+//<br />
+//Message: %2.<br />
+//<br />
+#define WDM3_MESSAGE                     ((NTSTATUS)0x60070002L)</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The message file must be compiled before the main driver code is built. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">NTTARGETFILEO</font><font face="Times New Roman, Times, Serif" size="3"> macro in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SOURCES</font><font face="Times New Roman, Times, Serif" size="3"> file is used to specify any prebuild steps.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="589" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTTARGETFILEO=prebuid</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">As described in Chapter 4, this invokes <i>nmake</i> on the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">makefile.inc</font><font face="Times New Roman, Times, Serif" size="3"> makefile before the main compile. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">prebuild</font><font face="Times New Roman, Times, Serif" size="3"> step compiles the WMI MOF file and the event message definition file, as shown in Listing 13.3. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">mc</font><font face="Times New Roman, Times, Serif" size="3"> command is run, if necessary, using the -c option to set the "customer" bit and the -v option for verbose output.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 13.3 New </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">makefile.inc</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="475" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">prebuild:   Wdm3Msg.h Wdm3.bmf<br /><br />
+Wdm3.bmf:   Wdm3.mof<br />
+    mofcomp -B:Wdm3.bmf  -WMI Wdm3.mof<br /><br />
+Wdm3Msg.rc Wdm3Msg.h: Wdm3Msg.mc<br />
+    mc -v  -c Wdm3Msg.mc<br /><br />
+PostBuildSteps: $(TARGET)</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_281.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_282</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_283.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

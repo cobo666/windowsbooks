@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_184</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_183.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_184</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_185.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 184</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">To wrap up the last loose ends, the handlers for the <i>Stop Device</i> and <i>Surprise Removal</i> messages are exactly the same, as shown in Listing 9.12. They both simply call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PnpStopDevice</font><font face="Times New Roman, Times, Serif" size="3"> and call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PnpDefaultHandler</font><font face="Times New Roman, Times, Serif" size="3"> to pass the IRP down the stack.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 9.12 Stop device handler</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS PnpStopDeviceHandler( IN PDEVICE_OBJECT fdo, IN PIRP IrP)<br />
+{<br />
+    DebugPrintMsg("PnpStopDeviceHandler");<br />
+    PWDM2_DEVICE_EXENSION dx=(PWDM2_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;<br /><br />
+    // Wait for I/O to complete and stop device<br />
+    PnpStopDevice(dx);<br /><br />
+    return PnpDefaultHandler( fdo, Irp);<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">W2000 Device Locking</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">W2000 provides standard routines to replace our </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LockDevice</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UnlockDevice</font><font face="Times New Roman, Times, Serif" size="3"> routines, and the associated variables. You must provide an </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IO_REMOVE_LOCK</font><font face="Times New Roman, Times, Serif" size="3"> field in your device extension. Initialise this field using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoInitializeRemoveLock</font><font face="Times New Roman, Times, Serif" size="3"> function in your </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AddDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine. Replace all calls to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LockDevice</font><font face="Times New Roman, Times, Serif" size="3"> with </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoAcquireRemoveLock</font><font face="Times New Roman, Times, Serif" size="3"> and calls to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UnlockDevice</font><font face="Times New Roman, Times, Serif" size="3"> with </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoReleaseRemoveLock</font><font face="Times New Roman, Times, Serif" size="3">. In the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PnpStopDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine above, replace the code that waits for all pending I/O to complete with a call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoReleaseRemoveLockAndWait</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The DDK recommended that you call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoAcquireRemoveLock</font><font face="Times New Roman, Times, Serif" size="3"> whenever you pass out a reference to your code, e.g., a timer, DPC, or any other call-back routine. Call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoReleaseRemoveLock</font><font face="Times New Roman, Times, Serif" size="3"> when these call-backs are disabled, i.e., usually in your <i>Remove Device</i> handler.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Getting Resource Assignments</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A <i>Start Device</i> PnP IRP passes a list of the resources that have been assigned to the device. Although the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2</font><font face="Times New Roman, Times, Serif" size="3"> driver never gets any resources, the code in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceIo.cpp</font><font face="Times New Roman, Times, Serif" size="3"> goes through the steps to find these out. In addition, there is a lot of commented out code that shows how to use the resources. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> driver described in Chapters 15 17 show how hardware resources are actually used.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceIo.cpp</font><font face="Times New Roman, Times, Serif" size="3"> primarily contains the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartDevice</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StopDevice</font><font face="Times New Roman, Times, Serif" size="3"> routines. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartDevice</font><font face="Times New Roman, Times, Serif" size="3"> must get the list of assigned resources, check that the resources are suitable, allocate them, and do any hardware-related initialization for the driver. If that all goes well, it should set the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>GotResources</i></font><font face="Times New Roman, Times, Serif" size="3"> flag to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">true</font><font face="Times New Roman, Times, Serif" size="3">. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StopDevice</font><font face="Times New Roman, Times, Serif" size="3"> must release any hardware resources and reset the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>GotResources</i></font><font face="Times New Roman, Times, Serif" size="3"> flag.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StartDevice</font><font face="Times New Roman, Times, Serif" size="3"> calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RetrieveResources</font><font face="Times New Roman, Times, Serif" size="3"> to find out which resources have been assigned to it by the PnP Configuration Manager. The <i>Start Device</i> PnP message passes two fields in the IRP stack </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Parameters.StartDevice</font><font face="Times New Roman, Times, Serif" size="3"> structure, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>AllocatedResources</i></font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>AllocatedResourcesTranslated</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AllocatedResources</font></i><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"></font><font face="Times New Roman, Times, Serif" size="3"> lists the resources in "raw form". This is how the device itself will see addresses, etc. Use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>AllocatedResources</i></font><font face="Times New Roman, Times, Serif" size="3"> to program the device itself. Usually the "translated form" of the resource list, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>AllocatedResourcesTranslated</i></font><font face="Times New Roman, Times, Serif" size="3">, is of more interest to</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_183.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_184</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_185.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

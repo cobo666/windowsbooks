@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_81</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_80.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_81</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_82.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 81</font></td></tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="709" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">{<br />
+///////Zero Buffer<br />
+case IOCTL_WDM1_ZERO_BUFFER:<br />
+// Zero the buffer<br />
+if( Buffer!=NULL &amp;&amp; BufferSize&gt;0)<br />
+RtlZeroMemory(Buffer,BufferSize);<br />
+break;<br /><br />
+///////Remove Buffer<br />
+case IOCTL_WDM1REMOVE_BUFFER:<br />
+if(Buffer!=NULL)<br />
+{<br />
+ExFreePool(Buffer);<br />
+Buffer = NULL;<br />
+BufferSize = 0;<br />
+}<br />
+break;<br /><br />
+///////Get Buffer Size as ULONG<br />
+case IOCTL_WDM1_GET_BUFFER_SIZE:<br />
+if( OutputLength&lt;sizeof(ULONG))<br />
+status = STATUS_INVALID_PARAMETER;<br />
+else<br />
+{<br />
+BytesTxd = sizeof(ULONG);<br />
+RtlCopyMemory(Irp-&gt;AssociatedIrp.SystemBuffer,&amp;BufferSize,sizeof(ULONG));<br />
+}<br />
+break;<br /><br />
+///////Get Buffer<br />
+case  IOCTL_WDM1_GET_BUFFER:<br />
+if( OutputLength&gt;BufferSize)<br />
+status = STATUS_INVALID_PARAMETER;<br />
+else<br />
+{<br />
+BytesTxd = OutputLength;<br />
+RtlCopyMemory(Irp-&gt;AssociatedIrp.SystemBuffer,Buffer,BytesTxd);<br />
+}<br />
+break;<br /><br />
+///////Invalid  request<br />
+default:</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_80.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_81</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_82.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

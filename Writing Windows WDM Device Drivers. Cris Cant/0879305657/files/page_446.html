@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_446</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_445.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_446</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_447.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 446</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Vendor/Class</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" width="649" cellpadding="4"><tr><td valign="middle"><font face="Times New Roman, Times, Serif" size="3">Function codes</font></td><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">URB_FUNCTION_VENDOR_DEVICE<br />
+URB_FUNCTION_VENDOR_INTERFACE<br />
+URB_FUNCTION_VENDOR_ENDPOINT<br />
+URB_FUNCTION_VENDOR_OTHER<br />
+URB_FUNCTION_CLASS_DEVICE<br />
+URB_FUNCTION_CLASS_INTERFACE<br />
+URB_FUNCTION_CLASS_ENDPOINT<br />
+URB_FUNCTION_CLASS_OTHER</font></td></tr><tr><td valign="middle"><font face="Times New Roman, Times, Serif" size="3">Build routine</font></td><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">UsbBuildVendorRequest</font></td></tr><tr><td valign="top"><font face="Times New Roman, Times, Serif" size="3">URB Structure</font></td><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">_URB_CONTROL_VENDOR_OR_CLASS_REQUEST</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Use this function to issue a vendor or class-specific command to a device, interface, endpoint, or other device-defined target, in a control transfer over the default pipe.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TransferBuffer</i></font><font face="Times New Roman, Times, Serif" size="3"> fields specify the data. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">USBD_TRANSFER_DIRECTION_IN</font><font face="Times New Roman, Times, Serif" size="3"> bit in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TransferFlags</i></font><font face="Times New Roman, Times, Serif" size="3"> field specifies the direction in which the data flows. Specify the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">USBD_SHORT_TRANSFER_OK</font><font face="Times New Roman, Times, Serif" size="3"> flag bit if a short input transfer is acceptable.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ReservedBits</i></font><font face="Times New Roman, Times, Serif" size="3"> field is usually zero, but if it is a value between 4 and 31 this value is used for bits 4 to 0 in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SETUP</font><font face="Times New Roman, Times, Serif" size="3"> packet </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>bmRequestType</i></font><font face="Times New Roman, Times, Serif" size="3"> field (see Table 20.3 in the last chapter).</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Request</i></font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Value</i></font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Index</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">,</font></i><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TransferBuffer</i></font><font face="Times New Roman, Times, Serif" size="3"> fields are set appropriately for the vendor- or class-defined request.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>URB Isochronous Frame Functions</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Request Control of Frame Length</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" width="649" cellpadding="4"><tr><td valign="middle"><font face="Times New Roman, Times, Serif" size="3">Function codes</font></td><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">URB_FUNCTION_TAKE_FRAME_LENGTH_CONTROL<br />
+URB_FUNCTION_RELEASE_FRAME_LENGTH_CONTROL</font></td></tr><tr><td valign="middle"><font face="Times New Roman, Times, Serif" size="3">Build routine</font></td><td valign="top"><font face="Times New Roman, Times, Serif" size="3">None available</font></td></tr><tr><td valign="top"><font face="Times New Roman, Times, Serif" size="3">URB Structure</font></td><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">_URB_FRAME_LENGTH_CONTROL</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Use this function to request control of the frame length (i.e., </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SOF</font><font face="Times New Roman, Times, Serif" size="3"> mastership).</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Only one client can have control of frame length at any time</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Get Current Frame Length</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" width="649" cellpadding="4"><tr><td valign="middle"><font face="Times New Roman, Times, Serif" size="3">Function codes</font></td><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">URB_FUNCTION_GET_FRAME_LENGTH</font></td></tr><tr><td valign="middle"><font face="Times New Roman, Times, Serif" size="3">Build routine</font></td><td valign="top"><font face="Times New Roman, Times, Serif" size="3">None available</font></td></tr><tr><td valign="top"><font face="Times New Roman, Times, Serif" size="3">URB Structure</font></td><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">_URB_GET_FRAME_LENGTH</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Use this function to get the current frame length in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>FrameLength</i></font><font face="Times New Roman, Times, Serif" size="3"> field. It also indicates in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>FrameNumber</i></font><font face="Times New Roman, Times, Serif" size="3"> the first frame in which the frame length can be changed.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_445.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_446</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_447.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

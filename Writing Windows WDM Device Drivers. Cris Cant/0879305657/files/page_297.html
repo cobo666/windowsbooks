@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_297</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_296.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_297</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_298.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 297</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.2 shows how </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintMsg</font><font face="Times New Roman, Times, Serif" size="3"> builds a trace event and puts it in a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DEBUGPRINT_EVENT</font><font face="Times New Roman, Times, Serif" size="3"> structure allocated from nonpaged memory. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DEBUGPRINT_EVENT</font><font face="Times New Roman, Times, Serif" size="3"> structure is added into the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventList</font><font face="Times New Roman, Times, Serif" size="3"> doubly-linked list. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintMsg</font><font face="Times New Roman, Times, Serif" size="3"> is passed a NULL-terminated ANSI message string.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The event data consists of the following three items:</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">  the current system time in GMT,</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">  the driver name (specified in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintInit</font><font face="Times New Roman, Times, Serif" size="3">), and</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">  the message.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintMsg</font><font face="Times New Roman, Times, Serif" size="3"> first gets the current system time in GMT using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeQuerySystemTime</font><font face="Times New Roman, Times, Serif" size="3">. It converts the number of 100-nanosecond intervals since January 1, 1601 into a more recognizable </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TIME_FIELDS</font><font face="Times New Roman, Times, Serif" size="3"> structure using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RtlTimeToTimeFields</font><font face="Times New Roman, Times, Serif" size="3">. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExSystemTimeToLocalTime</font><font face="Times New Roman, Times, Serif" size="3"> function (which converts from GMT to local time) is only available in W2000, so it is not used here. The time is converted to the local timezone in the <i>DebugPrint Monitor</i> application.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">It would reduce the event structure size if the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LARGE_INTEGER</font><font face="Times New Roman, Times, Serif" size="3"> output from </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeQuerySystemTime</font><font face="Times New Roman, Times, Serif" size="3"> were stored directly. However, there is no equivalent of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RtlTimeToTimeFields</font><font face="Times New Roman, Times, Serif" size="3"> routine in Win32, so the event structure holds the time as time fields.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintMsg</font><font face="Times New Roman, Times, Serif" size="3"> now works out the size of the event data (i.e., the three previous data items, including the strings' terminating NULLs). It then determines the size of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DEBUGPRINT_EVENT</font><font face="Times New Roman, Times, Serif" size="3"> structure that envelops the event data. It allocates some nonpaged memory for this structure and fills it in. It then uses </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExInterlockedInsertTailList</font><font face="Times New Roman, Times, Serif" size="3"> to insert the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DEBUGPRINT_EVENT</font><font face="Times New Roman, Times, Serif" size="3"> structure at the end of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventList</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.2 DebugPrint test driver DebugPrintMsg function</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" width="595" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">void DebugPrintMsg(char* Msg)<br />
+{<br />
+     if( !DebugPrintStarted) return;<br /><br />
+     // Get current time<br />
+     LARGE_INTEGER Now, NowLocal;<br />
+     KeQuerySystemTime(&amp;Now);<br />
+     TIME_FIELDS NowTF;<br />
+     RtlTimeToTimeFields( &amp;Now, &amp;NowTF);<br /><br />
+     // Get size of Msg and complete event<br />
+     USHORT MsgLen = ANSIstrlen(Msg)+1;<br />
+     ULONG EventDataLen = sizeof(TIME_FIELDS) + DriverNameLen + MsgLen;<br />
+     ULONG len = sizeof(LIST_ENTRY)+sizeof(ULONG)+EventDataLen;<br /><br />
+     // Allocate event buffer<br />
+     PDEBUGPRINT_EVENT pEvent =<br />
+        (PDEBUGPRINT_EVENT)ExAllocatePool(NonPagedPool,len);<br />
+     if( pEvent!=NULL)<br />
+     {<br /><br />
+        PUCHAR buffer = (PUCHAR)pEvent-&gt;EventData;</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_296.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_297</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_298.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

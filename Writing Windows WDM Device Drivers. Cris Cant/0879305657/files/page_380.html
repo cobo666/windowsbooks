@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_380</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_379.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_380</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_381.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 380</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(Continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 18.3 Kernel resource list structures</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="613" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">typedef struct_CM_PARTIAL_RESOURCE_LIST {<br />
+    USHORT Version;<br />
+    USHORT Revision;<br />
+    ULONG Count;<br />
+    CM_PARTIAL_RESOURCE_DESCRIPTOR PartialDescriptors[l];<br />
+} CM_PARTIAL_RESOURCE_LIST, *PCM_PARTIAL_RESOURCE_LIST;<br /><br />
+typedef struct _CM_PARTIAL_RESOURCE_DESCRIPTOR {<br />
+    UCHAR Type;<br />
+    UCHAR ShareDisposition;<br />
+    USHORT Flags;<br />
+    union {<br />
+    // . . .<br />
+    } u;<br />
+} CM_PARTIAL_RESOURCE_DESCRIPTOR, *PCM_PARTIAL_RESOURCE_DESCRIPTOR;</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIo</font><font face="Times New Roman, Times, Serif" size="3"> driver deals with only the first instance of the ISA bus, so it needs only one Full Resource Descriptor. It always has one Partial Resource Descriptor for the I/O port. It can also have a second Partial Resource Descriptor for the interrupt, if one was specified.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ClaimResources</font><font face="Times New Roman, Times, Serif" size="3">, in Listing 18.4, builds a resource list structure and passes it to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoReportResourceUsage</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">As you can guess, it is quite a job building the resource list correctly. The correct size for the whole structure must be determined first. A suitably sized block of paged memory is allocated and zeroed.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ClaimResources</font><font face="Times New Roman, Times, Serif" size="3"> gradually fills the resource list. The resource list </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Count</i></font><font face="Times New Roman, Times, Serif" size="3"> is set to one, as there is only one Full Resource Descriptor. The Full Resource Descriptor </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>InterfaceType</i></font><font face="Times New Roman, Times, Serif" size="3"> field is set to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Isa</font><font face="Times New Roman, Times, Serif" size="3"> and the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>BusNumber</i></font><font face="Times New Roman, Times, Serif" size="3"> is set to 0. The Partial Resource List </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Count</i></font><font face="Times New Roman, Times, Serif" size="3"> is set to 1 or 2, depending on how many resources are declared. The Partial Resource Descriptor for the I/O port is generated, then the one for the interrupt, if required. Whew!</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">There is a final complication to calling </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoReportResourceUsage</font><font face="Times New Roman, Times, Serif" size="3">. You must either specify the resource list as belonging to the whole driver, or associate the resource list with an individual device. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIo</font><font face="Times New Roman, Times, Serif" size="3"> says that the resources belong to the whole driver. If </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIo</font><font face="Times New Roman, Times, Serif" size="3"> were enhanced to provide more than one device, it would make sense to allocate resources on a per-device basis. One call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoReportResourceUsage</font><font face="Times New Roman, Times, Serif" size="3"> per device would be needed in this case.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 18.4 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ClaimResources</font><font face="Times New Roman, Times, Serif" size="3"> Routine</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="613" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS ClaimResources( IN PDEVICE_OBJECT phddo)<br />
+{<br />
+    PPHDIO_DEVICE_EXTENSION dx =<br />
+        (PPHDIO_DEVICE_EXTENSION)phddo-&gt;DeviceExtension;<br /><br />
+    // Get resource count: either 1 (IOport) or 2 (IOport&amp;IRQ)<br />
+    ULONG PartialResourceCount = 1;</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_379.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_380</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_381.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

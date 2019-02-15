@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_495</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_494.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_495</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_496.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 495</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">HID driver has returned data, the final job is to copy the data into the user's buffer, using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RtlCopyMemory</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadComplete</font><font face="Times New Roman, Times, Serif" size="3"> completion routine returns </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STATUS_MORE_PROCESSING_REQUIRED</font><font face="Times New Roman, Times, Serif" size="3">. This stops the I/O Manager from deleting the IRP. The IRP will be reused so it must not be deleted.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 23.14 New </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadHidKbdInputReport</font><font face="Times New Roman, Times, Serif" size="3"> routine</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="746" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS ReadHidKbdInputReport( PHIDKBD_DEVICE_EXTENSION dx,<br />
+    PFILE_OBJECT FileObject, PVOID Buffer, ULONG&amp; BytesTxd)<br />
+{<br />
+    BytesTxd = 0;<br />
+    if( HidkbdDo==NULL || dx-&gt;HidIrp==NULL || dx-&gt;HidReport==NULL)<br />
+    {<br />
+        DebugPrintMsg("No HidIrp");<br />
+        return STATUS_INSUFFICIENT_RESOURCES;<br />
+    }<br /><br />
+    RtlZeroMemory( dx-&gt;HidReport, dx-&gt;HidMaxReportLen);<br /><br />
+    // Initialise IRP completion event<br />
+    KEVENT event;<br />
+    KeInitializeEvent(&amp;event, NotificationEvent, FLASE);<br /><br />
+    // Initialise IRP<br />
+    UCHAR AllocationFlags = dx-&gt;HidIrp-&gt;AllocationFlags;<br />
+    IoInitializeIrp( dx-&gt;HidIrp, IoSizeOfIrp(HidkbdDo-&gt;StackSize), HidkbdDo-&gt;StackSize);<br />
+    dx-&gt;HidIrp-&gt;AllocationFlags = AllocationFlags;<br /><br />
+    dx-&gt;HidIrp-&gt;MdlAddress = dx-&gt;HidReportMdl;<br /><br />
+    PIO_STACK_LOCATION IrpStack = IoGetNextIrpStackLocation(dx-&gt;HidIrp);<br />
+    IrpStack-&gt;MajorFunction = IRP_MJ_READ;<br />
+    IrpStack-&gt;Parameters.Read.Key = 0;<br />
+    IrpStack-&gt;Parameters.Read.Length = dx-&gt;HidInputReportLen;<br />
+    IrpStack-&gt;Parameters.Read.ByteOffset.QuadPart = 0;<br />
+    IrpStack-&gt;FileObject = FileObject;<br /><br />
+    IoSetCompletionRoutine( dx-&gt;HidIrp, (PIO_COMPLETION_ROUTINE)ReadComplete,<br />
+        &amp;event, TRUE, TRUE, TRUE);<br /><br />
+    NTSTATUS status = IoCallDriver( dx-&gt;HidDevice, dx-&gt;HidIrp);<br />
+    if (status == STATUS_PENDING)<br />
+    {<br />
+        KeWaitForSingleObject( &amp;event, Suspended, KernelMode, FALSE, NULL);</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_494.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_495</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_496.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

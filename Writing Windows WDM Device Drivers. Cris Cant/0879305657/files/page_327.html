@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_327</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_326.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_327</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_328.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 327</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Getting </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WriteFile</font><font face="Times New Roman, Times, Serif" size="3"> Results</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Each time the write commands are run, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> gives its command processor a 5-byte output buffer. The first two words (4 bytes) are used for the error code and location. The fifth byte is filled with any output data that the commands produce. In <i>WdmIoTest,</i> the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WriteByte</font><font face="Times New Roman, Times, Serif" size="3"> commands read the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Status</font><font face="Times New Roman, Times, Serif" size="3"> register just after each byte is output. If the write commands attempt to output more than one byte, the command run will be aborted with error code </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIO_NO_OUTPUT_ROOM</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">However, what is really wanted is the value of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Status</font><font face="Times New Roman, Times, Serif" size="3"> register after each byte is processed by the printer. At this point, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Status</font><font face="Times New Roman, Times, Serif" size="3"> register contains some useful information, such as whether the printer is off-line or has run out of paper.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">While <i>WdmIoTest</i> can just issue the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadStatus</font><font face="Times New Roman, Times, Serif" size="3"> commands again, it is more convenient if the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Status</font><font face="Times New Roman, Times, Serif" size="3"> register value is returned along with the command output data. Therefore, the register that the interrupt handler read is stored as a sixth byte in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WriteFile</font><font face="Times New Roman, Times, Serif" size="3"> results buffer.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IOCTL_PHDIO_GET_RW_RESULTS</font><font face="Times New Roman, Times, Serif" size="3"> is used to obtain the write (and read) results. Table 15.5 recaps the contents of the 6-byte buffer that is returned. Listing 15.4 shows how </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceIoControl</font><font face="Times New Roman, Times, Serif" size="3"> is used to read and display the results. When <i>WdmIoTest</i> is run successfully, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">cmd status</font><font face="Times New Roman, Times, Serif" size="3"> is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0×5F</font><font face="Times New Roman, Times, Serif" size="3"> and the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">int</font><font face="Times New Roman, Times, Serif" size="3"> </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">status</font><font face="Times New Roman, Times, Serif" size="3"> is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0×DF</font><font face="Times New Roman, Times, Serif" size="3">. This is expected. When a byte has just been output to the printer, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">BUSY#</font><font face="Times New Roman, Times, Serif" size="3"> (the top bit of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Status</font><font face="Times New Roman, Times, Serif" size="3"> register) goes low. When it has been printed, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">BUSY#</font><font face="Times New Roman, Times, Serif" size="3"> goes high and an interrupt is generated.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Note that the command output buffer and the last interrupt register value locations are reused each time an interrupt occurs and the commands are run. This is not a problem. As soon as any fault occurs, processing stops with the most useful information in the results buffer.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="bdde409537c4745e674d3b73251c0a00.gif" border="0" alt="0327-01.gif" width="514" height="149" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 15.4 Getting Write/Read command results</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="662" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">if( DeviceIoControl( hWdmIo, IOCTL_PHDIO_GET_RW_RESULTS,<br />
+                    NULL, 0,        // Input<br />
+                    rv, sizeof(rv), // Output<br />
+                    &amp;BytesReturned, NULL))<br />
+{<br />
+     printf("      Get RW Results OK. rv=%d at %d\n", rv[0], rv[1]);<br />
+     BYTE* pbuf = (BYTE*)(&amp;rv[2]);<br />
+     printf("                         cmd status=%02×\n", pbuf[0]);<br />
+     printf("                         int status=%02×\n", pbuf[1]);<br />
+}</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_326.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_327</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_328.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

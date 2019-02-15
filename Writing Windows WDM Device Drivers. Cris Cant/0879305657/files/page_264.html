@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_264</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_263.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_264</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_265.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 264</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">6. The device extension has these extra fields added.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="576" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">WMILIB_CONTEXT WmiLibInfo;   // WMI Context<br />
+BOOLEAN IdlePowerDownEnable; // Enable power down option<br />
+BOOLEAN WMIEventEnable;      // Enable WMI events</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>WmiLibInfo</i></font><font face="Times New Roman, Times, Serif" size="3"> is used to pass the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3"> WMI GUIDs and various callbacks, as described later.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>IdlePowerDownEnable</i></font><font face="Times New Roman, Times, Serif" size="3"> implements the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSPower_DeviceEnable</font><font face="Times New Roman, Times, Serif" size="3"> WMI data block. If </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>IdlePowerDownEnable</i></font><font face="Times New Roman, Times, Serif" size="3"> is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TRUE</font><font face="Times New Roman, Times, Serif" size="3">, the driver can power down when it is idle.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Finally, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>WMIEventEnabled</i></font><font face="Times New Roman, Times, Serif" size="3"> is used to enable WMI event reporting.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">7. The main WMI code needs to refer to the driver registry path that was passed to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Driver-Entry</font><font face="Times New Roman, Times, Serif" size="3">. Therefore, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DriverEntry</font><font face="Times New Roman, Times, Serif" size="3"> saves a copy in its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3RegistryPath</font><font face="Times New Roman, Times, Serif" size="3"> global variable.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="672" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">// Save a copy of our RegistryPath for WMI<br />
+Wdm3RegistryPath.MaximumLength = RegistryPath-&gt;MaximumLength;<br />
+Wdm3RegistryPath.Length = 0;<br />
+Wdm3RegistryPath.Buffer =<br />
+    (PWSTR)ExAllocatePool( PagedPool, Wdm3RegistryPath.MaximumLength);<br />
+if( Wdm3RegistryPath.Buffer==NULL) return STATUS_INSUFFICIENT_RESOURCES;<br />
+RtlCopyUnicodeString( &amp;Wdm3RegistryPath, RegistryPath);</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The driver unload routine </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Unload</font><font face="Times New Roman, Times, Serif" size="3"> deletes the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3RegistryPath</font><font face="Times New Roman, Times, Serif" size="3"> buffer.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Registering As a WMI Data Provider</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">You must register as a WMI provider by calling </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoWmiRegistrationControl</font><font face="Times New Roman, Times, Serif" size="3"> with a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WMIREG_ACTION_REGISTER</font><font face="Times New Roman, Times, Serif" size="3"> command for each device when it is ready to handle WMI IRPs. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3"> driver makes this call in its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RegisterWmi</font><font face="Times New Roman, Times, Serif" size="3"> routine. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RegisterWmi</font><font face="Times New Roman, Times, Serif" size="3"> is called at the end of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3AddDevice</font><font face="Times New Roman, Times, Serif" size="3">. The corresponding </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeregisterWmi</font><font face="Times New Roman, Times, Serif" size="3"> routine deregisters the WMI support by calling </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoWmiRegistrationControl</font><font face="Times New Roman, Times, Serif" size="3"> with the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WMIREG_ACTION_DEREGISTER</font><font face="Times New Roman, Times, Serif" size="3"> command. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeregisterWmi</font><font face="Times New Roman, Times, Serif" size="3"> is called when the device is removed.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.3 shows the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RegisterWmi</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeregisterWMI</font><font face="Times New Roman, Times, Serif" size="3"> routines. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RegisterWmi</font><font face="Times New Roman, Times, Serif" size="3"> also sets up the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>WmiLibInfo</i></font><font face="Times New Roman, Times, Serif" size="3"> structure in the device extension, ready for processing by the System Control WMI IRP. Table 12.1 shows the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>WmiLibInfo</i> WMILIB_CONTEXT</font><font face="Times New Roman, Times, Serif" size="3"> structure fields.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>WmiLibInfo</i></font><font face="Times New Roman, Times, Serif" size="3"> first contains the list of WMI block GUIDs that are handled by this driver. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3GuidList</font><font face="Times New Roman, Times, Serif" size="3"> is an array of these </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WMIGUIDREGINFO</font><font face="Times New Roman, Times, Serif" size="3"> structures. Each specifies the GUID pointer, a count of instances, and optionally some flags. There is only one instance of each WMI block for this device. No flags are specified, as the appropriate flags are used later in the call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">QueryWmiRegInfo</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WMILIB_CONTEXT <i>WmiLibInfo</i></font><font face="Times New Roman, Times, Serif" size="3"> field also sets up several callback routines that we shall meet later. These are used to help the processing of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IRP_MJ_SYSTEM_CONTROL</font><font face="Times New Roman, Times, Serif" size="3"> WMI IRP.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_263.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_264</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_265.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

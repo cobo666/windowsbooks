@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_382</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_381.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_382</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_383.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 382</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 18.4 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ClaimResources</font><font face="Times New Roman, Times, Serif" size="3"> routine</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="649" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">        resource-&gt;ShareDisposition = CmResourceShareDriverExclusive;<br />
+        if( dx-&gt;Mode==Latched)<br />
+            resource-&gt;Flags = CM_RESOURCE_INTERRUPT_LATCHED;<br />
+        else<br />
+            resource-&gt;Flags = CM_RESOURCE_INTERRUPT_LEVEL_SENSITIVE;<br />
+        resource-&gt;u.Interrupt.Level = dx-&gt;Irql;<br />
+        resource-&gt;u.Interrupt.Vector = dx-&gt;Irql;<br />
+        resource-&gt;u.Interrupt.Affinity = 1;<br />
+    }<br /><br />
+    // Ask for resources for the driver<br />
+    DebugPrint("Allocating %d resources",PartialResourceCount);<br />
+    DebugPrint("phddo-&gt;DriverObject %x",phddo-&gt;DriverObject);<br />
+    if( dx-&gt;ResourceOverride) DebugPrintMsg("Resource override conflict");<br />
+    BOOLEAN ConflictDetected;<br />
+    NTSTATUS status = IoReportResourceUsage( NULL,<br />
+         phddo-&gt;DriverObject, ResourceList, ListSize,    // Driver resources<br />
+         NULL, NULL, 0,                                  // Device resources<br />
+         dx-&gt;ResourceOverride, &amp;ConflictDetected);<br />
+    // Cope (or override) if resource conflict found<br />
+    if( ConflictDetected)<br />
+    {<br />
+        DebugPrintMsg(''ConflictDetected");<br />
+        if( dx-&gt;ResourceOverride<br />
+        {<br />
+            DebugPrintMsg("Conflict detected and overridden");<br />
+            status = STATUS_SUCCESS;<br />
+        }<br />
+    }<br />
+    // Free allocated memory<br />
+    ExFreePool(ResourceList);<br />
+    return status;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Table 18.1 shows the parameters for </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoReportResourceUsage</font><font face="Times New Roman, Times, Serif" size="3">. If you are allocating resources for the whole driver, use the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DriverObject</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DriverList</font><font face="Times New Roman, Times, Serif" size="3">, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DriverListSize</font><font face="Times New Roman, Times, Serif" size="3"> parameters; otherwise, set these to NULL. Do the same for the per-device parameters, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceObject</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceList</font><font face="Times New Roman, Times, Serif" size="3">, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceListSize</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In the NT and Windows 2000 platforms, the resource assignments end up in the registry in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HKLM\HARDWARE\RESOURCEMAP</font><font face="Times New Roman, Times, Serif" size="3"> key</font><font face="Times New Roman, Times, Serif" size="2"><sup>2</sup></font><font face="Times New Roman, Times, Serif" size="3">. If you specify a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DriverClassName</font><font face="Times New Roman, Times, Serif" size="3"> parameter, this string is used as a subkey to hold the resource assignments. Otherwise, in NT 4 and NT 3.51,</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="1"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>2</sup> I do not know where they go in Windows 98.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_381.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_382</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_383.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

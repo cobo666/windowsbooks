@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_77</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_76.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_77</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_78.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 77</font></td></tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="709" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">//Arguments:<br />
+//Pointer to our FDO<br />
+//Pointer to the IRP<br />
+//IrpStack-&gt;Parameters.Read.xxx has read parameters<br />
+//User buffer at:AssociatedIrp.systemBuffer(buffered I/O)<br />
+//MdlAddress(direct I/O)<br />
+//<br />
+//Return Value:<br />
+//This function returns STATUS_XXX<br /><br />
+NTSTATUS Wdm1Read(IN PDEVICE_OBJECT fdo,<br />
+ IN PIRP Irp)<br />
+{<br />
+PIO_STACK_LOCATION IrpStack = IoGetCurrentIrpStackLocation(Irp);<br />
+NTSTATUS status = STATUS_SUCCESS;<br />
+LONG BytesTxd = 0;<br /><br />
+// Get call parameters<br />
+LONGLONG FilePointer = IrpStack-&gt;Parameters.Read.ByteOffset.QuadPart;<br />
+ULONG ReadLen = IrpStack-&gt;Parameters.Read.Length;<br />
+DebugPrint("Read %d bytes from file pointer %d", (int)ReadLen, (int)filePointer);<br /><br />
+// Get access to the shared buffer<br />
+KIRQL irql;<br />
+KeAcquireSpinLock(&amp;BufferLock,&amp;irql);<br /><br />
+//Check file pointer<br />
+if( FilePointer&lt;0)<br />
+status = STATUS_INVALID_PARAMETER;<br />
+if(FilePointer&gt;=(LONGLONG)BufferSize)<br />
+status = STATUS_END_OF_FILE;<br /><br />
+if( status==STATUS_SUCCESS)<br />
+{<br />
+//  Get transfer count<br />
+if( ((ULONG)FilePointer)+ReadLen&gt;BufferSize)<br />
+{<br />
+BytesTxd = BufferSize - (ULONG)FilePointer;<br />
+if( BytesTxd&lt;0) BytesTxd = 0;<br />
+{<br />
+else<br />
+BytesTxd = ReadLen;</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_76.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_77</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_78.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_377</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_376.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_377</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_378.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 377</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(Continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 18.1 NT style device creation</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="613" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">        DebugPrintMsg("Could not create symbolic link");<br />
+        IoDeleteDevice(phddo);<br />
+        return status;<br />
+    }<br /><br />
+    // Initialise our DPC for IRQ completion processing<br />
+    IoI nitializeDpcRequest( phddo, PHDIoDpcForIsr);<br /><br />
+    return status;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">When </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIo</font><font face="Times New Roman, Times, Serif" size="3"> is unloaded, its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIoUnload</font><font face="Times New Roman, Times, Serif" size="3"> routine is called. This runs </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIoDeleteDevice</font><font face="Times New Roman, Times, Serif" size="3"> to stop the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIo</font><font face="Times New Roman, Times, Serif" size="3"> device, remove its symbolic link, and delete its device object.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If a driver makes a variable number of devices, the unload routine could use the following technique to find all the devices to remove. The kernel sets the driver object </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>DeviceObject</i></font><font face="Times New Roman, Times, Serif" size="3"> field to point to the first device that belongs to the driver. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>NextDevice</i></font><font face="Times New Roman, Times, Serif" size="3"> field in each device object points to the next device. It is, therefore, a simple task to traverse this chain of device objects and delete them. The only catch is that you still have to generate the correct symbolic link name for each device so the symbolic link can be removed.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Claiming Resources</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">This section looks at how to allocate resources. The crucial kernel function is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoReportResourceUsage</font><font face="Times New Roman, Times, Serif" size="3">. This checks to see if any other devices are using the resources. If the resources are free, they are reserved so no other device can use them.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIo</font><font face="Times New Roman, Times, Serif" size="3"> driver only finds out which resources are needed when the user calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateFi1e</font><font face="Times New Roman, Times, Serif" size="3">, passing the resource description in the filename string. The Create IRP arrives in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIoCreate</font><font face="Times New Roman, Times, Serif" size="3"> routine. All the previous Create IRP handlers have not done very much. However, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIoCreate</font><font face="Times New Roman, Times, Serif" size="3"> has these jobs to do.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">1. Get the resource details from the filename.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">2. Check for resource conflicts and reserve the resources.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">3. Translate and map the resources.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Getting the resource details is handled by the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetResourcesFromFilename</font><font face="Times New Roman, Times, Serif" size="3"> routine. I will not go into the details of this code here, apart from saying that it uses three support routines that work with the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UNICODE_STRING</font><font face="Times New Roman, Times, Serif" size="3"> structure: </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">usStrCmpN</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">usGetHex</font><font face="Times New Roman, Times, Serif" size="3">, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">usGetDec</font><font face="Times New Roman, Times, Serif" size="3">. In the end, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>GotPortOrMemory</i></font><font face="Times New Roman, Times, Serif" size="3"> device extension field is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">true</font><font face="Times New Roman, Times, Serif" size="3"> if an I/O port specifier has been found, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>GotInterrupt</i></font><font face="Times New Roman, Times, Serif" size="3"> is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">true</font><font face="Times New Roman, Times, Serif" size="3"> if an interrupt has been found and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ResourceOverride</i></font><font face="Times New Roman, Times, Serif" size="3"> is true if the \</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">override</font><font face="Times New Roman, Times, Serif" size="3"> specifier was used.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIoCreate</font><font face="Times New Roman, Times, Serif" size="3"> checks that an I/O port was specified. It then calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ClaimResources</font><font face="Times New Roman, Times, Serif" size="3"> to check for resource conflicts and reserve the resources. Finally, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TranslateAndMapResources</font><font face="Times New Roman, Times, Serif" size="3"> is used to</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_376.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_377</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_378.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

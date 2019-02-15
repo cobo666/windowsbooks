@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_487</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_486.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_487</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_488.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 487</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 23.8 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd CreateDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="673" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">    }<br /><br />
+#define NT_DEVICE_NAME  L"\\Device\\HidKbd"<br />
+#define SYM_LINK_NAME   L"\\DosDevices\\HidKbd"<br /><br />
+    // Initialise NT and Symbolic link names<br />
+    UNICODE_STRING deviceName, linkName;<br />
+    RtlInitUnicodeString( &amp;deviceName, NT_DEVICE_NAME);<br />
+    RtlInitUnicodeString( &amp;linkName, SYM_LINK_NAME);<br /><br />
+    // Create our device object<br />
+    status = IoCreateDevice( DriverObject, sizeof(HIDKBD_DEVICE_EXTENSION),<br />
+        &amp;deviceName, FILE_DEVICE_KEYBOARD, 0, FALSE, &amp;HidKbdDo);<br />
+    if( !NT_SUCCESS(status))<br />
+    {<br />
+        HidKbdDo = NULL;<br />
+        FreeIfAllocated(HidSymLinkNameBuffer);<br />
+        FreeIfAllocated(HidPreparsedData);<br />
+        ObDereferenceObject(HidDevice);<br />
+        return;<br />
+    }<br /><br />
+    // Set up our device extersion<br />
+    PHIDKBD_DEVICE_EXTENSION dx =<br />
+        (PHIDKBD_DEVICE_EXTENSION)HidKbdDo-&gt;DeviceExtension;<br />
+    dx-&gt;HidKbdDo = HidKbdDo;<br />
+    dx-&gt;HidDevice = HidDevice;<br />
+    dx-&gt;HidPreparsedData = HidPreparsedData;<br /><br />
+    dx-&gt;HidSymLinkName.Length = 0;<br />
+    dx-&gt;HidSymLinkName.MaximrumLength = HidSymLinkName-&gt;MaximumLength;<br />
+    dx-&gt;HidSymLinkName.Buffer = HidSymLinkNameBuffer;<br />
+    RtlCopyUnicodeString( &amp;dx-&gt;HidSymLinkName, HidSymLinkName);<br /><br />
+    // Create a symbolic link so our device is visible to Win32 . . .<br />
+    DebugPrint(''Creating symbolic link %T",&amp;linkName);<br />
+    status = IoCreateSymbolicLink( &amp;linkName, &amp;deviceName);<br />
+    if( !NT_SUCCESS(status))<br />
+    {<br />
+        DebugPrintMsg("Could not create symbolic link");<br />
+        FreeIfAllocated(dx-&gt;HidSymLinkName.Buffer);<br />
+        IoDeleteDevice(HidKbdDo);</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_486.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_487</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_488.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

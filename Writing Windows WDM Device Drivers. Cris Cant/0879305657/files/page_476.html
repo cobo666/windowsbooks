@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_476</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_475.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_476</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_477.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 476</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Sending Output Reports</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">You send HID output reports using the Win32 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WriteFile</font><font face="Times New Roman, Times, Serif" size="3"> function. While you can build the output buffer by hand, it is safer to use the HID parsing routines to fill in the buffer.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetLEDs</font><font face="Times New Roman, Times, Serif" size="3"> function shown in Listing 23.5 shows how a single output report is sent to set the state of the HID keyboard LEDs. It has three optional parameters, which must contain the individual LED usages that you want set on. This line in the <i>HidUsbUser</i> </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">main</font><font face="Times New Roman, Times, Serif" size="3"> routine shows how to turn the ScrollLock LED on and turn the other LEDs off.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="673" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">SetLEDs( hHidKbd, OutputReportLen, HidPreparsedData,<br />
+    HID_USAGE_LED_SCROLL_LOCK);</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A keyboard output report consists of just one byte. However, as before, the output buffer must have an extra byte at the beginning for the report ID. This is set to zero in this case, as keyboards do not use report IDs. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetLEDs</font><font face="Times New Roman, Times, Serif" size="3"> allocates an output buffer and zeroes it.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetLEDs</font><font face="Times New Roman, Times, Serif" size="3"> must now build an array of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">USAGEs</font><font face="Times New Roman, Times, Serif" size="3">, filled with any of its optional parameters that are non-zero. This array and its length are passed to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidP_SetButtons</font><font face="Times New Roman, Times, Serif" size="3">. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidP_SetButtons</font><font face="Times New Roman, Times, Serif" size="3"> builds the output buffer in the correct format. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetLEDs</font><font face="Times New Roman, Times, Serif" size="3"> then simply calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WriteFile</font><font face="Times New Roman, Times, Serif" size="3"> to send off the output report.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">You can call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidP_SetButtons</font><font face="Times New Roman, Times, Serif" size="3"> more than once for a single output report. Indeed, you may also want to call one of the set value functions, if the output report must contain values. Set values into an output report using the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidP_SetUsageValue</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidP_SetScaledUsageValue</font><font face="Times New Roman, Times, Serif" size="3">, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidP_SetUsageValueArray</font><font face="Times New Roman, Times, Serif" size="3"> functions.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Be careful if you are using a HID device that has more than one output report. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidP_SetButtons</font><font face="Times New Roman, Times, Serif" size="3"> can only build one output report at a time. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidP_SetButtons</font><font face="Times New Roman, Times, Serif" size="3"> sets the report ID, if appropriate. If a second call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidP_SetButtons</font><font face="Times New Roman, Times, Serif" size="3"> tries to set a usage that is not in the first report, it fails with a suitable error code. However, if you start afresh with a new output report and repeat the second call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidP_SetButtons</font><font face="Times New Roman, Times, Serif" size="3">, it should work this time. This whole process makes it particularly laborious to set output usages in a way that is truly independent of the device that is attached.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 23.5 Setting keyboard LEDs using an output HID report</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="679" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">void SetLEDs( HANDLE hHidKbd, USHORT OutputReportLen,<br />
+               PHIDP_PREPARSED_DATA HidPreparsedData,<br />
+               USAGE Usage1/*=0*/, USAGE Usage2/*=0*/, USAGE Usage3/*=0*/)<br />
+{<br />
+    // Build Output report from given usage(s)<br />
+    char* OutputReport = new char[OutputReportLen];<br />
+    assert(OutputReport!=NULL);<br />
+    memset( OutputReport, 0, OutputReportLen);<br /><br />
+    USAGE UsageList[3];<br />
+    UsageList[0] = Usage1;<br />
+    UsageList[1] = Usage2;<br />
+    UsageList[2] = Usage3;</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_475.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_476</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_477.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

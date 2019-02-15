@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_300</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_299.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_300</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_301.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 300</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExInterlockedRemoveHeadList</font><font face="Times New Roman, Times, Serif" size="3"> returns a pointer to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ListEntry</i></font><font face="Times New Roman, Times, Serif" size="3"> field in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DEBUGPRINT_EVENT</font><font face="Times New Roman, Times, Serif" size="3"> structure. What is really needed is not this, but a pointer to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DEBUGPRINT_EVENT</font><font face="Times New Roman, Times, Serif" size="3"> structure itself. For this particular structure, a simple cast would suffice. However, there is a way to deal correctly with the general case in which the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LIST_ENTRY</font><font face="Times New Roman, Times, Serif" size="3"> variable is not at the beginning of the structure. The system header files provide the appropriate macro, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CONTAINING_RECORD</font><font face="Times New Roman, Times, Serif" size="3">. Pass the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LIST_ENTRY</font><font face="Times New Roman, Times, Serif" size="3"> pointer, the data type of your structure and the name of its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LIST_ENTRY</font><font face="Times New Roman, Times, Serif" size="3"> field. The returned value is the pointer to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DEBUGPRINT_EVENT</font><font face="Times New Roman, Times, Serif" size="3"> structure.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Having got the correct event pointer in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">pEvent</font><font face="Times New Roman, Times, Serif" size="3">, the system thread extracts the length of the event data and writes the event data itself to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwWriteFile</font><font face="Times New Roman, Times, Serif" size="3">. Finally, it frees the memory that was allocated for the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DEBUGPRINT_EVENT</font><font face="Times New Roman, Times, Serif" size="3"> structure, before checking to see if any more events are available.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ClearEvents</font><font face="Times New Roman, Times, Serif" size="3"> routine is called to clear any remaining events when the system thread finishes or </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintClose</font><font face="Times New Roman, Times, Serif" size="3"> is called. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ClearEvents</font><font face="Times New Roman, Times, Serif" size="3"> removes any events using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExInterlockedRemoveHeadList</font><font face="Times New Roman, Times, Serif" size="3"> and frees the event memory.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Singly-Linked Lists</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">There are kernel functions for singly-linked lists, which are really stacks. Declare a list head as a variable of type </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SINGLE_LIST_ENTRY</font><font face="Times New Roman, Times, Serif" size="3">. Initialize it by setting its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Next</i></font><font face="Times New Roman, Times, Serif" size="3"> field to NULL. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Push-EntryList</font><font face="Times New Roman, Times, Serif" size="3"> puts an entry onto the front of the list, while </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PopEntryList</font><font face="Times New Roman, Times, Serif" size="3"> removes an entry from the front of the list. You must use the same technique as before to get the correct pointer from a popped entry: include a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SINGLE_LIST_ENTRY</font><font face="Times New Roman, Times, Serif" size="3"> field in the structure you put on the list and use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CONTAINING_RECORD</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">There are also interlocked versions of these routines, using a spin lock as before to ensure accesses are carried out safely.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Device Queues</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A device queue is an enhanced form of a doubly-linked list, usually used for storing IRPs. These are covered in glorious detail in Chapter 16.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="ef232eb15913eab2f4a9561cba2ac8fd.gif" border="0" alt="Z0320-02.gif" width="414" height="164" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="2">This is how we make our faster version.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Final Pieces</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Let's draw together the final pieces of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> code for test drivers.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintInit</font><font face="Times New Roman, Times, Serif" size="3"> makes a copy of the driver name passed to it. Why does it bother to do this? Well, initially it did not. However, the call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintInit</font><font face="Times New Roman, Times, Serif" size="3"> usually comes from a</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_299.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_300</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_301.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

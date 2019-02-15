@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_342</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_341.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_342</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_343.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 342</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 16.2 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> routine</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="662" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">   IoAcquireCancelSpinLock( &amp;OldIrql);<br />
+   IoSetCancelRoutine( Irp, NULL):<br />
+   IoReleaseCancelSpinLock(OldIrql);<br /><br />
+   // Unlock device, complete IRP and start next<br />
+   UnlockDevice(dx);<br />
+   DebugPrint( ''WdmioStartIo: CmdOutptCunt %d, dx-&gt;CmdOutputCount);<br />
+   CompleteIrp(Irp, status, dx-&gt;CmdOutputCount);<br />
+   IoStartNextPacket( fdo. TRUE);<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Processing Commands</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Critical Sections</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IOCTL_PHDIO_RUN_CMDS</font><font face="Times New Roman, Times, Serif" size="3"> IOCTL is used to run a set of commands straightaway. Eventually the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ProcessCmds</font><font face="Times New Roman, Times, Serif" size="3"> routine is run to process the commands. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ProcessCmds</font><font face="Times New Roman, Times, Serif" size="3"> is fairly straightforward and so is not listed here. It is in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceIo.cpp</font><font face="Times New Roman, Times, Serif" size="3"> on the book CD-ROM. Suffice to say, it is passed parameters to its input and output buffers, together with their length. It also has a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CanTrace bool</font><font face="Times New Roman, Times, Serif" size="3"> parameter that dictates whether its <i>DebugPrint</i> trace statements can be run safely.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">However, there are a couple of hurdles to overcome before </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IOCTL_PHDIO_RUN_CMDS</font><font face="Times New Roman, Times, Serif" size="3"> can call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ProcessCmds</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The first hurdle is that the IOCTL input and output buffers use the same block of memory. While this is a jolly useful technique for saving memory in the first stage of IOCTL processing, it means that some nonpaged memory must be allocated for the output data. The output data is copied back to the shared buffer and the temporary memory freed. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RunCmds</font><font face="Times New Roman, Times, Serif" size="3"> routine performs this task</font><font face="Times New Roman, Times, Serif" size="2"><sup>4</sup></font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> has not connected to a hardware interrupt, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IOCTL_PHDIO_RUN_CMDS</font><font face="Times New Roman, Times, Serif" size="3"> handler in Listing 16.2 simply calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RunCmds</font><font face="Times New Roman, Times, Serif" size="3">. However, if the device extension </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ConnectedToInterrupt</i></font><font face="Times New Roman, Times, Serif" size="3"> field is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">true</font><font face="Times New Roman, Times, Serif" size="3">, an interrupt may occur that could scupper any command processing. This problem is overcome by calling </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RunCmds</font><font face="Times New Roman, Times, Serif" size="3"> in the context of a Critical Section. To recap, a Critical Section routine runs at Device IRQL (DIRQL) and so cannot be interrupted (by our interrupt at least).</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In this case, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IOCTL_PHDIO_RUN_CMDS</font><font face="Times New Roman, Times, Serif" size="3"> handler calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeSynchronizeExecution</font><font face="Times New Roman, Times, Serif" size="3"> to run the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RunCmdsSynch</font><font face="Times New Roman, Times, Serif" size="3"> routine as a Critical Section. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RunCmdsSynch</font><font face="Times New Roman, Times, Serif" size="3"> just calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RunCmds</font><font face="Times New Roman, Times, Serif" size="3"> with the</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="1"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>4</sup> At the last moment, I have moved this code back into </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">WdmIoStartIo.</font><font face="Times New Roman, Times, Serif" size="2"> </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">RunCmds</font><font face="Times New Roman, Times, Serif" size="2"> may not run at DIRQL and it is incorrect to allocate nonpaged memory above DISPATCH_LEVEL.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_341.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_342</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_343.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

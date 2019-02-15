@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_301</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_300.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_301</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_302.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 301</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DriverEntry</font><font face="Times New Roman, Times, Serif" size="3"> routine. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DriverEntry</font><font face="Times New Roman, Times, Serif" size="3"> code is often marked as being discardable once the driver has been initialized. This meant that the code with the driver name string might be discarded. I found that this did indeed happen and so the original pointer referred to invalid memory. Watch out for this problem in your drivers.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.4 shows how the system thread opens a connection to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwCreateFile</font><font face="Times New Roman, Times, Serif" size="3">. It opens a connection to a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver device called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\Device\PHDDebugPrint</font><font face="Times New Roman, Times, Serif" size="3">. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver also uses a driver interface so that user mode programs, such as <i>DebugPrint Monitor,</i> can find this device.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">While drivers can use Plug and Play Notification to find other drivers that support a device interface, this is a complicated approach. Instead, the one and only </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> device is given a kernel name of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDDebugPrint</font><font face="Times New Roman, Times, Serif" size="3">. Calls to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwCreateFile</font><font face="Times New Roman, Times, Serif" size="3"> do not use Win32 symbolic link names for devices. Instead, as in this example, they must use the full kernel device name.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The filename must be specified as a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UNICODE_STRING</font><font face="Times New Roman, Times, Serif" size="3">. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RtlInitUnicodeString</font><font face="Times New Roman, Times, Serif" size="3"> is used to initialize the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintName</font><font face="Times New Roman, Times, Serif" size="3"> variable. The filename is set into an </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">OBJECT_ATTRIBUTES</font><font face="Times New Roman, Times, Serif" size="3"> structure using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InitializeObjectAttributes</font><font face="Times New Roman, Times, Serif" size="3">. A pointer to this structure is finally passed to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwCreateFile</font><font face="Times New Roman, Times, Serif" size="3">. Like its Win32 equivalent, you must specify access and share parameters to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwCreateFile</font><font face="Times New Roman, Times, Serif" size="3">. There are a host of other options, so consult the documentation for full details. Finally, you get a file </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HANDLE</font><font face="Times New Roman, Times, Serif" size="3"> to use in further I/O requests.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">As mentioned earlier, subsequent calls to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwReadFile</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwWriteFile</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwQueryInformationFile</font><font face="Times New Roman, Times, Serif" size="3">, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwClose</font><font face="Times New Roman, Times, Serif" size="3"> must take place in the same thread context as the call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwCreateFile</font><font face="Times New Roman, Times, Serif" size="3">. All these file I/O routines must be called at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A typical call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwWriteFile</font><font face="Times New Roman, Times, Serif" size="3"> is illustrated in Listing 14.3. As well as the file handle, simply specify the data pointer and a transfer count. The completion details can be found in an </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IO_STATUS_BLOCK</font><font face="Times New Roman, Times, Serif" size="3"> structure. Specify a file pointer byte offset.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> test driver code eventually closes the file handle using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwClose</font><font face="Times New Roman, Times, Serif" size="3"> just before it terminates.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The system thread code tried to open its connection to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver for 5 minutes. This ensures that the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> driver has started during system startup.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.4 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> test driver system thread file opening</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="619" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">// Make appropriate ObjectAttributes for ZwCreateFile<br />
+UNICODE_STRING DebugPrintName;<br />
+RtlInitUnicodeString( &amp;DebugPrintName, L"\\Device\\PHDDebugPrint");<br />
+OBJECT_ATTRIBUTES ObjectAttributes;<br />
+InitializeObjectAttributes( &amp;ObjectAttributes, &amp;DebugPrintName,<br />
+        OBJ_CASE_INSENSITIVE, NULL, NULL);<br /><br />
+// Open handle to DebugPrint device<br /><br />
+IO_STATUS_BLOCK IoStatus;<br />
+HANDLE DebugPrintDeviceHandle = NULL;<br />
+NTSTATUS status = ZwCreateFile( &amp;DebugPrintDeviceHandle,<br />
+    GENERIC_READ | GENERIC_WRITE,<br />
+    &amp;ObjectAttributes,<br />
+    &amp;IoStatus,</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_300.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_301</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_302.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

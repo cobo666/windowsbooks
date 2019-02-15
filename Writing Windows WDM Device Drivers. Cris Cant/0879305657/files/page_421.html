@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_421</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_420.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_421</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_422.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 421</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 21.2 Calling USBDI</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">    KEVENT event;<br /><br />
+    // Initialise IRP completion event<br />
+    KeInitializeEvent(&amp;event, NotificationEvent, FALSE);<br /><br />
+    // Build  Internal IOCTL IRP<br />
+    PIRP Irp = IoBuildDeviceIoControlRequest(<br />
+                    IoControlCode, dx-&gt;NextStackDevice,<br />
+                    NULL, 0,   // Input buffer<br />
+                    NULL, 0,   // Output buffer<br />
+                    TRUE, &amp;event, &amp;IoStatus);<br /><br />
+    // Get IRP stack location for next driver down (already set up)<br />
+    PIO_STACK_LOCATION NextIrpStack = IoGetNextIrpStackLocation(Irp);<br />
+    // Store pointer to the URB etc<br />
+    NextIrpStack-&gt;Parameters.Others.Argument1 = UrbEtc;<br />
+    NextIrpStack-&gt;Parameters.Others.Argument2 = (PVOID)Arg2;<br /><br />
+    // Call the driver and wait for completion if recessary<br />
+    NTSTATUS status = IoCallDriver( dx-&gt;NextStackDevice, Irp);<br />
+    if (status == STATUS_PENDING)<br />
+    {<br />
+        KeWaitForSingleObject( &amp;event, Suspended, KernelMode, FALSE, NULL);<br />
+        status = IoStatus.Status;<br />
+    }<br />
+    // return IRP completion status<br />
+    return status;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Other IRP Allocations</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Other kernel calls can be used to allocate IRPs. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoBuildSynchronousFsdRequest</font><font face="Times New Roman, Times, Serif" size="3"> builds a Read, Write, Flush, or Shutdown IRP that uses an event to signal completion in the same way as </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoBuildDeviceIoControlRequest</font><font face="Times New Roman, Times, Serif" size="3">. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoBuildSynchronousFsdRequest</font><font face="Times New Roman, Times, Serif" size="3"> must be called at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> IRQL.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoBuildAsynchronousFsdRequest</font><font face="Times New Roman, Times, Serif" size="3"> works asynchronously, as it does not use an event to signal its completion. Consequently, it can be called at or below </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DISPATCH_LEVEL</font><font face="Times New Roman, Times, Serif" size="3">. Note that the IRP must be freed using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoFreeIrp</font><font face="Times New Roman, Times, Serif" size="3">. A common way to do this is to attach a completion routine. It is OK to call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoFreeIrp</font><font face="Times New Roman, Times, Serif" size="3"> here and then return </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STATUS_MORE_PROCESSING_REQUIRED</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">There are two final macho ways of building IRPs. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoAllocateIrp</font><font face="Times New Roman, Times, Serif" size="3"> allocates an IRP, while </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoInitializeIrp</font><font face="Times New Roman, Times, Serif" size="3"> makes an IRP out of some driver allocated memory. Be very careful to set up all IRP and IRP stack locations correctly. Both of these methods allow you specify the size</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_420.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_421</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_422.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

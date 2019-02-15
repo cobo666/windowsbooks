@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_80</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_79.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_80</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_81.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 80</font></td></tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="709" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">DebugPrint("Write: %d bytes written",(int)BytesTxd);<br /><br />
+// Complete IRP<br />
+return CompleteIrp(Irp,status,BytesTxd);<br />
+}<br /><br />
+///////////////////////////////////////////////////////////////////////////<br />
+//Wdm1DeviceControl:<br />
+//<br />
+//Description:<br />
+//Handle IRP_MJ_DEVICE_CONTROL requests<br />
+//<br />
+//Arguments:<br />
+//Pointer to our FDO<br />
+//Pointer to the IRP<br />
+//Buffered:AssociatedIrp.SystemBuffer (and IrpStack-&gt;Parameters.DeviceIoControl.<br />
+Type3InputBuffer)<br />
+//Direct:MdlAddress<br />
+//<br />
+//IrpStack-&gt;Parameters.DeviceIoControl.InputBufferLength<br />
+//IrpStack-&gt;Parameters.DeviceIoControl.OutputBufferLength<br />
+//<br />
+//Return Value:<br />
+//This function returns STATUS_XXX<br /><br />
+NTSTATUS Wdm1DeviceControl(IN PDEVICE_OBJECT fdo,<br />
+IN PIRP Irp)<br />
+{<br />
+PIO_STACK_LOCATION IrpStack = IoGetCurrentIrpStackLocation(Irp);<br />
+NTSTATUS status = STATUS_SUCCESS;<br />
+ULONG BytesTxd = 0;<br /><br />
+ULONG ControlCode = IrpStack-&gt;Parameters.DeviceIoControl.IoControlCode;<br />
+ULONG InputLength = IrpStack-&gt;Parameters.DeviceIoControl.InputBufferLength;<br />
+ULONG OutputLength = IrpStack-&gt;Parameters.DeviceloControl.OutputBufferLength;<br /><br />
+DebugPrint("DeviceIoControl: Control code %x InputLength %d OutputLength %d",<br />
+ControlCode, InputLength, OutputLength);<br /><br />
+// Get access to the shared buffer<br />
+KIRQL irql;<br />
+KeAcquireSpinLock(&amp;BufferLock,&amp;irql);<br />
+switch( ControlCode)</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_79.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_80</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_81.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

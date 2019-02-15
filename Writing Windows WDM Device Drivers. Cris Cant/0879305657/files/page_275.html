@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_275</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_274.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_275</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_276.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 275</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.10 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3FireEvent</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WmiFunctionControl</font><font face="Times New Roman, Times, Serif" size="3"> routines</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="679" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">   if( !dx-&gt;WMIEventEnabled) return;<br /><br />
+   // Get MsgLen in bytes<br />
+   int MsgLen  0;<br />
+   wchar_t* Msg2 = Msg;<br />
+   while( *Msg2++!0)<br />
+       MsgLen += sizeof(wchar_t);<br /><br />
+   // Allocate event memory<br />
+   PUSHORT pData = (PUSHORT)ExAllocatePool( NonPagedPool, Msglen+2);<br />
+   if( pData==NULL) return;<br />
+   PUSHORT pData2 = pData;<br />
+   *pData2++ = MsgLen;<br />
+   RtlMoveMemory( pData2, Msg, MsgLen);<br />
+   WmiFireEvent( fdo, (LPGUID)&amp;WDM3_WMI_EVENT_GUID, 0, MsgLen+2, pData);<br />
+}<br />
+NTSTATUS WmiFunctionControl( IN PDEVICE_OBJECT fdo, IN PIRP Irp,<br />
+        IN ULONG GuidIndex, IN WMIENABLEDISABLECONTROL Function,<br />
+        IN BOOLEAN Enable)<br />
+{<br />
+   DebugPrint("WmiFunctionControl: GuidIndex %d, Function %d, Enable %d'',<br />
+        GuidIndex,Function, Enable);<br />
+   PWDM3_DEVICE_EXTENSION dx = (PWDM3_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;<br /><br />
+   if( GuidIndex==WDM3_WMI_EVENT_GUID_INDEX &amp;&amp; Function==WmiEventControl)<br />
+   {<br />
+       DebugPrint("WmiFunctionControl: Event enable %d", Enable);<br />
+       dx-&gt;WMIEventEnabled = Enable;<br />
+       return WmiCompleteRequest( fdo, Irp, STATUS_SUCCESS, 0,<br />
+         IO_NO_INCREMENT);<br />
+   }<br />
+   return FailWMIRequest( fdo, Irp, GuidIndex):<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">WMI in Action</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The WMI features of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3"> driver can be tested in three ways. In all cases, the DebugPrint output of the checked build gives copious trace information about the requests as they happen.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_274.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_275</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_276.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

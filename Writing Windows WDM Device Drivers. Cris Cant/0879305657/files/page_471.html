@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_471</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_470.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_471</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_472.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 471</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Getting Button Capabilities</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HIDP_CAPS</font><font face="Times New Roman, Times, Serif" size="3"> structure has fields that tell you how many button and value capabilities there are for each type of report. For example, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>NumberInputButtonCaps</i></font><font face="Times New Roman, Times, Serif" size="3"> tells you how many button capabilities there are for input reports.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetCapabilities</font><font face="Times New Roman, Times, Serif" size="3"> uses the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ShowButtonCaps</font><font face="Times New Roman, Times, Serif" size="3"> routine shown in Listing 23.2 to show what button capabilities there are for different types of report. The NumCaps parameter is passed the number of button capabilities that are expected for the specified type of report.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ShowButtonCaps</font><font face="Times New Roman, Times, Serif" size="3"> first allocates an array of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HIDP_BUTTON_CAPS</font><font face="Times New Roman, Times, Serif" size="3"> structures called ButtonCaps. The call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidP_GetButtonCaps</font><font face="Times New Roman, Times, Serif" size="3"> fills in this array. Afterwards, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ShowButtonCaps</font><font face="Times New Roman, Times, Serif" size="3"> simply goes through each element in ButtonCaps and prints out the usages that can be returned. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HIDP_BUTTON_CAPS <i>UsagePage</i></font><font face="Times New Roman, Times, Serif" size="3"> field gives the usage page of all the buttons referred to in this structure. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ReportId</i></font><font face="Times New Roman, Times, Serif" size="3"> specifies the report in which these buttons are. If the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>IsRange</i> BOOLEAN</font><font face="Times New Roman, Times, Serif" size="3"> is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TRUE</font><font face="Times New Roman, Times, Serif" size="3">, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Range.UsageMin</i></font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Range.UsageMax</i></font><font face="Times New Roman, Times, Serif" size="3"> fields are valid. Otherwise, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>NotRange. Usage</i></font><font face="Times New Roman, Times, Serif" size="3"> field holds the only valid usage.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Each </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HIDP_BUTTON_CAPS</font><font face="Times New Roman, Times, Serif" size="3"> structure has similar fields for the string descriptors and physical designators associated with controls. Finally, various link fields specify in which collection the buttons are. See the previous chapter for a description of collections.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 23.2 Getting buttons capabilities</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="679" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">void ShowButtonCaps( char* Msg, HIDP_REPORT_TYPE ReortType,<br />
+                     USHORT NumCaps,  PHIDP_PREPARSED_DATA HidPreparsedData)<br />
+{<br />
+    if( NumCaps==0) return;<br /><br />
+    printf("      %s\n", Msg);<br /><br />
+    HIDP_BUTTON_CAPS* ButtonCaps = new HIDP_BUTTON_CAPS[NumCaps];<br />
+    if( ButtonCaps==NULL) return;<br /><br />
+    NTSTATUS status = HidP_GetButtonCaps( ReportType, ButtonCaps, &amp;NumCaps,<br />
+        HidPreparsedData);<br />
+    if( status==HIDP_STATUS SUCCESS)<br />
+    {<br />
+        for( USHORT i=0: i&lt;NumCaps: i++)<br />
+        {<br />
+            printf("ButtonCaps[%d].UsagePage %d\n", i, ButtonCaps[i].UsagePage);<br />
+            if( ButtonCaps[i].IsRange)<br />
+                printf(''.Usages     %d..%d\n\n",<br />
+                    ButtonCaps[i].Range.UsageMin, ButtonCaps[i].Range.UsageMax);<br />
+            else  :<br />
+                printf(".Usage %d\n\n", ButonCaps[i].NotRange.Usage);<br />
+        }<br />
+    }<br />
+    delete ButtonCaps;<br />
+}</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_470.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_471</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_472.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_485</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_484.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_485</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_486.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 485</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ObDereferenceObject</font><font face="Times New Roman, Times, Serif" size="3">. Why is this done? If a file is open on a device, Windows 2000 will not let a device be removed. The file must be closed to let device removals take place.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateDevice</font><font face="Times New Roman, Times, Serif" size="3"> now inspects the HID device capabilities using the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetCapabilities</font><font face="Times New Roman, Times, Serif" size="3"> routine, which I describe later. If </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetCapabilities</font><font face="Times New Roman, Times, Serif" size="3"> finds a HID keyboard, <i>HidKbdUser,</i> like its user mode equivalent, returns a pointer to the preparsed data and the maximum input and output report lengths.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Creating the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> Device</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If a HID keyboard is found, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateDevice</font><font face="Times New Roman, Times, Serif" size="3"> can go on to create its own device object. However, it first calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ObReferenceObjectByPointer</font><font face="Times New Roman, Times, Serif" size="3"> to reference the HID class driver device object. This ensures that the device object will not disappear from under our feet. When the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> device is deleted, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ObDereferenceObject</font><font face="Times New Roman, Times, Serif" size="3"> is called to dereference the object. Note that referencing this device object does not stop it from processing removal requests successfully.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The next job is to allocate some memory for a copy of the HID device symbolic link name. This name is stored in a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UNICODE_STRING</font><font face="Times New Roman, Times, Serif" size="3"> field called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>HidSymLinkName</i></font><font face="Times New Roman, Times, Serif" size="3"> in the new device extension. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> <i>Device Removal</i> event handler only deletes a device if the correct underlying HID device is being removed.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> now sets up the device name and symbolic link names for the new </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> device. These are \</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Device\HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> and \</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DosDevices\HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> respectively, and so the device appears in Win32 as \\. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\HidKbd</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> is finally ready to call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCreateDevice</font><font face="Times New Roman, Times, Serif" size="3">, with most of the parameters set up as usual. However this time it passes the device type </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">FILE_DEVICE_KEYBOARD</font><font face="Times New Roman, Times, Serif" size="3">, as this seems most appropriate. If the device is created successfully, the global variable, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbdDo</font><font face="Times New Roman, Times, Serif" size="3">, stores the device object. Next, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateDevice</font><font face="Times New Roman, Times, Serif" size="3"> sets up the device extension. Finally, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateDevice</font><font face="Times New Roman, Times, Serif" size="3"> calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCreateSymbolicLink</font><font face="Times New Roman, Times, Serif" size="3"> to create, the symbolic link that makes the device visible to Win32 applications.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Note that </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> did not call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoAttachDeviceToDeviceStack</font><font face="Times New Roman, Times, Serif" size="3">. If it did make this call, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> device would be layered over the HID device. Any user mode calls direct to the HID device would arrive at the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> device first, which is not what is wanted.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">As a last touch, note that </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateDevice</font><font face="Times New Roman, Times, Serif" size="3"> sets up the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>StackSize</i></font><font face="Times New Roman, Times, Serif" size="3"> field of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbdDo</font><font face="Times New Roman, Times, Serif" size="3"> device object. If </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> had called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoAttachDeviceToDeviceStack</font><font face="Times New Roman, Times, Serif" size="3">, this routine would have set the IRP stack size to be one greater than the HID device stack size. As it did not call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoAttachDeviceToDeviceStack</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> has to do this same job. Later, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> passes IRPs to the HID class driver for processing. Setting the stack size in this way ensures that there will be enough IRP stack locations available.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 23.8 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd CreateDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="673" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">void CreateDevice( IN PDRIVER_OBJECT DriverObject,<br />
+    IN PUNICODE_STRING HidSymLinkName)<br />
+{<br />
+    if( HidKbdDo!=NULL)<br />
+    {<br />
+        DebugPrintMsg("Already got HidKbdDo");<br />
+        return;<br />
+    }</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_484.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_485</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_486.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

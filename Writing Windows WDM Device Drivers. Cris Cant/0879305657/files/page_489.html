@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_489</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_488.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_489</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_490.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 489</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 23.9 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd DeleteDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="679" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">    DebugPrintMsg("Deleting our device");<br /><br />
+    FreeIfAl1ocated(dx-&gt;HidPreparsedData);<br />
+    FreeIfAllocated(dx-&gt;HidSymLinkName.Buffer);<br /><br />
+    // Initialise Symbolic link names<br />
+    UNICODE_STRING linkName;<br />
+    RtlInitUnicodeString( &amp;linkName, SYM_Link_NAME);<br /><br />
+    // Remove symbolic link<br />
+    DebugPrint(''Deleting symbolic link %T",&amp;linkName);<br />
+    IoDeleteSymbolicLink( &amp;linkName);<br /><br />
+    ObDereferenceObject(dx-&gt;HidDevice);<br />
+    IoDeleteDevice(HidKbdDo);<br /><br />
+    HidKbdDo = NULL;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Getting HID Capabilities</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd GetCapabilities</font><font face="Times New Roman, Times, Serif" size="3"> routine is largely the same as its equivalent in <i>HidKbdUser.</i> It returns </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">true</font><font face="Times New Roman, Times, Serif" size="3"> if the HID device capabilities indicate that it is a HID keyboard.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">However, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetCapabilities</font><font face="Times New Roman, Times, Serif" size="3"> must obtain the device attributes and the preparsed data in a different way from <i>HidKbdUser.</i> The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetPreparsedData</font><font face="Times New Roman, Times, Serif" size="3"> routine shown in Listing 23.10 does this job.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetPreparsedData</font><font face="Times New Roman, Times, Serif" size="3"> uses two IOCTLs to obtain the information needed from the HID class driver. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IOCTL_HID_GET_COLLECTION_INFORMATION</font><font face="Times New Roman, Times, Serif" size="3"> returns the attributes and the size of memory buffer required for the preparsed data. Next, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IOCTL_HID_GET_COLLECTION_DESCRIPTOR</font><font face="Times New Roman, Times, Serif" size="3"> is used to get the preparsed data itself. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GetPreparsedData</font><font face="Times New Roman, Times, Serif" size="3"> returns a pointer to the preparsed data memory. This memory must eventually be freed.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CallHidIoctl</font><font face="Times New Roman, Times, Serif" size="3"> routine is used to issue the two IOCTLs. This works in a very similar way to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CallUSBDI</font><font face="Times New Roman, Times, Serif" size="3"> routine shown in Listing 21.2. It calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoBuildDeviceIoControlRequest</font><font face="Times New Roman, Times, Serif" size="3"> to build the IOCTL passing the IOCTL code, the output buffer details and a completion event. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CallHidIoctl</font><font face="Times New Roman, Times, Serif" size="3"> calls the HID class driver using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCallDriver</font><font face="Times New Roman, Times, Serif" size="3">, waiting until it completes using the event, if necessary.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 23.10 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd GetPreparsedData</font><font face="Times New Roman, Times, Serif" size="3"> routine</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="673" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">bool GetPreparsedData( IN PDEVICE_OBJECT HidDevice,<br />
+    OUT PHIDP_PREPARSED_DATA HidPreparsedData)<br />
+{<br />
+    HID_COLLECTION_INFORMATION HidCi;<br />
+    NTSTATUS status = CallHidIoctl( HidDevice,<br />
+        IOCTL_HID_GET_COLLECTION_INFORMATION, &amp;HidCi, sizeof(HidCi));</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_488.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_489</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_490.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

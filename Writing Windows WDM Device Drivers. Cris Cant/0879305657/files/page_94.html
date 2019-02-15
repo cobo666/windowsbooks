@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_94</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_93.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_94</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_95.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 94</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">To access other devices, use \\. \ at the start of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">lpFileName</font><font face="Times New Roman, Times, Serif" size="3"> string. The following characters specify the device to open. For example, COM1 can also be opened as </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\\.\COM1.</font><font face="Times New Roman, Times, Serif" size="3"> This form allows devices beyond COM9 to be opened. For example, opening </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">COM10</font><font face="Times New Roman, Times, Serif" size="3"> will not work but </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\\.\COM10</font><font face="Times New Roman, Times, Serif" size="3"> will work (assuming such a device exists).</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">To access a device created by a driver, you must know the <i>symbolic link name</i> of the device. A symbolic link name is simply the name of the device exposed by the driver. Creating these names is described later.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Suppose a driver called <i>Dongle</i> has created a device with a symbolic link of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Dongle1</font><font face="Times New Roman, Times, Serif" size="3">. A Win32 program could open it using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\\.\Dongle1</font><font face="Times New Roman, Times, Serif" size="3"> as the filename parameter passed to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateFile</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">There are two aspects to opening files that are important to understand. The first is that a device can be opened more than once, either in the same process or by different processes or threads. A driver can state that a Win32 thread gets exclusive access to the device until the handle is closed. Or the Win32 program can request exclusive access by setting the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateFile dwShareMode</font><font face="Times New Roman, Times, Serif" size="3"> parameter to zero. Alternative settings of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">dwShareMode</font><font face="Times New Roman, Times, Serif" size="3"> permit other open requests if they specify read and/or write access. Even if a Win32 thread has exclusive access to a device, it can use overlapped I/O to issue more than one request to a driver at the same time.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Your device should cope with access through multiple handles, if it permits nonexclusive access. For example, if your device supports the notion of a file pointer, it has to survive "simultaneous" read or write requests at the same file pointer location. The usual technique is to serialize all requests so that they are processed in full, one by one, as described in Chapter 16.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The second important aspect of opening a device is that Win32 programs can use file or directory names after the device name. A driver must decide whether it supports the concept of "files" when a process opens a device handle. For example, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\\.\Dongle1\dirl\file1</font><font face="Times New Roman, Times, Serif" size="3"> could be used in the call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateFile</font><font face="Times New Roman, Times, Serif" size="3">. It is up to you whether your driver interprets such information.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Figure 5.1 illustrates a possible device access situation. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Dongle</font><font face="Times New Roman, Times, Serif" size="3"> driver has created two devices, called "Dongle1" and "Dongle2". Process A has opened handles to each of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Dongle</font><font face="Times New Roman, Times, Serif" size="3"> devices. Process B has opened a handle to ''file" on the "Dongle2" device.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="e64e3b61d3c6a035c737e279a3aa704a.gif" border="0" alt="0094-01.gif" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="2">Figure 5.1<br />
+Device access<br />
+© 1999 PHD Computer Consultants Ltd</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_93.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_94</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_95.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

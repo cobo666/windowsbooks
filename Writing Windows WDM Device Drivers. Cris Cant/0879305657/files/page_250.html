@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_250</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_249.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_250</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_251.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 250</font></td></tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="727" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">}<br />
+RegCloseKey(mru);<br /><br />
+///////////////////////////////////////////////////////////////////////////<br />
+// Create/Open driver\Parameters registry key and set its values<br /><br />
+If(RegCreateKeyEx( HKEY_LOCAL_MACHINE, "SYSTEM\\CurrentControlSet\\Services\\"+Driver-<br />
+Name+"\\Parameters",<br />
+0, "'', 0, KEY_ALL_ACCESS, NULL, &amp;mru, &amp;disposition)<br />
+!= ERROR_SUCCESS)<br />
+{<br />
+AfxMessage Box("Could not create driver\\Parameters registry key");<br />
+return;<br />
+}<br />
+// EventLogLevel<br />
+dwRegValue = 1;<br />
+if( RegSetValueEx(mru,"EventLogLevel",0,REG_DWORD,(CONST<br />
+BYTE*)&amp;dwRegValue,sizeof(DWORD))<br />
+!= ERROR_SUCCESS)<br />
+{<br />
+AfxMessageBox("Could not create driver\\Parameters registry value EventLogLevel");<br />
+return;<br />
+}<br />
+// Default or No Name<br />
+CString DefaultName = DriverName;<br />
+int DeviceNameLen = DefaultName.GetLength()+1;<br />
+LPTSTR lpDefaultName = DefaultName.GetBuffer(DeviceNameLen);<br />
+if( RegSetValueEx(mru, "",0,REG_SZ, (CONST BYTE*) lpDefaultName,DeviceNameLen)<br />
+!= ERROR_SUCCESS)<br />
+{<br />
+AfxMessageBox("Could not create driver\\Parameters default registry value");<br />
+return;<br />
+}<br />
+DefaultName.ReleaseBuffer(0);<br />
+RegCloseKey(mru);<br /><br />
+////////////////////////////////////////////////////////////////////////////<br />
+// Open EventLog\System registry key and set its values<br /><br />
+if( RegCreateKeyEx( HKEY_LOCAL_MACHINE, "SYSTEM\\CurrentControlSet\\Services\\EventLog\\<br />
+System",<br />
+0, "", 0, KEY_ALL_ACCESS, NULL, &amp;mru, &amp;disposition)<br />
+!= ERROR_SUCCESS)</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_249.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_250</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_251.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

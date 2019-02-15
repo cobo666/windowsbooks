@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_260</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_259.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_260</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_261.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 260</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">resource or in a separate DLL. You must write a separate class for each <i>WMI data block</i> and <i>WMI event block.</i> An event block class must be derived from the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WMIEvent</font><font face="Times New Roman, Times, Serif" size="3"> class.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">All WMI blocks appear in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Root\WMI</font><font face="Times New Roman, Times, Serif" size="3"> CIMOM namespace.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Standard WMI Objects</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The Windows WDM provider has several standard Win32 WMI blocks defined. You can find these using the WBEM Object Browser. The MOF definitions for most of the standard Win32 WMI blocks are in the W2000 DDK file </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">src\storage\class\disk\WMICORE.MOF</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The W2000 DDK sources also have plenty of examples of how to implement WMI. For example, the standard Windows 2000 serial driver provides five WMI data blocks of information, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSSerial_CommInfo, MSSerial _CommProperties</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSSerial_HardwareConfiguration</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSSerial_PerformanceInformation</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSSerial_PortName</font><font face="Times New Roman, Times, Serif" size="3">. In each case the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InstanceName</font><font face="Times New Roman, Times, Serif" size="3"> property is the key, named after the PnP driver instance, not the serial port name. However, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSSerial_PortName</font><font face="Times New Roman, Times, Serif" size="3"> data object lets you retrieve the real port name in its <i>PortName</i> property. As another example, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSSerial_CommInfo</font><font face="Times New Roman, Times, Serif" size="3"> <i>BaudRate</i> property has the serial port's baud rate.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If you are writing a driver that is similar to a system driver, then consider reporting the standard system WMI blocks. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3"> driver implements the standard </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSPower_DeviceEnable</font><font face="Times New Roman, Times, Serif" size="3"> WMI data block. As described in Chapter 10, this is used by the Device Manager to let users stop a device from powering down. This means that the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3"> must be able to accept a changed value for the Enable property, as well as reporting the current setting.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.1 shows the source for the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSPower_DeviceEnable</font><font face="Times New Roman, Times, Serif" size="3"> WMI data block, taken from </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WMICORE.MOF</font><font face="Times New Roman, Times, Serif" size="3">. A GUID is used to identify the block. This is {827c0a6f-feb0-11d0-bd26-00aa00b7b32a}, which is defined as </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GUID_POWER_DEVICE_ENABLE</font><font face="Times New Roman, Times, Serif" size="3"> in the standard header </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WDMGUID.H</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">All WMI classes have a key string property called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>InstanceName</i></font><font face="Times New Roman, Times, Serif" size="3"> and Boolean property called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Active</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">.</font></i><font face="Times New Roman, Times, Serif" size="3"> The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSPower_DeviceEnable</font><font face="Times New Roman, Times, Serif" size="3"> class has only one "real" property, called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Enable</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">,</font></i><font face="Times New Roman, Times, Serif" size="3"> that can be read and written and is identified as the first </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WmiDataId</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.1 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSPower_DeviceEnable</font><font face="Times New Roman, Times, Serif" size="3"> WMI data block</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="768" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">[Dynamic, Provider("WMIProv"),<br />
+ WMI,<br />
+ Description(''The buffer for this control is a BOOLEAN and indicates if the device should<br />
+dynamically power on and off while the system is working. A driver would only support<br />
+such a setting if there is a significant user noticeable effect for powering off the<br />
+device. E.g. turning on the device may cause a User noticeable delay. Regardless of this<br />
+setting, the driver is still required to support system sleeping states irps (which<br />
+likely translates to powering off the device when a system sleep occurs)."),<br />
+ guid("827c0a6f-feb0-11d0-bd26-00aa00b7b32a:"),<br />
+ locale("MS\\0x409")]<br />
+class MSPower_DeviceEnable<br />
+{<br />
+     [key, read]<br />
+     string InstanceName;<br /><br />
+     [read]</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_259.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_260</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_261.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

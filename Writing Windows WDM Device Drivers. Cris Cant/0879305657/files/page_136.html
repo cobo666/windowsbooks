@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_136</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_135.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_136</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_137.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 136</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="8e6d72c09548667e21a95af39aca32ca.jpg" border="0" alt="0136-01.jpg" width="569" height="300" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The fact that there is an IRP header and several associated I/O stack locations can be a source of confusion. However, the stack locations are a powerful tool for processing IRPs when several layered drivers have to access an IRP in turn.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The I/O stack location contains most of the important information about the IRP. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>MajorFunction</i></font><font face="Times New Roman, Times, Serif" size="3"> is the IRP code (e.g., </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IRP_MJ_READ</font><font face="Times New Roman, Times, Serif" size="3"> for a Read IRP). Some IRPs, such as </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IRP_MJ_PNP</font><font face="Times New Roman, Times, Serif" size="3">, use the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>MinorFunction</i></font><font face="Times New Roman, Times, Serif" size="3"> field to specify which particular Plug and Play function is being requested.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Each common IRP type has a struct within the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Parameters</i></font><font face="Times New Roman, Times, Serif" size="3"> union in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IO_STACK_LOCATION</font><font face="Times New Roman, Times, Serif" size="3"> structure. For example, for Read IRPs, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Parameters.Read.Length</font><font face="Times New Roman, Times, Serif" size="3"> field is the number of bytes to transfer. The parameters that are valid for each common IRP are described in the following text.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The key to understanding I/O stack locations is to realize that each driver needs to look at only one, the ''current stack location". The information in the IRP header structure and the information in the current stack location are the parameters that a driver uses to process an IRP.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>I/O Stack Locations</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Let's go off track slightly to ask why Microsoft provides a set of I/O stack locations. If you have a stack of drivers that process an IRP, the highest might be a network protocol driver that can accept read requests of any length. This driver might know that the underlying transport driver can only cope with read transfers of up to 1024 bytes. Its job is to break up long transfers into a series of blocks, each with a maximum size of 1024 bytes. When the protocol driver calls the transport driver it, sets up the next I/O stack location with the transfer size set to 1024. When the transport driver processes the IRP, its current I/O stack location has this value, and it should proceed happily to process the IRP. When it has finished, the IRP is passed back to the protocol driver. This checks that the transfer worked and  assuming it did  sets up the next transfer and calls the transport driver again.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_135.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_136</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_137.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

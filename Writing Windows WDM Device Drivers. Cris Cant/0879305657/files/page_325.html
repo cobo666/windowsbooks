@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_325</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_324.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_325</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_326.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 325</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ConnectToInterrupts</font><font face="Times New Roman, Times, Serif" size="3"> commands shown here are used to initialize </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3">'s interrupt handling. The first write command tells the parallel port hardware not to generate interrupts. The second command tells the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> driver to use a time-out of 10 seconds when processing subsequent </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WriteFile</font><font face="Times New Roman, Times, Serif" size="3"> (and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadFile</font><font face="Times New Roman, Times, Serif" size="3">) requests. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> must have a time-out; a default of 10 seconds is used if no </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIO_TIMEOUT</font><font face="Times New Roman, Times, Serif" size="3"> command is given.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="662" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">BYTE ConnectToInterrupts[] =<br />
+{<br />
+     PHDIO_WRITE, PARPORT_CONTROL, 0×CC,            // Disable interrupts<br />
+     PHDIO_TIMEOUT,  10,                            // Write time-out in seconds<br />
+     PHDIO_IRQ_CONNECT, PARPORT_STATUS, 0×00, 0×00  // Connect to interrupt<br />
+};</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The last command, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIO_IRQ_CONNECT</font><font face="Times New Roman, Times, Serif" size="3">, connects the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> driver to its interrupt. As mentioned before, the actual interrupt number is passed as a resource when the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> device is started. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> starts servicing a hardware interrupt by reading a hardware register; in this case, the Status register is read. It must determine whether the interrupt was caused by its hardware or not.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The two final parameters to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIO_IRQ_CONNECT</font><font face="Times New Roman, Times, Serif" size="3"> command are a mask and a value. The register contents are </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AND</font><font face="Times New Roman, Times, Serif" size="3">ed with the mask and compared to the value, as shown in the following </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> code snippet. If they are not equal, the interrupt must be intended for another driver.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="662" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">//  See if interrupt is ours<br />
+UCHAR StatusReg = ReadByte( dx, dx-&gt;InterruptReg);<br />
+if( (StatusReg&amp;dx-&gt;InterruptRegMask) != dx-&gt;InterruptRegValue)<br />
+     return FALSE; // Not ours</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Suppose the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Status</font><font face="Times New Roman, Times, Serif" size="3"> register really did reset its bit 2 to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0</font><font face="Times New Roman, Times, Serif" size="3"> when it generated an interrupt. Specifying </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0×04</font><font face="Times New Roman, Times, Serif" size="3">, as the mask would isolate bit 2. If the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AND</font><font face="Times New Roman, Times, Serif" size="3">ed result is equal to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0×00</font><font face="Times New Roman, Times, Serif" size="3">, the interrupt is ours. Therefore, specifying a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIO_IRQ_CONNECT</font><font face="Times New Roman, Times, Serif" size="3"> mask of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0×04</font><font face="Times New Roman, Times, Serif" size="3"> and value of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0×00</font><font face="Times New Roman, Times, Serif" size="3"> would have correctly detected when the parallel port interrupted.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">However, as stated earlier, I found that there is no interrupt indication in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Status</font><font face="Times New Roman, Times, Serif" size="3"> register. I simply have to assume that if an interrupt arrives, it came from the correct parallel port. To persuade the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> code to continue regardless, a mask of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0×00</font><font face="Times New Roman, Times, Serif" size="3"> and a value of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0×00</font><font face="Times New Roman, Times, Serif" size="3"> was specified in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ConnectToInterrupts</font><font face="Times New Roman, Times, Serif" size="3"> code.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Storing the Write Byte Commands</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> driver needs to be told a series of commands that write a single byte of data. These commands are used both to write the first output byte and to process an interrupt to send another byte.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IOCTL_PHDIO_CMDS_FOR_WRITE</font><font face="Times New Roman, Times, Serif" size="3"> is used to store the commands used to write data. This IOCTL is issued using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceIoControl</font><font face="Times New Roman, Times, Serif" size="3"> in the normal way. The commands are in the input buffer. No output buffer need be specified.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 15.3 shows the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WriteByte</font><font face="Times New Roman, Times, Serif" size="3"> commands that <i>WdmIoTest</i> tells </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> to use to write a data byte. The first </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIO_WRITE</font><font face="Times New Roman, Times, Serif" size="3"> command ensures that the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STROBE</font><font face="Times New Roman, Times, Serif" size="3"> output signal in bit 0 of the Control register is off. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIO_WRITE_NEXT</font><font face="Times New Roman, Times, Serif" size="3"> command is used to write the next byte in</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_324.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_325</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_326.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_273</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_272.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_273</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_274.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 273</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">WMI IRP. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">FailWMIRequest</font><font face="Times New Roman, Times, Serif" size="3"> fails the IRP with </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STATUS__WMI_GUID_NOT_FOUND</font><font face="Times New Roman, Times, Serif" size="3"> if an invalid GUID was given, or </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STATUS_INVALID_DEVICE_REQUEST</font><font face="Times New Roman, Times, Serif" size="3"> otherwise.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.8 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetWmiDataItem</font><font face="Times New Roman, Times, Serif" size="3"> routine</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS SetWmiDataItem(<br />
+    IN PDEVICE_OBJECT fdo, IN PIRP  Irp ,<br />
+    IN ULONG GuidIndex, IN ULONG InstanceIndex.<br />
+    IN ULONG DataItemId,<br />
+    IN ULONG BufferSize, IN PUCHAR PBuffer)<br />
+{<br />
+    DebugPrint("SetWmiDataItem:: GuidIndex %d, InstanceIndex %d, DataItemId %d,<br />
+        BufferSize %d", GuidIndex,InstanceIindex,DataItemId,BiufferSize);<br />
+     return FailWMIRequest( fdo, Irp, GuidIndex);<br />
+}<br />
+NTSTATUS FailWMIRequest(<br />
+    IN PDEVICE_OBJECT fdo.<br />
+    IN PIRP Irp,<br />
+    IN ULONG GuidIndex)<br />
+{<br />
+    DebugPrint(''FailWMIRequest: GuidIndex %d",GuidIndex);<br />
+    NTSTATUS status;<br /><br />
+    if( GuidIndex&lt;0 || GuidIndex&gt;=GUID_COUNT)<br />
+        status = STATUS_WMI_GUID_NOT_FOUND;<br />
+    else<br />
+        status = STATUS_INVALID_DEVICE_REQUEST;<br /><br />
+    status = WmiCompleteRequest( fdo, Irp, status, 0.  IO_NO_INCREMENT);<br /><br />
+    return status;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ExecuteWmiMethod</i></font><i><font face="Times New Roman, Times, Serif" size="3"> Handler</font></i></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.9 shows how I think the optional </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExecuteWmiMethod</font><font face="Times New Roman, Times, Serif" size="3"> routine should be implemented. As I stated earlier, I could not get <i>mofcomp</i> to compile the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>PowerDown</i></font><font face="Times New Roman, Times, Serif" size="3"> method in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Information</font><font face="Times New Roman, Times, Serif" size="3"> WMI data block. Therefore, I have not so far been able to test this method.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.9 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExecuteWmiMethod</font><font face="Times New Roman, Times, Serif" size="3"> routine</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="661" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS ExecuteWmiMethod(<br />
+    IN PDEVICE_OBJECT fdo,  IN PIRPg Irp, IN; ULONG GuidIndex,<br />
+    IN ULONG InstanceIndex, IN ULONG MethodId, IN ULONG InBufferSize,<br />
+    IN ULONG OutBufferSize, IN OUT PUCHAR Buffer)</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_272.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_273</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_274.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

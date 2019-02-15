@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_296</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_295.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_296</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_297.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 296</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The kernel causes a bugcheck if you do not release a Mutex before returning control to the I/O Manager. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeInitializeMutex</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeReleaseMutex</font><font face="Times New Roman, Times, Serif" size="3"> must be called at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3">. You can also inspect the Mutex state using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeReadStateMutex</font><font face="Times New Roman, Times, Serif" size="3"> at an IRQL up to and including </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DISPATCH_LEVEL</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A <i>Fast Mutex</i> is a variation on an ordinary Mutex that is faster because it does not permit multiple ownership requests. An <i>Executive Resource</i> is another similar synchronization object, available in W2000 only. See the DDK documentation for more details of these objects.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Semaphores</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A semaphore is a dispatcher object that maintains a count. Call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeInitializeSemaphore</font><font face="Times New Roman, Times, Serif" size="3"> at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> IRQL to initialize a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KSEMAPHORE</font><font face="Times New Roman, Times, Serif" size="3"> object in nonpaged memory. You must specify maximum and initial counts.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A semaphore is nonsignalled when zero and signalled with any count greater than zero. A thread that calls one of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeWaitFor</font><font face="Times New Roman, Times, Serif" size="3"> . . . routines and finds a signalled semaphore will decrement its count and the thread will proceed. If a semaphore's count is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">2</font><font face="Times New Roman, Times, Serif" size="3"> and three threads simultaneously attempt to wait for the semaphore, only two will proceed. The semaphore count ends up as </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0</font><font face="Times New Roman, Times, Serif" size="3"> with one thread still waiting.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeReleaseSemaphore</font><font face="Times New Roman, Times, Serif" size="3">, at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DISPATCH_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> or lower, to add a value to a semaphore count. You can read the semaphore count at any IRQL using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeReadStateSemaphore</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Timer, Thread, and File Objects</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A timer is a dispatcher object that becomes signalled when its timer expires. A file object becomes signalled when an overlapped I/O operation has completed. The file must have been opened in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ZwCreateFile</font><font face="Times New Roman, Times, Serif" size="3"> with the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DesiredAccess</font><font face="Times New Roman, Times, Serif" size="3"> </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SYNCHRONIZE</font><font face="Times New Roman, Times, Serif" size="3"> flag set. You can also wait for thread completion.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Debugprint</font><font face="Times New Roman, Times, Serif" size="3"> System Thread Function</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 14.1 shows that the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> system thread for drivers under test primarily consists of a loop that waits for the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExitNow</font><font face="Times New Roman, Times, Serif" size="3"> flag to become </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">true</font><font face="Times New Roman, Times, Serif" size="3"> or for trace events to arrive.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">At the top of this main loop, the thread function calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeWaitForSingleObject</font><font face="Times New Roman, Times, Serif" size="3"> to wait for the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ThreadEvent</font><font face="Times New Roman, Times, Serif" size="3"> to become signalled. As stated previously, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintClose</font><font face="Times New Roman, Times, Serif" size="3"> sets the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExitNow</font><font face="Times New Roman, Times, Serif" size="3"> flag to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">true</font><font face="Times New Roman, Times, Serif" size="3"> and sets the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ThreadEvent</font><font face="Times New Roman, Times, Serif" size="3"> into the signalled state. The thread function is released; if it finds </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExitNow</font><font face="Times New Roman, Times, Serif" size="3"> </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">true</font><font face="Times New Roman, Times, Serif" size="3">, it exits its main loop, tidies up, and terminates.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeWaitForSingleObject</font><font face="Times New Roman, Times, Serif" size="3"> includes a one-second time-out. This is used to let the thread function look for and process trace events in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventList</font><font face="Times New Roman, Times, Serif" size="3"> buffer, as described in the next sections.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Generating Trace Events</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The two formatted print functions, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint2</font><font face="Times New Roman, Times, Serif" size="3">, eventually call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrintMsg</font><font face="Times New Roman, Times, Serif" size="3">. I will not go into the details of how the formatted prints work. You can work it out for yourself by looking at the code in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Print</font><font face="Times New Roman, Times, Serif" size="3"> . . . and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugSprintf</font><font face="Times New Roman, Times, Serif" size="3"> routines in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint.c</font><font face="Times New Roman, Times, Serif" size="3">. The only point to note is that the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DebugPrint</font><font face="Times New Roman, Times, Serif" size="3"> routines can accept a variable number of arguments. I have assumed  successfully so far  that the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">va_list</font><font face="Times New Roman, Times, Serif" size="3"> macros defined in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">stdarg.h</font><font face="Times New Roman, Times, Serif" size="3"> work satisfactorily in kernel mode drivers.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_295.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_296</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_297.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_474</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_473.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_474</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_475.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 474</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DecodeInputUsages</font><font face="Times New Roman, Times, Serif" size="3"> cheats, as I know the maximum size in advance. I use the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MaxPreviousUsages</font><font face="Times New Roman, Times, Serif" size="3"> constant to declare fixed-size arrays; this avoids allocating and freeing buffers all over the place.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The maximum usage list length for a keyboard report is 14. This is made up of the six keys that the HID Report descriptor says can be pressed simultaneously, and the eight modifier keys, again that the Report descriptor says can be pressed simultaneously. Obviously, it is extremely unlikely that 14 keys can be pressed at the same time.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidP_GetButtonsEx</font><font face="Times New Roman, Times, Serif" size="3"> analyses the input report just received and fills in the array of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">USAGE_AND_PAGE</font><font face="Times New Roman, Times, Serif" size="3"> structures, called Usages. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ValidUsages</font><font face="Times New Roman, Times, Serif" size="3"> variable is filled with the number of valid elements in this array. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DecodeInputUsages</font><font face="Times New Roman, Times, Serif" size="3"> simply prints out the usage page and usage for each of these valid key presses.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The next job, if desired, is to work out what has changed since the last input report. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidP_UsageListDifference</font><font face="Times New Roman, Times, Serif" size="3"> function does this. It is passed the previous usage list and the current usage list as input. It fills in two further arrays, one with a list of usages that have been "made" (or just arrived), and one with a list of usages that have just "broken" (or gone away). </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DecodeInputUsages</font><font face="Times New Roman, Times, Serif" size="3"> prints out these two arrays. Note that </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidP_UsageListDifference</font><font face="Times New Roman, Times, Serif" size="3"> deals with arrays of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">USAGE</font><font face="Times New Roman, Times, Serif" size="3"> values, not </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">USAGE_AND_PAGEs</font><font face="Times New Roman, Times, Serif" size="3">. In </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DecodeInputUsages</font><font face="Times New Roman, Times, Serif" size="3"> all the input usages are in the keyboard usage page, so this is not a problem.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 23.4 Decoding input report usages</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="679" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">const ULONG MaxPreviousUsages = 14;<br />
+USAGE_AND_PAGE Usages[MaxPreviousUsages];<br />
+USAGE PreviousUsages[MaxPreviousUsages];<br /><br />
+void DecodeInputUsages( char* KbdReport, USHORT KbdReportLen,<br />
+                        PHIDP_PREPARSED_DATA HidPreparsedData)<br />
+{<br />
+    // Get max number of USAGE_AND_PAGEs required for all input reports in<br />
+    // top-level collection<br />
+    ULONG MaxUsages = HidP_MaxUsageListLength( HidP_Input, 0, HidPreparsedData);<br />
+    if( MaxUsages==0 || MaxUsages&gt;MaxPreviousUsages)<br />
+    {<br />
+        printf("XXX  Invalid HidP_MaxUsageListLength returned %d\n", MaxUsages);<br />
+        return;<br />
+    }<br /><br />
+    // Get usages set in given keyboard report<br />
+    ULONG ValidUsages = MaxUsages;<br />
+    NTSTATUS status = HidP_GetButtonsEx( HidP_Input, 0, Usages, &amp;ValidUsages,<br />
+        HidPreparsedData, KbdReport, KbdReportLen);<br />
+    if( status==HIDP_STATUS_SUCCESS)<br />
+    {<br />
+        USAGE CurrentUsages[MaxPreviousUsages];<br />
+        USAGE BreakUsages[MaxPreviousUsages];</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_473.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_474</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_475.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

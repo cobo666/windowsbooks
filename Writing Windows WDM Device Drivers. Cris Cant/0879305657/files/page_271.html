@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_271</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_270.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_271</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_272.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 271</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.6 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">QueryWmiDataBlock</font><font face="Times New Roman, Times, Serif" size="3"> routine</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="679" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">      // Store total size<br />
+      *InstanceLengthArray = size;<br />
+      status = STATUS_SUCCESS;<br /><br />
+      break;<br />
+  }<br />
+  default:<br />
+      DebugPrintMsg("QueryWmiDataBlock: Bad GUID index");<br />
+      status = STATUS_WMI_GUID_NOT_FOUND:<br />
+      break;<br />
+  }<br />
+  return WmiCompleteRequest( fdo, Irp, status, size, IO_NO_INCREMENT);<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>SetWmiDataBlock</i></font><i><font face="Times New Roman, Times, Serif" size="3"> Handler</font></i></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3 SetWmiDataBlock</font><font face="Times New Roman, Times, Serif" size="3"> routine shown in Listing 12.7 lets a user change the device extension </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>IdlePowerDownEnable</i></font><font face="Times New Roman, Times, Serif" size="3"> settings. If the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSPower_DeviceEnable</font><font face="Times New Roman, Times, Serif" size="3"> GUID index is given and the input buffer size is large enough, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">BOOLEAN</font><font face="Times New Roman, Times, Serif" size="3"> at the start of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Pbuffer</font><font face="Times New Roman, Times, Serif" size="3"> is stored in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>IdlePowerDownEnabe</i></font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetWmiDataBlock</font><font face="Times New Roman, Times, Serif" size="3"> then acts on the new power down enable setting. If powering down is now enabled, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PoRegisterDeviceForIdleDetection</font><font face="Times New Roman, Times, Serif" size="3"> is called, if necessary. If now disabled, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PoRegisterDeviceForIdleDetection</font><font face="Times New Roman, Times, Serif" size="3"> is called to turn off idle detection; if the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3"> device is powered down, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SendDeviceSetPower</font><font face="Times New Roman, Times, Serif" size="3"> is called to power the device up.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.7 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetWmiDataBlock</font><font face="Times New Roman, Times, Serif" size="3"> routine</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="672" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS SetWmiDataBlock(<br />
+    IN PDEVICE_OBJECT fdo, IN PIRP Irp,<br />
+    IN ULONG GuidIndex, IN ULONG InstanceIndex,<br />
+    IN ULONG BufferSize,<br />
+    IN PUCHAR PBuffer)<br />
+{<br />
+    DebugPrint(''SetWmiDataBlock: GuidIndex %d, InstanceIndex %d, BufferSize %d",<br />
+        GuidIndex,InstanceIndex,BufferSize);<br />
+    PWDM3_DEVICE_EXTENSION dx = (PWDM3_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;<br /><br />
+    if( GuidIndex==GUID_POWER_DEVICE_ENABLE_INDEX)  // MSPower_DeviceEnable<br />
+   {<br />
+       if( BufferSize&lt;sizeof(BOOLEAN))<br />
+           return WmiCompleteRequest( fdo, Irp, STATUS_BUFFER_TOO_SMALL, O,<br />
+               IO_NO_INCREMENT);</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_270.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_271</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_272.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

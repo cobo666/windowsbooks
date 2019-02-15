@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_197</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_196.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_197</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_198.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 197</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 9.14 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm2Notify</font><font face="Times New Roman, Times, Serif" size="3"> device change routines</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">{<br />
+    CString Msg = ''duh";<br />
+    switch( nEventType)<br />
+    {<br />
+    case DBT_CONFIGCHANGECANCELED:<br />
+        Msg.Format("DBT_CONFICHANGECANCELED"); break;<br />
+    case DBT_CONFIGCHANGED:<br />
+        Msg.Format("DBT_CONFIGCHANGED"); break;<br />
+    case DBT_CUSTOMEVENT:<br />
+        Msg.Format("DBT_CUSTOMEVENT"); break;<br />
+    case DBT_DEVICEARRIVAL:<br />
+        Msg.Format("DBT_DEVICEARRIVAL"); break;<br />
+    case DBT_DEVICEQUERYREMOVE:<br />
+        Msg.Format("DBT_DEVICEQUERYREMOVE"); break;<br />
+    case DBT_DEVICEQUERYREMOVEFAILED:<br />
+        Msg.Format("DBT_DEVICEQUERYREMOVEFAILED"); break;<br />
+    case DBT_DEVICEREMOVEPENDING:<br />
+        Msg.Format("DBT_DEVICEREMOVEPENDING"); break;<br />
+    case DBT_DEVICEREMOVECOMPLETE:<br />
+        Msg.Format("DBT_DEVICEREMOVECOMPLETE"); break;<br />
+    case DBT_DEVICETYPESPECIFIC:<br />
+        Msg.Format("DBT_DEVICETYPESPECIFIC"): break;<br />
+    case DBT_QUERYCHANGECONFIG:<br />
+        Msg.Format("DBT_QUERYCHANGECONFIG"); break;<br />
+    case DBT_DEVNODES_CHANGED:<br />
+        Msg.Format("DBT DEVNODES_CHANGED"); break:<br />
+    case DBT_USERDEFINED:<br />
+        Msg.Format("DBT_USERDEFINED"); break;<br />
+    default:<br />
+        Msg.Format("Event type %d",nEventType);<br />
+    }<br />
+    PDEV_BROAD_CAST_DEVICEINTERFACE pdbch =<br />
+        (PDEV_BROADCAST_DEVICEINTERFACE)dwData;<br />
+    if( pdbch!=NULL &amp;&amp; pdbch-&gt;dbcc_devicetype == DBT_DEVTYP_DEVICEINTERFACE)<br />
+    {<br />
+      CString Msg2;<br />
+      Msg2.Format("%s:%s",Msg,pdbch-&gt;dbcc_name);<br />
+      Msg = Msg2;<br />
+    }</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_196.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_197</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_198.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

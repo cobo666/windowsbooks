@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_494</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_493.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_494</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_495.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 494</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 23.12 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetupHidIrp</font><font face="Times New Roman, Times, Serif" size="3"> routine</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="679" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">        IoFreeIrp(dx-&gt;HidIrp);<br />
+        dx-&gt;HidIrp = NULL;<br />
+    }<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">When the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> device is removed, the IRP, the buffer memory, and the MDL must be freed. Listing 23.13 shows how the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RemoveHidIrp</font><font face="Times New Roman, Times, Serif" size="3"> routine does this job using the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoFreeMdl</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoFreeIrp</font><font face="Times New Roman, Times, Serif" size="3">, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExFreePool</font><font face="Times New Roman, Times, Serif" size="3"> routines.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 23.13 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RemoveHidIrp</font><font face="Times New Roman, Times, Serif" size="3"> routine</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="679" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">void RemoveHidIrp( IN PHIDKBD_DEVICE_EXTENSION dx)<br />
+{<br />
+    DebugPrintMsg("Removing HidIrp etc");<br />
+    if( dx-&gt;HidReportMdl!=NULL)<br />
+    {<br />
+        IoFreeMdl(dx-&gt;HidReportMdl);<br />
+        dx-&gt;HidReportMdl = NULL;<br />
+    }<br />
+    if( dx-&gt;HidIrp!=NULL)<br />
+    {<br />
+        IoFreeIrp(dx-&gt;HidIrp);<br />
+        dx-&gt;HidIrp = NULL;<br />
+    }<br />
+    if( dx-&gt;HidReport!=NULL)<br />
+    {<br />
+        ExFreePool(dx-&gt;HidReport);<br />
+        dx-&gt;HidReport = NULL;<br />
+    }<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">I can now discuss how to use this preallocated IRP. Listing 23.14 shows the replacement </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadHidKbdInputReport</font><font face="Times New Roman, Times, Serif" size="3"> routine. This time, it cannot use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoBuildSynchronousFsdRequest</font><font face="Times New Roman, Times, Serif" size="3">, so the IRP and its stack must be built by hand.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoInitializeIrp</font><font face="Times New Roman, Times, Serif" size="3"> call is used to initialize the IRP. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoInitializeIrp</font><font face="Times New Roman, Times, Serif" size="3"> incorrectly clears the IRP <i>AllocationFlags</i> field, so this must be preserved. In W2000, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoReuseIrp</font><font face="Times New Roman, Times, Serif" size="3"> correctly reinitialises the IRP. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadHidKbdInputReport</font><font face="Times New Roman, Times, Serif" size="3"> then stores the MDL for the buffer in the IRP </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>MdlAddress</i></font><font face="Times New Roman, Times, Serif" size="3"> field. As before, it calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoGetNextIrpStackLocation</font><font face="Times New Roman, Times, Serif" size="3"> to get the next stack location. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadHidKbdInputReport</font><font face="Times New Roman, Times, Serif" size="3"> must set up all the stack parameters carefully: the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>MajorFunction</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">,</font></i><font face="Times New Roman, Times, Serif" size="3"> the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Parameters. Read</i></font><font face="Times New Roman, Times, Serif" size="3"> fields, and the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>FileObject</i></font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Finally, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadHidKbdInputReport</font><font face="Times New Roman, Times, Serif" size="3"> needs to set a completion routine so that it knows when the IRP has completed. It passes an event to the completion routine. The completion routine sets the event into the signalled state when it is run). </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadHidKbdInputReport</font><font face="Times New Roman, Times, Serif" size="3"> waits until the event is set (i.e., when the IRP has been completed by the lower driver. Assuming that the</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_493.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_494</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_495.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

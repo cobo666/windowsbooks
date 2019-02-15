@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_369</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_368.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_369</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_370.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 369</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>One-Second Interval Timers</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The kernel provides easy access to a device timer that calls you back every second. The timer must be initialized at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> IRQL using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoInitializeTimer</font><font face="Times New Roman, Times, Serif" size="3">. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoInitializeTimer</font><font face="Times New Roman, Times, Serif" size="3"> as follows in its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AddDevice</font><font face="Times New Roman, Times, Serif" size="3"> routine just after the FDO has been created. The final parameter to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoInitializeTimer</font><font face="Times New Roman, Times, Serif" size="3"> is passed to the timer callback.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="624" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">status = IoInitializeTimer( fdo, (PIO_TIMER_ROUTINE)Timeout1s,  dx);<br />
+if( !NT_SUCCESS(status))<br />
+{<br />
+    IoDeleteDevice(fdo);<br />
+    return status;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoStartTimer</font><font face="Times New Roman, Times, Serif" size="3"> to start timer calls and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoStopTimer</font><font face="Times New Roman, Times, Serif" size="3"> to stop them. Do not call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoStopTimer</font><font face="Times New Roman, Times, Serif" size="3"> from within your timer routine. The first timer call may occur after less than one second.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The timer routine is called at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DISPATCH_LEVEL</font><font face="Times New Roman, Times, Serif" size="3">. You will usually need to use a Critical Section routine if you wish to coordinate your activities with interrupt handling routines.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>WdmIo</i></font><i><font face="Times New Roman, Times, Serif" size="3"> Time-Outs</font></i></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Some drivers start their timer calls when a device is created and stop them when it is removed. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> reduces the number of timer callbacks. It starts the timer whenever an interrupt driven I/O starts. When the transfer is completed, it sets a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>StopTimer</i></font><font face="Times New Roman, Times, Serif" size="3"> flag to indicate that its timer should be stopped. The next call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> checks this flag and calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoStopTimer</font><font face="Times New Roman, Times, Serif" size="3">, if necessary. The timer is also stopped when the device is removed.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 17.5 shows the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> timer callback, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Timeout1s</font><font face="Times New Roman, Times, Serif" size="3">, and the Critical Section routine that it uses, called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Timeout1sSynch</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The device extension </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Timeout</i></font><font face="Times New Roman, Times, Serif" size="3"> field serves two purposes. If </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">-1</font><font face="Times New Roman, Times, Serif" size="3">, it indicates that no interrupt-driven transfer is in progress. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> code in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceIo.cpp</font><font face="Times New Roman, Times, Serif" size="3"> checks this value in several places to ensure that a read or write is indeed in progress. If </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Timeout</i></font><font face="Times New Roman, Times, Serif" size="3"> is zero or more, it indicates the number of seconds left before the current transfer times out. The first timer callback may occur after less than one second, so the code that starts reads and writes adds one to the given time-out to be on the safe side.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Timeout1s</font><font face="Times New Roman, Times, Serif" size="3">, therefore, first checks whether there is a transfer in progress. If not (i.e., if </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Timeout</i></font><font face="Times New Roman, Times, Serif" size="3"> is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">-1</font><font face="Times New Roman, Times, Serif" size="3">), then it returns immediately. The code to check for a timeout must be handled in a Critical Section so that it is not interrupted by a device interrupt. The timeout algorithm must also check to see if the current IRP has been cancelled.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The Critical Section routine, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Timeout1sSynch</font><font face="Times New Roman, Times, Serif" size="3">, must check the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Timeout</i></font><font face="Times New Roman, Times, Serif" size="3"> variable again, in case an interrupt has completed the IRP in the mean time. It first gets the current IRP that is being processed. If the cancel flag has been set for this IRP or the timeout has now expired, then </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Timeout1sSynch</font><font face="Times New Roman, Times, Serif" size="3"> marks that the request is completing by setting </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Timeout</i></font><font face="Times New Roman, Times, Serif" size="3"> to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">-1</font><font face="Times New Roman, Times, Serif" size="3">. It calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoRequestDpc</font><font face="Times New Roman, Times, Serif" size="3"> which will complete the IRP in due course at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DISPATCH_LEVEL</font><font face="Times New Roman, Times, Serif" size="3">.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_368.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_369</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_370.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

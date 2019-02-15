@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_138</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_137.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_138</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_139.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 138</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Close IRP, </i></font><i><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IRP_MJ_CLOSE</font></i></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If need be, you can double-check that the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>FileObject</i></font><font face="Times New Roman, Times, Serif" size="3"> in the IRP header matches the one you were sent in the create request.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If you have queued up Read or Write IRPs for this file, the I/O Manager will have cancelled them before the close request is received. It does this by calling an IRP's Cancel routine and issuing a Cleanup IRP, as described in Chapter 16.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Read IRP, </i></font><i><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IRP_MJ_READ</font></i></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Parameters.Read</font><font face="Times New Roman, Times, Serif" size="3"> structure in the IRP stack has </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Length</i></font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ByteOffset</i></font><font face="Times New Roman, Times, Serif" size="3"> fields that say how many bytes are requested and the file pointer. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>ByteOffset</i></font><font face="Times New Roman, Times, Serif" size="3"> is a 64-bit integer stored in a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LARGE_INTEGER</font><font face="Times New Roman, Times, Serif" size="3"> structure. The Microsoft compiler can handle this type directly (i.e., </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Parameters.Read</font><font face="Times New Roman, Times, Serif" size="3">. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ByteOffset.QuadPart</font><font face="Times New Roman, Times, Serif" size="3"> is an __</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">int64</font><font face="Times New Roman, Times, Serif" size="3">). If you need to specify 64-bit constant values in your code, append </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">i64</font><font face="Times New Roman, Times, Serif" size="3"> to the constant (e.g., </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">100i64</font><font face="Times New Roman, Times, Serif" size="3">).</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The user buffer can be specified in one of two ways, depending on whether your driver uses <i>Buffered I/O</i> or <i>Direct I/O.</i> See the following text for details of these terms. If using Buffered I/O, a pointer to the user buffer is in the IRP header at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>AssociatedIrp.SystemBuffer</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">.</font></i><font face="Times New Roman, Times, Serif" size="3"> For Direct I/O, a Memory Descriptor List (MDL) is in the IRP header in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>MdlAddress</i></font><font face="Times New Roman, Times, Serif" size="3"> field.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Key</i></font><font face="Times New Roman, Times, Serif" size="3"> field in the IRP stack </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Parameters.Read</font><font face="Times New Roman, Times, Serif" size="3"> structure does not seem to be used for anything, and so could be used by a driver for any purpose.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Write IRP, </i></font><i><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IRP_MJ_WRITE</font></i></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The parameters for Write IRPs are identical to Read IRPs, except that the relevant parameters are in the stack </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Parameters.Write</font><font face="Times New Roman, Times, Serif" size="3"> structure.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>IOCTL IRP, </i></font><i><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IRP_MJ_DEVICE_CONTROL</font></i></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Parameters.DeviceIoControl</font><font face="Times New Roman, Times, Serif" size="3"> structure in the IRP stack has </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>IoControl</i></font><i><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CodeInputBufferLength</font></i><i><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"></font><font face="Times New Roman, Times, Serif" size="3">,</font></i><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>OutputBufferLength</i></font><font face="Times New Roman, Times, Serif" size="3"> parameters.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The user buffer is specified using one or more of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>AssociatedIrp.SystemBuffer</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MdlAddress</font><font face="Times New Roman, Times, Serif" size="3">,</font></i><font face="Times New Roman, Times, Serif" size="3"> or stack </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Parameters.DeviceIoControl</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">.</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Type3InputBuffer</font></i><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"></font><font face="Times New Roman, Times, Serif" size="3"> fields. See the next section for details.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">User Buffers</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">As a driver can run in the context of any thread, a plain pointer into the user's address space is not guaranteed to access the correct memory.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A driver can use two main methods to access the user's buffer properly, either Buffered I/O or Direct I/O. When you create a device, you must set the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DO_BUFFERED_IO</font><font face="Times New Roman, Times, Serif" size="3"> bit in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Flags</i></font><font face="Times New Roman, Times, Serif" size="3"> field of the new device object to use Buffered I/O. For Direct I/O, set the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DO_DIRECT_IO</font><font face="Times New Roman, Times, Serif" size="3"> bit in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Flags</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">.</font></i><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_137.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_138</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_139.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

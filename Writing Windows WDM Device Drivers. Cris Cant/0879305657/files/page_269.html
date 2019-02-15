@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_269</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_268.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_269</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_270.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 269</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>QueryWmiDataBlock</i></font><i><font face="Times New Roman, Times, Serif" size="3"> Handler</font></i></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">QueryWmiDataBlock</font><font face="Times New Roman, Times, Serif" size="3"> callback routine returns one or more instances of a data block. When finished, it should call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WmiCompleteRequest</font><font face="Times New Roman, Times, Serif" size="3">. A driver can return </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STATUS_PENDING</font><font face="Times New Roman, Times, Serif" size="3"> if the IRP cannot be completed immediately.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">QueryWmiDataBlock</font><font face="Times New Roman, Times, Serif" size="3"> is passed </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GuidIndex</font><font face="Times New Roman, Times, Serif" size="3">, the relevant index into your </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GuidList</font><font face="Times New Roman, Times, Serif" size="3"> array, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InstanceIndex</font><font face="Times New Roman, Times, Serif" size="3">, and the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InstanceCount</font><font face="Times New Roman, Times, Serif" size="3"> required. You have to fill the Buffer (that has a maximum size of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">BufferAvail</font><font face="Times New Roman, Times, Serif" size="3">). Fill in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InstanceLengthArray</font><font face="Times New Roman, Times, Serif" size="3">, an array of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ULONGs</font><font face="Times New Roman, Times, Serif" size="3"> giving the length of each instance.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In the buffer, each instance's data should be aligned on an 8-byte boundary. The actual data should correspond to the class MOF definition. A MOF </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">string</font><font face="Times New Roman, Times, Serif" size="3"> should be returned as a counted Unicode, MOF </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Boolean</font><font face="Times New Roman, Times, Serif" size="3"> returned as a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">BOOLEAN</font><font face="Times New Roman, Times, Serif" size="3">, MOF </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">uint32</font><font face="Times New Roman, Times, Serif" size="3"> returned as a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ULONG</font><font face="Times New Roman, Times, Serif" size="3">, MOF </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">uint64</font><font face="Times New Roman, Times, Serif" size="3"> as a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ULONGLONG</font><font face="Times New Roman, Times, Serif" size="3">, etc.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.6 shows how the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3 QueryWmiDataBlock</font><font face="Times New Roman, Times, Serif" size="3"> routine handles requests for the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Information</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSPower_DeviceEnable</font><font face="Times New Roman, Times, Serif" size="3"> WMI data blocks. For </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Information</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">QueryWmiDataBlock</font><font face="Times New Roman, Times, Serif" size="3"> first works out the size of buffer required and checks that the given output buffer is large enough. It then stores the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>BufferLen, BufferFirstWord</i><i></i></font><i><font face="Times New Roman, Times, Serif" size="3">,</font></i><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>SymbolicLinkName</i></font><font face="Times New Roman, Times, Serif" size="3"> property values. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>SymbolicLinkName</i></font><font face="Times New Roman, Times, Serif" size="3"> string is stored in counted Unicode (i.e., a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">USHORT</font><font face="Times New Roman, Times, Serif" size="3"> count followed by the wide char characters). Finally, the number of bytes set is stored. Only one instance of a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Information</font><font face="Times New Roman, Times, Serif" size="3"> data block is ever processed, so this size is stored in the first </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ULONG</font><font face="Times New Roman, Times, Serif" size="3"> pointed to by </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InstanceLengthArray</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">QueryWmiDataBlock</font><font face="Times New Roman, Times, Serif" size="3"> handles a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSPower_DeviceEnable</font><font face="Times New Roman, Times, Serif" size="3"> WMI data block request in a similar way.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 12.6 QueryWmiDataBlock routine</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" width="725" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS QueryWmiDataBlock( IN PDEVICE_ OBJECT fdo; IN PIRP Irp,<br />
+    IN ULONG GuidIndex, IN ULONG InstanceIndex,<br />
+    IN ULONG InstanceCount, IN OUT PULONG InstatceLengthArray,<br />
+    IN ULONG OutBufferSize, OUT PUCHIR  PBuffe)<br />
+{<br />
+    DebugPrint("QueryWmiDataBlock: GuidIndex %d  InstanceIndex %d, "<br />
+        "InstanceCount %d, OutBufferSize %d",<br />
+        GuidIndex,InstanceIndex,InstanceCount,OutBufferSize);<br />
+    PWDM3_DEVICE_EXTENSION dx = (PWDM3_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;<br />
+    NTSTATUS status;<br />
+    ULONG size = 0;<br /><br />
+    switch( GuidIndex)<br />
+    {<br />
+    case WDM3_WMI_GUID_INDEX:   // Wdm3Information<br />
+    {<br />
+       ULONG SymLinkNameLen = dx-&gt;ifSymLinkName.Length;<br />
+       size = sizeof(ULONG)+sizeof(ULONG)+SymLinkNameLen+sizeof(USHORT);<br /><br />
+       // Check output buffer size</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_268.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_269</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_270.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

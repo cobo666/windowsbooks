@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_482</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_481.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_482</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_483.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 482</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">boots up. Installation INF files are not used. Instead, you must write a custom installation program, as described in Chapter 11.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DriverEntry</font><font face="Times New Roman, Times, Serif" size="3"> routine calls the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoRegisterPlugPlayNotification</font><font face="Times New Roman, Times, Serif" size="3"> function to ask to receive any device interface change events for a particular device interface GUID. The driver </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AbcUnload</font><font face="Times New Roman, Times, Serif" size="3"> routine calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoUnregisterPlugPlayNotification</font><font face="Times New Roman, Times, Serif" size="3"> to indicate that it no longer wants to receive such notifications.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In this case, the device interface change callback is informed whenever any HID device is plugged into the system. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> code then interrogates the device to see if it is a HID keyboard. If it is, it creates a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> device.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Just to complicate matters, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> now has two options. First, it can layer itself over the HID device so that is becomes part of the device stack for this device. However, this suffers from the same drawbacks as the "AddDevice" technique, that user mode requests to the HID device would be routed to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> driver takes the second option. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> stores a pointer to the HID device object, but does not layer itself above the HID device. Both </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> and a user mode application can therefore call the HID class driver safely.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Plug and Play Notifications</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Kernel mode drivers can register to receive three different types of notification events. As far as I can tell, none of these notifications work in Windows 98, as calling </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoRegisterPlugPlayNotification</font><font face="Times New Roman, Times, Serif" size="3"> seems to hang the system. Therefore, all the subsequent discussion here applies to Windows 2000 only. The Beta 2 version of W2000 let the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> driver access the HID keyboard. Later versions do not, so most of the code in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> will now not run.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Table 23.2 shows how to call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoRegisterPlugPlayNotification</font><font face="Times New Roman, Times, Serif" size="3">. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventCategory</font><font face="Times New Roman, Times, Serif" size="3"> parameter specifies what type of event you want to receive. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidKbd</font><font face="Times New Roman, Times, Serif" size="3"> only asks for device interface change events, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventCategoryDeviceInterfaceChange</font><font face="Times New Roman, Times, Serif" size="3">, and so passes the relevant GUID as the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventCategoryData</font><font face="Times New Roman, Times, Serif" size="3"> parameter. It also specifies the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PNPNOTIFY_DEVICE_INTERFACE_INCLUDE_EXISTING_INTERFACES</font><font face="Times New Roman, Times, Serif" size="3"> flag as the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventCategoryFlags</font><font face="Times New Roman, Times, Serif" size="3"> parameter. This means that it receives notifications straightaway for any existing devices that support the given interface.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If you register to receive </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventCategoryHardwareProfieChange</font><font face="Times New Roman, Times, Serif" size="3"> events, you are supposed to receive hardware profile change events. The callback is told whether a <i>Query Change, Change Complete,</i> or <i>Change Cancelled</i> event occurred.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Registering for </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventCategoryTargetDeviceChange</font><font face="Times New Roman, Times, Serif" size="3"> events asks for notifications when a target device is removed. You must pass a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PFILE_OBJECT</font><font face="Times New Roman, Times, Serif" size="3"> as the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventCategoryFlags</font><font face="Times New Roman, Times, Serif" size="3">. The callback is told whether a <i>Query Remove, Remove Complete,</i> or <i>Remove Cancelled</i> event occurred. In my mind, there is a fundamental flaw to this notification. You must pass a file object to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoRegisterPlugPlayNotification</font><font face="Times New Roman, Times, Serif" size="3">. To have a file object pointer, you must have opened a file. If a file is open on a device, Windows 2000 automatically stops any PnP remove request for the device. When I tried it, my target device callback received a <i>Query Remove</i> event followed straightaway by a <i>Remove Cancelled</i> event. It seems as though registering for target device notifications automatically stops any remove requests from completing.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_481.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_482</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_483.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

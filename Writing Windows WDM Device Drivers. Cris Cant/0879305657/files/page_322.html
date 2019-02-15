@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_322</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_321.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_322</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_323.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 322</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>PHDIoTest</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>PHDIoTest</i> does exactly the same job as <i>WdmIoTest,</i> except that it obtains a handle to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIo</font><font face="Times New Roman, Times, Serif" size="3"> device in a different way. It calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CreateFile</font><font face="Times New Roman, Times, Serif" size="3"> directly, passing the required resources in the filename, as follows.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="673" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">HANDLE hPhdIo = CreateFile("\\\\.\\PHDIo\\isa\\io378,3\\irq7\\override",<br />
+    GENERIC_READ|GENERIC_WRITE, 0,<br />
+    NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Table 15.4 shows the different resource specifiers that may be used as a part of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIo</font><font face="Times New Roman, Times, Serif" size="3"> filename. The first specifier must be </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\isa</font><font face="Times New Roman, Times, Serif" size="3">. The other specifiers can be in any order. An I/O port specifier must be given. Use the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\override</font><font face="Times New Roman, Times, Serif" size="3"> specifier with caution and never use it in a commercial release. All letters in the filename must be in lower case.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="a6468098c2eb11ba67482c90efbb5ac0.gif" border="0" alt="0322-01.gif" width="516" height="197" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Issuing Commands</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 15.1 shows the commands that initialize the printer. It also shows how </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceIoControl</font><font face="Times New Roman, Times, Serif" size="3"> is called with the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IOCTL_PHDIO_RUN_CMDS</font><font face="Times New Roman, Times, Serif" size="3"> IOCTL code to run these commands.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">First, three constants are defined to represent the offsets to each register in the parallel port electronics.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InitPrinter</font><font face="Times New Roman, Times, Serif" size="3"> </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">BYTE</font><font face="Times New Roman, Times, Serif" size="3"> array stores the commands to initialize the printer. Each line has one command and its parameters. First, the Control port </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">INIT#</font><font face="Times New Roman, Times, Serif" size="3"> line is set low by writing </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0×C8</font><font face="Times New Roman, Times, Serif" size="3"> using the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIO_WRITE</font><font face="Times New Roman, Times, Serif" size="3"> command. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIO_DELAY</font><font face="Times New Roman, Times, Serif" size="3"> command then waits for 60</font><font face="Symbol" size="3">m</font><font face="Times New Roman, Times, Serif" size="3">s. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">INIT#</font><font face="Times New Roman, Times, Serif" size="3"> signal is set high. The write value of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0×DC</font><font face="Times New Roman, Times, Serif" size="3"> also selects the printer and enables interrupts. A further delay of 60</font><font face="Symbol" size="3">m</font><font face="Times New Roman, Times, Serif" size="3">s completes the operation.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceIoControl</font><font face="Times New Roman, Times, Serif" size="3"> Win32 function is used to issue the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IOCTL_PHDIO_RUN_CMDS</font><font face="Times New Roman, Times, Serif" size="3"> IOCTL. This IOCTL runs the given commands straightaway. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InitPrinter</font><font face="Times New Roman, Times, Serif" size="3"> array is passed as the input to the IOCTL. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IOCTL_PHDIO_RUN_CMDS</font><font face="Times New Roman, Times, Serif" size="3"> can optionally be passed an output buffer.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If there is an output buffer that is big enough, the first two 16-bit words in the output indicate any problems that the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> driver found. The first word is an error code. The second word is the zero-based index into the command buffer in which the problem was found. Both are zero if there were no problems. The possible error codes are also found in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Ioctl.h</font><font face="Times New Roman, Times, Serif" size="3"> in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo\Sys</font><font face="Times New Roman, Times, Serif" size="3"> directory.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_321.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_322</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_323.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

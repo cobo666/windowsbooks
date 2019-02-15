@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_59</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_58.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_59</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_60.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 59</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 4.5 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DriverEntry</font><font face="Times New Roman, Times, Serif" size="3"> routine</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="624" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">    // Export other driver entry points . . .<br />
+    DriverObject-&gt;DriverExtension-&gt;AddDevice = Wdm1AddDevice;<br />
+    DriverObject-&gt;DriverUnload = Wdm1Unload;<br /><br />
+    DriverObject-&gt;MajorFunction[IRP_MJ_CREATE] = Wdm1Create;<br />
+    DriverObject-&gt;MajorFunction[IRP_MJ_CLOSE] = Wdm1Close;<br /><br />
+    DriverObject-&gt;MajorFunction[IRP_MJ_PNP] = Wdm1Pnp;<br />
+    DriverObject-&gt;MajorFunction[IRP_MJ_POWER = Wdm1Power;<br /><br />
+    DriverObject-&gt;MajorFunction[IRP_MJ_READ] = Wdm1Read;<br />
+    DriverObject-&gt;MajorFunction[IRP_MJ_WRITE] = Wdm1Write;<br />
+    DriverObject-&gt;MajorFunction[IRP_MJ_DEVICE_CONTROL] = Wdm1DeviceControl;<br /><br />
+    DriverObject-&gt;MajorFunction[IRP_MJ_SYSTEM_CONTROL] = Wdm1SystemControl;<br /><br />
+    // . . .<br /><br />
+    return status;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Version Resource</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3">.</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">rc</font><font face="Times New Roman, Times, Serif" size="3"> simply defines a version resource block with version and copyright information.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Accessing the Registry</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RegistryPath</font><font face="Times New Roman, Times, Serif" size="3"> parameter to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DriverEntry</font><font face="Times New Roman, Times, Serif" size="3"> contains the registry key of the driver. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> code does not currently use its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RegistryPath</font><font face="Times New Roman, Times, Serif" size="3"> parameter. However, it is common for drivers to use its registry key to store parameters for the whole driver. Therefore, I present the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadReg</font><font face="Times New Roman, Times, Serif" size="3"> routine shown in Listing 4.6. This reads two values from the driver's registry path </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Parameters</font><font face="Times New Roman, Times, Serif" size="3"> subkey. The first value is a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ULONG</font><font face="Times New Roman, Times, Serif" size="3"> obtained from the value named </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UlongValue</font><font face="Times New Roman, Times, Serif" size="3">. The second value is a string obtained from the default value for the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Parameters</font><font face="Times New Roman, Times, Serif" size="3"> key.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Eventually </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadReg</font><font face="Times New Roman, Times, Serif" size="3"> needs to call the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RtlQueryRegistryValues</font><font face="Times New Roman, Times, Serif" size="3"> kernel routine to read both the registry values in one fell swoop. One of the parameters is the absolute registry path, as a NULL-terminated wide string. The driver registry path is supplied in a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UNICODE_STRING</font><font face="Times New Roman, Times, Serif" size="3"> structure. Although this contains a wide string buffer, it may not necessarily be NULL-terminated. Unfortunately, this means that we have to laboriously make a copy of the string, simply to add on that dratted NULL-terminating character.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The first section of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ReadReg</font><font face="Times New Roman, Times, Serif" size="3"> does this job. It works out the length of buffer required and uses </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExAllocatePool</font><font face="Times New Roman, Times, Serif" size="3"> to allocate the memory from the paged pool. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RtlCopyMemory</font><font face="Times New Roman, Times, Serif" size="3"> function is used to copy the bulk of the string over and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RtlZeroMemory</font><font face="Times New Roman, Times, Serif" size="3"> zeroes that all-important</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_58.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_59</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_60.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

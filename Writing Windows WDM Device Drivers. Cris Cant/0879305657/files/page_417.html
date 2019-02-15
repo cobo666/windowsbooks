@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_417</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_416.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_417</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_418.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 417</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">I tried fiddling with the USB keyboard installation INF files for Windows 98 and Windows 2000. However, I could not persuade Windows to load </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbKbd</font><font face="Times New Roman, Times, Serif" size="3"> in place of the standard drivers. I can only assume that the standard driver names are hard-coded into the kernel and that the Windows INF files are not really used.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">My brutal solution to this problem was to replace the HID USB minidriver </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidUsb.sys</font><font face="Times New Roman, Times, Serif" size="3"> with the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbKbd.sys</font><font face="Times New Roman, Times, Serif" size="3"> driver executable. Windows uses </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidUsb.sys</font><font face="Times New Roman, Times, Serif" size="3"> to process HID USB devices. Replacing </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidUsb.sys</font><font face="Times New Roman, Times, Serif" size="3"> seems to work. Needless to say, this approach stops you from using the USB keyboard for normal typing. In addition, it stops you from using any other USB HID devices. Therefore, you will need to have a standard PCBIOS keyboard connected to the system, as well. Do not forget to save a copy of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidUsb.sys</font><font face="Times New Roman, Times, Serif" size="3"> file (or delete it and reinstall it from the Windows CD). You need a dual-boot PC if you are going to change </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidUsb.sys</font><font face="Times New Roman, Times, Serif" size="3"> in W2000.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If you do not have a HID USB keyboard at hand, you obviously cannot run these tests. However, I show some of the <i>DebugPrint</i> output later in this chapter, so you can see what is going on.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">While developing the UsbKbd driver, I altered </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">makefile.inc</font><font face="Times New Roman, Times, Serif" size="3"> so that it copied the final executable, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbKbd.sys</font><font face="Times New Roman, Times, Serif" size="3">, to overwrite </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidUsb.sys</font><font face="Times New Roman, Times, Serif" size="3">. However, this command line has now been commented out, so you will have to do the copy yourself.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Trying out each new version of the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbKbd</font><font face="Times New Roman, Times, Serif" size="3"> driver was very easy. Simply unplugging and plugging in the USB cable caused the old driver to be unloaded and new one loaded. Windows 2000 displays a bugcheck on shutdown when </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HidUsb.sys</font><font face="Times New Roman, Times, Serif" size="3"> is replaced by </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbKbd.sys</font><font face="Times New Roman, Times, Serif" size="3">. The simple solution is to unplug the USB keyboard before you shutdown.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Headers and Libraries</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The USB header files that you might need to include are in the DDK.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" width="445" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">usb100.h</font></td><td valign="top"><font face="Times New Roman, Times, Serif" size="3">Various USB constants and strutures</font></td></tr><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">usbioctl.h</font></td><td valign="top"><font face="Times New Roman, Times, Serif" size="3">IOCTL definitions</font></td></tr><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">usbdlib.h</font></td><td valign="top"><font face="Times New Roman, Times, Serif" size="3">URB building and assorted routines</font></td></tr><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">usbdi.h</font></td><td valign="top"><font face="Times New Roman, Times, Serif" size="3">USBDI routines, including URB structures</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">These header files generate two annoying compiler warnings which you can ignore. I also found that I needed to specifically mention the USB library in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SOURCES</font><font face="Times New Roman, Times, Serif" size="3"> file.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="613" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">TARGETLIBS=C:\NTDDK\LIB\I386\FREE\Usbd.Lib</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">USBDI IOCTLs</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The USB class drivers are primarily used through the USB Device Interface (USBDI) Internal IOCTLs shown in Table 21.2. As these are Internal IOCTLs, they are only available to other parts of the kernel, such as device drivers, and are not available to user mode applications.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A few ordinary IOCTLs are also available to Win32 programs. These are intended for use by diagnostic utilities, so I shall not cover them here. The DDK <i>UsbView</i> utility source shows how to use these IOCTLs.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_416.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_417</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_418.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

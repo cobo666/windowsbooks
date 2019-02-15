@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_283</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_282.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_283</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_284.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 283</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 13.3 New </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">makefile.inc</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="475" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">!if "$(DDKBUILDENV)"=="free"<br />
+    rebase -B 0x10000 -X . $(TARGET)<br />
+!endif<br />
+    copy $(TARGET) $(WINDIR)\system32\drivers</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The final change to the build process is to make the main resource file, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3.rc</font><font face="Times New Roman, Times, Serif" size="3">, include the message resource script, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Msg.rc</font><font face="Times New Roman, Times, Serif" size="3">. In Visual C++, select the <i>View+Resource Includes . . .</i> menu and add the following line to the ''Read-only symbol directives" box.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="457" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">#include "Wdm3Msg.rc"</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In Windows 2000, I found that building the driver from a changed message definition file initially reported an error but then went on to compile successfully.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Registering As an Event Source</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The final hurdle to overcome is registering your driver as an event source so that the event viewer knows where to find your message text resource. Two registry changes must be made.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">First, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HKLM\System\CurrentControlSet\Services\EventLog\System</font><font face="Times New Roman, Times, Serif" size="3"> key has an existing </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">REG_MULTI_SZ</font><font face="Times New Roman, Times, Serif" size="3"> value called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Sources</font><font face="Times New Roman, Times, Serif" size="3">. Add the name of your driver's executable (without the extension) as a line in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Sources</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In this same registry key, make a new subkey with this same driver name. In this subkey, add a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">REG_EXPAND_SZ</font><font face="Times New Roman, Times, Serif" size="3"> value called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventMessageFile</font><font face="Times New Roman, Times, Serif" size="3"> and set a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">REG_DWORD</font><font face="Times New Roman, Times, Serif" size="3"> called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TypesSupported</font><font face="Times New Roman, Times, Serif" size="3"> with a value of 0x7. For </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3">, set </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventMessageFile</font><font face="Times New Roman, Times, Serif" size="3"> to the following value.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="613" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">%SystemRoot%\System32\IoLogMsg.dll;%SystemRoot%\System32\Drivers\Wdm3.sys</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3"> installation INF file supposedly has the correct information to make these registry changes when a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3"> device is installed. Listing 13.4 shows the amendments made to the standard installation file. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">AddService</font><font face="Times New Roman, Times, Serif" size="3"> directive's last field specifies the name of the section containing the error logging registry values. There are optional fields to specify the log type (</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">System</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Security</font><font face="Times New Roman, Times, Serif" size="3">, or </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Application</font><font face="Times New Roman, Times, Serif" size="3">) and a log name.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3.Service.EventLog</font><font face="Times New Roman, Times, Serif" size="3"> section specifies the values for the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventMessageFile</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TypesSupported</font><font face="Times New Roman, Times, Serif" size="3"> values. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">EventMessageFile</font><font face="Times New Roman, Times, Serif" size="3"> entry is on one long line.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">However, I found that this did not work completely in Windows 2000 Beta 3. "</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3">" was correctly added to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Sources</font><font face="Times New Roman, Times, Serif" size="3"> value and the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">HKLM\System\CurrentControlSet\Services\EventLog\System\Wdm3</font><font face="Times New Roman, Times, Serif" size="3"> key was correctly made, but no values were placed in the key.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">It is simplest just to add these registry entries by hand. You will have to use <i>RegEdt32</i> to use the required registry types.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="96" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="96" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="2"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2">Note: A revised version of installation file </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">Wdm3\sys\Wdm3free.inf</font><font face="Times New Roman, Times, Serif" size="2"> is available on the book's web site, </font><font face="Times New Roman, Times, Serif" size="2" color="#0000FF"><u>www.phdcc.com/wdmbook</u></font><font face="Times New Roman, Times, Serif" size="2">. This updated version fixes the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">EventLog</font><font face="Times New Roman, Times, Serif" size="2"> section problem.</font></td>
+<td></td>
+</tr><tr><td colspan="3" height="2"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_282.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_283</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_284.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

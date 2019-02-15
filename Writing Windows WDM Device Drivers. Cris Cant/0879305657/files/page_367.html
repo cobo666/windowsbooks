@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_367</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_366.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_367</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_368.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 367</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoDpcForIsr</font><font face="Times New Roman, Times, Serif" size="3"> then removes the cancel routine, unlocks the device, completes the IRP, and starts the next queued IRP.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 17.4 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> Interrupt Deferred Procedure Call handler</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="662" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">VOID WdmIoDpcForIsr(IN PKDPC Dpc,  IN PDEVICE_OBJECT fdo,<br />
+                    IN PIRP Irp, IN PWDMIO_DEVICE_EXTENSION dx)<br />
+{<br />
+    dx-&gt;Timeout = 1;<br />
+    ULONG BytesTxd = dx-&gt;TxTotal-dx-&gt;TxLeft;<br />
+    if( Irp-&gt;Cancel) dx-&gt;TxStatus = STATUS_CANCELLED;<br /><br />
+    DebugPrint(''WdmIoDpcForIsr: Status %× Info %d", dx-&gt;TxStatus, BytesTxd);<br /><br />
+    // Remove cancel routine<br />
+    KIRQL OldIrql;<br />
+    IoAcquireCancelSpinLock( &amp;OldIrql);<br />
+    IoSetCancelRoutine( Irp, NULL);<br />
+    IoReleaseCancelSpinLock(OldIrql);<br /><br />
+    // Unlock device and complete IRP<br />
+    UnlockDevice(dx);<br />
+    CompleteIrp(Irp, dx-&gt;TxStatus, BytesTxd);<br />
+    IoStartNextPacket( fdo, TRUE);<br /><br />
+    // Stop timer calls<br />
+    dx-&gt;StopTimer = true;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">DPC Gotchas</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Even with this simple DPC for deferred interrupt processing, there are some potential problems that you have to look out for.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The first point to note is that if two or more calls to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoRequestDpc</font><font face="Times New Roman, Times, Serif" size="3"> are made before the DPC can be run, the DPC is only run once. Suppose two interrupts occur in quick succession. If each interrupt handler calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoRequestDpc</font><font face="Times New Roman, Times, Serif" size="3">, you might expect that the DPC is run twice. However, if there is a long time before the DPC is run, then it is only run once. You must cope with this. In this situation, it might be that one interrupt wants a read call completed, while the next wants a write call completed. Use a separate flag in the device extension to indicate each condition. The DPC routine should be prepared to handle both situations. An easier alternative might be to use a different DPC routine for each condition.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">For the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> driver, this problem should almost never arise. The only situation I can envision is one in which an IRP is cancelled just after the interrupt handler calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoRequestDpc</font><font face="Times New Roman, Times, Serif" size="3">. However, in this case, the late-running DPC routine will find that the IRP has been cancelled, which is correct.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_366.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_367</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_368.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

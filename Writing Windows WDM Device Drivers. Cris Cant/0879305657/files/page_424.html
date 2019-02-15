@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_424</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_423.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_424</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_425.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 424</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 21.3 Device reset routines</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="661" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">    // Return OK if port enabled<br />
+    if( PortStatus &amp; USBD_PORT_ENABLED)<br />
+        return status;<br /><br />
+    // Port disabled so attempt reset<br />
+    status = UsbResetPort(dx);<br />
+    if( !NT_SUCCESS(status))<br />
+        return status;<br /><br />
+    // See if it is now working<br />
+    status = UsbGetPortStatus( dx, PortStatus);<br />
+    if( !NT_SUCCESS(status))<br />
+         return status;<br />
+    if( !(PortStatus &amp; USBD_PORT_CONNECTED) ||<br />
+        !(PortStatus &amp; USBD_PORT_ENABLED))<br />
+        return STATUS_NO_SUCH_DEVICE;<br />
+    return status;<br />
+}</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Issuing URBs</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Usb.cpp</font><font face="Times New Roman, Times, Serif" size="3"> module contains many routines that build and send off URBs for processing by the USB class drivers. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbGetDeviceDescriptor</font><font face="Times New Roman, Times, Serif" size="3"> is used to retrieve the USB device descriptor. This routine is not essential in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbKbd</font><font face="Times New Roman, Times, Serif" size="3">, but it is used to implement one of the IOCTLs that are available to user mode programs. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbGetDeviceDescriptor</font><font face="Times New Roman, Times, Serif" size="3"> allocates nonpaged memory for the device descriptor and puts the count of bytes transferred in its </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Size</font><font face="Times New Roman, Times, Serif" size="3"> parameter. The routine that calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbGetDeviceDescriptor</font><font face="Times New Roman, Times, Serif" size="3"> must free the memory using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExFreePool</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbGetDeviceDescriptor</font><font face="Times New Roman, Times, Serif" size="3"> starts by allocating some nonpaged memory for the URB. The <i>Get Descriptor</i> URB function uses the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">URB_FUNCTION_GET_DESCRIPTOR_FROM_DEVICE</font><font face="Times New Roman, Times, Serif" size="3"> function code. For this function code, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">_URB_CONTROL_DESCRIPTOR_REQUEST</font><font face="Times New Roman, Times, Serif" size="3"> structure is used.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Next, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbGetDeviceDescriptor</font><font face="Times New Roman, Times, Serif" size="3"> allocates memory for the device descriptor. Then, it calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbBuildGetDescriptorRequest</font><font face="Times New Roman, Times, Serif" size="3"> to do the hard work of formatting the URB. The URB pointer and its size are passed as the first two parameters. The next parameter specifies the descriptor type, a device descriptor in this case. The following </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Index</i></font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>LanguageId</i></font><font face="Times New Roman, Times, Serif" size="3"> fields are only used when requesting configuration and string descriptors.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The following parameters to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbBuildGetDescriptorRequest</font><font face="Times New Roman, Times, Serif" size="3"> specify the descriptor buffer and its length. This buffer can be specified as a plain pointer to nonpaged memory. Alternatively, an MDL can be used. The final parameter is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UrbLink</font><font face="Times New Roman, Times, Serif" size="3">, an optional link to a follow on URB.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbGetDeviceDescriptor</font><font face="Times New Roman, Times, Serif" size="3"> sends off the built URB using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CallUSBDI</font><font face="Times New Roman, Times, Serif" size="3">. It checks both the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">CallUSBDI NTSTATUS</font><font face="Times New Roman, Times, Serif" size="3"> return status and the URB completion status.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_423.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_424</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_425.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

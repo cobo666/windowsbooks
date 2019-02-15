@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_284</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_283.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_284</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_285.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 284</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">For NT 3.51 and NT 4 drivers, you cannot use an INF installation file. Instead, you will have to amend your installation program to set up the registry entries. The example installation code, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">install.cpp</font><font face="Times New Roman, Times, Serif" size="3"> (on the book's CD-ROM) shows how to do this job.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 13.4 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3free.inf</font><font face="Times New Roman, Times, Serif" size="3"> installation file event logging sections</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="595" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">[Wdm3.Install.NT.Services]<br />
+AddService =<br />
+   Wdm3, %SPSVCINST_ASSOCSERVICE%, Wdm3.Service, Wdm3.Service.EventLog<br /><br />
+; . . .<br /><br />
+[Wdm3.Service.EventLog]<br />
+HKR,,EventMessageFile,%FLG_ADDREG_TYPE_EXPAND_SZ%,<br />
+    "%%SystemRoot%%\System32\IoLogMsg .dll;<br />
+     %%SystemRoot%%\System32\drivers\Wdm3.sys"<br />
+HKR,,TypesSupported,%FLG_ADDREG_TYPE_DWORD%,7</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Generating Events</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 13.5 shows the routines that provide the event logging, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InitializeEventLog</font><font face="Times New Roman, Times, Serif" size="3">, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LogEvent</font><font face="Times New Roman, Times, Serif" size="3">. Later, I shall describe the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3EventMessage</font><font face="Times New Roman, Times, Serif" size="3"> function that provides a simpler interface.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InitializeEventLog</font><font face="Times New Roman, Times, Serif" size="3"> is simply used to store a pointer to the main </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DriverObject</font><font face="Times New Roman, Times, Serif" size="3">. It then calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LogEvent</font><font face="Times New Roman, Times, Serif" size="3"> to send a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WDM3_MSG_LOGGING_STARTED</font><font face="Times New Roman, Times, Serif" size="3"> event. If all's well, this should be displayed in the Event Viewer with the corresponding description, "Event logging enabled for Wdm3 Driver".</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LogEvent</font><font face="Times New Roman, Times, Serif" size="3"> does the bulk of the work in logging an NT event. It may be called at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DISPATCH_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> or lower. Its first task is to decide the size of the error log packet. It then calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoAllocateErrorLogEntry</font><font face="Times New Roman, Times, Serif" size="3"> to obtain a suitably sized packet. It then fills the packet and sends it off using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoWriteErrorLogEntry</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LogEvent</font><font face="Times New Roman, Times, Serif" size="3"> has parameters for the message ID (from the list in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Msg.h</font><font face="Times New Roman, Times, Serif" size="3">) and optionally an IRP pointer. If the IRP pointer is given, various fields in the packet are filled in with details of the IRP. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LogEvent</font><font face="Times New Roman, Times, Serif" size="3"> can also accept </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DumpData</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Strings</font><font face="Times New Roman, Times, Serif" size="3"> as parameters, for insertion into the event packet.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The basic </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">I0_ERROR_LOG_PACKET</font><font face="Times New Roman, Times, Serif" size="3"> structure contains one dump data </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ULONG</font><font face="Times New Roman, Times, Serif" size="3">, but no insertion strings. It is an extendible structure. Zero or more dump data </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ULONG</font><font face="Times New Roman, Times, Serif" size="3">s can be provided, followed immediately by any NULL terminated wide strings. This makes calculating and filling the packet size slightly involved. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LogEvent</font><font face="Times New Roman, Times, Serif" size="3"> saves each string length in a temporary array of integers called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">StringSizes</font><font face="Times New Roman, Times, Serif" size="3">. Note that the maximum packet size, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ERROR_LOG_MAXIMUM_SIZE</font><font face="Times New Roman, Times, Serif" size="3">, is only </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0x98</font><font face="Times New Roman, Times, Serif" size="3"> bytes, so do not try to pass large insertion strings.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 13.5 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InitializeEventLog</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">LogEvent</font><font face="Times New Roman, Times, Serif" size="3"> routines</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="1" width="535" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">void InitializeEventLog( IN PDRIVER_OBJECT DriverObject)<br />
+{<br />
+   SavedDriverObject = DriverObject;</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_283.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_284</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_285.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

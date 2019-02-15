@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_51</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_50.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_51</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_52.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 51</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">W2000 there are free and checked build versions of each of these files, i.e., </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">buildfre.log</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">buildchk.log</font><font face="Times New Roman, Times, Serif" size="3">, etc.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>makefile</i></font><i><font face="Times New Roman, Times, Serif" size="3">s</font></i></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Younger readers may not have come across </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">makefiles</font><font face="Times New Roman, Times, Serif" size="3">. In the days before Integrated Development Environments (IDEs) such as Visual Studio, you had to use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">makefiles</font><font face="Times New Roman, Times, Serif" size="3"> to determine which files in a project needed recompiling. If you changed only one module in a project consisting of eight modules, you want to recompile only that one module and then link the whole lot together.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The <i>nmake</i> utility uses instructions in a file called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">makefile</font><font face="Times New Roman, Times, Serif" size="3"> to determine what commands to run to update a project. The following </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">makefile</font><font face="Times New Roman, Times, Serif" size="3"> shows that if </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">haggis.cpp</font><font face="Times New Roman, Times, Serif" size="3"> has been updated, it is compiled into </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">haggis.obj</font><font face="Times New Roman, Times, Serif" size="3"> using the <i>cl</i> compiler. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">haggis.obj</font><font face="Times New Roman, Times, Serif" size="3"> is linked to make </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">haggis.exe</font><font face="Times New Roman, Times, Serif" size="3"> using the link tool.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="576" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">haggis.exe: haggis.obj<br />
+            link -o haggis.exe haggis.obj<br /><br />
+haggis.obj: haggis.cpp<br />
+            cl haggis</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Most </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">makefiles</font><font face="Times New Roman, Times, Serif" size="3"> are a good deal more complicated than this, which is why they were happily forgotten when IDEs came along. However, setting up the compiler and linker settings for drivers is quite a complicated task. Therefore, Microsoft has stuck with </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">makefiles</font><font face="Times New Roman, Times, Serif" size="3">. See the Visual Studio <i>nmake</i> documentation for more details of makefiles.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>SOURCES</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>build</i> looks for an <i>nmake</i> macro file called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SOURCES</font><font face="Times New Roman, Times, Serif" size="3"> in the current directory for details of what to build.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 4.1 shows the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SOURCES</font><font face="Times New Roman, Times, Serif" size="3"> file for the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> project. It specifies that the driver target name is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3">. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">sys</font><font face="Times New Roman, Times, Serif" size="3">, that it is a WDM driver, and that it should be built in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">OBJ</font><font face="Times New Roman, Times, Serif" size="3"> subdirectory. Source browser information should be generated. The DDK </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">inc</font><font face="Times New Roman, Times, Serif" size="3"> directory is added to the search list for header files. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SOURCES</font><font face="Times New Roman, Times, Serif" size="3"> macro specifies a list of files to compile. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">NTTARGET-FILES</font><font face="Times New Roman, Times, Serif" size="3"> specifies some post build steps, as described in the following text.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Other less common </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SOURCES</font><font face="Times New Roman, Times, Serif" size="3"> macro definitions can be found in the DDK documentation. Note that there must be no spaces between the SOURCES macro and its equal sign.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 4.1 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm1</font><font face="Times New Roman, Times, Serif" size="3"> project </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SOURCES</font><font face="Times New Roman, Times, Serif" size="3"> file</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="576" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">TARGETNAME=Wdm1<br />
+TARGETTYPE=DRIVER<br />
+DRIVERTYPE=WDM<br />
+TARGETPATH=OBJ<br />
+BROWSER_INFO=1<br /><br />
+INCLUDES=$(BASEDIR)\inc;</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_50.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_51</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_52.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_394</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_393.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_394</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_395.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 394</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Parallel Port Drivers</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">As an example, Figure 19.3 shows the layering of the parallel port drivers. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">parport</font><font face="Times New Roman, Times, Serif" size="3"> driver is loaded first. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">parport</font><font face="Times New Roman, Times, Serif" size="3"> arbitrates access to the parallel port hardware. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">parallel</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">parvdm</font><font face="Times New Roman, Times, Serif" size="3"> drivers are then loaded. When these drivers want to access the parallel port hardware, they must ask </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">parport</font><font face="Times New Roman, Times, Serif" size="3"> for access rights. Once access rights have been obtained, they can talk to the parallel port electronics directly.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">New parallel port drivers should use the same technique to get access to the hardware</font><font face="Times New Roman, Times, Serif" size="2"><sup>2</sup></font><font face="Times New Roman, Times, Serif" size="3">. The DDK recommends that you grab access to the port on a per-IRP basis. For most applications, I recommend taking control of the port for the duration of a larger transaction (e.g., while a handle is open to your device).</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="68c8f4f9d4da4fd617c61bbf4815a750.gif" border="0" alt="0394-01.gif" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="2">Figure 19.3<br />
+Parallel port layering<br />
+© 1999 PHD Computer Consultants Ltd</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">parport</font><font face="Times New Roman, Times, Serif" size="3"> driver creates a named kernel device object for each parallel port it finds. These device objects have kernel names starting with </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\Device\ParallelPort0</font><font face="Times New Roman, Times, Serif" size="3">. Use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoGetDeviceObjectPointer</font><font face="Times New Roman, Times, Serif" size="3"> to obtain a pointer to the relevant device object</font><font face="Times New Roman, Times, Serif" size="2"><sup>3</sup></font><font face="Times New Roman, Times, Serif" size="3">. Store this in your device extension for later use.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">parport</font><font face="Times New Roman, Times, Serif" size="3"> driver supports several Internal IOCTLs. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IOCTL_INTERNAL_GET_PARALLEL_PORT_INFO</font><font face="Times New Roman, Times, Serif" size="3"> returns information about the parallel port (the base register address and port allocation routines). When the information is safely stored away, a similar (but undocumented) </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IOCTL_INTERNAL_RELEASE_PARALLEL_PORT_INFO</font><font face="Times New Roman, Times, Serif" size="3"> call is made to release the information.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Two port allocation routines are available. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TryAllocatePort</font><font face="Times New Roman, Times, Serif" size="3"> tries to allocate the port and returns straightaway. If this succeeds, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">FreePort</font><font face="Times New Roman, Times, Serif" size="3"> is used (later) to return the port. Call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TryAllocatePort</font><font face="Times New Roman, Times, Serif" size="3"> when you want to start accessing a parallel port and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">FreePort</font><font face="Times New Roman, Times, Serif" size="3"> when you are finished with it.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">When you install a driver that uses the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">parport</font><font face="Times New Roman, Times, Serif" size="3"> driver, you must make sure that your driver loads after </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">parport</font><font face="Times New Roman, Times, Serif" size="3"> has started. Do this by including a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DependOnService</font><font face="Times New Roman, Times, Serif" size="3"> string value in your driver's registry entry that is set to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">parport</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Microsoft may be introducing a new WDM architecture for these parallel port drivers. A parallel port bus driver would replace </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">parport</font><font face="Times New Roman, Times, Serif" size="3">. It would enumerate the ports available on the "bus". This is particularly important, as several IEEE 1284.3 printers may be daisy-chained</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="1"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>2</sup> The only alternative is to remove the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">parport</font><font face="Times New Roman, Times, Serif" size="2">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">parallel</font><font face="Times New Roman, Times, Serif" size="2">, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">parvdm</font><font face="Times New Roman, Times, Serif" size="2"> drivers, which would stop any existing parallel port access.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="5"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="2" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>3</sup> See Chapter 23 for details of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoGetDeviceObjectPointer</font><font face="Times New Roman, Times, Serif" size="2">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_393.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_394</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_395.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

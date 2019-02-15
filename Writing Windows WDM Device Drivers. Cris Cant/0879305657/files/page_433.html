@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_433</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_432.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_433</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_434.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 433</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">USBD_TRANSFER_DIRECTION_IN</font><font face="Times New Roman, Times, Serif" size="3"> flag for input transfers. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Request</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Value</font><font face="Times New Roman, Times, Serif" size="3">, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Index</font><font face="Times New Roman, Times, Serif" size="3"> parameters are set as instructed by the HID Specification. Finally, the output data buffer is given.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The URB is then sent off to the class drivers. Apart from noting the URB status and freeing the URB memory, there is nothing else to do.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbGetIdleRate</font><font face="Times New Roman, Times, Serif" size="3"> routine in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Usb.cpp</font><font face="Times New Roman, Times, Serif" size="3"> shows how to input data using a control transfer over the default pipe. This issues a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">GET_IDLE</font><font face="Times New Roman, Times, Serif" size="3"> request. The current keyboard idle rate is printed in a <i>DebugPrint</i> trace statement.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 21.7 Doing an output control transfer</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">const UCHAR SET_REPORT = 0x09;<br /><br />
+NTSTATUS UsbSendOutputReport( IN PUSBKBD_DEVICE_EXTENSION dx,<br />
+    IN UCHAR OutputData)<br />
+{<br />
+    // Allocate memory for URB<br />
+    USHORT UrbSize = sizeof(struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST);<br />
+    PURB urb = (PURB)ExAllocatePool(NonPagedPool, UrbSize);<br />
+    if( urb==NULL)<br />
+    {<br />
+        DebugPrintMsg("No URB memory");<br />
+        return STATUS_INSUFFICIENT_RESOURCES;<br />
+    }<br /><br />
+    // Build URB to send Class interface control request on Default pipe<br />
+    UsbBuildVendorRequest(urb,<br />
+        URB_FUNCTION_CLASS_INTERFACE, UrbSize,<br />
+        USBD_TRANSFER_DIRECTION_OUT,  // Direction out<br />
+        0,                            // Reserved bits<br />
+        SET_REPORT,                   // Request<br />
+        0x0200,                       // Output report type, Report id zero<br />
+        0,                            // interface index<br />
+        &amp;OutputData, NULL, 1,         // Output data<br />
+        NULL);<br /><br />
+    // Call the USB driver<br />
+    DebugPrintMsg("Sending set report");<br />
+    NTSTATUS status = CallUSBDI( dx, urb);<br />
+    // Check statuses<br />
+    if( !NT_SUCCESS(status) || !USBD_SUCCESS( urb-&gt;UrbHeader.Status))<br />
+    {<br />
+        DebugPrint("status %x URB status %x", status, urb-&gt;UrbHeader.Status);<br />
+        status = STATUS_UNSUCCESSFUL;</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_432.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_433</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_434.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

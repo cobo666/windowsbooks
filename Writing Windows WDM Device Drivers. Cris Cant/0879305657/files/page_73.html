@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_73</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_72.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_73</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_74.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 73</font></td></tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="709" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">//Handle IRP_MJ-PNP requests<br />
+//<br />
+//Arguments:<br />
+//Pointer to our FDO<br />
+//Pointer to the IRP<br />
+//Various minor codes<br />
+//IrpStack-&gt;Parameters.QueryDeviceRelations<br />
+//IrpStack-&gt;Parameters.QueryInterface<br />
+//IrpStack-&gt;Parameters.DeviceCapabilities<br />
+//IrpStack-&gt;Parameters.FilterResourceRequirements<br />
+//IrpStack-&gt;Parameters.ReadWriteConfig<br />
+//IrpStack-&gt;Parameters.SetLock<br />
+//IrpStack-&gt;Parameters. QueryId<br />
+//IrpStack-&gt;Parameters.QueryDeviceText<br />
+//IrpStack-&gt;Parameters.UsageNotification<br /><br />
+//Return Value:<br />
+//This function returns STATUS_XXX<br /><br />
+NTSTATUS Wdm1Pnp(IN PDEVICE_OBJECT fdo,<br />
+IN PIRP Irp)<br />
+{<br />
+DebugPrint(''PnP %I",Irp);<br />
+PWDM1_DEVICE_EXTENSION dx=(PWDM1_DEVICE_EXTENSION)fdo-&gt;DeviceExtension;<br /><br />
+// Remember minor function<br />
+PIO_STACK_LOCATION IrpStack IoGetCurrentIrpStackLocation(Irp);<br />
+ULONG MinorFunction = IrpStack-&gt;MinorFunction;<br /><br />
+// Just pass to lower driver<br />
+IoSkipCurrentIrpStackLocation (Irp);<br />
+NTSTATUS status = IoCallDriver( dx-&gt;NextStackDevice, Irp);<br /><br />
+// Device removed<br />
+if( MinorFunction==IRP_MN_REMOVE_DEVICE)<br />
+{<br />
+DebugPrint("PnP  RemoveDevice");<br />
+// disable  device interface<br />
+IoSetDeviceInterfaceState(&amp;dx-&gt;ifSymLinkName, FALSE);<br />
+RtlFreeUnicodeString(&amp;dx-&gt;ifSymLinkName);<br /><br />
+// unattach from stack</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_72.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_73</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_74.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

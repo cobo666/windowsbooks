@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_110</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_109.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_110</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_111.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 110</font></td></tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="709" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">Rvalue = 0;<br />
+if( !ReadFile( hWdm1, &amp;Rvalue, 1, &amp;TxdBytes, NULL))<br />
+printf("XXX Could not read value\n");<br />
+else if( TxdBytes==1)<br />
+printf("  Read successfully read stored value of 0×%X\n",Rvalue);<br />
+else<br />
+printf("XXX  Wrong number of bytes read: %d\n'',TxdBytes);<br /><br />
+////////////////////////////////////////////////////////////////////////////<br />
+// Write<br />
+printf("\nTest %d\n",TestNo++);<br />
+if( !WriteFile( hWdm1, &amp;Wvalue, 4, &amp;TxdBytes, NULL))<br />
+printf("XXX   Could not write %X\n",Wvalue);<br />
+else  if( TxdBytes==4)<br />
+printf("  Write at new file pointer  succeeded\n");<br />
+else<br />
+printf("XXX   Wrong number of bytes written: %d\n",TxdBytes);<br /><br />
+////////////////////////////////////////////////////////////////////////////<br />
+// Get buffer size<br />
+printf("\nTest %d\n",TestNo++);<br />
+ULONG BufferSize;<br />
+DWORD BytesReturned;<br />
+if( !DeviceIoControl( hWdm1, IOCTL_WDM1_GET_BUFFER_SIZE,<br />
+NULL, 0,// Input<br />
+&amp;BufferSize, sizeof(ULONG),// Output<br />
+&amp;BytesReturned.  NULL))<br />
+printf("XXX   Could not get buffer size\n");<br />
+else<br />
+printf("  Buffer size  is %i  (%d  bytes returned)\n",BufferSize,BytesReturned);<br /><br />
+////////////////////////////////////////////////////////////////////////////<br />
+// Get buffer size<br />
+printf("\nTest %d\n",TesTNo++);<br />
+char* Buffer = new  char[BufferSize+1];<br />
+if( !DeviceIoControl( hWdm1,  IOCTL_WDM1_GET_BUFFER,<br />
+NULL, 0,// Input<br />
+Buffer, BufferSize,// Output<br />
+&amp;BytesReturned, NULL))<br />
+printf("XXX   Could not get oujffcr\n);<br />
+else<br />
+printf("  First DWORD of buffer is %08X (%d bytes returned)\<br />
+n",*((DWORD*)Buffer),Bytes Returned);</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_109.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_110</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_111.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_187</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_186.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_187</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_188.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 187</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>(continued)</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 9.13 </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RetrieveResources</font><font face="Times New Roman, Times, Serif" size="3"> routine</font><font face="Times New Roman, Times, Serif" size="3"> </font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="667" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">    PCM_PARTIAL_RESOURCE_LIST list =<br />
+                &amp;AllocatedResourcesTranslated-&gt;List[0].PartialResourceList;<br />
+    PCM_PARTIAL_RESOURCE_DISCRIPTOR resource = list-&gt;PartialDescriptors;<br />
+    ULONG NumResources =  list-&gt;Count;<br /><br />
+    DebugPrint("RetrieveResources: %d resource lists %d resources",<br />
+                AllocatedResourcesTranslated-&gt;Count, NumResources);<br /><br />
+    bool GotError = false;<br /><br />
+    // Clear dx<br />
+    dx-&gt;GotInterrupt = false;<br />
+    dx-&gt;GotPortOrMemory = false;<br />
+    dx-&gt;PortInIOSpace = false;<br />
+    dx-&gt;PortNeedsMapping = false;<br /><br />
+    // Go through each allocated resource<br />
+    for( ULONG i=0: i&lt;NumResources; i++,resource++)<br />
+    {<br /><br />
+      switch( resource-&gt;Type)<br />
+      {<br />
+      case CmResourceTypePort:<br />
+         if( dx-&gt;GotPortOrMemory) { GotError = true; break; }<br />
+         dx-&gt;GotPortOrMemory = true;<br />
+         dx-&gt;PortStartAddress = resource-&gt;u.Port.Start;<br />
+         dx-&gt;PortLength = resource-&gt;u.Port.Length;<br />
+         dx-&gt;PortNeedsMapping = (resource-&gt;Flags &amp; CM_RESOURCE_PORT_IO)==0;<br />
+         dx-&gt;PortInIOSpace = !dx-&gt;PortNeedsMapping;<br />
+         DebugPrint("RetrieveResources: Port %x%x Length %d NeedsMapping %d",<br />
+           dx-&gt;PortStartAddress.HighPart, dx-&gt;PortStartAddress.LowPart,<br />
+           dx-&gt;PortLength, dx-&gt;PortNeedsMapping);<br />
+         break;<br /><br />
+       case CmResourceTypeInterrupt:<br />
+         dx-&gt;GotInterrupt = true;<br />
+         dx-&gt;Irql = (KIRQL)resource-&gt;u.Interrupt.Level;<br />
+         dx-&gt;Vector = resource-&gt;u.Interrupt.Vector;<br />
+         dx-&gt;Affinity = resource-&gt;u.Interrupt.Affinity;<br />
+         dx-&gt;Mode = (resource-&gt;Flags == CM_RESOURCE_INTERRUPT_LATCHED)<br />
+                     ? Latched : Level Sensitive;</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_186.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_187</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_188.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

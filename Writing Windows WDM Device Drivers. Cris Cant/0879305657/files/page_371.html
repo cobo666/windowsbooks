@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_371</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_370.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_371</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_373.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 371</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Timer</font><font face="Times New Roman, Times, Serif" size="3">. If the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DueTime LARGE_INTEGER</font><font face="Times New Roman, Times, Serif" size="3"> parameter is positive, it represents an absolute time. If it is negative, it is a relative time in units of 100ns.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeSetTimerEx</font><font face="Times New Roman, Times, Serif" size="3"> if you want to specify a periodic timer. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DueTime</font><font face="Times New Roman, Times, Serif" size="3"> parameter is used to specify the first time-out. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Period</font><font face="Times New Roman, Times, Serif" size="3"> parameter specifies the period in milliseconds for subsequent time-outs.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">You can cancel a timer using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeCancelTimer</font><font face="Times New Roman, Times, Serif" size="3">, and use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeReadStateTimer</font><font face="Times New Roman, Times, Serif" size="3"> to find out if the timer has gone off.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A custom DPC routine may used as the timer callback. Initialize a custom DPC as described previously. Pass the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KDPC</font><font face="Times New Roman, Times, Serif" size="3"> pointer to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeSetTimer</font><font face="Times New Roman, Times, Serif" size="3"> or </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeSetTimerEx</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">System threads can wait for a timer to go off using the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeWaitForSingleObject</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeWaitForMultipleObjects</font><font face="Times New Roman, Times, Serif" size="3"> calls. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeInitializeTimerEx</font><font face="Times New Roman, Times, Serif" size="3"> lets you specify whether a timer is a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">NotificationTimer</font><font face="Times New Roman, Times, Serif" size="3"> or a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SynchronizationTimer</font><font face="Times New Roman, Times, Serif" size="3">. A </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SynchronizationTimer</font><font face="Times New Roman, Times, Serif" size="3"> timer releases only one waiting thread, while a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">NotificationTimer</font><font face="Times New Roman, Times, Serif" size="3"> timer releases all waiting threads.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="17"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Conclusion</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">This chapter has looked at how to write interrupt service routines. Any nonessential processing is best done in a Deferred Procedure Call (DPC) routine at a lower IRQL. A basic one-second interval timer can be used to detect device time-outs. Custom timers can be used with Custom DPCs to receive notification of other time-out periods.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_370.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_371</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_373.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

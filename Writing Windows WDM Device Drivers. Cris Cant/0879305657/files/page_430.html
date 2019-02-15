@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_430</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_429.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_430</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_431.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 430</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">I can finally describe the Interrupt transfer routine, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbDoInterruptTransfer</font><font face="Times New Roman, Times, Serif" size="3">, shown in Listing 21.6. This takes a buffer as input that must be at least 8 bytes long. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbDoInterruptTransfer</font><font face="Times New Roman, Times, Serif" size="3"> first checks that the USB pipe handle is available and that the input buffer is suitable.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">In the same way as usual, memory is allocated for the URB, a _</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">URB_BULK_OR_INTERRUPT_TRANSFER</font><font face="Times New Roman, Times, Serif" size="3"> structure. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbDoInterruptTransfer</font><font face="Times New Roman, Times, Serif" size="3"> then loops until a non-zero keyboard report is returned, or until a time-out or another error occurs. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbBuidInterruptOrBulkTransferRequest</font><font face="Times New Roman, Times, Serif" size="3"> is used to build the URB each time</font><font face="Times New Roman, Times, Serif" size="2"><sup>4</sup></font><font face="Times New Roman, Times, Serif" size="3">. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbDoInterruptTransfer</font><font face="Times New Roman, Times, Serif" size="3"> calls the USB class drivers in the usual way.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The time-out is checked using the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeQueryTickCount</font><font face="Times New Roman, Times, Serif" size="3"> call</font><font face="Times New Roman, Times, Serif" size="2"><sup>5</sup></font><font face="Times New Roman, Times, Serif" size="3">. This returns a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ULONG</font><font face="Times New Roman, Times, Serif" size="3"> count of "timer interrupts" since the operating system started. The timer interrupt interval is not the same in Windows 98 and Windows 2000. Use </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeQueryTimeIncrement</font><font face="Times New Roman, Times, Serif" size="3"> to find out this interval in units of 100ns. In both cases, there are just over 100 timer ticks per second.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbDoInterruptTransfer</font><font face="Times New Roman, Times, Serif" size="3"> remembers the tick count before the first keyboard Interrupt request is generated. After each Interrupt request completes, it checks the tick count again, and gives up after the specified time-out.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbKbd</font><font face="Times New Roman, Times, Serif" size="3"> does not handle IRP cancelling or the Cleanup routine. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbKbd</font><font face="Times New Roman, Times, Serif" size="3"> relies on the time-out to complete Read IRPs. If you do implement IRP cancelling, then you will need to use the <i>Abort Pipe</i> URB request to cancel all requests on the specified port.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 21.6 Doing interrupt transfers</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="673" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">NTSTATUS UsbDoInterruptTransfer( IN PUSBKBD_DEVICE_EXTENSION dx,<br />
+                                 IN PVOID UserBuffer, ULONG&amp; UserBufferSize)<br />
+{<br />
+    // Check we're selected<br />
+    if( dx-&gt;UsbPipeHandle==NULL)<br />
+        return STATUS_INVALID_HANDLE;<br /><br />
+    // Check input parameters<br />
+    ULONG InputBufferSize = UserBufferSize;<br />
+    UserBufferSize = 0;<br />
+    if( UserBuffer==NULL || InputBufferSize&lt;8)<br />
+        return STATUS_INVALID_PARAMETER;<br /><br />
+    // Keyboard input reports are always 8 bytes long<br />
+    NTSTATUS status = STATUS_SUCCESS;<br />
+    ULONG OutputBufferSize = 8;<br /><br />
+    // Allocate memory for URB<br />
+    USHORT UrbSize = sizeof(struct _URB_BULK_OR_INTERRUPT_TRANSFER);</font></td></tr></table></td></tr></table><br /><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3" height="1"><table cellpadding="0" cellspacing="0" border="0"><tr><td></td></tr></table></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>4</sup> Note that the call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">UsbBuildInterruptOrBulkTransferRequest</font><font face="Times New Roman, Times, Serif" size="2"> must be in the loop for it to work in W2000.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="24" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+  <td colspan="3" height="5"></td>
+  <td rowspan="5"><img src="750f99161cf51ec8438b5425e5cccf2c.gif" border="0" width="2" height="1" alt="750f99161cf51ec8438b5425e5cccf2c.gif" /></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="2"><sup>5</sup> Using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeQuerySystemTime</font><font face="Times New Roman, Times, Serif" size="2"> is less efficient.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_429.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_430</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_431.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

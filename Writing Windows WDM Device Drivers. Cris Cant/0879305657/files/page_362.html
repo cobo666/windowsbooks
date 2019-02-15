@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_362</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_361.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_362</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_363.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 362</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>Starting Requests</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 17.2 shows how </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> initiates a write request. The device extension </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TxIsWrite</i></font><font face="Times New Roman, Times, Serif" size="3"> field is set </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">true</font><font face="Times New Roman, Times, Serif" size="3"> for writes, and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">false</font><font face="Times New Roman, Times, Serif" size="3"> for reads. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TxTotal</i></font><font face="Times New Roman, Times, Serif" size="3"> contains the total number of bytes to transfer. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TxLeft</i></font><font face="Times New Roman, Times, Serif" size="3"> stores the number of bytes left to transfer, and so counts from </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TxTotal</i></font><font face="Times New Roman, Times, Serif" size="3"> down to zero. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TxBuffer</i></font><font face="Times New Roman, Times, Serif" size="3"> points to the next byte to transfer in the IRP buffer, so it moves through the buffer as each byte is written. The IRP buffer is always accessible, as long as the IRP is being processed, so there is no need to make a copy of it. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TxStatus</i></font><font face="Times New Roman, Times, Serif" size="3"> field contains the IRP's eventual completion status, which is initially assumed to be successful.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TxResult</i></font><font face="Times New Roman, Times, Serif" size="3"> array is used to contain the output from running the stored write commands. This 5-byte array is, therefore, zeroed before the write begins in earnest. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TxLastIntReg</i></font><font face="Times New Roman, Times, Serif" size="3"> stores the last value read by the interrupt handler from its status register. The contents of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TxResult</i></font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TxLastIntReg</i></font><font face="Times New Roman, Times, Serif" size="3"> can eventually be obtained using the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IOCTL_WDMIO_GET_RW_RESULTS</font><font face="Times New Roman, Times, Serif" size="3"> call, as shown in Listing 15.4.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The "one-second interval" timer is now started to detect time-outs.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIo</font><font face="Times New Roman, Times, Serif" size="3"> is now finally ready to output the first data byte by running the stored write data commands. As interrupts have been enabled, they must be run in the context of a Critical Section routine to avoid being interrupted. Listing 17.2 shows how </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RunWriteCmdsSynch</font><font face="Times New Roman, Times, Serif" size="3"> does this job, calling </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ProcessCmds</font><font face="Times New Roman, Times, Serif" size="3"> to run the commands in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">dx-&gt;WriteCmds</font><font face="Times New Roman, Times, Serif" size="3"> with the output going to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">dx-&gt;TxResult</font><font face="Times New Roman, Times, Serif" size="3">. If </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ProcessCmds</font><font face="Times New Roman, Times, Serif" size="3"> fails or if there are bytes left to transfer, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">RunWriteCmdsSynch</font><font face="Times New Roman, Times, Serif" size="3"> returns </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TRUE</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> completes the Write IRP straight away with status </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STATUS_UNSUCCESSFUL</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 17.2 also shows the code in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ProcessCmds</font><font face="Times New Roman, Times, Serif" size="3"> that handles the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PHDIO_WRITE_NEXT</font><font face="Times New Roman, Times, Serif" size="3"> command. Basically, it retrieves the next byte from </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TxBuffer</i></font><font face="Times New Roman, Times, Serif" size="3"> and writes it to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Data</font><font face="Times New Roman, Times, Serif" size="3"> register. It increments the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TxBuffer</i></font><font face="Times New Roman, Times, Serif" size="3"> pointer and decrements the count of bytes left to process, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>TxLeft</i></font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 17.2 How </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WdmIoStartIo</font><font face="Times New Roman, Times, Serif" size="3"> starts write requests</font><font face="Times New Roman, Times, Serif" size="3"></font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td height="12"></td></tr><tr><td>
+<table cellspacing="0" border="0" width="662" cellpadding="4"><tr><td valign="top"><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">case IRP_MJ_WRITE:<br />    if( dx-&gt;WriteCmds==NULL || !dx-&gt;ConnectedToInterrupt)<br />
+    {<br />
+        status = STATUS_INVALID_DEVICE_REQUEST;<br />
+        break;<br />
+    }<br /><br />
+    // Store transfer details<br />
+    dx-&gt;TxIsWrite = true;<br />
+    dx-&gt;TxTotal = IrpStack-&gt;Parameters.Write.Length;<br />
+    dx-&gt;TxLeft = dx-&gt;TxTotal;<br />
+    dx-&gt;TxBuffer = (PUCHAR)Buffer;<br />
+    dx-&gt;TxStatus = STATUS_SUCCESS;<br />
+    RtlZeroMemory( dx-&gt;TxResult, sizeof(dx-&gt;TxResult));<br />
+    DebugPrint( "WdmIoStartIo: Write %d bytes: %*s",<br />
+         dx-&gt;TxTotal,dx-&gt;TxTotal,dx-&gt;TxBuffer);</font></td></tr></table></td></tr></table><br />
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_361.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_362</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_363.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

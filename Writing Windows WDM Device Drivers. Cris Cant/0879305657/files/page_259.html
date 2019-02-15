@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_259</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_258.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_259</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_260.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 259</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The objects in the CIM database are grouped into namespaces, which can be arranged into a hierarchy, although a namespace does not inherit anything from others higher in the tree. There is always a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Root</font><font face="Times New Roman, Times, Serif" size="3"> namespace. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Root\Default</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Root\Security</font><font face="Times New Roman, Times, Serif" size="3"> namespaces have standard contents. Microsoft defines the Win32 namespaces </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Root\CimV2</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Root\WMI</font><font face="Times New Roman, Times, Serif" size="3">. If need be, you can define new namespaces.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">CIM Objects</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The objects in a namespace are defined as being <i>classes,</i> arranged in a hierarchy so that classes do inherit properties from base classes, possibly in different namespaces. A class is defined in a text file in the Managed Object Format (MOF). The compiled MOF data is presented by a provider so that CIMOM knows what object types can be created. Use the <i>mofcomp</i> tool to compile a custom WMI class definition and include it as a resource in your driver.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">CIM class definitions look vaguely similar to C++ classes. Classes have properties and methods. A class can override a base class definition, including standard classes in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Default</font><font face="Times New Roman, Times, Serif" size="3"> namespace. You can have abstract classes that cannot be instantiated. Singleton classes support only a single instance. See the WBEM documentation or CIM specification for full class details.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">One of the properties of a class is called the <i>key</i> property, used to differentiate separate instances of a class. If the key property is called </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InstanceName</font><font face="Times New Roman, Times, Serif" size="3">, the full object path of a class instance might be </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\\Server\Namespace:Class.InstanceName="PCI\VEN</font><font face="Times New Roman, Times, Serif" size="3">..".</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Each class can have zero or more instances. For example, the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Win32_LogicalDisk</font><font face="Times New Roman, Times, Serif" size="3"> class may have two instances to represent drives C and D, differentiated by the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">DeviceId</font><font face="Times New Roman, Times, Serif" size="3"> key property. Locally, the full object path for drive C is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\\.\Root\CimV2:Win32_LogicalDisk.DeviceId ="C''</font><font face="Times New Roman, Times, Serif" size="3">. You can use relative paths once attached to a namespace (e.g., </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Win32_LogicalDisk.DeviceId="C"</font><font face="Times New Roman, Times, Serif" size="3">).</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">You can denote a class as being "expensive to collect" if it takes significant extra processing to collect the information. In this case, a user application must specifically request that the information be collected.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">CIM object classes can be static or dynamic. Static classes can have static or dynamic instances. However, dynamic classes have only dynamic instances. Static instances are preserved across reboots. A static instance can have static or dynamic properties. Static information is provided from the CIMOM registry while dynamic information is supplied by a provider.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3"><i>The WDM Provider</i></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The WDM Provider is a Windows service that interacts with drivers and the CIM Object Manager. It is a WMI class, instance, method, and event provider. The WDM class provider retrieves class definitions in binary MOF format from drivers and sends them to CIMOM. It updates the definitions as driver changes occur.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The WDM instance provider is a dynamic provider, creating instances on demand. The WDM method provider lets applications invoke methods in a WMI driver. The WDM event provider receives events from WMI devices and translates them into an instance derived from </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">WMIEvent</font><font face="Times New Roman, Times, Serif" size="3">, itself a subclass of the CIM __</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ExtrinisicEvent</font><font face="Times New Roman, Times, Serif" size="3"> system class.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">There are standard WMI classes defined that you can and should use. However, you can define your own if need be, each identified by a new GUID. In this case, you write a MOF file and compile it using <i>mofcomp.</i> You can include the binary MOF data either in your driver's</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_258.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_259</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_260.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

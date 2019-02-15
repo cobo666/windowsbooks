@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_177</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_176.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_177</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_178.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 177</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">If a driver wants to process an IRP when all lower drivers have completed processing it, the driver must set a completion routine for the IRP. The completion routine is called when all the lower drivers have finished processing the IRP. The completion routine is called in an arbitrary context. I now show how a completion routine signals that it has been run using a kernel event.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Listing 9.7 shows how the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ForwardIrpAndWait</font><font face="Times New Roman, Times, Serif" size="3"> routine forwards an IRP to the lower drivers and waits for its completion. As </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ForwardIrpAndWait</font><font face="Times New Roman, Times, Serif" size="3"> waits for the completion routine event to become signalled, it must run at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3"> IRQL. Waiting for dispatcher objects, such as events, is covered in full in Chapter 14. PnP IRPs are always called at </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">PASSIVE_LEVEL</font><font face="Times New Roman, Times, Serif" size="3">, so it is safe to call </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ForwardIrpAndWait</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">To set a completion routine, the next IRP stack location must be set up correctly. As described previously, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCopyCurrentIrpStackLocationToNext</font><font face="Times New Roman, Times, Serif" size="3"> copies all the current stack location parameters. Having done this, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoSetCompletionRoutine</font><font face="Times New Roman, Times, Serif" size="3"> is used to set the completion routine to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ForwardedIrpCompletionRoutine</font><font face="Times New Roman, Times, Serif" size="3"> function. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ForwardIrpAndWait</font><font face="Times New Roman, Times, Serif" size="3"> is then ready to call the next driver using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoCallDriver</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The last three </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">BOOLEAN</font><font face="Times New Roman, Times, Serif" size="3"> parameters of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoSetCompletionRoutine</font><font face="Times New Roman, Times, Serif" size="3"> specify the circumstances in which you want the completion routine called. If the first </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">BOOLEAN</font><font face="Times New Roman, Times, Serif" size="3">, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InvokeOnSuccess</font><font face="Times New Roman, Times, Serif" size="3">, is </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TRUE</font><font face="Times New Roman, Times, Serif" size="3">, the completion routine is called if the IRP completes successfully. The other two </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">BOOLEAN</font><font face="Times New Roman, Times, Serif" size="3"> parameters, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InvokeOnError</font><font face="Times New Roman, Times, Serif" size="3"> and </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">InvokeOnCancel</font><font face="Times New Roman, Times, Serif" size="3">, state whether the completion routine should be called if an error is returned or the IRP is cancelled. In </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ForwardIrpAndWait</font><font face="Times New Roman, Times, Serif" size="3">, I want the completion routine called in all circumstances, so all these parameters are set to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">TRUE</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ForwardIrpAndWait</font><font face="Times New Roman, Times, Serif" size="3"> now has two tasks to perform. The completion routine has to signal when it has run, and the main code must wait for this signal. The signalling mechanism is a kernel event, which is basically the same as its Win32 equivalent. Chapter 14 discusses kernel events in full. The event is initialized to the nonsignalled state using </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeInitializeEvent</font><font face="Times New Roman, Times, Serif" size="3">. When the completion routine runs, it simply calls </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeSetEvent</font><font face="Times New Roman, Times, Serif" size="3"> to set the event into the signalled state. </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ForwardIrpAndWait</font><font face="Times New Roman, Times, Serif" size="3"> uses </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">KeWaitForSingleObject</font><font face="Times New Roman, Times, Serif" size="3"> to wait for the event to become signalled.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">A completion routine has a standard prototype, passing the device object, the IRP, and a context pointer. In this case, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ForwardIrpAndWait</font><font face="Times New Roman, Times, Serif" size="3"> uses a pointer to the event as the context pointer. The context pointer is set in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">IoSetCompletionRoutine</font><font face="Times New Roman, Times, Serif" size="3"> call. When the IRP has been processed by all the lower drivers, </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ForwardedIrpCompletionRoutine</font><font face="Times New Roman, Times, Serif" size="3"> is called. It simply sets the event.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">ForwardedIrpCompletionRoutine</font><font face="Times New Roman, Times, Serif" size="3"> returns a status of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">STATUS_MORE_PROCESSING_REQUIRED</font><font face="Times New Roman, Times, Serif" size="3">. This means that the IRP has not been completed by this driver and some other part of the</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_176.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_177</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_178.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>

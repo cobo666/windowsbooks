@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+	<html>
+		<head>
+			<title>page_276</title>
+			<link rel="stylesheet" href="reset.css" type="text/css" media="all">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+		<body>
+		<table summary="top nav" border="0" width="100%">
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_275.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_previous" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_276</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_277.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		
+			<tr>
+				<td id="ebook_page" align="left" colspan="3" style="background: #ffffff; padding: 20px;">
+    
+
+<table border="0" width="100%" cellpadding="0"><tr><td align="center">
+  <table border="0" cellpadding="2" cellspacing="0" width="100%"><tr><td align="left"></td>
+  <td align="right"></td>
+  </tr></table></td>
+</tr><tr><td align="left">
+
+
+
+<p>
+</p><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><font face="Times New Roman, Times, Serif" size="2" color="#FF0000">Page 276</font></td></tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The first thing I must say is that I could not get the driver to compile or run in Windows 98. I am sure that I could have got the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3"> driver to compile if I had copied the correct headers and libraries into the W98 DDK, but that did not seem appropriate. It is possible that the one test Windows 98 computer available had its WBEM/WMI runtime corrupted. In the Windows 2000 beta 2, I obtained an update to the WBEM/WMI SDK. Perhaps this update was not meant for Windows 98 and therefore messed up the runtime environment. Anyway, I was able to do the rest of my testing only in Windows 2000.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSPower_DeviceEnable</font><font face="Times New Roman, Times, Serif" size="3"> WMI data block is used by the Device Manager to display the Power Management tab in the device properties box, as shown in Figure 10.3 in Chapter 10. It retrieves the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>Enable</i></font><font face="Times New Roman, Times, Serif" size="3"> property, eventually in a call to </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">QueryWmiDataBlock</font><font face="Times New Roman, Times, Serif" size="3">. If the user changes the setting, it is changed in </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">SetWmiDataB1ock</font><font face="Times New Roman, Times, Serif" size="3"> when the device properties box is closed.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Alternatively, the standard <i>WBEM Object Browser</i> can be used to inspect the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">MSPower_DeviceEnable or Wdm3Information</font><font face="Times New Roman, Times, Serif" size="3"> WMI data blocks. Log on to the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">\Root\WMI</font><font face="Times New Roman, Times, Serif" size="3"> namespace as the current user, select the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Information</font><font face="Times New Roman, Times, Serif" size="3"> class, for instance, and select one of the Wdm3 device instances.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">Figure 12.1 shows the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3Information</font><font face="Times New Roman, Times, Serif" size="3"> display for the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3"> device that has an instance name of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Root\\Unknown\\0004_0</font><font face="Times New Roman, Times, Serif" size="3"> as its key property. The <i>Wdm3Test</i> application has been run, so the current buffer length is 4. The </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3"><i>BufferFirstWord</i></font><font face="Times New Roman, Times, Serif" size="3"> property has a decimal value of </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">2882400001</font><font face="Times New Roman, Times, Serif" size="3">, which is hex </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">0xabcdef01</font><font face="Times New Roman, Times, Serif" size="3">.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">W2000 Beta 3 includes the <i>WBEMTest</i> tool (</font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">System32\WBEM\wbemtest.exe</font><font face="Times New Roman, Times, Serif" size="3">) that can also be used to inspect WBEM classes and instances.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">By the way, I found that the WBEM Object Browser seemed a bit sluggish. This is possibly because it is using WQL to query the database. In contrast, the Device Manager's use of WMI when dealing with a device's Power Management tab seems to run quickly.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="3"><img src="acf95d39dc1496b34bfdfcce61a38365.jpg" border="0" alt="0276-01.jpg" width="755" height="320" /></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td align="center"><font face="Times New Roman, Times, Serif" size="2">Figure 12.1<br />
+WBEM Object Browser inspecting a </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="2">Wdm3Information</font><font face="Times New Roman, Times, Serif" size="2"> instance<br />
+© 1999 PHD Computer Consultants Ltd</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">You can use the <i>WBEM CIM Studio</i> to look at the class definitions. If you change a WMI data block, use WBEM CIM Studio to delete the old class definition. A reboot of the computer seems to be necessary to reregister the class correctly.</font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table><table border="0" cellspacing="0" cellpadding="0"><tr><td rowspan="5"></td>
+  <td colspan="3" height="12"></td>
+  <td rowspan="5"></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td></td>
+  <td><font face="Times New Roman, Times, Serif" size="3">I could not work out how to use the <i>WBEM Event Registration</i> utility to enable events in the </font><font face="Courier New, Courier, Mono New, Courier, Mono" size="3">Wdm3</font><font face="Times New Roman, Times, Serif" size="3"> driver.</font><font face="Times New Roman, Times, Serif" size="3" color="#FFFF00"></font></td>
+<td></td>
+</tr><tr><td colspan="3"></td>
+</tr><tr><td colspan="3" height="1"></td>
+</tr></table>
+
+
+
+
+
+
+
+</td>
+</tr></table><p><font size="0">
+</font></p>
+ 
+
+
+
+
+  </td>
+			</tr>
+	
+			<tr>
+				<td align="left" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_275.html">&lt;&nbsp;previous page</a></td>
+				<td id="ebook_next" align="center" width="40%" style="background: #EEF3E2"><strong style="color: #2F4F4F; font-size: 120%;">page_276</strong></td>
+				<td align="right" width="30%" style="background: #EEF3E2"><a style="color: blue; font-size: 120%; font-weight: bold; text-decoration: none; font-family: verdana;" href="page_277.html">next page&nbsp;&gt;</a></td>
+			</tr>
+		</table>
+		</body>
+	</html>
